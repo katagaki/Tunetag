@@ -300,6 +300,7 @@
       }
     },
     "Tag.Artist" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -367,6 +368,7 @@
       }
     },
     "Tag.Title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
