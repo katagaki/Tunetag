@@ -12,8 +12,11 @@ struct ListFileRow: View {
     var name: String
 
     var body: some View {
-        HStack(alignment: .center, spacing: 8.0) {
+        HStack(alignment: .center, spacing: 16.0) {
             Image(systemName: "doc.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 24.0, height: 24.0)
             Text(name)
                 .font(.body)
         }
