@@ -87,14 +87,18 @@ struct FileInfoView: View {
                     if let tag = tag {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "yyyy"
-                        title = tag.title
-                        artist = tag.artist
-                        album = tag.album
-                        albumArtist = tag.albumArtist
-                        year = dateFormatter.string(from: tag.releaseDateTime)
+                        title = tag.title ?? ""
+                        artist = tag.artist ?? ""
+                        album = tag.album ?? ""
+                        albumArtist = tag.albumArtist ?? ""
+                        if let releaseDateTime = tag.releaseDateTime {
+                            year = dateFormatter.string(from: releaseDateTime)
+                        } else {
+                            year = ""
+                        }
                         track = tag.trackNumber.index.description
-                        genre = tag.genre.genre
-                        composer = tag.composer
+                        genre = tag.genre.genre ?? ""
+                        composer = tag.composer ?? ""
                         discNumber = tag.discNumber.index.description
                         albumArt = tag[attachedPicture: .frontCover]?.pngData()
                     }
