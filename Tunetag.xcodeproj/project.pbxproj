@@ -7,19 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E432A70B2AA9FD5E0043BCC9 /* TunetagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A70A2AA9FD5E0043BCC9 /* TunetagApp.swift */; };
-		E432A70D2AA9FD5E0043BCC9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A70C2AA9FD5E0043BCC9 /* ContentView.swift */; };
+		E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A70A2AA9FD5E0043BCC9 /* App.swift */; };
+		E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */; };
 		E432A70F2AA9FD5F0043BCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */; };
-		E432A7132AA9FD5F0043BCC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E432A7122AA9FD5F0043BCC9 /* Preview Assets.xcassets */; };
+		E432A71E2AA9FF3A0043BCC9 /* FilesystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A71D2AA9FF3A0043BCC9 /* FilesystemManager.swift */; };
+		E432A7232AAA094A0043BCC9 /* FSFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7222AAA094A0043BCC9 /* FSFile.swift */; };
+		E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7252AAA097E0043BCC9 /* ViewPath.swift */; };
+		E432A7282AAA09D50043BCC9 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7272AAA09D50043BCC9 /* NavigationManager.swift */; };
+		E432A72A2AAA09EE0043BCC9 /* TabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7292AAA09EE0043BCC9 /* TabType.swift */; };
+		E432A72C2AAA0A490043BCC9 /* TabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A72B2AAA0A490043BCC9 /* TabManager.swift */; };
+		E432A72E2AAA0A640043BCC9 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A72D2AAA0A640043BCC9 /* MainTabView.swift */; };
+		E432A7302AAA0B2E0043BCC9 /* FSDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */; };
+		E432A7332AAA0BB90043BCC9 /* FilesystemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7322AAA0BB90043BCC9 /* FilesystemObject.swift */; };
+		E432A7352AAA10BE0043BCC9 /* FileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7342AAA10BE0043BCC9 /* FileInfoView.swift */; };
+		E432A7382AAA164C0043BCC9 /* SwiftTaggerID3 in Frameworks */ = {isa = PBXBuildFile; productRef = E432A7372AAA164C0043BCC9 /* SwiftTaggerID3 */; };
+		E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7392AAA167C0043BCC9 /* MoreView.swift */; };
+		E432A73C2AAA16910043BCC9 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A73B2AAA16910043BCC9 /* ListRow.swift */; };
+		E432A73E2AAA169E0043BCC9 /* ListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */; };
+		E432A7402AAA16A90043BCC9 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A73F2AAA16A90043BCC9 /* LicensesView.swift */; };
+		E432A7422AAA16B90043BCC9 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7412AAA16B90043BCC9 /* License.swift */; };
+		E432A7442AAA20C20043BCC9 /* ListHintOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7432AAA20C20043BCC9 /* ListHintOverlay.swift */; };
+		E432A7462AAA265B0043BCC9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */; };
+		E432A7482AAA2D2B0043BCC9 /* ListDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7472AAA2D2B0043BCC9 /* ListDetailRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E432A7072AA9FD5E0043BCC9 /* Tunetag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunetag.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E432A70A2AA9FD5E0043BCC9 /* TunetagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunetagApp.swift; sourceTree = "<group>"; };
-		E432A70C2AA9FD5E0043BCC9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E432A70A2AA9FD5E0043BCC9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserView.swift; sourceTree = "<group>"; };
 		E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E432A7102AA9FD5F0043BCC9 /* Tunetag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tunetag.entitlements; sourceTree = "<group>"; };
-		E432A7122AA9FD5F0043BCC9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E432A71C2AA9FE8D0043BCC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E432A71D2AA9FF3A0043BCC9 /* FilesystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemManager.swift; sourceTree = "<group>"; };
+		E432A7222AAA094A0043BCC9 /* FSFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSFile.swift; sourceTree = "<group>"; };
+		E432A7252AAA097E0043BCC9 /* ViewPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPath.swift; sourceTree = "<group>"; };
+		E432A7272AAA09D50043BCC9 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		E432A7292AAA09EE0043BCC9 /* TabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabType.swift; sourceTree = "<group>"; };
+		E432A72B2AAA0A490043BCC9 /* TabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManager.swift; sourceTree = "<group>"; };
+		E432A72D2AAA0A640043BCC9 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDirectory.swift; sourceTree = "<group>"; };
+		E432A7322AAA0BB90043BCC9 /* FilesystemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemObject.swift; sourceTree = "<group>"; };
+		E432A7342AAA10BE0043BCC9 /* FileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfoView.swift; sourceTree = "<group>"; };
+		E432A7392AAA167C0043BCC9 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		E432A73B2AAA16910043BCC9 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
+		E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionHeader.swift; sourceTree = "<group>"; };
+		E432A73F2AAA16A90043BCC9 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
+		E432A7412AAA16B90043BCC9 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		E432A7432AAA20C20043BCC9 /* ListHintOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHintOverlay.swift; sourceTree = "<group>"; };
+		E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		E432A7472AAA2D2B0043BCC9 /* ListDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E432A7382AAA164C0043BCC9 /* SwiftTaggerID3 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				E432A7092AA9FD5E0043BCC9 /* Tunetag */,
+				E432A7312AAA0BAB0043BCC9 /* Protocols */,
 				E432A7082AA9FD5E0043BCC9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,21 +90,70 @@
 		E432A7092AA9FD5E0043BCC9 /* Tunetag */ = {
 			isa = PBXGroup;
 			children = (
-				E432A70A2AA9FD5E0043BCC9 /* TunetagApp.swift */,
-				E432A70C2AA9FD5E0043BCC9 /* ContentView.swift */,
-				E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */,
 				E432A7102AA9FD5F0043BCC9 /* Tunetag.entitlements */,
-				E432A7112AA9FD5F0043BCC9 /* Preview Content */,
+				E432A71C2AA9FE8D0043BCC9 /* Info.plist */,
+				E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */,
+				E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */,
+				E432A71F2AAA08F10043BCC9 /* Views */,
+				E432A7212AAA093D0043BCC9 /* Structs */,
+				E432A7202AAA08F70043BCC9 /* Classes */,
+				E432A7242AAA09700043BCC9 /* Enums */,
 			);
 			path = Tunetag;
 			sourceTree = "<group>";
 		};
-		E432A7112AA9FD5F0043BCC9 /* Preview Content */ = {
+		E432A71F2AAA08F10043BCC9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E432A7122AA9FD5F0043BCC9 /* Preview Assets.xcassets */,
+				E432A70A2AA9FD5E0043BCC9 /* App.swift */,
+				E432A72D2AAA0A640043BCC9 /* MainTabView.swift */,
+				E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */,
+				E432A7342AAA10BE0043BCC9 /* FileInfoView.swift */,
+				E432A7392AAA167C0043BCC9 /* MoreView.swift */,
+				E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */,
+				E432A73B2AAA16910043BCC9 /* ListRow.swift */,
+				E432A7472AAA2D2B0043BCC9 /* ListDetailRow.swift */,
+				E432A73F2AAA16A90043BCC9 /* LicensesView.swift */,
+				E432A7432AAA20C20043BCC9 /* ListHintOverlay.swift */,
 			);
-			path = "Preview Content";
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E432A7202AAA08F70043BCC9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E432A71D2AA9FF3A0043BCC9 /* FilesystemManager.swift */,
+				E432A7272AAA09D50043BCC9 /* NavigationManager.swift */,
+				E432A72B2AAA0A490043BCC9 /* TabManager.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E432A7212AAA093D0043BCC9 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				E432A7222AAA094A0043BCC9 /* FSFile.swift */,
+				E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */,
+				E432A7412AAA16B90043BCC9 /* License.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		E432A7242AAA09700043BCC9 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E432A7252AAA097E0043BCC9 /* ViewPath.swift */,
+				E432A7292AAA09EE0043BCC9 /* TabType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		E432A7312AAA0BAB0043BCC9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E432A7322AAA0BB90043BCC9 /* FilesystemObject.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +172,9 @@
 			dependencies = (
 			);
 			name = Tunetag;
+			packageProductDependencies = (
+				E432A7372AAA164C0043BCC9 /* SwiftTaggerID3 */,
+			);
 			productName = Tunetag;
 			productReference = E432A7072AA9FD5E0043BCC9 /* Tunetag.app */;
 			productType = "com.apple.product-type.application";
@@ -111,8 +201,12 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = E432A6FE2AA9FD5E0043BCC9;
+			packageReferences = (
+				E432A7362AAA164C0043BCC9 /* XCRemoteSwiftPackageReference "SwiftTaggerID3" */,
+			);
 			productRefGroup = E432A7082AA9FD5E0043BCC9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E432A7132AA9FD5F0043BCC9 /* Preview Assets.xcassets in Resources */,
+				E432A7462AAA265B0043BCC9 /* Localizable.xcstrings in Resources */,
 				E432A70F2AA9FD5F0043BCC9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +233,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E432A70D2AA9FD5E0043BCC9 /* ContentView.swift in Sources */,
-				E432A70B2AA9FD5E0043BCC9 /* TunetagApp.swift in Sources */,
+				E432A7482AAA2D2B0043BCC9 /* ListDetailRow.swift in Sources */,
+				E432A7232AAA094A0043BCC9 /* FSFile.swift in Sources */,
+				E432A71E2AA9FF3A0043BCC9 /* FilesystemManager.swift in Sources */,
+				E432A7332AAA0BB90043BCC9 /* FilesystemObject.swift in Sources */,
+				E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */,
+				E432A72E2AAA0A640043BCC9 /* MainTabView.swift in Sources */,
+				E432A7352AAA10BE0043BCC9 /* FileInfoView.swift in Sources */,
+				E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */,
+				E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */,
+				E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */,
+				E432A7302AAA0B2E0043BCC9 /* FSDirectory.swift in Sources */,
+				E432A72C2AAA0A490043BCC9 /* TabManager.swift in Sources */,
+				E432A7282AAA09D50043BCC9 /* NavigationManager.swift in Sources */,
+				E432A73E2AAA169E0043BCC9 /* ListSectionHeader.swift in Sources */,
+				E432A73C2AAA16910043BCC9 /* ListRow.swift in Sources */,
+				E432A7402AAA16A90043BCC9 /* LicensesView.swift in Sources */,
+				E432A7442AAA20C20043BCC9 /* ListHintOverlay.swift in Sources */,
+				E432A7422AAA16B90043BCC9 /* License.swift in Sources */,
+				E432A72A2AAA09EE0043BCC9 /* TabType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,11 +380,12 @@
 				CODE_SIGN_ENTITLEMENTS = Tunetag/Tunetag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Tunetag/Preview Content\"";
 				DEVELOPMENT_TEAM = YYM4Z6MU8F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tunetag/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -307,11 +419,12 @@
 				CODE_SIGN_ENTITLEMENTS = Tunetag/Tunetag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Tunetag/Preview Content\"";
 				DEVELOPMENT_TEAM = YYM4Z6MU8F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tunetag/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -359,6 +472,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E432A7362AAA164C0043BCC9 /* XCRemoteSwiftPackageReference "SwiftTaggerID3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NCrusher74/SwiftTaggerID3";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E432A7372AAA164C0043BCC9 /* SwiftTaggerID3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E432A7362AAA164C0043BCC9 /* XCRemoteSwiftPackageReference "SwiftTaggerID3" */;
+			productName = SwiftTaggerID3;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E432A6FF2AA9FD5E0043BCC9 /* Project object */;
 }

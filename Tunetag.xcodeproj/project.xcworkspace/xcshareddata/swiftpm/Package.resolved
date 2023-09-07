@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftconvenienceextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NCrusher74/SwiftConvenienceExtensions",
+      "state" : {
+        "revision" : "786cf2493e067b2ac154a3c7da5d967ca1ff89f3",
+        "version" : "2.0.9"
+      }
+    },
+    {
+      "identity" : "swiftlanguageandlocalecodes",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NCrusher74/SwiftLanguageAndLocaleCodes",
+      "state" : {
+        "revision" : "6f3a3fa43e96db0c2e9aecf8a4891e9ba4964b9b",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "swifttaggerid3",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NCrusher74/SwiftTaggerID3",
+      "state" : {
+        "revision" : "87db0c7a1948454f6b9b44d8ac518878b8346c57",
+        "version" : "1.8.1"
+      }
+    }
+  ],
+  "version" : 2
+}
