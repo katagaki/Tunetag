@@ -11,13 +11,64 @@
         }
       }
     },
+    "BatchEdit.DropZone.Hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drop files into this area to add them.\nOnce you are ready, tap Start Editing."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルを追加するには、こちらにドロップしてください。\n準備ができたら、「編集開始」を押してください。"
+          }
+        }
+      }
+    },
+    "BatchEdit.Hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No files marked for edit.\nTo add a file, drag it from the Files tab to the drop zone below."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編集するファイルはありません。\nファイルを追加するには、ファイルタブでファイルをドラッグし、下のドロップゾーンにドロップしてください。"
+          }
+        }
+      }
+    },
+    "BatchEdit.StartEditing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Editing"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編集開始"
+          }
+        }
+      }
+    },
     "FileBrowser.Hint" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This folder does not contain any　MP3 files."
+            "value" : "This folder does not contain any MP3 files."
           }
         },
         "ja" : {
@@ -214,6 +265,23 @@
         }
       }
     },
+    "TabTitle.BatchEdit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch Edit"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一括編集"
+          }
+        }
+      }
+    },
     "TabTitle.Files" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -244,23 +312,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "その他"
-          }
-        }
-      }
-    },
-    "TabTitle.Opened" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batch Edit"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一括編集"
           }
         }
       }
@@ -300,7 +351,7 @@
       }
     },
     "Tag.Artist" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -368,7 +419,7 @@
       }
     },
     "Tag.Title" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -431,6 +482,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "著者権表記"
+          }
+        }
+      }
+    },
+    "ViewTitle.BatchEdit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch Edit"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一括編集"
           }
         }
       }

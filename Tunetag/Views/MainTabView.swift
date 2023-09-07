@@ -19,9 +19,9 @@ struct MainTabView: View {
                     Label("TabTitle.Files", systemImage: "folder.fill")
                 }
                 .tag(TabType.browser)
-            Color.clear
+            BatchEditView()
                 .tabItem {
-                    Label("TabTitle.Opened", systemImage: "square.and.arrow.down.fill")
+                    Label("TabTitle.BatchEdit", systemImage: "square.and.arrow.down.fill")
                 }
                 .tag(TabType.files)
             MoreView()

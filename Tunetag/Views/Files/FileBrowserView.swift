@@ -19,19 +19,14 @@ struct FileBrowserView: View {
             List($files, id: \.path) { $file in
                 if let directory = file as? FSDirectory {
                     NavigationLink(value: ViewPath.fileBrowser(directory: directory)) {
-                        HStack(alignment: .center, spacing: 8.0) {
-                            Image(systemName: "folder")
-                            Text(file.name)
-                                .font(.body)
-                        }
+                        ListFolderRow(name: directory.name)
                     }
                 } else if let file = file as? FSFile {
                     NavigationLink(value: ViewPath.fileInfo(file: file)) {
-                        HStack(alignment: .center, spacing: 8.0) {
-                            Image(systemName: "doc")
-                            Text(file.name)
-                                .font(.body)
-                        }
+                        ListFileRow(name: file.name)
+                    }
+                    .draggable(file) {
+                        ListFileRow(name: file.name)
                     }
                 }
             }
