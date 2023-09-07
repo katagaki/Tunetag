@@ -73,6 +73,7 @@ struct FileInfoView: View {
                     .keyboardType(.numberPad)
             } header: {
                 ListSectionHeader(text: "FileInfo.TagData")
+                    .font(.body)
             }
         }
         .navigationTitle("")
