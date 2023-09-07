@@ -74,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				E432A7092AA9FD5E0043BCC9 /* Tunetag */,
-				E432A7312AAA0BAB0043BCC9 /* Protocols */,
 				E432A7082AA9FD5E0043BCC9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +97,7 @@
 				E432A7212AAA093D0043BCC9 /* Structs */,
 				E432A7202AAA08F70043BCC9 /* Classes */,
 				E432A7242AAA09700043BCC9 /* Enums */,
+				E432A7312AAA0BAB0043BCC9 /* Protocols */,
 			);
 			path = Tunetag;
 			sourceTree = "<group>";
