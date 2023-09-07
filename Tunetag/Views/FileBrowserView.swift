@@ -51,7 +51,8 @@ struct FileBrowserView: View {
             }
             .overlay {
                 if files.count == 0 {
-                    ListHintOverlay(image: "questionmark.folder", text: "This folder does not contain any supported MP3 files or folders.")
+                    ListHintOverlay(image: "questionmark.folder",
+                                    text: "FileBrowser.Hint")
                 }
             }
             .navigationTitle(currentDirectory != nil ?
@@ -68,10 +69,12 @@ struct FileBrowserView: View {
             .sorted(by: { lhs, rhs in
                 lhs.name < rhs.name
             })
-            .sorted(by: { lhs, rhs in
+            .sorted(by: { lhs, _ in
+                // swiftlint:disable unused_optional_binding
                 if let _ = lhs as? FSDirectory {
                     return true
                 }
+                // swiftlint:enable unused_optional_binding
                 return false
             })
     }

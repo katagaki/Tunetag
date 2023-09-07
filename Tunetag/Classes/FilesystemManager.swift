@@ -12,15 +12,21 @@ class FilesystemManager: ObservableObject {
     let manager = FileManager.default
     var documentsDirectory: String?
 
+    @Published var files: [any FilesystemObject] = []
+
     init() {
         do {
+            let placeholderFilename = NSLocalizedString("Shared.DropFilesFileName",
+                                                        comment: "")
             let documentsDirectoryURL = try FileManager.default
                 .url(for: .documentDirectory,
                      in: .userDomainMask,
                      appropriateFor: nil,
                      create: true)
             self.documentsDirectory = documentsDirectoryURL.absoluteString
-            manager.createFile(atPath: "\(documentsDirectoryURL.path())Drop Your Files Here", contents: "".data(using: .utf8))
+            manager
+                .createFile(atPath: "\(documentsDirectoryURL.path())\(placeholderFilename)",
+                            contents: "".data(using: .utf8))
         } catch {
             debugPrint(error.localizedDescription)
             documentsDirectory = ""

@@ -12,6 +12,8 @@ struct FileInfoView: View {
 
     @EnvironmentObject var fileManager: FilesystemManager
     @State var currentFile: FSFile
+    @State var mp3File: Mp3File?
+    @State var tag: Tag?
     @State var albumArt: Data?
     @State var title: String?
     @State var artist: String?
@@ -71,7 +73,7 @@ struct FileInfoView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
-                    // TODO
+                    // TODO: Save tag
                 } label: {
                     Text("Shared.Save")
                 }
@@ -79,23 +81,30 @@ struct FileInfoView: View {
         }
         .onAppear {
             do {
-                let mp3URL = URL(fileURLWithPath: currentFile.path)
-                let mp3File = try Mp3File(location: mp3URL)
-                let tag = try mp3File.tag()
-                title = tag.title
-                artist = tag.artist
-                album = tag.album
-                albumArtist = tag.albumArtist
-                releaseDateTime = tag.releaseDateTime
-                track = tag.trackNumber.index.description
-                genre = tag.genre.genre
-                composer = tag.composer
-                discNumber = tag.discNumber.index.description
-                albumArt = tag[attachedPicture: .frontCover]?.pngData()
+                mp3File = try Mp3File(location: mp3URL())
+                if let mp3File = mp3File {
+                    tag = try mp3File.tag()
+                    if let tag = tag {
+                        title = tag.title
+                        artist = tag.artist
+                        album = tag.album
+                        albumArtist = tag.albumArtist
+                        releaseDateTime = tag.releaseDateTime
+                        track = tag.trackNumber.index.description
+                        genre = tag.genre.genre
+                        composer = tag.composer
+                        discNumber = tag.discNumber.index.description
+                        albumArt = tag[attachedPicture: .frontCover]?.pngData()
+                    }
+                }
             } catch {
                 debugPrint(error.localizedDescription)
             }
         }
+    }
+
+    func mp3URL() -> URL {
+        return URL(fileURLWithPath: currentFile.path)
     }
 
     func year() -> String? {

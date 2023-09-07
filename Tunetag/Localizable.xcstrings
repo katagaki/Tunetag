@@ -11,6 +11,23 @@
         }
       }
     },
+    "FileBrowser.Hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This folder does not contain any　MP3 files."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このフォルダーにはMP3ファイルはありません。"
+          }
+        }
+      }
+    },
     "FileInfo.TagData" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -160,6 +177,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "@katagaki_"
+          }
+        }
+      }
+    },
+    "Shared.DropFilesFileName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drop Your Files Here"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "こちらにファイルを移動してください"
           }
         }
       }
@@ -344,6 +378,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "タイトル"
+          }
+        }
+      }
+    },
+    "Tag.TrackNumber" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Track Number"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トラック番号"
           }
         }
       }
