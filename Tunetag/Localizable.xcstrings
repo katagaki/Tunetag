@@ -79,6 +79,64 @@
         }
       }
     },
+    "FileBrowser.Tip.NoFiles.Text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "device" : {
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "To add files to Tunetag, open the Files app, navigate to 'On My iPad', and drop your files in the Tunetag folder."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "To add files to Tunetag, open the Files app, navigate to 'On My iPhone', and drop your files in the Tunetag folder."
+                }
+              }
+            }
+          }
+        },
+        "ja" : {
+          "variations" : {
+            "device" : {
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tunetagにファイルを追加するには、「ファイル」アプリを開き、「このiPad内」の「Tunetag」フォルダーにファイルを移動してください。"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tunetagにファイルを追加するには、「ファイル」アプリを開き、「このiPhone内」の「Tunetag」フォルダーにファイルを移動してください。"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "FileBrowser.Tip.NoFiles.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Files to Tunetag"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetagにファイルを追加する方法"
+          }
+        }
+      }
+    },
     "FileInfo.TagData" : {
       "extractionState" : "manual",
       "localizations" : {

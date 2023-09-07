@@ -34,6 +34,7 @@
 		E432A7542AAA4A250043BCC9 /* ListFolderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */; };
 		E432A7572AAA4A2F0043BCC9 /* ListFileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */; };
 		E432A7592AAA524A0043BCC9 /* LargeButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7582AAA524A0043BCC9 /* LargeButtonLabel.swift */; };
+		E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFolderRow.swift; sourceTree = "<group>"; };
 		E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFileRow.swift; sourceTree = "<group>"; };
 		E432A7582AAA524A0043BCC9 /* LargeButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonLabel.swift; sourceTree = "<group>"; };
+		E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserNoFilesTip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				E432A7222AAA094A0043BCC9 /* FSFile.swift */,
 				E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */,
 				E432A7412AAA16B90043BCC9 /* License.swift */,
+				E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				E432A7302AAA0B2E0043BCC9 /* FSDirectory.swift in Sources */,
 				E432A72C2AAA0A490043BCC9 /* TabManager.swift in Sources */,
 				E432A7542AAA4A250043BCC9 /* ListFolderRow.swift in Sources */,
+				E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */,
 				E432A7282AAA09D50043BCC9 /* NavigationManager.swift in Sources */,
 				E432A7522AAA49C50043BCC9 /* BatchEditView.swift in Sources */,
 				E432A73E2AAA169E0043BCC9 /* ListSectionHeader.swift in Sources */,

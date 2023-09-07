@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct FileBrowserView: View {
 
@@ -13,6 +14,8 @@ struct FileBrowserView: View {
     @EnvironmentObject var fileManager: FilesystemManager
     @State var currentDirectory: FSDirectory?
     @State var files: [any FilesystemObject] = []
+
+    var noFilesTip = FileBrowserNoFilesTip()
 
     var body: some View {
         NavigationStack(path: $navigationManager.browserTabPath) {
@@ -46,8 +49,19 @@ struct FileBrowserView: View {
             }
             .overlay {
                 if files.count == 0 {
-                    ListHintOverlay(image: "questionmark.folder",
-                                    text: "FileBrowser.Hint")
+                    VStack {
+                        TipView(noFilesTip, arrowEdge: .bottom)
+                            .padding()
+                        ListHintOverlay(image: "questionmark.folder",
+                                        text: "FileBrowser.Hint")
+                    }
+                    .task {
+                        // Configure and load your tips at app launch.
+                        try? Tips.configure([
+                            .displayFrequency(.immediate),
+                            .datastoreLocation(.applicationDefault)
+                        ])
+                    }
                 }
             }
             .navigationTitle(currentDirectory != nil ?

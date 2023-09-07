@@ -21,7 +21,7 @@ struct MainTabView: View {
                 .tag(TabType.browser)
             BatchEditView()
                 .tabItem {
-                    Label("TabTitle.BatchEdit", systemImage: "square.and.arrow.down.fill")
+                    Label("TabTitle.BatchEdit", systemImage: "pencil.line")
                 }
                 .tag(TabType.files)
             MoreView()
