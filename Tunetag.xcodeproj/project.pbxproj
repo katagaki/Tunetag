@@ -35,6 +35,7 @@
 		E432A7572AAA4A2F0043BCC9 /* ListFileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */; };
 		E432A7592AAA524A0043BCC9 /* LargeButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7582AAA524A0043BCC9 /* LargeButtonLabel.swift */; };
 		E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */; };
+		E432A75D2AAA5AE60043BCC9 /* AlbumArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75C2AAA5AE60043BCC9 /* AlbumArt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFileRow.swift; sourceTree = "<group>"; };
 		E432A7582AAA524A0043BCC9 /* LargeButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonLabel.swift; sourceTree = "<group>"; };
 		E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserNoFilesTip.swift; sourceTree = "<group>"; };
+		E432A75C2AAA5AE60043BCC9 /* AlbumArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +144,9 @@
 			children = (
 				E432A7222AAA094A0043BCC9 /* FSFile.swift */,
 				E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */,
-				E432A7412AAA16B90043BCC9 /* License.swift */,
+				E432A75C2AAA5AE60043BCC9 /* AlbumArt.swift */,
 				E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */,
+				E432A7412AAA16B90043BCC9 /* License.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				E432A7592AAA524A0043BCC9 /* LargeButtonLabel.swift in Sources */,
 				E432A7332AAA0BB90043BCC9 /* FilesystemObject.swift in Sources */,
 				E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */,
+				E432A75D2AAA5AE60043BCC9 /* AlbumArt.swift in Sources */,
 				E432A72E2AAA0A640043BCC9 /* MainTabView.swift in Sources */,
 				E432A7352AAA10BE0043BCC9 /* FileInfoView.swift in Sources */,
 				E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */,

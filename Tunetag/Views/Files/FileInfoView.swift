@@ -6,6 +6,7 @@
 //
 
 import ID3TagEditor
+import PhotosUI
 import SwiftConvenienceExtensions
 import SwiftTaggerID3
 import SwiftUI
@@ -27,6 +28,17 @@ struct FileInfoView: View {
     @State var composer: String = ""
     @State var discNumber: String = ""
     @State var saveAttemptCount: Int = 0
+    @State var isAlbumArtDownloading: Bool = false
+    @State var selectedAlbumArt: PhotosPickerItem? {
+        didSet {
+            if let selectedAlbumArt {
+                loadAlbumArt(from: selectedAlbumArt)
+                isAlbumArtDownloading = true
+            } else {
+                isAlbumArtDownloading = false
+            }
+        }
+    }
 
     var body: some View {
         List {
@@ -50,6 +62,21 @@ struct FileInfoView: View {
                             .opacity(0.3)
                     )
                     .scaledToFit()
+                    .overlay {
+                        if !isAlbumArtDownloading {
+                            PhotosPicker(selection: $selectedAlbumArt,
+                                         matching: .images,
+                                         photoLibrary: .shared()) {
+                                Color.clear
+                            }
+                        }
+                    }
+                    .overlay {
+                        if isAlbumArtDownloading {
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                        }
+                    }
                     Text(currentFile.name)
                         .bold()
                         .textCase(.none)
@@ -189,6 +216,23 @@ struct FileInfoView: View {
 
     func mp3URL() -> URL {
         return URL(fileURLWithPath: currentFile.path)
+    }
+
+    func loadAlbumArt(from imageSelection: PhotosPickerItem) {
+        debugPrint("Reading image data...")
+        imageSelection.loadTransferable(type: AlbumArt.self) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let albumArt):
+                    if let albumArt = albumArt,
+                       let image = albumArt.image {
+                        self.albumArt = image.pngData()
+                    }
+                default:
+                    break
+                }
+            }
+        }
     }
 
 }
