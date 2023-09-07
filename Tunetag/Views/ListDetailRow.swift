@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ListDetailRow: View {
     var title: String
-    var subtitle: String
+    @Binding var value: String
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2.0) {
             Text(NSLocalizedString(title, comment: ""))
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            Text(NSLocalizedString(subtitle, comment: ""))
+            TextField(NSLocalizedString(title, comment: ""),
+                      text: $value)
                 .font(.body)
         }
         .padding([.top, .bottom], 2.0)
