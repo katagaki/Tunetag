@@ -60,7 +60,7 @@ struct FileInfoView: View {
                 ListDetailRow(title: "Tag.Artist", value: $artist)
                 ListDetailRow(title: "Tag.Album", value: $album)
                 ListDetailRow(title: "Tag.AlbumArtist", value: $albumArtist)
-                ListDetailRow(title: "Tag.Year", value: year)
+                ListDetailRow(title: "Tag.Year", value: $year)
                 ListDetailRow(title: "Tag.Genre", value: $genre)
                 ListDetailRow(title: "Tag.Composer", value: $composer)
                 ListDetailRow(title: "Tag.DiscNumber", value: $discNumber)
