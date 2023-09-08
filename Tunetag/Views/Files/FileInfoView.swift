@@ -30,6 +30,7 @@ struct FileInfoView: View {
     @State var discNumber: String = ""
     @State var saveAttemptCount: Int = 0
     @State var selectedAlbumArt: PhotosPickerItem?
+    @State var saveState: SaveState = .notSaved
 
     var body: some View {
         List {
@@ -92,22 +93,45 @@ struct FileInfoView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button {
-                    saveTagData()
-                    readTagData()
-                } label: {
-                    Text("Shared.Save")
+                HStack {
+                    switch saveState {
+                    case .notSaved:
+                        Button {
+                            saveTagData()
+                            readTagData()
+                        } label: {
+                            Text("Shared.Save")
+                        }
+                    case .saving:
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                    case .saved:
+                        Image(systemName: "checkmark.circle.fill")
+                            .symbolRenderingMode(.multicolor)
+                    }
                 }
+                .transition(AnyTransition.asymmetric(insertion: .scale, removal: .identity).animation(.snappy))
             }
         }
         .onAppear {
             readTagData()
         }
-        .onChange(of: selectedAlbumArt) { newItem in
+        .onChange(of: selectedAlbumArt, initial: false) {
             Task {
-                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                if let selectedAlbumArt = selectedAlbumArt,
+                    let data = try? await selectedAlbumArt.loadTransferable(type: Data.self) {
                     albumArt = data
                 }
+            }
+        }
+        .onChange(of: saveState) {
+            switch saveState {
+            case .saved:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    changeSaveState(to: .notSaved)
+                }
+            default:
+                break
             }
         }
     }
@@ -146,6 +170,7 @@ struct FileInfoView: View {
 
     func saveTagData() {
         debugPrint("Attempting to save tag data...")
+        changeSaveState(to: .saving)
         if saveAttemptCount < 3 {
             saveAttemptCount += 1
             do {
@@ -154,10 +179,21 @@ struct FileInfoView: View {
                 .artist(frame: ID3FrameWithStringContent(content: artist))
                 .album(frame: ID3FrameWithStringContent(content: album))
                 .albumArtist(frame: ID3FrameWithStringContent(content: albumArtist))
-                .recordingYear(frame: ID3FrameWithIntegerContent(value: Int(year)))
-                .trackPosition(frame: ID3FramePartOfTotal(part: Int(track)!, total: nil))
-                .genre(frame: ID3FrameGenre(genre: nil, description: genre))
-                .composer(frame: ID3FrameWithStringContent(content: composer))
+                if let year = Int(year) {
+                    tagBuilder = tagBuilder
+                        .recordingYear(frame: ID3FrameWithIntegerContent(value: year))
+                }
+                if let track = Int(track) {
+                    tagBuilder = tagBuilder
+                        .trackPosition(frame: ID3FramePartOfTotal(part: track, total: nil))
+                }
+                tagBuilder = tagBuilder
+                    .genre(frame: ID3FrameGenre(genre: nil, description: genre))
+                    .composer(frame: ID3FrameWithStringContent(content: composer))
+                if let discNumber = Int(discNumber) {
+                    tagBuilder = tagBuilder
+                        .discPosition(frame: ID3FramePartOfTotal(part: discNumber, total: nil))
+                }
                 if let albumArt = albumArt,
                    let albumArtUIImage = UIImage(data: albumArt) {
                     if let pngData = albumArtUIImage.pngData() {
@@ -178,7 +214,8 @@ struct FileInfoView: View {
                         debugPrint("Unsupported album art detected!")
                     }
                 }
-            try id3TagEditor.write(tag: tagBuilder.build(), to: currentFile.path)
+                try id3TagEditor.write(tag: tagBuilder.build(), to: currentFile.path)
+                changeSaveState(to: .saved)
             } catch {
                 debugPrint("Error occurred while saving tag: \n\(error.localizedDescription)")
                 initializeTag()
@@ -199,6 +236,12 @@ struct FileInfoView: View {
             try id3TagEditor.write(tag: id3Tag, to: currentFile.path)
         } catch {
             debugPrint("Error occurred while initializing tag: \n\(error.localizedDescription)")
+        }
+    }
+
+    func changeSaveState(to newState: SaveState) {
+        withAnimation(.snappy.speed(2)) {
+            saveState = newState
         }
     }
 
