@@ -11,9 +11,9 @@ import SwiftUI
 
 // swiftlint:disable type_body_length
 struct BatchFileInfoView: View {
-    
+
     @EnvironmentObject var batchFileManager: BatchFileManager
-    @State var tags: [FSFile:ID3Tag] = [:]
+    @State var tags: [FSFile: ID3Tag] = [:]
     let id3TagEditor = ID3TagEditor()
     @State var albumArt: Data?
     @State var title: String = ""
@@ -83,6 +83,31 @@ struct BatchFileInfoView: View {
                     .keyboardType(.numberPad)
             } header: {
                 ListSectionHeader(text: "FileInfo.TagData")
+                    .font(.body)
+            }
+            Section {
+                Text("FileInfo.Hint.Tokens.Text")
+                    .font(.body)
+                VStack(alignment: .leading, spacing: 2.0) {
+                    Text(verbatim: "%FILENAME%")
+                        .font(.body.monospaced())
+                        .bold()
+                    Text("FileInfo.Hint.Tokens.Filename.Description")
+                }
+                VStack(alignment: .leading, spacing: 2.0) {
+                    Text(verbatim: "%SPLITFRONT%")
+                        .font(.body.monospaced())
+                        .bold()
+                    Text("FileInfo.Hint.Tokens.SplitFront.Description")
+                }
+                VStack(alignment: .leading, spacing: 2.0) {
+                    Text(verbatim: "%SPLITBACK%")
+                        .font(.body.monospaced())
+                        .bold()
+                    Text("FileInfo.Hint.Tokens.SplitBack.Description")
+                }
+            } header: {
+                ListSectionHeader(text: "FileInfo.Hint.Tokens.Title")
                     .font(.body)
             }
         }
@@ -374,25 +399,32 @@ struct BatchFileInfoView: View {
 
     func replaceTokens(_ original: String, file: FSFile) -> String {
         var processedString = original
-        let componentsSplitByDash = original.components(separatedBy: " - ")
+        let componentsSplitByDash = file.name
+            .replacingOccurrences(of: ".mp3",
+                                  with: "")
+            .components(separatedBy: " - ")
         if componentsSplitByDash.count >= 1 {
-            processedString = processedString.replacingOccurrences(of: "%frontsplit%",
-                                                                   with: componentsSplitByDash[0])
+            processedString = processedString
+                .replacingOccurrences(of: "%SPLITFRONT%",
+                                      with: componentsSplitByDash[0])
         } else {
-            processedString = processedString.replacingOccurrences(of: "%frontsplit%", 
-                                                                   with: "")
+            processedString = processedString
+                .replacingOccurrences(of: "%SPLITFRONT%",
+                                      with: "")
         }
         if componentsSplitByDash.count >= 2 {
-            processedString = processedString.replacingOccurrences(of: "%backsplit%",
-                                                                   with: componentsSplitByDash[1])
+            processedString = processedString
+                .replacingOccurrences(of: "%SPLITBACK%",
+                                      with: componentsSplitByDash[1])
         } else {
-            processedString = processedString.replacingOccurrences(of: "%backsplit%", 
-                                                                   with: "")
+            processedString = processedString
+                .replacingOccurrences(of: "%SPLITBACK%",
+                                      with: "")
         }
-        processedString =  processedString.replacingOccurrences(of: "%filename%",
-                                                                with: file.name.replacingOccurrences(of: ".mp3",
-                                                                                                     with: ""),
-                                                                options: .caseInsensitive)
+        processedString =  processedString
+            .replacingOccurrences(of: "%filename%",
+                                  with: file.name.replacingOccurrences(of: ".mp3", with: ""),
+                                  options: .caseInsensitive)
         return processedString
     }
 
