@@ -9,14 +9,28 @@ import SwiftUI
 
 struct BatchEditView: View {
 
+    @EnvironmentObject var navigationManager: NavigationManager
     @State var files: [FSFile] = []
 
     var body: some View {
-        NavigationStack {
-            List(files, id: \.path) { file in
-                ListFileRow(name: file.name)
+        NavigationStack(path: $navigationManager.batchEditTabPath) {
+            List {
+                ForEach(files, id: \.path) { file in
+                    ListFileRow(name: file.name)
+                }
+                .onDelete { indexSet in
+                    files.remove(atOffsets: indexSet)
+                }
             }
             .listStyle(.plain)
+            .navigationDestination(for: ViewPath.self, destination: { viewPath in
+                switch viewPath {
+                case .batchFileInfo(let files):
+                    BatchFileInfoView(files: files)
+                default:
+                    Color.clear
+                }
+            })
             .overlay {
                 if files.isEmpty {
                     ListHintOverlay(image: "questionmark.folder", text: "BatchEdit.Hint")
@@ -28,7 +42,8 @@ struct BatchEditView: View {
                         .font(.largeTitle)
                     Text("BatchEdit.DropZone.Hint")
                     Button {
-                        // TODO: Present editor
+                        navigationManager.push(ViewPath.batchFileInfo(files: files),
+                                               for: .batchEdit)
                     } label: {
                         LargeButtonLabel(iconName: "pencil",
                                          text: "BatchEdit.StartEditing")
@@ -37,6 +52,7 @@ struct BatchEditView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .clipShape(RoundedRectangle(cornerRadius: 99))
+                    .disabled(files.isEmpty)
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -48,6 +64,17 @@ struct BatchEditView: View {
                         files.append(contentsOf: items)
                     }
                     return true
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    if !files.isEmpty {
+                        Button {
+                            files.removeAll()
+                        } label: {
+                            Text("Shared.ClearAll")
+                        }
+                    }
                 }
             }
             .navigationTitle("ViewTitle.BatchEdit")

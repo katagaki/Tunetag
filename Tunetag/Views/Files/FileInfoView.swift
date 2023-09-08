@@ -7,8 +7,6 @@
 
 import ID3TagEditor
 import PhotosUI
-import SwiftConvenienceExtensions
-import SwiftTaggerID3
 import SwiftUI
 
 struct FileInfoView: View {
@@ -16,7 +14,6 @@ struct FileInfoView: View {
     @EnvironmentObject var fileManager: FilesystemManager
     @State var currentFile: FSFile
     let id3TagEditor = ID3TagEditor()
-    @State var mp3File: Mp3File?
     @State var tag: ID3Tag?
     @State var albumArt: Data?
     @State var title: String = ""

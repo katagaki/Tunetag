@@ -290,6 +290,22 @@
         }
       }
     },
+    "Shared.ClearAll" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "クリア"
+          }
+        }
+      }
+    },
     "Shared.DropFilesFileName" : {
       "extractionState" : "manual",
       "localizations" : {

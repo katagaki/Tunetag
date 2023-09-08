@@ -23,7 +23,7 @@ struct MainTabView: View {
                 .tabItem {
                     Label("TabTitle.BatchEdit", systemImage: "pencil.line")
                 }
-                .tag(TabType.files)
+                .tag(TabType.batchEdit)
             MoreView()
                 .tabItem {
                     Label("TabTitle.More", systemImage: "ellipsis")
