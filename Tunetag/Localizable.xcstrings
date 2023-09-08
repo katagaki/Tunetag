@@ -68,13 +68,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "<keep>"
+            "value" : "Don't Change"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "<維持>"
+            "state" : "needs_review",
+            "value" : "変更しない"
           }
         }
       }
