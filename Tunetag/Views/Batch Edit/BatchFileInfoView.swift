@@ -12,8 +12,7 @@ import SwiftUI
 // swiftlint:disable type_body_length
 struct BatchFileInfoView: View {
     
-    @EnvironmentObject var fileManager: FilesystemManager
-    @State var files: [FSFile] = []
+    @EnvironmentObject var batchFileManager: BatchFileManager
     @State var tags: [FSFile:ID3Tag] = [:]
     let id3TagEditor = ID3TagEditor()
     @State var albumArt: Data?
@@ -137,7 +136,7 @@ struct BatchFileInfoView: View {
     // swiftlint:disable cyclomatic_complexity
     // TODO: Optimize this function
     func readAllTagData() {
-        debugPrint("Attempting to read tag data for \(files.count) files...")
+        debugPrint("Attempting to read tag data for \(batchFileManager.files.count) files...")
 
         // Check for common tag data betwen all files
         var albumArt: Data?
@@ -150,12 +149,12 @@ struct BatchFileInfoView: View {
         var genre: String?
         var composer: String?
         var discNumber: Int?
-        for index in 0..<files.count {
+        for index in 0..<batchFileManager.files.count {
             debugPrint("Attempting to read tag data for file \(index)...")
             do {
-                let tag = try id3TagEditor.read(from: files[index].path)
+                let tag = try id3TagEditor.read(from: batchFileManager.files[index].path)
                 if let tag = tag {
-                    tags.updateValue(tag, forKey: files[index])
+                    tags.updateValue(tag, forKey: batchFileManager.files[index])
                     let tagContentReader = ID3TagContentReader(id3Tag: tag)
                     if index == 0 {
                         title = tagContentReader.title() ?? ""
@@ -229,7 +228,7 @@ struct BatchFileInfoView: View {
     // swiftlint:enable cyclomatic_complexity
 
     func saveAllTagData() {
-        for file in files {
+        for file in batchFileManager.files {
             saveTagData(to: file)
         }
     }

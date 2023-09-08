@@ -36,6 +36,7 @@
 		E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */; };
 		E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75E2AAB35420043BCC9 /* SaveState.swift */; };
 		E432A7612AAB41920043BCC9 /* BatchFileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7602AAB41920043BCC9 /* BatchFileInfoView.swift */; };
+		E432A7632AAB530A0043BCC9 /* BatchFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserNoFilesTip.swift; sourceTree = "<group>"; };
 		E432A75E2AAB35420043BCC9 /* SaveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveState.swift; sourceTree = "<group>"; };
 		E432A7602AAB41920043BCC9 /* BatchFileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFileInfoView.swift; sourceTree = "<group>"; };
+		E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				E432A71D2AA9FF3A0043BCC9 /* FilesystemManager.swift */,
+				E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */,
 				E432A7272AAA09D50043BCC9 /* NavigationManager.swift */,
 				E432A72B2AAA0A490043BCC9 /* TabManager.swift */,
 			);
@@ -320,6 +323,7 @@
 				E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */,
 				E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */,
 				E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */,
+				E432A7632AAB530A0043BCC9 /* BatchFileManager.swift in Sources */,
 				E432A7572AAA4A2F0043BCC9 /* ListFileRow.swift in Sources */,
 				E432A7302AAA0B2E0043BCC9 /* FSDirectory.swift in Sources */,
 				E432A72C2AAA0A490043BCC9 /* TabManager.swift in Sources */,

@@ -12,6 +12,7 @@ struct FileBrowserView: View {
 
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var fileManager: FilesystemManager
+    @EnvironmentObject var batchFileManager: BatchFileManager
     @State var currentDirectory: FSDirectory?
     @State var files: [any FilesystemObject] = []
 
@@ -30,6 +31,9 @@ struct FileBrowserView: View {
                     }
                     .draggable(file) {
                         ListFileRow(name: file.name)
+                            .padding()
+                            .background(.background)
+                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
                     }
                 }
             }
@@ -62,6 +66,24 @@ struct FileBrowserView: View {
                             .datastoreLocation(.applicationDefault)
                         ])
                     }
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(alignment: .center, spacing: 16.0) {
+                    Image(systemName: "square.and.arrow.down.on.square.fill")
+                        .font(.largeTitle)
+                    Text("BatchEdit.DropZone.Hint.Simple")
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(.regularMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                .padding()
+                .dropDestination(for: FSFile.self) { items, _ in
+                    for item in items where !batchFileManager.files.contains(item) {
+                        batchFileManager.files.append(contentsOf: items)
+                    }
+                    return true
                 }
             }
             .navigationTitle(currentDirectory != nil ?

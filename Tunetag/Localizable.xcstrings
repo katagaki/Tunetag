@@ -28,6 +28,23 @@
         }
       }
     },
+    "BatchEdit.DropZone.Hint.Simple" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drop files into this area to add them to the batch edit queue."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一括編集キューにファイルを追加するには、こちらにドロップしてください。"
+          }
+        }
+      }
+    },
     "BatchEdit.Hint" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -600,13 +617,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Batch Edit"
+            "value" : "Batch Edit Queue"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一括編集"
+            "value" : "一括編集キュー"
           }
         }
       }

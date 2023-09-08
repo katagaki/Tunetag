@@ -10,29 +10,29 @@ import SwiftUI
 struct BatchEditView: View {
 
     @EnvironmentObject var navigationManager: NavigationManager
-    @State var files: [FSFile] = []
+    @EnvironmentObject var batchFileManager: BatchFileManager
 
     var body: some View {
         NavigationStack(path: $navigationManager.batchEditTabPath) {
             List {
-                ForEach(files, id: \.path) { file in
+                ForEach(batchFileManager.files, id: \.path) { file in
                     ListFileRow(name: file.name)
                 }
                 .onDelete { indexSet in
-                    files.remove(atOffsets: indexSet)
+                    batchFileManager.files.remove(atOffsets: indexSet)
                 }
             }
             .listStyle(.plain)
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
-                case .batchFileInfo(let files):
-                    BatchFileInfoView(files: files)
+                case .batchFileInfo:
+                    BatchFileInfoView()
                 default:
                     Color.clear
                 }
             })
             .overlay {
-                if files.isEmpty {
+                if batchFileManager.files.isEmpty {
                     ListHintOverlay(image: "questionmark.folder", text: "BatchEdit.Hint")
                 }
             }
@@ -42,7 +42,7 @@ struct BatchEditView: View {
                         .font(.largeTitle)
                     Text("BatchEdit.DropZone.Hint")
                     Button {
-                        navigationManager.push(ViewPath.batchFileInfo(files: files),
+                        navigationManager.push(ViewPath.batchFileInfo,
                                                for: .batchEdit)
                     } label: {
                         LargeButtonLabel(iconName: "pencil",
@@ -52,7 +52,7 @@ struct BatchEditView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .clipShape(RoundedRectangle(cornerRadius: 99))
-                    .disabled(files.isEmpty)
+                    .disabled(batchFileManager.files.isEmpty)
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -60,17 +60,17 @@ struct BatchEditView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10.0))
                 .padding()
                 .dropDestination(for: FSFile.self) { items, _ in
-                    for item in items where !files.contains(item) {
-                        files.append(contentsOf: items)
+                    for item in items where !batchFileManager.files.contains(item) {
+                        batchFileManager.files.append(contentsOf: items)
                     }
                     return true
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    if !files.isEmpty {
+                    if !batchFileManager.files.isEmpty {
                         Button {
-                            files.removeAll()
+                            batchFileManager.files.removeAll()
                         } label: {
                             Text("Shared.ClearAll")
                         }
