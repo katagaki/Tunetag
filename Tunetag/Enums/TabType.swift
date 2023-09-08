@@ -8,7 +8,7 @@
 import Foundation
 
 enum TabType: Int {
-    case browser = 0
+    case fileManager = 0
     case batchEdit = 1
     case more = 2
 }

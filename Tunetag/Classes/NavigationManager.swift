@@ -14,7 +14,7 @@ class NavigationManager: ObservableObject {
 
     func popToRoot(for tab: TabType) {
         switch tab {
-        case .browser:
+        case .fileManager:
             browserTabPath.removeAll()
         case .batchEdit:
             batchEditTabPath.removeAll()
@@ -25,7 +25,7 @@ class NavigationManager: ObservableObject {
 
     func push(_ viewPath: ViewPath, for tab: TabType) {
         switch tab {
-        case .browser:
+        case .fileManager:
             browserTabPath.append(viewPath)
         case .batchEdit:
             batchEditTabPath.append(viewPath)

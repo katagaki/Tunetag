@@ -38,9 +38,22 @@ struct BatchEditView: View {
             }
             .safeAreaInset(edge: .bottom) {
                 VStack(alignment: .center, spacing: 16.0) {
-                    Image(systemName: "square.and.arrow.down.on.square.fill")
-                        .font(.largeTitle)
-                    Text("BatchEdit.DropZone.Hint")
+                    VStack(alignment: .center, spacing: 16.0) {
+                        Image(systemName: "square.and.arrow.down.on.square.fill")
+                            .font(.largeTitle)
+                        Text("BatchEdit.DropZone.Hint")
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(.regularMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                    .padding([.leading, .trailing])
+                    .dropDestination(for: FSFile.self) { items, _ in
+                        for item in items where !batchFileManager.files.contains(item) {
+                            batchFileManager.files.append(contentsOf: items)
+                        }
+                        return true
+                    }
                     Button {
                         navigationManager.push(ViewPath.batchFileInfo,
                                                for: .batchEdit)
@@ -52,18 +65,8 @@ struct BatchEditView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .clipShape(RoundedRectangle(cornerRadius: 99))
+                    .padding([.leading, .trailing, .bottom])
                     .disabled(batchFileManager.files.isEmpty)
-                }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(.regularMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                .padding()
-                .dropDestination(for: FSFile.self) { items, _ in
-                    for item in items where !batchFileManager.files.contains(item) {
-                        batchFileManager.files.append(contentsOf: items)
-                    }
-                    return true
                 }
             }
             .toolbar {

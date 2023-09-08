@@ -26,7 +26,10 @@ struct FileBrowserView: View {
                         ListFolderRow(name: directory.name)
                     }
                 } else if let file = file as? FSFile {
-                    NavigationLink(value: ViewPath.fileInfo(file: file)) {
+                    Button {
+                        navigationManager.push(ViewPath.fileInfo(file: file),
+                                               for: .fileManager)
+                    } label: {
                         ListFileRow(name: file.name)
                     }
                     .draggable(file) {
