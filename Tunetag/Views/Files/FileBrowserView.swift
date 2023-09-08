@@ -57,10 +57,9 @@ struct FileBrowserView: View {
             .overlay {
                 if files.count == 0 {
                     VStack {
-                        TipView(noFilesTip, arrowEdge: .bottom)
-                            .padding()
                         ListHintOverlay(image: "questionmark.folder",
                                         text: "FileBrowser.Hint")
+                        .popoverTip(noFilesTip)
                     }
                     .task {
                         // Configure and load your tips at app launch.
@@ -77,8 +76,8 @@ struct FileBrowserView: View {
                         .font(.largeTitle)
                     Text("BatchEdit.DropZone.Hint.Simple")
                 }
-                .padding()
                 .frame(maxWidth: .infinity)
+                .padding()
                 .background(.regularMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 10.0))
                 .padding()

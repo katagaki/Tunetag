@@ -8,6 +8,7 @@
 import ID3TagEditor
 import PhotosUI
 import SwiftUI
+import TipKit
 
 // swiftlint:disable type_body_length
 struct BatchFileInfoView: View {
@@ -28,6 +29,8 @@ struct BatchFileInfoView: View {
     @State var saveAttemptCount: Int = 0
     @State var selectedAlbumArt: PhotosPickerItem?
     @State var saveState: SaveState = .notSaved
+
+    var availableTokensTip = AvailableTokensTip()
 
     var body: some View {
         List {
@@ -70,6 +73,7 @@ struct BatchFileInfoView: View {
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             Section {
                 ListDetailRow(title: "Tag.Title", placeholder: "BatchEdit.Keep", value: $title)
+                    .popoverTip(availableTokensTip)
                 ListDetailRow(title: "Tag.Artist", placeholder: "BatchEdit.Keep", value: $artist)
                 ListDetailRow(title: "Tag.Album", placeholder: "BatchEdit.Keep", value: $album)
                 ListDetailRow(title: "Tag.AlbumArtist", placeholder: "BatchEdit.Keep", value: $albumArtist)
@@ -91,26 +95,26 @@ struct BatchFileInfoView: View {
                         .font(.body.monospaced())
                         .bold()
                     Text("FileInfo.Hint.Tokens.Filename.Description")
+                        .foregroundStyle(.secondary)
                 }
                 VStack(alignment: .leading, spacing: 2.0) {
                     Text(verbatim: "%SPLITFRONT%")
                         .font(.body.monospaced())
                         .bold()
                     Text("FileInfo.Hint.Tokens.SplitFront.Description")
+                        .foregroundStyle(.secondary)
                 }
                 VStack(alignment: .leading, spacing: 2.0) {
                     Text(verbatim: "%SPLITBACK%")
                         .font(.body.monospaced())
                         .bold()
                     Text("FileInfo.Hint.Tokens.SplitBack.Description")
+                        .foregroundStyle(.secondary)
                 }
             } header: {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 2.0) {
                     ListSectionHeader(text: "FileInfo.Hint.Tokens.Title")
                         .font(.body)
-                    Text("FileInfo.Hint.Tokens.Text")
-                        .font(.body)
-                        .textCase(.none)
                 }
             }
         }

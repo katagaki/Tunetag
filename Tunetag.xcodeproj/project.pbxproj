@@ -37,6 +37,7 @@
 		E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75E2AAB35420043BCC9 /* SaveState.swift */; };
 		E432A7612AAB41920043BCC9 /* BatchFileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7602AAB41920043BCC9 /* BatchFileInfoView.swift */; };
 		E432A7632AAB530A0043BCC9 /* BatchFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */; };
+		E432A7652AAB9AA70043BCC9 /* AvailableTokensTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		E432A75E2AAB35420043BCC9 /* SaveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveState.swift; sourceTree = "<group>"; };
 		E432A7602AAB41920043BCC9 /* BatchFileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFileInfoView.swift; sourceTree = "<group>"; };
 		E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFileManager.swift; sourceTree = "<group>"; };
+		E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTokensTip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				E432A7222AAA094A0043BCC9 /* FSFile.swift */,
 				E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */,
 				E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */,
+				E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */,
 				E432A7412AAA16B90043BCC9 /* License.swift */,
 			);
 			path = Structs;
@@ -336,6 +339,7 @@
 				E432A73C2AAA16910043BCC9 /* ListRow.swift in Sources */,
 				E432A7402AAA16A90043BCC9 /* LicensesView.swift in Sources */,
 				E432A7442AAA20C20043BCC9 /* ListHintOverlay.swift in Sources */,
+				E432A7652AAB9AA70043BCC9 /* AvailableTokensTip.swift in Sources */,
 				E432A7422AAA16B90043BCC9 /* License.swift in Sources */,
 				E432A72A2AAA09EE0043BCC9 /* TabType.swift in Sources */,
 			);

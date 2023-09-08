@@ -43,8 +43,8 @@ struct BatchEditView: View {
                             .font(.largeTitle)
                         Text("BatchEdit.DropZone.Hint")
                     }
-                    .padding()
                     .frame(maxWidth: .infinity)
+                    .padding()
                     .background(.regularMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0))
                     .padding([.leading, .trailing])

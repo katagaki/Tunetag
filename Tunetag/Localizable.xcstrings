@@ -73,7 +73,7 @@
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "変更しない"
           }
         }
@@ -236,23 +236,6 @@
         }
       }
     },
-    "FileInfo.Hint.Tokens.Text" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use various tokens to make use of existing information (such as the MP3 file's filename) to edit your tags."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "変換トークンを利用すると、ファイル名など既存の情報を利用し、より早くタグの情報を埋め込むことができます。"
-          }
-        }
-      }
-    },
     "FileInfo.Hint.Tokens.Title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -283,6 +266,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "タグ情報"
+          }
+        }
+      }
+    },
+    "FileInfo.Tip.Tokens.Text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can use various tokens to make use of existing information (such as the MP3 file's filename) to edit your tags.\nScroll down to see the tokens you can use."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "変換トークンを利用すると、ファイル名など既存の情報を利用し、より早くタグの情報を埋め込むことができます。\n下にスクロールすると、利用できるトークンがご覧になれます。"
+          }
+        }
+      }
+    },
+    "FileInfo.Tip.Tokens.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Using Tokens"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "より速く編集する方法"
           }
         }
       }
