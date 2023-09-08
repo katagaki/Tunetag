@@ -15,8 +15,9 @@ struct FileInfoView: View {
 
     @EnvironmentObject var fileManager: FilesystemManager
     @State var currentFile: FSFile
+    let id3TagEditor = ID3TagEditor()
     @State var mp3File: Mp3File?
-    @State var tag: Tag?
+    @State var tag: ID3Tag?
     @State var albumArt: Data?
     @State var title: String = ""
     @State var artist: String = ""
@@ -109,48 +110,46 @@ struct FileInfoView: View {
             ToolbarItem(placement: .primaryAction) {
                 Button {
                     saveTagData()
-                    refreshTagData()
+                    readTagData()
                 } label: {
                     Text("Shared.Save")
                 }
             }
         }
         .onAppear {
-            refreshTagData()
+            readTagData()
         }
     }
 
-    func refreshTagData() {
+    func readTagData() {
         debugPrint("Attempting to read tag data...")
         do {
-            mp3File = try Mp3File(location: mp3URL())
-            if let mp3File = mp3File {
-                do {
-                    tag = try mp3File.tag()
-                    if let tag = tag {
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy"
-                        title = tag.title ?? ""
-                        artist = tag.artist ?? ""
-                        album = tag.album ?? ""
-                        albumArtist = tag.albumArtist ?? ""
-                        if let releaseDateTime = tag.releaseDateTime {
-                            year = dateFormatter.string(from: releaseDateTime)
-                        } else {
-                            year = ""
-                        }
-                        track = tag.trackNumber.index.description
-                        genre = tag.genre.genre ?? ""
-                        composer = tag.composer ?? ""
-                        discNumber = tag.discNumber.index.description
-                        albumArt = tag[attachedPicture: .frontCover]?.pngData()
-                    }
-                } catch {
-                    debugPrint("Error occurred while reading tag: \n\(error.localizedDescription)")
+            tag = try id3TagEditor.read(from: currentFile.path)
+            if let tag = tag {
+                let tagContentReader = ID3TagContentReader(id3Tag: tag)
+                title = tagContentReader.title() ?? ""
+                artist = tagContentReader.artist() ?? ""
+                album = tagContentReader.album() ?? ""
+                albumArtist = tagContentReader.albumArtist() ?? ""
+                if let year = tagContentReader.recordingDateTime()?.year {
+                    self.year = String(year)
+                }
+                if let track = tagContentReader.trackPosition()?.position {
+                    self.track = String(track)
+                }
+                genre = tagContentReader.genre()?.description ?? ""
+                composer = tagContentReader.composer() ?? ""
+                if let discNumber = tagContentReader.discPosition()?.position {
+                    self.discNumber = String(discNumber)
+                }
+                if let albumArt = tagContentReader.attachedPictures().first(where: { picture in
+                    picture.type == .frontCover
+                }) {
+                    self.albumArt = albumArt.picture
                 }
             }
         } catch {
-            debugPrint("Error occurred while reading file: \n\(error.localizedDescription)")
+            debugPrint("Error occurred while reading tags: \n\(error.localizedDescription)")
         }
     }
 
@@ -158,43 +157,41 @@ struct FileInfoView: View {
         debugPrint("Attempting to save tag data...")
         if saveAttemptCount < 3 {
             saveAttemptCount += 1
-            var newTag = tag ?? Tag(version: .v2_3)
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy"
-            newTag.title = title
-            newTag.artist = artist
-            newTag.album = album
-            newTag.albumArtist = albumArtist
-            newTag.releaseDateTime = dateFormatter.date(from: year)
-            if let track = Int(track) {
-                newTag.trackNumber = IntIndex(index: track, total: nil)
-            } else {
-                newTag["trackNumber"] = nil
-            }
-            newTag.genre = (genreCategory: nil, genre: genre)
-            newTag.composer = composer
-            if let discNumber = Int(discNumber) {
-                newTag.discNumber = IntIndex(index: discNumber, total: nil)
-            } else {
-                newTag["discNumber"] = nil
-            }
-//            newTag.set(attachedPicture: .frontCover,
-//                       imageLocation: albumArtURL,
-//                       description: nil)
             do {
-                if let mp3File = mp3File {
-                    try mp3File.write(tag: &newTag, version: .v2_3, outputLocation: mp3URL())
+            var tagBuilder = ID32v3TagBuilder()
+                .title(frame: ID3FrameWithStringContent(content: title))
+                .artist(frame: ID3FrameWithStringContent(content: artist))
+                .album(frame: ID3FrameWithStringContent(content: album))
+                .albumArtist(frame: ID3FrameWithStringContent(content: albumArtist))
+                .recordingYear(frame: ID3FrameWithIntegerContent(value: Int(year)))
+                .trackPosition(frame: ID3FramePartOfTotal(part: Int(track)!, total: nil))
+                .genre(frame: ID3FrameGenre(genre: nil, description: genre))
+                .composer(frame: ID3FrameWithStringContent(content: composer))
+                if let albumArt = albumArt,
+                   let albumArtUIImage = UIImage(data: albumArt) {
+                    if let pngData = albumArtUIImage.pngData() {
+                        debugPrint("PNG album art detected!")
+                        tagBuilder = tagBuilder
+                            .attachedPicture(pictureType: .frontCover,
+                                             frame: ID3FrameAttachedPicture(picture: pngData,
+                                                                            type: .frontCover,
+                                                                            format: .png))
+                    } else if let jpgData = albumArtUIImage.jpegData(compressionQuality: 1.0) {
+                        debugPrint("JPG album art detected!")
+                        tagBuilder = tagBuilder
+                            .attachedPicture(pictureType: .frontCover,
+                                             frame: ID3FrameAttachedPicture(picture: jpgData,
+                                                                            type: .frontCover,
+                                                                            format: .jpeg))
+                    } else {
+                        debugPrint("Unsupported album art detected!")
+                    }
                 }
+            try id3TagEditor.write(tag: tagBuilder.build(), to: currentFile.path)
             } catch {
                 debugPrint("Error occurred while saving tag: \n\(error.localizedDescription)")
                 initializeTag()
-                do {
-                    mp3File = try Mp3File(location: mp3URL())
-                    saveTagData()
-                } catch {
-                    debugPrint("Error occurred while re-reading tag after initialization:\n" +
-                               "\(error.localizedDescription)")
-                }
+                saveTagData()
             }
         } else {
             saveAttemptCount = 0
@@ -212,10 +209,6 @@ struct FileInfoView: View {
         } catch {
             debugPrint("Error occurred while initializing tag: \n\(error.localizedDescription)")
         }
-    }
-
-    func mp3URL() -> URL {
-        return URL(fileURLWithPath: currentFile.path)
     }
 
     func loadAlbumArt(from imageSelection: PhotosPickerItem) {
