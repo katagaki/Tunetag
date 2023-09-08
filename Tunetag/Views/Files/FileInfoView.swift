@@ -46,6 +46,7 @@ struct FileInfoView: View {
                                 .resizable()
                         }
                     }
+                    .scaledToFill()
                     .frame(width: 100.0, height: 100.0)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0))
                     .overlay(
@@ -53,7 +54,6 @@ struct FileInfoView: View {
                             .stroke(.primary, lineWidth: 1/3)
                             .opacity(0.3)
                     )
-                    .scaledToFit()
                     .overlay {
                         PhotosPicker(selection: $selectedAlbumArt,
                                      matching: .images,
