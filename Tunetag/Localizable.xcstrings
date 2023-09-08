@@ -45,6 +45,40 @@
         }
       }
     },
+    "BatchEdit.Keep" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<keep>"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<維持>"
+          }
+        }
+      }
+    },
+    "BatchEdit.MultipleFiles" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiple Files"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複数のファイル"
+          }
+        }
+      }
+    },
     "BatchEdit.StartEditing" : {
       "extractionState" : "manual",
       "localizations" : {

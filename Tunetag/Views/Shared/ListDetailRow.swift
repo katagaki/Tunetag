@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListDetailRow: View {
     var title: String
+    var placeholder: String?
     @Binding var value: String
 
     var body: some View {
@@ -16,9 +17,15 @@ struct ListDetailRow: View {
             Text(NSLocalizedString(title, comment: ""))
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            TextField(NSLocalizedString(title, comment: ""),
-                      text: $value)
+            if let placeholder = placeholder {
+                TextField(NSLocalizedString(placeholder, comment: ""),
+                          text: $value)
+                    .font(.body)
+            } else {
+                TextField(NSLocalizedString(title, comment: ""),
+                          text: $value)
                 .font(.body)
+            }
         }
         .padding([.top, .bottom], 2.0)
     }
