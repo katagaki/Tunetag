@@ -86,8 +86,6 @@ struct BatchFileInfoView: View {
                     .font(.body)
             }
             Section {
-                Text("FileInfo.Hint.Tokens.Text")
-                    .font(.body)
                 VStack(alignment: .leading, spacing: 2.0) {
                     Text(verbatim: "%FILENAME%")
                         .font(.body.monospaced())
@@ -107,8 +105,13 @@ struct BatchFileInfoView: View {
                     Text("FileInfo.Hint.Tokens.SplitBack.Description")
                 }
             } header: {
-                ListSectionHeader(text: "FileInfo.Hint.Tokens.Title")
-                    .font(.body)
+                VStack(alignment: .leading) {
+                    ListSectionHeader(text: "FileInfo.Hint.Tokens.Title")
+                        .font(.body)
+                    Text("FileInfo.Hint.Tokens.Text")
+                        .font(.body)
+                        .textCase(.none)
+                }
             }
         }
         .navigationTitle("")
