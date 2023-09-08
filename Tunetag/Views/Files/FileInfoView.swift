@@ -29,17 +29,7 @@ struct FileInfoView: View {
     @State var composer: String = ""
     @State var discNumber: String = ""
     @State var saveAttemptCount: Int = 0
-    @State var isAlbumArtDownloading: Bool = false
-    @State var selectedAlbumArt: PhotosPickerItem? {
-        didSet {
-            if let selectedAlbumArt {
-                loadAlbumArt(from: selectedAlbumArt)
-                isAlbumArtDownloading = true
-            } else {
-                isAlbumArtDownloading = false
-            }
-        }
-    }
+    @State var selectedAlbumArt: PhotosPickerItem?
 
     var body: some View {
         List {
@@ -55,7 +45,7 @@ struct FileInfoView: View {
                                 .resizable()
                         }
                     }
-                    .frame(width: 72.0, height: 72.0)
+                    .frame(width: 100.0, height: 100.0)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0))
                     .overlay(
                         RoundedRectangle(cornerRadius: 10.0)
@@ -64,19 +54,13 @@ struct FileInfoView: View {
                     )
                     .scaledToFit()
                     .overlay {
-                        if !isAlbumArtDownloading {
-                            PhotosPicker(selection: $selectedAlbumArt,
-                                         matching: .images,
-                                         photoLibrary: .shared()) {
-                                Color.clear
-                            }
+                        PhotosPicker(selection: $selectedAlbumArt,
+                                     matching: .images,
+                                     photoLibrary: .shared()) {
+                            Image(systemName: "pencil")
                         }
-                    }
-                    .overlay {
-                        if isAlbumArtDownloading {
-                            ProgressView()
-                                .progressViewStyle(.circular)
-                        }
+                                     .clipShape(Circle())
+                                     .buttonStyle(.borderedProminent)
                     }
                     Text(currentFile.name)
                         .bold()
@@ -118,6 +102,13 @@ struct FileInfoView: View {
         }
         .onAppear {
             readTagData()
+        }
+        .onChange(of: selectedAlbumArt) { newItem in
+            Task {
+                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                    albumArt = data
+                }
+            }
         }
     }
 
@@ -208,23 +199,6 @@ struct FileInfoView: View {
             try id3TagEditor.write(tag: id3Tag, to: currentFile.path)
         } catch {
             debugPrint("Error occurred while initializing tag: \n\(error.localizedDescription)")
-        }
-    }
-
-    func loadAlbumArt(from imageSelection: PhotosPickerItem) {
-        debugPrint("Reading image data...")
-        imageSelection.loadTransferable(type: AlbumArt.self) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let albumArt):
-                    if let albumArt = albumArt,
-                       let image = albumArt.image {
-                        self.albumArt = image.pngData()
-                    }
-                default:
-                    break
-                }
-            }
         }
     }
 
