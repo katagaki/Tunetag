@@ -15,6 +15,7 @@ struct AvailableTokenRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 2.0) {
             Text(verbatim: "%\(tokenName)%")
+                .textSelection(.enabled)
                 .font(.body.monospaced())
                 .bold()
             Text(NSLocalizedString(tokenDescription, comment: ""))

@@ -27,7 +27,7 @@ struct FileBrowserView: View {
                     }
                 } else if let file = file as? FSFile {
                     Button {
-                        navigationManager.push(ViewPath.fileInfo(file: file),
+                        navigationManager.push(ViewPath.tagEditorSingle(file: file),
                                                for: .fileManager)
                     } label: {
                         ListFileRow(name: file.name)
@@ -38,6 +38,16 @@ struct FileBrowserView: View {
                             .background(.background)
                             .clipShape(RoundedRectangle(cornerRadius: 10.0))
                     }
+                    .contextMenu(menuItems: {
+                        Button {
+                            navigationManager.push(ViewPath.tagEditorSingle(file: file),
+                                                   for: .fileManager)
+                        } label: {
+                            Text("Shared.Edit")
+                        }
+                    }, preview: {
+                        FilePreview(file: file)
+                    })
                 }
             }
             .listStyle(.plain)
@@ -45,7 +55,7 @@ struct FileBrowserView: View {
                 switch viewPath {
                 case .fileBrowser(let directory):
                     FileBrowserView(currentDirectory: directory)
-                case .fileInfo(let file):
+                case .tagEditorSingle(let file):
                     TagEditorView(files: [file])
                 default:
                     Color.clear
@@ -59,15 +69,34 @@ struct FileBrowserView: View {
                     VStack {
                         ListHintOverlay(image: "questionmark.folder",
                                         text: "FileBrowser.Hint")
-                        .popoverTip(noFilesTip)
                     }
-                    .task {
-                        // Configure and load your tips at app launch.
-                        try? Tips.configure([
-                            .displayFrequency(.immediate),
-                            .datastoreLocation(.applicationDefault)
-                        ])
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        let documentsUrl = FileManager.default.urls(for: .documentDirectory,
+                                                                    in: .userDomainMask).first!
+                        if let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)") {
+                            if UIApplication.shared.canOpenURL(sharedUrl) {
+                                UIApplication.shared.open(sharedUrl, options: [:])
+                            }
+                        }
+                    } label: {
+                        HStack(alignment: .center, spacing: 8.0) {
+                            Image("SystemApps.Files")
+                                .resizable()
+                                .frame(width: 30.0, height: 30.0)
+                                .clipShape(RoundedRectangle(cornerRadius: 6.0))
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 6.0)
+                                        .stroke(.black, lineWidth: 1/3)
+                                        .opacity(0.3)
+                                }
+                            Text("Shared.OpenFilesApp")
+                        }
                     }
+                    .popoverTip(noFilesTip)
                 }
             }
             .safeAreaInset(edge: .bottom) {
@@ -102,13 +131,8 @@ struct FileBrowserView: View {
             .sorted(by: { lhs, rhs in
                 lhs.name < rhs.name
             })
-            .sorted(by: { lhs, _ in
-                // swiftlint:disable unused_optional_binding
-                if let _ = lhs as? FSDirectory {
-                    return true
-                }
-                // swiftlint:enable unused_optional_binding
-                return false
+            .sorted(by: { lhs, rhs in
+                return lhs is FSDirectory && rhs is FSFile
             })
     }
 }

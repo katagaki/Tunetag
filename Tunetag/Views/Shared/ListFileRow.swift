@@ -19,6 +19,8 @@ struct ListFileRow: View {
                 .frame(width: 24.0, height: 24.0)
             Text(name)
                 .font(.body)
+                .lineLimit(1)
+                .truncationMode(.middle)
         }
     }
 

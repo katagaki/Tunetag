@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct MainTabView: View {
 
@@ -29,6 +30,12 @@ struct MainTabView: View {
                     Label("TabTitle.More", systemImage: "ellipsis")
                 }
                 .tag(TabType.more)
+        }
+        .task {
+            try? Tips.configure([
+                .displayFrequency(.immediate),
+                .datastoreLocation(.applicationDefault)
+            ])
         }
         .onReceive(tabManager.$selectedTab, perform: { newValue in
             if newValue == tabManager.previouslySelectedTab {

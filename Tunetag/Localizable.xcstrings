@@ -125,7 +125,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "このフォルダーにはMP3ファイルはありません。"
+            "value" : "このフォルダーにMP3ファイルはありません。"
           }
         }
       }
@@ -369,6 +369,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "こちらにファイルを移動してください"
+          }
+        }
+      }
+    },
+    "Shared.Edit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編集"
+          }
+        }
+      }
+    },
+    "Shared.OpenFilesApp" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Files App"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「ファイル」アプリに移動"
           }
         }
       }

@@ -25,7 +25,7 @@ struct BatchEditView: View {
             .listStyle(.plain)
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
-                case .batchFileInfo:
+                case .tagEditorMultiple:
                     TagEditorView(files: batchFileManager.files)
                 default:
                     Color.clear
@@ -55,7 +55,7 @@ struct BatchEditView: View {
                         return true
                     }
                     Button {
-                        navigationManager.push(ViewPath.batchFileInfo,
+                        navigationManager.push(ViewPath.tagEditorMultiple,
                                                for: .batchEdit)
                     } label: {
                         LargeButtonLabel(iconName: "pencil",

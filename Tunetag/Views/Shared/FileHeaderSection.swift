@@ -13,6 +13,7 @@ struct FileHeaderSection: View {
     @State var filename: String
     @Binding var albumArt: Data?
     @Binding var selectedAlbumArt: PhotosPickerItem?
+    @State var showsPhotosPicker: Bool = true
 
     var body: some View {
         Section {
@@ -36,13 +37,15 @@ struct FileHeaderSection: View {
                         .opacity(0.3)
                 )
                 .overlay {
-                    PhotosPicker(selection: $selectedAlbumArt,
-                                 matching: .images,
-                                 photoLibrary: .shared()) {
-                        Image(systemName: "pencil")
+                    if showsPhotosPicker {
+                        PhotosPicker(selection: $selectedAlbumArt,
+                                     matching: .images,
+                                     photoLibrary: .shared()) {
+                            Image(systemName: "pencil")
+                        }
+                        .clipShape(Circle())
+                        .buttonStyle(.borderedProminent)
                     }
-                                 .clipShape(Circle())
-                                 .buttonStyle(.borderedProminent)
                 }
                 Text(filename)
                     .bold()
