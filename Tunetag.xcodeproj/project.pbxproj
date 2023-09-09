@@ -43,6 +43,7 @@
 		E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76F2AAC3E320043BCC9 /* Tag.swift */; };
 		E432A7722AAC445B0043BCC9 /* TagTyped.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7712AAC445B0043BCC9 /* TagTyped.swift */; };
 		E432A7742AAC4A7B0043BCC9 /* FocusedField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7732AAC4A7B0043BCC9 /* FocusedField.swift */; };
+		E432A7762AAC55B70043BCC9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		E432A76F2AAC3E320043BCC9 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E432A7712AAC445B0043BCC9 /* TagTyped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTyped.swift; sourceTree = "<group>"; };
 		E432A7732AAC4A7B0043BCC9 /* FocusedField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedField.swift; sourceTree = "<group>"; };
+		E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				E432A7202AAA08F70043BCC9 /* Classes */,
 				E432A7242AAA09700043BCC9 /* Enums */,
 				E432A7312AAA0BAB0043BCC9 /* Protocols */,
+				E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */,
 			);
 			path = Tunetag;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E432A7762AAC55B70043BCC9 /* InfoPlist.xcstrings in Resources */,
 				E432A7462AAA265B0043BCC9 /* Localizable.xcstrings in Resources */,
 				E432A70F2AA9FD5F0043BCC9 /* Assets.xcassets in Resources */,
 			);
