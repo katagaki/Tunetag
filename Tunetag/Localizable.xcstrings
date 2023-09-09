@@ -188,125 +188,6 @@
         }
       }
     },
-    "FileInfo.Hint.Tokens.Filename.Description" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Represents the filename without its extension."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "拡張子なしのファイル名に変換します。"
-          }
-        }
-      }
-    },
-    "FileInfo.Hint.Tokens.SplitBack.Description" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Represents the text in the filename after the '-' (dash) symbol. For example, \"Rick Astley - Never Gonna Give You Up.mp3\" will result in \"Never Gonna Give You Up\"."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイル名にある「-」の後ろのテキストに変換します。例えば、「さユり - 花の塔.mp3」の場合、「花の塔」になります。"
-          }
-        }
-      }
-    },
-    "FileInfo.Hint.Tokens.SplitFront.Description" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Represents the text in the filename before the '-' (dash) symbol. For example, \"Rick Astley - Never Gonna Give You Up.mp3\" will result in \"Rick Astley\"."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイル名にある「-」の前のテキストに変換します。例えば、「さユり - 花の塔.mp3」の場合、「さユり」になります。"
-          }
-        }
-      }
-    },
-    "FileInfo.Hint.Tokens.Title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Available Tokens"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "変換トークン"
-          }
-        }
-      }
-    },
-    "FileInfo.TagData" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tag Data"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タグ情報"
-          }
-        }
-      }
-    },
-    "FileInfo.Tip.Tokens.Text" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use various tokens to make use of existing information (such as the MP3 file's filename) to edit your tags.\nScroll down to see the tokens you can use."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "変換トークンを利用すると、ファイル名など既存の情報を利用し、より早くタグの情報を埋め込むことができます。\n下にスクロールすると、利用できるトークンがご覧になれます。"
-          }
-        }
-      }
-    },
-    "FileInfo.Tip.Tokens.Title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Using Tokens"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "より速く編集する方法"
-          }
-        }
-      }
-    },
     "More.Attribution" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -692,6 +573,125 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "年"
+          }
+        }
+      }
+    },
+    "TagEditor.TagData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tag Data"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タグ情報"
+          }
+        }
+      }
+    },
+    "TagEditor.Tip.Tokens.Text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can use various tokens to make use of existing information (such as the MP3 file's filename) to edit your tags.\nScroll down to see the tokens you can use."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "変換トークンを利用すると、ファイル名など既存の情報を利用し、より早くタグの情報を埋め込むことができます。\n下にスクロールすると、利用できるトークンがご覧になれます。"
+          }
+        }
+      }
+    },
+    "TagEditor.Tip.Tokens.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Using Tokens"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "より速く編集する方法"
+          }
+        }
+      }
+    },
+    "TagEditor.Tokens.Filename.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Represents the filename without its extension."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拡張子なしのファイル名に変換します。"
+          }
+        }
+      }
+    },
+    "TagEditor.Tokens.SplitBack.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Represents the text in the filename after the '-' (dash) symbol. For example, \"Rick Astley - Never Gonna Give You Up.mp3\" will result in \"Never Gonna Give You Up\"."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル名にある「-」の後ろのテキストに変換します。例えば、「さユり - 花の塔.mp3」の場合、「花の塔」になります。"
+          }
+        }
+      }
+    },
+    "TagEditor.Tokens.SplitFront.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Represents the text in the filename before the '-' (dash) symbol. For example, \"Rick Astley - Never Gonna Give You Up.mp3\" will result in \"Rick Astley\"."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル名にある「-」の前のテキストに変換します。例えば、「さユり - 花の塔.mp3」の場合、「さユり」になります。"
+          }
+        }
+      }
+    },
+    "TagEditor.Tokens.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Available Tokens"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "変換トークン"
           }
         }
       }

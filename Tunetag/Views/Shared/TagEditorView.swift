@@ -29,23 +29,21 @@ struct TagEditorView: View {
                                   albumArt: $tagData.albumArt,
                                   selectedAlbumArt: $selectedAlbumArt)
                 TagDataSection(tagData: $tagData)
+                    .popoverTip(availableTokensTip, arrowEdge: .bottom)
             } else {
                 FileHeaderSection(filename: NSLocalizedString("BatchEdit.MultipleFiles", comment: ""),
                                   albumArt: $tagData.albumArt,
                                   selectedAlbumArt: $selectedAlbumArt)
-                TagDataSection(tagData: $tagData,
-                               placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
+                TagDataSection(tagData: $tagData, placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
+                    .popoverTip(availableTokensTip, arrowEdge: .bottom)
             }
             Section {
-                AvailableTokenRow(tokenName: "FILENAME",
-                                  tokenDescription: "FileInfo.Hint.Tokens.Filename.Description")
-                AvailableTokenRow(tokenName: "SPLITFRONT",
-                                  tokenDescription: "FileInfo.Hint.Tokens.SplitFront.Description")
-                AvailableTokenRow(tokenName: "SPLITBACK",
-                                  tokenDescription: "FileInfo.Hint.Tokens.SplitBack.Description")
+                AvailableTokenRow(tokenName: "FILENAME", tokenDescription: "TagEditor.Tokens.Filename.Description")
+                AvailableTokenRow(tokenName: "SPLITFRONT", tokenDescription: "TagEditor.Tokens.SplitFront.Description")
+                AvailableTokenRow(tokenName: "SPLITBACK", tokenDescription: "TagEditor.Tokens.SplitBack.Description")
             } header: {
                 VStack(alignment: .leading, spacing: 2.0) {
-                    ListSectionHeader(text: "FileInfo.Hint.Tokens.Title")
+                    ListSectionHeader(text: "TagEditor.Tokens.Title")
                         .font(.body)
                 }
             }
@@ -97,94 +95,32 @@ struct TagEditorView: View {
         }
     }
 
-    // swiftlint:disable cyclomatic_complexity
-    // swiftlint:disable function_body_length
-    // TODO: Optimize this function
     func readAllTagData() {
         debugPrint("Attempting to read tag data for \(files.count) files...")
-
         // Check for common tag data betwen all files
-        var albumArt: Data?
-        var title, artist, album, albumArtist, genre, composer: String?
-        var year, track, discNumber: Int?
-        for index in 0..<files.count {
-            debugPrint("Attempting to read tag data for file \(index)...")
+        var tagCombined: TagTyped?
+        for file in files {
+            debugPrint("Attempting to read tag data for file \(file.name)...")
             do {
-                let tag = try id3TagEditor.read(from: files[index].path)
+                let tag = try id3TagEditor.read(from: file.path)
                 if let tag = tag {
-                    tags.updateValue(tag, forKey: files[index])
+                    tags.updateValue(tag, forKey: file)
                     let tagContentReader = ID3TagContentReader(id3Tag: tag)
-                    if index == 0 {
-                        title = tagContentReader.title() ?? ""
-                        artist = tagContentReader.artist() ?? ""
-                        album = tagContentReader.album() ?? ""
-                        albumArtist = tagContentReader.albumArtist() ?? ""
-                        if let yearFromTag = tagContentReader.recordingDateTime()?.year {
-                            year = yearFromTag
-                        }
-                        if let trackFromTag = tagContentReader.trackPosition()?.position {
-                            track = trackFromTag
-                        }
-                        genre = tagContentReader.genre()?.description ?? ""
-                        composer = tagContentReader.composer() ?? ""
-                        if let discNumberFromTag = tagContentReader.discPosition()?.position {
-                            discNumber = discNumberFromTag
-                        }
-                        if let albumArtFromTag = tagContentReader.attachedPictures().first(where: { picture in
-                            picture.type == .frontCover
-                        }) {
-                            albumArt = albumArtFromTag.picture
-                        }
+                    if tagCombined == nil {
+                        tagCombined = TagTyped(reader: tagContentReader)
                     } else {
-                        if title != tagContentReader.title() ?? "" { title = nil }
-                        if artist != tagContentReader.artist() ?? "" { artist = nil }
-                        if album != tagContentReader.album() ?? "" { album = nil }
-                        if albumArtist != tagContentReader.albumArtist() ?? "" { albumArtist = nil }
-                        if let yearFromTag = tagContentReader.recordingDateTime()?.year {
-                            if year != yearFromTag { year = nil }
-                        } else {
-                            if year != nil { year = nil }
-                        }
-                        if let trackFromTag = tagContentReader.trackPosition()?.position {
-                            if track != trackFromTag { track = nil }
-                        } else {
-                            if track != nil { track = nil }
-                        }
-                        if genre != tagContentReader.genre()?.description ?? "" { genre = nil }
-                        if composer != tagContentReader.composer() ?? "" { composer = nil }
-                        if let discNumberFromTag = tagContentReader.discPosition()?.position {
-                            if discNumber != discNumberFromTag { discNumber = nil }
-                        } else {
-                            if discNumber != nil { discNumber = nil }
-                        }
-                        if let albumArtFromTag = tagContentReader.attachedPictures().first(where: { picture in
-                            picture.type == .frontCover
-                        }) {
-                            if albumArt != albumArtFromTag.picture { albumArt = nil }
-                        } else {
-                            if albumArt != nil { albumArt = nil }
-                        }
+                        tagCombined!.merge(with: tagContentReader)
                     }
                 }
             } catch {
                 debugPrint("Error occurred while reading tags: \n\(error.localizedDescription)")
             }
         }
-
         // Load data into view
-        tagData.albumArt = albumArt
-        tagData.title = title ?? ""
-        tagData.artist = artist ?? ""
-        tagData.album = album ?? ""
-        tagData.albumArtist = albumArtist ?? ""
-        if let year = year { tagData.year = String(year) }
-        if let track = track { tagData.track = String(track) }
-        tagData.genre = genre ?? ""
-        tagData.composer = composer ?? ""
-        if let discNumber = discNumber { tagData.discNumber = String(discNumber) }
+        if let tagCombined = tagCombined {
+            tagData = Tag(from: tagCombined)
+        }
     }
-    // swiftlint:enable cyclomatic_complexity
-    // swiftlint:enable function_body_length
 
     func saveAllTagData() {
         for file in files {
@@ -194,7 +130,6 @@ struct TagEditorView: View {
 
     // swiftlint:disable cyclomatic_complexity
     // swiftlint:disable function_body_length
-    // TODO: Optimize this function
     func saveTagData(to file: FSFile, retriesWhenFailed willRetry: Bool = true) {
         debugPrint("Attempting to save tag data...")
         changeSaveState(to: .saving)

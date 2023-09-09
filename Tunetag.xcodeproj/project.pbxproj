@@ -41,6 +41,7 @@
 		E432A7692AAB9EBE0043BCC9 /* AvailableTokenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */; };
 		E432A76B2AAB9F430043BCC9 /* FileHeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */; };
 		E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76F2AAC3E320043BCC9 /* Tag.swift */; };
+		E432A7722AAC445B0043BCC9 /* TagTyped.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7712AAC445B0043BCC9 /* TagTyped.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTokenRow.swift; sourceTree = "<group>"; };
 		E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHeaderSection.swift; sourceTree = "<group>"; };
 		E432A76F2AAC3E320043BCC9 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		E432A7712AAC445B0043BCC9 /* TagTyped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTyped.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */,
 				E432A7412AAA16B90043BCC9 /* License.swift */,
 				E432A76F2AAC3E320043BCC9 /* Tag.swift */,
+				E432A7712AAC445B0043BCC9 /* TagTyped.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */,
 				E432A72E2AAA0A640043BCC9 /* MainTabView.swift in Sources */,
 				E432A76B2AAB9F430043BCC9 /* FileHeaderSection.swift in Sources */,
+				E432A7722AAC445B0043BCC9 /* TagTyped.swift in Sources */,
 				E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */,
 				E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */,
 				E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */,

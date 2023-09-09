@@ -10,10 +10,10 @@ import TipKit
 
 struct AvailableTokensTip: Tip {
     var title: Text {
-        Text("FileInfo.Tip.Tokens.Title")
+        Text("TagEditor.Tip.Tokens.Title")
     }
     var message: Text? {
-        Text("FileInfo.Tip.Tokens.Text")
+        Text("TagEditor.Tip.Tokens.Text")
     }
     var image: Image? {
         Image(systemName: "info.circle.fill")

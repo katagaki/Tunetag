@@ -28,7 +28,7 @@ struct TagDataSection: View {
             ListDetailRow(title: "Tag.DiscNumber", placeholder: placeholder, value: $tagData.discNumber)
                 .keyboardType(.numberPad)
         } header: {
-            ListSectionHeader(text: "FileInfo.TagData")
+            ListSectionHeader(text: "TagEditor.TagData")
                 .font(.body)
         }
     }
