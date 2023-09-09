@@ -54,12 +54,37 @@ struct TagDataSection: View {
             ListSectionHeader(text: "TagEditor.TagData")
                 .font(.body)
         }
+        .onChange(of: tagData.year) { oldValue, newValue in
+            if containsAnythingOtherThanNumbers(newValue) || newValue.count > 4 {
+                tagData.year = oldValue
+            }
+        }
+        .onChange(of: tagData.track) { oldValue, newValue in
+            if containsAnythingOtherThanNumbers(newValue) {
+                tagData.track = oldValue
+            }
+        }
         .onChange(of: tagData.genre) { oldValue, newValue in
-            let validCharacters: CharacterSet = .alphanumerics.union(.whitespaces).inverted
-            let characterRange = newValue.rangeOfCharacter(from: validCharacters)
-            if characterRange != nil {
+            if containsAnythingOtherThanAlphanumerics(newValue) {
                 tagData.genre = oldValue
             }
         }
+        .onChange(of: tagData.discNumber) { oldValue, newValue in
+            if containsAnythingOtherThanNumbers(newValue) {
+                tagData.discNumber = oldValue
+            }
+        }
+    }
+
+    func containsAnythingOtherThanAlphanumerics(_ string: String) -> Bool {
+        let validCharacters: CharacterSet = .alphanumerics.union(.whitespaces).inverted
+        let characterRange = string.rangeOfCharacter(from: validCharacters)
+        return characterRange != nil
+    }
+
+    func containsAnythingOtherThanNumbers(_ string: String) -> Bool {
+        let validCharacters: CharacterSet = .init(charactersIn: "0123456789").inverted
+        let characterRange = string.rangeOfCharacter(from: validCharacters)
+        return characterRange != nil
     }
 }
