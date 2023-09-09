@@ -20,6 +20,8 @@ struct ListFolderRow: View {
                 .foregroundStyle(.cyan)
             Text(name)
                 .font(.body)
+                .lineLimit(1)
+                .truncationMode(.middle)
         }
     }
 

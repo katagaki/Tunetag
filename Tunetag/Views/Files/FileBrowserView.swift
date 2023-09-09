@@ -25,6 +25,14 @@ struct FileBrowserView: View {
                     NavigationLink(value: ViewPath.fileBrowser(directory: directory)) {
                         ListFolderRow(name: directory.name)
                     }
+                    .contextMenu(menuItems: {
+                        Button {
+                            navigationManager.push(ViewPath.fileBrowser(directory: directory),
+                                                   for: .fileManager)
+                        } label: {
+                            Label("Shared.Open", systemImage: "folder.fill")
+                        }
+                    })
                 } else if let file = file as? FSFile {
                     Button {
                         navigationManager.push(ViewPath.tagEditorSingle(file: file),
@@ -43,7 +51,7 @@ struct FileBrowserView: View {
                             navigationManager.push(ViewPath.tagEditorSingle(file: file),
                                                    for: .fileManager)
                         } label: {
-                            Text("Shared.Edit")
+                            Label("Shared.Edit", systemImage: "pencil")
                         }
                     }, preview: {
                         FilePreview(file: file)
