@@ -11,6 +11,7 @@ class NavigationManager: ObservableObject {
 
     @Published var browserTabPath: [ViewPath] = []
     @Published var batchEditTabPath: [ViewPath] = []
+    @Published var moreTabPath: [ViewPath] = []
 
     func popToRoot(for tab: TabType) {
         switch tab {
@@ -19,7 +20,7 @@ class NavigationManager: ObservableObject {
         case .batchEdit:
             batchEditTabPath.removeAll()
         case .more:
-            break
+            moreTabPath.removeAll()
         }
     }
 
@@ -30,7 +31,7 @@ class NavigationManager: ObservableObject {
         case .batchEdit:
             batchEditTabPath.append(viewPath)
         case .more:
-            break
+            moreTabPath.append(viewPath)
         }
     }
 

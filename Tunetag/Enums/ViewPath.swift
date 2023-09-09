@@ -11,4 +11,5 @@ enum ViewPath: Hashable {
     case fileBrowser(directory: FSDirectory)
     case fileInfo(file: FSFile)
     case batchFileInfo
+    case moreAttributions
 }

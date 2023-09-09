@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct MoreView: View {
+
+    @EnvironmentObject var navigationManager: NavigationManager
+
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navigationManager.moreTabPath) {
             List {
                 Section {
                     Link(destination: URL(string: "https://x.com/katagaki_")!) {
@@ -50,15 +53,21 @@ struct MoreView: View {
                         .font(.body)
                 }
                 Section {
-                    NavigationLink {
-                        LicensesView()
-                    } label: {
+                    NavigationLink(value: ViewPath.moreAttributions) {
                         ListRow(image: "ListIcon.Attributions",
                                 title: "More.Attribution")
                     }
                 }
             }
             .listStyle(.insetGrouped)
+            .navigationDestination(for: ViewPath.self, destination: { viewPath in
+                switch viewPath {
+                case .moreAttributions:
+                    LicensesView()
+                default:
+                    Color.clear
+                }
+            })
             .navigationTitle("ViewTitle.More")
         }
     }
