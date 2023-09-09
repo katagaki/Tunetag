@@ -19,7 +19,6 @@
 		E432A72E2AAA0A640043BCC9 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A72D2AAA0A640043BCC9 /* MainTabView.swift */; };
 		E432A7302AAA0B2E0043BCC9 /* FSDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */; };
 		E432A7332AAA0BB90043BCC9 /* FilesystemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7322AAA0BB90043BCC9 /* FilesystemObject.swift */; };
-		E432A7352AAA10BE0043BCC9 /* FileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7342AAA10BE0043BCC9 /* FileInfoView.swift */; };
 		E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7392AAA167C0043BCC9 /* MoreView.swift */; };
 		E432A73C2AAA16910043BCC9 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A73B2AAA16910043BCC9 /* ListRow.swift */; };
 		E432A73E2AAA169E0043BCC9 /* ListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */; };
@@ -35,9 +34,13 @@
 		E432A7592AAA524A0043BCC9 /* LargeButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7582AAA524A0043BCC9 /* LargeButtonLabel.swift */; };
 		E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */; };
 		E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75E2AAB35420043BCC9 /* SaveState.swift */; };
-		E432A7612AAB41920043BCC9 /* BatchFileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7602AAB41920043BCC9 /* BatchFileInfoView.swift */; };
+		E432A7612AAB41920043BCC9 /* TagEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7602AAB41920043BCC9 /* TagEditorView.swift */; };
 		E432A7632AAB530A0043BCC9 /* BatchFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */; };
 		E432A7652AAB9AA70043BCC9 /* AvailableTokensTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */; };
+		E432A7672AAB9D9E0043BCC9 /* TagDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7662AAB9D9E0043BCC9 /* TagDataSection.swift */; };
+		E432A7692AAB9EBE0043BCC9 /* AvailableTokenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */; };
+		E432A76B2AAB9F430043BCC9 /* FileHeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */; };
+		E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76F2AAC3E320043BCC9 /* Tag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +59,6 @@
 		E432A72D2AAA0A640043BCC9 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDirectory.swift; sourceTree = "<group>"; };
 		E432A7322AAA0BB90043BCC9 /* FilesystemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemObject.swift; sourceTree = "<group>"; };
-		E432A7342AAA10BE0043BCC9 /* FileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfoView.swift; sourceTree = "<group>"; };
 		E432A7392AAA167C0043BCC9 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		E432A73B2AAA16910043BCC9 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionHeader.swift; sourceTree = "<group>"; };
@@ -71,9 +73,13 @@
 		E432A7582AAA524A0043BCC9 /* LargeButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonLabel.swift; sourceTree = "<group>"; };
 		E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserNoFilesTip.swift; sourceTree = "<group>"; };
 		E432A75E2AAB35420043BCC9 /* SaveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveState.swift; sourceTree = "<group>"; };
-		E432A7602AAB41920043BCC9 /* BatchFileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFileInfoView.swift; sourceTree = "<group>"; };
+		E432A7602AAB41920043BCC9 /* TagEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEditorView.swift; sourceTree = "<group>"; };
 		E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFileManager.swift; sourceTree = "<group>"; };
 		E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTokensTip.swift; sourceTree = "<group>"; };
+		E432A7662AAB9D9E0043BCC9 /* TagDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataSection.swift; sourceTree = "<group>"; };
+		E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTokenRow.swift; sourceTree = "<group>"; };
+		E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHeaderSection.swift; sourceTree = "<group>"; };
+		E432A76F2AAC3E320043BCC9 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,7 @@
 				E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */,
 				E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */,
 				E432A7412AAA16B90043BCC9 /* License.swift */,
+				E432A76F2AAC3E320043BCC9 /* Tag.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -177,6 +184,10 @@
 		E432A74D2AAA498A0043BCC9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E432A7602AAB41920043BCC9 /* TagEditorView.swift */,
+				E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */,
+				E432A7662AAB9D9E0043BCC9 /* TagDataSection.swift */,
+				E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */,
 				E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */,
 				E432A73B2AAA16910043BCC9 /* ListRow.swift */,
 				E432A7472AAA2D2B0043BCC9 /* ListDetailRow.swift */,
@@ -192,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */,
-				E432A7342AAA10BE0043BCC9 /* FileInfoView.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -210,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				E432A7512AAA49C50043BCC9 /* BatchEditView.swift */,
-				E432A7602AAB41920043BCC9 /* BatchFileInfoView.swift */,
 			);
 			path = "Batch Edit";
 			sourceTree = "<group>";
@@ -314,6 +323,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */,
+				E432A7672AAB9D9E0043BCC9 /* TagDataSection.swift in Sources */,
 				E432A7482AAA2D2B0043BCC9 /* ListDetailRow.swift in Sources */,
 				E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */,
 				E432A7232AAA094A0043BCC9 /* FSFile.swift in Sources */,
@@ -322,11 +333,12 @@
 				E432A7332AAA0BB90043BCC9 /* FilesystemObject.swift in Sources */,
 				E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */,
 				E432A72E2AAA0A640043BCC9 /* MainTabView.swift in Sources */,
-				E432A7352AAA10BE0043BCC9 /* FileInfoView.swift in Sources */,
+				E432A76B2AAB9F430043BCC9 /* FileHeaderSection.swift in Sources */,
 				E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */,
 				E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */,
 				E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */,
 				E432A7632AAB530A0043BCC9 /* BatchFileManager.swift in Sources */,
+				E432A7692AAB9EBE0043BCC9 /* AvailableTokenRow.swift in Sources */,
 				E432A7572AAA4A2F0043BCC9 /* ListFileRow.swift in Sources */,
 				E432A7302AAA0B2E0043BCC9 /* FSDirectory.swift in Sources */,
 				E432A72C2AAA0A490043BCC9 /* TabManager.swift in Sources */,
@@ -334,7 +346,7 @@
 				E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */,
 				E432A7282AAA09D50043BCC9 /* NavigationManager.swift in Sources */,
 				E432A7522AAA49C50043BCC9 /* BatchEditView.swift in Sources */,
-				E432A7612AAB41920043BCC9 /* BatchFileInfoView.swift in Sources */,
+				E432A7612AAB41920043BCC9 /* TagEditorView.swift in Sources */,
 				E432A73E2AAA169E0043BCC9 /* ListSectionHeader.swift in Sources */,
 				E432A73C2AAA16910043BCC9 /* ListRow.swift in Sources */,
 				E432A7402AAA16A90043BCC9 /* LicensesView.swift in Sources */,

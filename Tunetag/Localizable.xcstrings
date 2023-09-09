@@ -189,6 +189,7 @@
       }
     },
     "FileInfo.Hint.Tokens.Filename.Description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -205,6 +206,7 @@
       }
     },
     "FileInfo.Hint.Tokens.SplitBack.Description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -221,6 +223,7 @@
       }
     },
     "FileInfo.Hint.Tokens.SplitFront.Description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

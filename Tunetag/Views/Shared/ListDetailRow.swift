@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ListDetailRow: View {
+
     var title: String
     var placeholder: String?
     @Binding var value: String

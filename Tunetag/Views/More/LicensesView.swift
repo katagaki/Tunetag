@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// swiftlint:disable type_body_length
-// swiftlint:disable file_length
 struct LicensesView: View {
 
     @State var licenses: [License] = [
@@ -53,5 +51,3 @@ SOFTWARE.
         .navigationTitle("ViewTitle.Attributions")
     }
 }
-// swiftlint:enable type_body_length
-// swiftlint:enable file_length

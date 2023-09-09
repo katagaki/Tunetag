@@ -46,7 +46,7 @@ struct FileBrowserView: View {
                 case .fileBrowser(let directory):
                     FileBrowserView(currentDirectory: directory)
                 case .fileInfo(let file):
-                    FileInfoView(currentFile: file)
+                    TagEditorView(files: [file])
                 default:
                     Color.clear
                 }
