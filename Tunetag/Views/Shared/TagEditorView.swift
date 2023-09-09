@@ -58,8 +58,10 @@ struct TagEditorView: View {
                     switch saveState {
                     case .notSaved:
                         Button {
-                            saveAllTagData()
-                            readAllTagData()
+                            DispatchQueue.main.async {
+                                saveAllTagData()
+                                readAllTagData()
+                            }
                         } label: {
                             Text("Shared.Save")
                         }

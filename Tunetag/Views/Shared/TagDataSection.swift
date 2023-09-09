@@ -33,6 +33,7 @@ struct TagDataSection: View {
                 .keyboardType(.numberPad)
                 ListInputRow(title: "Tag.Genre", placeholder: placeholder,
                               value: $tagData.genre, focusedFieldValue: .genre, focusedField: focusedField)
+                .keyboardType(.asciiCapable)
                 ListInputRow(title: "Tag.Composer", placeholder: placeholder,
                               value: $tagData.composer, focusedFieldValue: .composer, focusedField: focusedField)
                 ListInputRow(title: "Tag.DiscNumber", placeholder: placeholder,
@@ -52,6 +53,13 @@ struct TagDataSection: View {
         } header: {
             ListSectionHeader(text: "TagEditor.TagData")
                 .font(.body)
+        }
+        .onChange(of: tagData.genre) { oldValue, newValue in
+            let validCharacters: CharacterSet = .alphanumerics.union(.whitespaces).inverted
+            let characterRange = newValue.rangeOfCharacter(from: validCharacters)
+            if characterRange != nil {
+                tagData.genre = oldValue
+            }
         }
     }
 }
