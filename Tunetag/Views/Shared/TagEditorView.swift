@@ -13,12 +13,13 @@ import TipKit
 // swiftlint:disable type_body_length
 struct TagEditorView: View {
 
+    let id3TagEditor = ID3TagEditor()
     @State var files: [FSFile]
     @State var tags: [FSFile: ID3Tag] = [:]
-    let id3TagEditor = ID3TagEditor()
     @State var tagData = Tag()
     @State var selectedAlbumArt: PhotosPickerItem?
     @State var saveState: SaveState = .notSaved
+    @FocusState var focusedField: FocusedField?
 
     var availableTokensTip = AvailableTokensTip()
 
@@ -28,13 +29,14 @@ struct TagEditorView: View {
                 FileHeaderSection(filename: files[0].name,
                                   albumArt: $tagData.albumArt,
                                   selectedAlbumArt: $selectedAlbumArt)
-                TagDataSection(tagData: $tagData)
+                TagDataSection(tagData: $tagData, focusedField: $focusedField)
                     .popoverTip(availableTokensTip, arrowEdge: .bottom)
             } else {
                 FileHeaderSection(filename: NSLocalizedString("BatchEdit.MultipleFiles", comment: ""),
                                   albumArt: $tagData.albumArt,
                                   selectedAlbumArt: $selectedAlbumArt)
-                TagDataSection(tagData: $tagData, placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
+                TagDataSection(tagData: $tagData, focusedField: $focusedField,
+                               placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
                     .popoverTip(availableTokensTip, arrowEdge: .bottom)
             }
             Section {
@@ -70,6 +72,13 @@ struct TagEditorView: View {
                     }
                 }
                 .transition(AnyTransition.scale.animation(.snappy))
+            }
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Shared.Done") {
+                    focusedField = nil
+                }
+                .bold()
             }
         }
         .onAppear {

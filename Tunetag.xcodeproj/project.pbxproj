@@ -42,6 +42,7 @@
 		E432A76B2AAB9F430043BCC9 /* FileHeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */; };
 		E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76F2AAC3E320043BCC9 /* Tag.swift */; };
 		E432A7722AAC445B0043BCC9 /* TagTyped.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7712AAC445B0043BCC9 /* TagTyped.swift */; };
+		E432A7742AAC4A7B0043BCC9 /* FocusedField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7732AAC4A7B0043BCC9 /* FocusedField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHeaderSection.swift; sourceTree = "<group>"; };
 		E432A76F2AAC3E320043BCC9 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E432A7712AAC445B0043BCC9 /* TagTyped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTyped.swift; sourceTree = "<group>"; };
+		E432A7732AAC4A7B0043BCC9 /* FocusedField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				E432A75E2AAB35420043BCC9 /* SaveState.swift */,
 				E432A7252AAA097E0043BCC9 /* ViewPath.swift */,
 				E432A7292AAA09EE0043BCC9 /* TabType.swift */,
+				E432A7732AAC4A7B0043BCC9 /* FocusedField.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */,
 				E432A7232AAA094A0043BCC9 /* FSFile.swift in Sources */,
 				E432A71E2AA9FF3A0043BCC9 /* FilesystemManager.swift in Sources */,
+				E432A7742AAC4A7B0043BCC9 /* FocusedField.swift in Sources */,
 				E432A7592AAA524A0043BCC9 /* LargeButtonLabel.swift in Sources */,
 				E432A7332AAA0BB90043BCC9 /* FilesystemObject.swift in Sources */,
 				E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */,
