@@ -33,6 +33,8 @@ struct TagTyped {
         if let albumArtFromTag = tagContentReader.attachedPictures()
                 .first(where: { $0.type == .frontCover }) {
             albumArt = albumArtFromTag.picture
+        } else if let albumArtFromTag = tagContentReader.attachedPictures().first {
+            albumArt = albumArtFromTag.picture
         }
     }
 
