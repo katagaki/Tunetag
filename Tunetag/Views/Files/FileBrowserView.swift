@@ -40,6 +40,21 @@ struct FileBrowserView: View {
                             } label: {
                                 Label("Shared.Open", systemImage: "folder.fill")
                             }
+                            ControlGroup {
+                                Button {
+                                    addToQueue(directory: directory)
+                                } label: {
+                                    Label("Shared.AddFiles", systemImage: "folder.fill.badge.plus")
+                                }
+                                Button {
+                                    addToQueue(directory: directory, recursively: true)
+                                } label: {
+                                    Label("Shared.AddFilesRecursively", systemImage: "folder.fill.badge.plus")
+                                }
+                            } label: {
+                                Text("Shared.BatchEditor")
+                            }
+                            .controlGroupStyle(.menu)
                         })
                     } else if let file = file as? FSFile {
                         Button {
@@ -61,6 +76,16 @@ struct FileBrowserView: View {
                             } label: {
                                 Label("Shared.Edit", systemImage: "pencil")
                             }
+                            ControlGroup {
+                                Button {
+                                    addToQueue(file: file)
+                                } label: {
+                                    Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
+                                }
+                            } label: {
+                                Text("Shared.BatchEditor")
+                            }
+                            .controlGroupStyle(.menu)
                         }, preview: {
                             FilePreview(file: file)
                         })
@@ -103,7 +128,7 @@ struct FileBrowserView: View {
                 VStack(alignment: .center, spacing: 16.0) {
                     Image(systemName: "square.and.arrow.down.on.square.fill")
                         .font(.largeTitle)
-                    Text("BatchEdit.DropZone.Hint.Simple")
+                    Text("FileBrowser.DropZone.Hint.Simple")
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -111,9 +136,7 @@ struct FileBrowserView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10.0))
                 .padding()
                 .dropDestination(for: FSFile.self) { items, _ in
-                    for item in items where !batchFileManager.files.contains(item) {
-                        batchFileManager.files.append(contentsOf: items)
-                    }
+                    batchFileManager.addFiles(items)
                     return true
                 }
             }
@@ -138,6 +161,28 @@ struct FileBrowserView: View {
             .sorted(by: { lhs, rhs in
                 return lhs is FSDirectory && rhs is FSFile
             })
+    }
+
+    func addToQueue(directory: FSDirectory, recursively isRecursiveAdd: Bool = false) {
+        let contents = fileManager.files(in: directory.path)
+        var files: [FSFile] = []
+        for content in contents {
+            if let file = content as? FSFile {
+                files.append(file)
+            }
+        }
+        batchFileManager.addFiles(files)
+        if isRecursiveAdd {
+            for content in contents {
+                if let directory = content as? FSDirectory {
+                    addToQueue(directory: directory, recursively: isRecursiveAdd)
+                }
+            }
+        }
+    }
+
+    func addToQueue(file: FSFile) {
+        batchFileManager.addFile(file)
     }
 
     @ViewBuilder

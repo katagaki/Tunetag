@@ -37,37 +37,19 @@ struct BatchEditView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                VStack(alignment: .center, spacing: 16.0) {
-                    VStack(alignment: .center, spacing: 16.0) {
-                        Image(systemName: "square.and.arrow.down.on.square.fill")
-                            .font(.largeTitle)
-                        Text("BatchEdit.DropZone.Hint")
-                    }
+                Button {
+                    navigationManager.push(ViewPath.tagEditorMultiple,
+                                           for: .batchEdit)
+                } label: {
+                    LargeButtonLabel(iconName: "pencil",
+                                     text: "BatchEdit.StartEditing")
+                    .bold()
                     .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(.regularMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                    .padding([.leading, .trailing])
-                    .dropDestination(for: FSFile.self) { items, _ in
-                        for item in items where !batchFileManager.files.contains(item) {
-                            batchFileManager.files.append(contentsOf: items)
-                        }
-                        return true
-                    }
-                    Button {
-                        navigationManager.push(ViewPath.tagEditorMultiple,
-                                               for: .batchEdit)
-                    } label: {
-                        LargeButtonLabel(iconName: "pencil",
-                                         text: "BatchEdit.StartEditing")
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(RoundedRectangle(cornerRadius: 99))
-                    .padding([.leading, .trailing, .bottom])
-                    .disabled(batchFileManager.files.isEmpty)
                 }
+                .buttonStyle(.borderedProminent)
+                .clipShape(RoundedRectangle(cornerRadius: 99))
+                .padding([.leading, .trailing, .bottom])
+                .disabled(batchFileManager.files.isEmpty)
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -80,7 +62,7 @@ struct BatchEditView: View {
                     }
                 }
             }
-            .navigationTitle("ViewTitle.BatchEdit")
+            .navigationTitle("ViewTitle.BatchEditor")
         }
     }
 

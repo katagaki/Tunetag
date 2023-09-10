@@ -22,7 +22,7 @@ struct MainTabView: View {
                 .tag(TabType.fileManager)
             BatchEditView()
                 .tabItem {
-                    Label("TabTitle.BatchEdit", systemImage: "pencil.line")
+                    Label("TabTitle.BatchEditor", systemImage: "pencil.line")
                 }
                 .tag(TabType.batchEdit)
             MoreView()

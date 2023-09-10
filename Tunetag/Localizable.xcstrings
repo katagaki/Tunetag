@@ -11,40 +11,6 @@
         }
       }
     },
-    "BatchEdit.DropZone.Hint" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drop files into this area to add them.\nOnce you are ready, tap Start Editing."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイルを追加するには、こちらにドロップしてください。\n準備ができたら、「編集開始」を押してください。"
-          }
-        }
-      }
-    },
-    "BatchEdit.DropZone.Hint.Simple" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drop files into this area to add them to the batch edit queue."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一括編集キューにファイルを追加するには、こちらにドロップしてください。"
-          }
-        }
-      }
-    },
     "BatchEdit.Hint" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -109,6 +75,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "編集開始"
+          }
+        }
+      }
+    },
+    "FileBrowser.DropZone.Hint.Simple" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drop files into this area to add them to the batch edit queue."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一括編集キューにファイルを追加するには、こちらにドロップしてください。"
           }
         }
       }
@@ -324,6 +307,72 @@
         }
       }
     },
+    "Shared.AddFile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Queue File"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キューに追加"
+          }
+        }
+      }
+    },
+    "Shared.AddFiles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Queue Files"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キューに追加"
+          }
+        }
+      }
+    },
+    "Shared.AddFilesRecursively" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Queue Files Recursively"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再帰的にキューに追加"
+          }
+        }
+      }
+    },
+    "Shared.BatchEditor" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch Editor"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一括編集"
+          }
+        }
+      }
+    },
     "Shared.ClearAll" : {
       "localizations" : {
         "en" : {
@@ -437,13 +486,13 @@
         }
       }
     },
-    "TabTitle.BatchEdit" : {
+    "TabTitle.BatchEditor" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Batch Edit"
+            "value" : "Batch Editor"
           }
         },
         "ja" : {
@@ -777,7 +826,7 @@
         }
       }
     },
-    "ViewTitle.BatchEdit" : {
+    "ViewTitle.BatchEditor" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

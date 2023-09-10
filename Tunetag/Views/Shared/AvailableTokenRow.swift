@@ -19,6 +19,7 @@ struct AvailableTokenRow: View {
                 .font(.body.monospaced())
                 .bold()
             Text(NSLocalizedString(tokenDescription, comment: ""))
+                .font(.caption)
                 .foregroundStyle(.secondary)
         }
     }
