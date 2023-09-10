@@ -16,7 +16,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error Occurred While Extracting ZIP"
+            "value" : "Error Occurred While Extracting Archive"
           }
         },
         "ja" : {
