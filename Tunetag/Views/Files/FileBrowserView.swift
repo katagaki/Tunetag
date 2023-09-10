@@ -249,7 +249,8 @@ struct FileBrowserView: View {
         let contents = fileManager.files(in: directory.path)
         var files: [FSFile] = []
         for content in contents {
-            if let file = content as? FSFile {
+            if let file = content as? FSFile,
+               file.filetype == .mp3 {
                 files.append(file)
             }
         }

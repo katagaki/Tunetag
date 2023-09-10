@@ -569,6 +569,7 @@
       }
     },
     "Shared.Save" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

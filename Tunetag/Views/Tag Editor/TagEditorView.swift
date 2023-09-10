@@ -69,33 +69,41 @@ struct TagEditorView: View {
         .disabled(saveState == .saving)
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                HStack {
-                    switch saveState {
-                    case .notSaved:
-                        Button {
-                            DispatchQueue.global(qos: .background).async {
-                                Task {
-                                    changeSaveState(to: .saving)
-                                    await saveAllTagData()
-                                    readAllTagData()
-                                    changeSaveState(to: .saved)
-                                }
-                            }
-                        } label: {
-                            Text("Shared.Save")
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                if saveState == .notSaved {
+                    DispatchQueue.global(qos: .background).async {
+                        Task {
+                            changeSaveState(to: .saving)
+                            await saveAllTagData()
+                            readAllTagData()
+                            changeSaveState(to: .saved)
                         }
-                    case .saving:
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                    case .saved:
-                        Image(systemName: "checkmark.circle.fill")
-                            .symbolRenderingMode(.multicolor)
                     }
                 }
-                .transition(AnyTransition.scale.animation(.snappy))
+            } label: {
+                switch saveState {
+                case .notSaved:
+                    LargeButtonLabel(iconName: "square.and.arrow.down.fill", text: "Shared.Save")
+                        .bold()
+                        .frame(maxWidth: .infinity)
+                case .saving:
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .padding(.all, 8.0)
+                case .saved:
+                    Image(systemName: "checkmark")
+                        .font(.body)
+                        .bold()
+                        .padding([.top, .bottom], 8.0)
+                        .frame(maxWidth: .infinity)
+                }
             }
+            .buttonStyle(.borderedProminent)
+            .clipShape(RoundedRectangle(cornerRadius: 99))
+            .padding([.leading, .trailing, .bottom])
+        }
+        .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
                 Button("Shared.Done") {
