@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProgressAlert: View {
 
+    @Environment(\.colorScheme) var colorScheme
     @State var title: String
     @State var message: String
     @Binding var percentage: Int
@@ -16,7 +17,7 @@ struct ProgressAlert: View {
 
     var body: some View {
         ZStack(alignment: .center) {
-            Color.black.opacity(0.2)
+            Color.black.opacity(colorScheme == .dark ? 0.5 : 0.2)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             VStack(alignment: .center, spacing: 0.0) {
                 VStack(alignment: .center, spacing: 10.0) {
