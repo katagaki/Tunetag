@@ -154,16 +154,17 @@ struct TagEditorView: View {
     }
 
     func saveAllTagData() {
+        changeSaveState(to: .saving)
         for file in files {
             saveTagData(to: file)
         }
+        changeSaveState(to: .saved)
     }
 
     // swiftlint:disable cyclomatic_complexity
     // swiftlint:disable function_body_length
     func saveTagData(to file: FSFile, retriesWhenFailed willRetry: Bool = true) {
         debugPrint("Attempting to save tag data...")
-        changeSaveState(to: .saving)
         do {
             let tag = tags[file]
             var tagBuilder = ID32v3TagBuilder()
@@ -232,14 +233,11 @@ struct TagEditorView: View {
                     .attachedPicture(pictureType: .frontCover, frame: frame)
             }
             try id3TagEditor.write(tag: tagBuilder.build(), to: file.path)
-            changeSaveState(to: .saved)
         } catch {
             debugPrint("Error occurred while saving tag: \n\(error.localizedDescription)")
             if willRetry {
                 initializeTag(for: file)
                 saveTagData(to: file, retriesWhenFailed: false)
-            } else {
-                changeSaveState(to: .notSaved)
             }
         }
     }
