@@ -25,10 +25,8 @@ struct BatchEditView: View {
             .listStyle(.plain)
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
-                case .tagEditorMultiple:
-                    TagEditorView(files: batchFileManager.files)
-                default:
-                    Color.clear
+                case .tagEditorMultiple: TagEditorView(files: batchFileManager.files)
+                default: Color.clear
                 }
             })
             .background {

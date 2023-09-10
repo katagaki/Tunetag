@@ -43,8 +43,7 @@ struct FileBrowserView: View {
                         }
                         .contextMenu(menuItems: {
                             Button {
-                                navigationManager.push(ViewPath.fileBrowser(directory: directory),
-                                                       for: .fileManager)
+                                navigationManager.push(ViewPath.fileBrowser(directory: directory), for: .fileManager)
                             } label: {
                                 Label("Shared.Open", systemImage: "folder.fill")
                             }
@@ -68,8 +67,7 @@ struct FileBrowserView: View {
                         switch file.filetype {
                         case .mp3:
                             Button {
-                                navigationManager.push(ViewPath.tagEditorSingle(file: file),
-                                                       for: .fileManager)
+                                navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
                             } label: {
                                 ListFileRow(name: file.name, icon: file.filetype.iconName())
                             }
@@ -81,8 +79,7 @@ struct FileBrowserView: View {
                             }
                             .contextMenu(menuItems: {
                                 Button {
-                                    navigationManager.push(ViewPath.tagEditorSingle(file: file),
-                                                           for: .fileManager)
+                                    navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
                                 } label: {
                                     Label("Shared.Edit", systemImage: "pencil")
                                 }
@@ -119,12 +116,9 @@ struct FileBrowserView: View {
             .listStyle(.plain)
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
-                case .fileBrowser(let directory):
-                    FileBrowserView(currentDirectory: directory)
-                case .tagEditorSingle(let file):
-                    TagEditorView(files: [file])
-                default:
-                    Color.clear
+                case .fileBrowser(let directory): FileBrowserView(currentDirectory: directory)
+                case .tagEditorSingle(let file): TagEditorView(files: [file])
+                default: Color.clear
                 }
             })
             .refreshable {
@@ -153,38 +147,16 @@ struct FileBrowserView: View {
             }
             .overlay {
                 if isExtractingZIP {
-                    ZStack(alignment: .center) {
-                        Color.secondary
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        VStack(alignment: .center, spacing: 0.0) {
-                            VStack(alignment: .center, spacing: 16.0) {
-                                Text("Alert.ExtractingZIP.Title")
-                                    .bold()
-                                ProgressView(value: Float(extractionPercentage), total: 100.0)
-                                    .progressViewStyle(.linear)
-                                Text(NSLocalizedString("Alert.ExtractingZIP.Text", comment: "")
-                                    .replacingOccurrences(of: "%1", with: String(extractionPercentage)))
-                            }
-                            .padding()
-                            Divider()
-                            Button {
-                                withAnimation(.easeOut.speed(2)) {
-                                    isExtractionCancelling = true
-                                    extractionProgress?.cancel()
-                                    extractionPercentage = 0
-                                    isExtractingZIP = false
-                                }
-                            } label: {
-                                Text("Shared.Cancel")
-                            }
-                            .buttonStyle(.borderless)
-                            .padding(.all)
+                    ProgressAlert(title: "Alert.ExtractingZIP.Title",
+                                  message: "Alert.ExtractingZIP.Text",
+                                  percentage: $extractionPercentage) {
+                        withAnimation(.easeOut.speed(2)) {
+                            isExtractionCancelling = true
+                            extractionProgress?.cancel()
+                            extractionPercentage = 0
+                            isExtractingZIP = false
                         }
-                        .background(.thickMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 16.0))
-                        .padding(.all, 32.0)
                     }
-                    .transition(AnyTransition.opacity)
                 }
             }
             .alert(Text("Alert.ExtractingZIP.Error.Title"),

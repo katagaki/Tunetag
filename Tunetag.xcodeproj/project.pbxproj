@@ -50,6 +50,7 @@
 		E432A7892AADAB7B0043BCC9 /* DropZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7882AADAB7B0043BCC9 /* DropZone.swift */; };
 		E432A78B2AADAC0E0043BCC9 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A78A2AADAC0E0043BCC9 /* FileType.swift */; };
 		E432A7922AADC5600043BCC9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E432A7912AADC5600043BCC9 /* ZIPFoundation */; };
+		E4641F4E2AADE19900DC6FB3 /* ProgressAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4641F4D2AADE19900DC6FB3 /* ProgressAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		E432A7832AAD91240043BCC9 /* TipSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipSection.swift; sourceTree = "<group>"; };
 		E432A7882AADAB7B0043BCC9 /* DropZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropZone.swift; sourceTree = "<group>"; };
 		E432A78A2AADAC0E0043BCC9 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
+		E4641F4D2AADE19900DC6FB3 /* ProgressAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		E432A74D2AAA498A0043BCC9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E4641F4D2AADE19900DC6FB3 /* ProgressAlert.swift */,
 				E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */,
 				E432A73B2AAA16910043BCC9 /* ListRow.swift */,
 				E432A7472AAA2D2B0043BCC9 /* ListInputRow.swift */,
@@ -392,6 +395,7 @@
 				E432A7612AAB41920043BCC9 /* TagEditorView.swift in Sources */,
 				E432A73E2AAA169E0043BCC9 /* ListSectionHeader.swift in Sources */,
 				E432A73C2AAA16910043BCC9 /* ListRow.swift in Sources */,
+				E4641F4E2AADE19900DC6FB3 /* ProgressAlert.swift in Sources */,
 				E432A7402AAA16A90043BCC9 /* LicensesView.swift in Sources */,
 				E432A7442AAA20C20043BCC9 /* ListHintOverlay.swift in Sources */,
 				E432A7652AAB9AA70043BCC9 /* AvailableTokensTip.swift in Sources */,
