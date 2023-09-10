@@ -11,6 +11,22 @@
         }
       }
     },
+    "Alert.ExtractingZIP.Error.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error Occurred While Extracting ZIP"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解凍中にエラーが発生しました"
+          }
+        }
+      }
+    },
     "Alert.ExtractingZIP.Text" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -500,6 +516,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "解凍"
+          }
+        }
+      }
+    },
+    "Shared.OK" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "確認"
           }
         }
       }

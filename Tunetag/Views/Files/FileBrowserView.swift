@@ -18,6 +18,8 @@ struct FileBrowserView: View {
     @State var files: [any FilesystemObject] = []
     @State var isExtractingZIP: Bool = false
     @State var extractionProgress: Progress = Progress()
+    @State var isErrorAlertPresenting: Bool = false
+    @State var errorText: String = ""
 
     // Support for iOS 16
     @State var showsLegacyTip: Bool = true
@@ -164,6 +166,14 @@ struct FileBrowserView: View {
 //                        .replacingOccurrences(of: "%1", with: String(Int(extractionProgress.fractionCompleted))))
 //                }
             })
+            .alert(Text("Alert.ExtractingZIP.Error.Title"),
+                   isPresented: $isErrorAlertPresenting,
+                   actions: {
+                Button("Shared.OK", role: .cancel) { }
+            },
+                   message: {
+                Text(verbatim: errorText)
+            })
             .navigationTitle(currentDirectory != nil ?
                              currentDirectory!.name :
                                 NSLocalizedString("ViewTitle.Files", comment: ""))
@@ -203,7 +213,10 @@ struct FileBrowserView: View {
                                             preferredEncoding: .shiftJIS)
                 refreshFiles()
             } catch {
-                print("Error occurred while extracting ZIP: \(error.localizedDescription)")
+                debugPrint("Error occurred while extracting ZIP: \(error.localizedDescription)")
+                errorText = error.localizedDescription
+                isExtractingZIP = false
+                isErrorAlertPresenting = true
             }
             isExtractingZIP = false
         }
