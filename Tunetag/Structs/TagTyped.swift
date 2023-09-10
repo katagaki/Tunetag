@@ -52,9 +52,9 @@ struct TagTyped {
         if albumArtist != tagContentReader.albumArtist() ?? "" {
             albumArtist = nil
         }
-        if let yearFromTag = tagContentReader.recordingDateTime()?.year, year != yearFromTag {
+        if let yearFromTag = tagContentReader.recordingYear(), year != yearFromTag {
             year = nil
-        } else if tagContentReader.recordingDateTime()?.year == nil && year != nil {
+        } else if tagContentReader.recordingYear() == nil && year != nil {
             year = nil
         }
         if let trackFromTag = tagContentReader.trackPosition()?.position, track != trackFromTag {
