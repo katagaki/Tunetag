@@ -7,6 +7,7 @@
 
 import SwiftUI
 import TipKit
+import ZIPFoundation
 
 struct FileBrowserView: View {
 
@@ -15,6 +16,8 @@ struct FileBrowserView: View {
     @EnvironmentObject var batchFileManager: BatchFileManager
     @State var currentDirectory: FSDirectory?
     @State var files: [any FilesystemObject] = []
+    @State var isExtractingZIP: Bool = false
+    @State var extractionProgress: Progress = Progress()
 
     // Support for iOS 16
     @State var showsLegacyTip: Bool = true
@@ -57,38 +60,54 @@ struct FileBrowserView: View {
                             .controlGroupStyle(.menu)
                         })
                     } else if let file = file as? FSFile {
-                        Button {
-                            navigationManager.push(ViewPath.tagEditorSingle(file: file),
-                                                   for: .fileManager)
-                        } label: {
-                            ListFileRow(name: file.name)
-                        }
-                        .draggable(file) {
-                            ListFileRow(name: file.name)
-                                .padding()
-                                .background(.background)
-                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                        }
-                        .contextMenu(menuItems: {
+                        switch file.filetype {
+                        case .mp3:
                             Button {
                                 navigationManager.push(ViewPath.tagEditorSingle(file: file),
                                                        for: .fileManager)
                             } label: {
-                                Label("Shared.Edit", systemImage: "pencil")
+                                ListFileRow(name: file.name, icon: file.filetype.iconName())
                             }
-                            ControlGroup {
+                            .draggable(file) {
+                                ListFileRow(name: file.name, icon: file.filetype.iconName())
+                                    .padding()
+                                    .background(.background)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                            }
+                            .contextMenu(menuItems: {
                                 Button {
-                                    addToQueue(file: file)
+                                    navigationManager.push(ViewPath.tagEditorSingle(file: file),
+                                                           for: .fileManager)
                                 } label: {
-                                    Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
+                                    Label("Shared.Edit", systemImage: "pencil")
                                 }
+                                ControlGroup {
+                                    Button {
+                                        addToQueue(file: file)
+                                    } label: {
+                                        Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
+                                    }
+                                } label: {
+                                    Text("Shared.BatchEditor")
+                                }
+                                .controlGroupStyle(.menu)
+                            }, preview: {
+                                FilePreview(file: file)
+                            })
+                        case .zip:
+                            Button {
+                                extractFiles(file: file)
                             } label: {
-                                Text("Shared.BatchEditor")
+                                ListFileRow(name: file.name, icon: file.filetype.iconName())
                             }
-                            .controlGroupStyle(.menu)
-                        }, preview: {
-                            FilePreview(file: file)
-                        })
+                            .contextMenu(menuItems: {
+                                Button {
+                                    extractFiles(file: file)
+                                } label: {
+                                    Label("Shared.Extract", systemImage: "doc.zipper")
+                                }
+                            })
+                        }
                     }
                 }
             }
@@ -125,21 +144,26 @@ struct FileBrowserView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                VStack(alignment: .center, spacing: 16.0) {
-                    Image(systemName: "square.and.arrow.down.on.square.fill")
-                        .font(.largeTitle)
-                    Text("FileBrowser.DropZone.Hint.Simple")
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(.regularMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                .padding()
-                .dropDestination(for: FSFile.self) { items, _ in
-                    batchFileManager.addFiles(items)
-                    return true
-                }
+                DropZone()
             }
+            .alert(Text("Alert.ExtractingZIP.Title"),
+                   isPresented: $isExtractingZIP,
+                   actions: {
+                    Button {
+                        extractionProgress.cancel()
+                        isExtractingZIP = false
+                    } label: {
+                        Text("Shared.Cancel")
+                    }
+                },
+                   message: {
+//                VStack(alignment: .center, spacing: 8.0) {
+//                    ProgressView(value: extractionProgress.fractionCompleted)
+//                        .progressViewStyle(.linear)
+//                    Text(NSLocalizedString("Alert.ExtractingZIP.Text", comment: "")
+//                        .replacingOccurrences(of: "%1", with: String(Int(extractionProgress.fractionCompleted))))
+//                }
+            })
             .navigationTitle(currentDirectory != nil ?
                              currentDirectory!.name :
                                 NSLocalizedString("ViewTitle.Files", comment: ""))
@@ -161,6 +185,28 @@ struct FileBrowserView: View {
             .sorted(by: { lhs, rhs in
                 return lhs is FSDirectory && rhs is FSFile
             })
+    }
+
+    func extractFiles(file: FSFile) {
+        isExtractingZIP = true
+        let destinationURL = URL(filePath: file.path).deletingPathExtension()
+        let destinationDirectory = destinationURL.path().removingPercentEncoding ?? destinationURL.path()
+        debugPrint("Attempting to create directory \(destinationDirectory)...")
+        fileManager.createDirectory(at: destinationDirectory)
+        debugPrint("Attempting to extract ZIP to \(destinationDirectory)...")
+        DispatchQueue.global(qos: .background).async {
+            do {
+                try FileManager().unzipItem(at: URL(filePath: file.path),
+                                            to: destinationURL,
+                                            skipCRC32: true,
+                                            progress: extractionProgress,
+                                            preferredEncoding: .shiftJIS)
+                refreshFiles()
+            } catch {
+                print("Error occurred while extracting ZIP: \(error.localizedDescription)")
+            }
+            isExtractingZIP = false
+        }
     }
 
     func addToQueue(directory: FSDirectory, recursively isRecursiveAdd: Bool = false) {

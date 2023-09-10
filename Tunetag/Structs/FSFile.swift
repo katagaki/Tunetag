@@ -13,7 +13,7 @@ struct FSFile: FilesystemObject, Codable, Transferable {
 
     var name: String
     var path: String
-    var filetype: String
+    var filetype: FileType
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(path)

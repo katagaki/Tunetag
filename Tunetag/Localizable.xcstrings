@@ -11,6 +11,40 @@
         }
       }
     },
+    "Alert.ExtractingZIP.Text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1% completed"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1%"
+          }
+        }
+      }
+    },
+    "Alert.ExtractingZIP.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extracting..."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解凍中…"
+          }
+        }
+      }
+    },
     "BatchEdit.Hint" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -373,6 +407,22 @@
         }
       }
     },
+    "Shared.Cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
+        }
+      }
+    },
     "Shared.ClearAll" : {
       "localizations" : {
         "en" : {
@@ -434,6 +484,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "編集"
+          }
+        }
+      }
+    },
+    "Shared.Extract" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extract"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解凍"
           }
         }
       }
@@ -686,6 +752,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "年"
+          }
+        }
+      }
+    },
+    "TagEditor.SelectAlbumArt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Album Art"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバムカバーを選択"
           }
         }
       }

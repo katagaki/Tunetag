@@ -16,7 +16,7 @@ struct BatchEditView: View {
         NavigationStack(path: $navigationManager.batchEditTabPath) {
             List {
                 ForEach(batchFileManager.files, id: \.path) { file in
-                    ListFileRow(name: file.name)
+                    ListFileRow(name: file.name, icon: file.filetype.iconName())
                 }
                 .onDelete { indexSet in
                     batchFileManager.files.remove(atOffsets: indexSet)

@@ -17,7 +17,7 @@ struct FileHeaderSection: View {
 
     var body: some View {
         Section {
-            HStack(alignment: .center, spacing: 8.0) {
+            HStack(alignment: .top, spacing: 16.0) {
                 Group {
                     if let albumArt = albumArt,
                        let albumArtImage = UIImage(data: albumArt) {
@@ -36,21 +36,22 @@ struct FileHeaderSection: View {
                         .stroke(.primary, lineWidth: 1/3)
                         .opacity(0.3)
                 )
-                .overlay {
+                VStack(alignment: .leading) {
+                    Text(filename)
+                        .bold()
+                        .textCase(.none)
+                        .foregroundStyle(.primary)
                     if showsPhotosPicker {
                         PhotosPicker(selection: $selectedAlbumArt,
                                      matching: .images,
                                      photoLibrary: .shared()) {
-                            Image(systemName: "pencil")
+                            Text("TagEditor.SelectAlbumArt")
+                                .bold()
                         }
-                        .clipShape(Circle())
+                        .clipShape(RoundedRectangle(cornerRadius: 99))
                         .buttonStyle(.borderedProminent)
                     }
                 }
-                Text(filename)
-                    .bold()
-                    .textCase(.none)
-                    .foregroundStyle(.primary)
             }
             .listRowBackground(Color.clear)
         }

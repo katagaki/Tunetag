@@ -74,7 +74,7 @@ struct TagEditorView: View {
                     switch saveState {
                     case .notSaved:
                         Button {
-                            DispatchQueue.main.async {
+                            DispatchQueue.global(qos: .background).async {
                                 saveAllTagData()
                                 readAllTagData()
                             }

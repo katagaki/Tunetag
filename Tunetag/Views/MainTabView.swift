@@ -17,12 +17,12 @@ struct MainTabView: View {
         TabView(selection: $tabManager.selectedTab) {
             FileBrowserView()
                 .tabItem {
-                    Label("TabTitle.Files", systemImage: "folder.fill")
+                    Label("TabTitle.Files", image: "Tab.FileBrowser")
                 }
                 .tag(TabType.fileManager)
             BatchEditView()
                 .tabItem {
-                    Label("TabTitle.BatchEditor", systemImage: "pencil.line")
+                    Label("TabTitle.BatchEditor", image: "Tab.BatchEditor")
                 }
                 .tag(TabType.batchEdit)
             MoreView()

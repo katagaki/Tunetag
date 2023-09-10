@@ -13,10 +13,10 @@ struct ListFolderRow: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: 16.0) {
-            Image(systemName: "folder.fill")
+            Image("Folder")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 24.0, height: 24.0)
+                .frame(width: 28.0, height: 28.0)
                 .foregroundStyle(.cyan)
             Text(name)
                 .font(.body)
