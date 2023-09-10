@@ -13,7 +13,7 @@ struct ProgressAlert: View {
     @State var title: String
     @State var message: String
     @Binding var percentage: Int
-    @State var onCancel: () -> ()
+    @State var onCancel: () -> Void
 
     var body: some View {
         ZStack(alignment: .center) {

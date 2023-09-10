@@ -66,6 +66,7 @@ struct TagEditorView: View {
                 }
             }
         }
+        .disabled(saveState == .saving)
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -75,8 +76,12 @@ struct TagEditorView: View {
                     case .notSaved:
                         Button {
                             DispatchQueue.global(qos: .background).async {
-                                saveAllTagData()
-                                readAllTagData()
+                                Task {
+                                    changeSaveState(to: .saving)
+                                    await saveAllTagData()
+                                    readAllTagData()
+                                    changeSaveState(to: .saved)
+                                }
                             }
                         } label: {
                             Text("Shared.Save")
@@ -153,17 +158,26 @@ struct TagEditorView: View {
         }
     }
 
-    func saveAllTagData() {
-        changeSaveState(to: .saving)
-        for file in files {
-            saveTagData(to: file)
+    func saveAllTagData() async {
+        _ = await withTaskGroup(of: Bool.self, returning: [Bool].self) { group in
+            for file in files {
+                group.addTask {
+                    return saveTagData(to: file)
+                }
+            }
+
+            var saveStates: [Bool] = []
+            for await result in group {
+                saveStates.append(result)
+            }
+            return saveStates
         }
-        changeSaveState(to: .saved)
+        // TODO: Report status of save
     }
 
     // swiftlint:disable cyclomatic_complexity
     // swiftlint:disable function_body_length
-    func saveTagData(to file: FSFile, retriesWhenFailed willRetry: Bool = true) {
+    func saveTagData(to file: FSFile, retriesWhenFailed willRetry: Bool = true) -> Bool {
         debugPrint("Attempting to save tag data...")
         do {
             let tag = tags[file]
@@ -233,11 +247,14 @@ struct TagEditorView: View {
                     .attachedPicture(pictureType: .frontCover, frame: frame)
             }
             try id3TagEditor.write(tag: tagBuilder.build(), to: file.path)
+            return true
         } catch {
             debugPrint("Error occurred while saving tag: \n\(error.localizedDescription)")
             if willRetry {
                 initializeTag(for: file)
-                saveTagData(to: file, retriesWhenFailed: false)
+                return saveTagData(to: file, retriesWhenFailed: false)
+            } else {
+                return false
             }
         }
     }
