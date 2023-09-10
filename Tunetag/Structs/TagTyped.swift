@@ -19,7 +19,7 @@ struct TagTyped {
         artist = tagContentReader.artist() ?? ""
         album = tagContentReader.album() ?? ""
         albumArtist = tagContentReader.albumArtist() ?? ""
-        if let yearFromTag = tagContentReader.recordingDateTime()?.year {
+        if let yearFromTag = tagContentReader.recordingYear() {
             year = yearFromTag
         }
         if let trackFromTag = tagContentReader.trackPosition()?.position {
@@ -38,6 +38,7 @@ struct TagTyped {
         }
     }
 
+    // swiftlint:disable cyclomatic_complexity
     mutating func merge(with tagContentReader: ID3TagContentReader) {
         if title != tagContentReader.title() ?? "" {
             title = nil
@@ -85,4 +86,5 @@ struct TagTyped {
             }
         }
     }
+    // swiftlint:enable cyclomatic_complexity
 }

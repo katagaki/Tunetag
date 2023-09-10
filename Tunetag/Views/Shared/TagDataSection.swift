@@ -5,6 +5,7 @@
 //  Created by シン・ジャスティン on 2023/09/09.
 //
 
+import Combine
 import SwiftUI
 
 struct TagDataSection: View {
@@ -54,37 +55,18 @@ struct TagDataSection: View {
             ListSectionHeader(text: "TagEditor.TagData")
                 .font(.body)
         }
-        .onChange(of: tagData.year) { oldValue, newValue in
-            if containsAnythingOtherThanNumbers(newValue) || newValue.count > 4 {
-                tagData.year = oldValue
-            }
+        .onReceive(Just(tagData.year)) { _ in
+            tagData.year = tagData.year.filter({ $0.isNumber })
+            tagData.year = String(tagData.year.prefix(4))
         }
-        .onChange(of: tagData.track) { oldValue, newValue in
-            if containsAnythingOtherThanNumbers(newValue) {
-                tagData.track = oldValue
-            }
+        .onReceive(Just(tagData.track)) { _ in
+            tagData.track = tagData.track.filter({ $0.isNumber })
         }
-        .onChange(of: tagData.genre) { oldValue, newValue in
-            if containsAnythingOtherThanAlphanumerics(newValue) {
-                tagData.genre = oldValue
-            }
+        .onReceive(Just(tagData.genre)) { _ in
+            tagData.genre = tagData.genre.filter({ $0.isLetter || $0.isWhitespace })
         }
-        .onChange(of: tagData.discNumber) { oldValue, newValue in
-            if containsAnythingOtherThanNumbers(newValue) {
-                tagData.discNumber = oldValue
-            }
+        .onReceive(Just(tagData.discNumber)) { _ in
+            tagData.discNumber = tagData.discNumber.filter({ $0.isNumber })
         }
-    }
-
-    func containsAnythingOtherThanAlphanumerics(_ string: String) -> Bool {
-        let validCharacters: CharacterSet = .alphanumerics.union(.whitespaces).inverted
-        let characterRange = string.rangeOfCharacter(from: validCharacters)
-        return characterRange != nil
-    }
-
-    func containsAnythingOtherThanNumbers(_ string: String) -> Bool {
-        let validCharacters: CharacterSet = .init(charactersIn: "0123456789").inverted
-        let characterRange = string.rangeOfCharacter(from: validCharacters)
-        return characterRange != nil
     }
 }

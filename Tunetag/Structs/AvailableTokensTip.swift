@@ -8,6 +8,7 @@
 import Foundation
 import TipKit
 
+@available(iOS 17.0, *)
 struct AvailableTokensTip: Tip {
     var title: Text {
         Text("TagEditor.Tip.Tokens.Title")

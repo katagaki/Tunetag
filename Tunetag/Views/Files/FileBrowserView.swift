@@ -16,46 +16,55 @@ struct FileBrowserView: View {
     @State var currentDirectory: FSDirectory?
     @State var files: [any FilesystemObject] = []
 
-    var noFilesTip = FileBrowserNoFilesTip()
+    // Support for iOS 16
+    @State var showsLegacyTip: Bool = true
 
     var body: some View {
         NavigationStack(path: $navigationManager.browserTabPath) {
-            List($files, id: \.path) { $file in
-                if let directory = file as? FSDirectory {
-                    NavigationLink(value: ViewPath.fileBrowser(directory: directory)) {
-                        ListFolderRow(name: directory.name)
-                    }
-                    .contextMenu(menuItems: {
-                        Button {
-                            navigationManager.push(ViewPath.fileBrowser(directory: directory),
-                                                   for: .fileManager)
-                        } label: {
-                            Label("Shared.Open", systemImage: "folder.fill")
+            List {
+                if #unavailable(iOS 17.0) {
+                    TipSection(title: "FileBrowser.Tip.NoFiles.Title",
+                               message: "FileBrowser.Tip.NoFiles.Text",
+                               image: Image(systemName: "questionmark.folder.fill"),
+                               showsTip: $showsLegacyTip)
+                }
+                ForEach($files, id: \.path) { $file in
+                    if let directory = file as? FSDirectory {
+                        NavigationLink(value: ViewPath.fileBrowser(directory: directory)) {
+                            ListFolderRow(name: directory.name)
                         }
-                    })
-                } else if let file = file as? FSFile {
-                    Button {
-                        navigationManager.push(ViewPath.tagEditorSingle(file: file),
-                                               for: .fileManager)
-                    } label: {
-                        ListFileRow(name: file.name)
-                    }
-                    .draggable(file) {
-                        ListFileRow(name: file.name)
-                            .padding()
-                            .background(.background)
-                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                    }
-                    .contextMenu(menuItems: {
+                        .contextMenu(menuItems: {
+                            Button {
+                                navigationManager.push(ViewPath.fileBrowser(directory: directory),
+                                                       for: .fileManager)
+                            } label: {
+                                Label("Shared.Open", systemImage: "folder.fill")
+                            }
+                        })
+                    } else if let file = file as? FSFile {
                         Button {
                             navigationManager.push(ViewPath.tagEditorSingle(file: file),
                                                    for: .fileManager)
                         } label: {
-                            Label("Shared.Edit", systemImage: "pencil")
+                            ListFileRow(name: file.name)
                         }
-                    }, preview: {
-                        FilePreview(file: file)
-                    })
+                        .draggable(file) {
+                            ListFileRow(name: file.name)
+                                .padding()
+                                .background(.background)
+                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                        }
+                        .contextMenu(menuItems: {
+                            Button {
+                                navigationManager.push(ViewPath.tagEditorSingle(file: file),
+                                                       for: .fileManager)
+                            } label: {
+                                Label("Shared.Edit", systemImage: "pencil")
+                            }
+                        }, preview: {
+                            FilePreview(file: file)
+                        })
+                    }
                 }
             }
             .listStyle(.plain)
@@ -72,7 +81,7 @@ struct FileBrowserView: View {
             .refreshable {
                 refreshFiles()
             }
-            .overlay {
+            .background {
                 if files.count == 0 {
                     VStack {
                         ListHintOverlay(image: "questionmark.folder",
@@ -82,29 +91,12 @@ struct FileBrowserView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button {
-                        let documentsUrl = FileManager.default.urls(for: .documentDirectory,
-                                                                    in: .userDomainMask).first!
-                        if let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)") {
-                            if UIApplication.shared.canOpenURL(sharedUrl) {
-                                UIApplication.shared.open(sharedUrl, options: [:])
-                            }
-                        }
-                    } label: {
-                        HStack(alignment: .center, spacing: 8.0) {
-                            Image("SystemApps.Files")
-                                .resizable()
-                                .frame(width: 30.0, height: 30.0)
-                                .clipShape(RoundedRectangle(cornerRadius: 6.0))
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 6.0)
-                                        .stroke(.black, lineWidth: 1/3)
-                                        .opacity(0.3)
-                                }
-                            Text("Shared.OpenFilesApp")
-                        }
+                    if #available(iOS 17.0, *) {
+                        openFilesAppButton()
+                            .popoverTip(FileBrowserNoFilesTip())
+                    } else {
+                        openFilesAppButton()
                     }
-                    .popoverTip(noFilesTip)
                 }
             }
             .safeAreaInset(edge: .bottom) {
@@ -130,7 +122,11 @@ struct FileBrowserView: View {
                                 NSLocalizedString("ViewTitle.Files", comment: ""))
         }
         .onAppear {
+            showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.FileBrowserNoFilesTip")
             refreshFiles()
+        }
+        .onChange(of: showsLegacyTip) { _ in
+            UserDefaults.standard.setValue(!showsLegacyTip, forKey: "LegacyTipsHidden.FileBrowserNoFilesTip")
         }
     }
 
@@ -142,5 +138,31 @@ struct FileBrowserView: View {
             .sorted(by: { lhs, rhs in
                 return lhs is FSDirectory && rhs is FSFile
             })
+    }
+
+    @ViewBuilder
+    func openFilesAppButton() -> some View {
+        Button {
+            let documentsUrl = FileManager.default.urls(for: .documentDirectory,
+                                                        in: .userDomainMask).first!
+            if let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)") {
+                if UIApplication.shared.canOpenURL(sharedUrl) {
+                    UIApplication.shared.open(sharedUrl, options: [:])
+                }
+            }
+        } label: {
+            HStack(alignment: .center, spacing: 8.0) {
+                Image("SystemApps.Files")
+                    .resizable()
+                    .frame(width: 30.0, height: 30.0)
+                    .clipShape(RoundedRectangle(cornerRadius: 6.0))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 6.0)
+                            .stroke(.black, lineWidth: 1/3)
+                            .opacity(0.3)
+                    }
+                Text("Shared.OpenFilesApp")
+            }
+        }
     }
 }

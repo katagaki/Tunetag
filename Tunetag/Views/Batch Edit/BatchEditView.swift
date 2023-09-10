@@ -31,7 +31,7 @@ struct BatchEditView: View {
                     Color.clear
                 }
             })
-            .overlay {
+            .background {
                 if batchFileManager.files.isEmpty {
                     ListHintOverlay(image: "questionmark.folder", text: "BatchEdit.Hint")
                 }

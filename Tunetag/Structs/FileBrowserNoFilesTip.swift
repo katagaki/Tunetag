@@ -8,6 +8,7 @@
 import Foundation
 import TipKit
 
+@available(iOS 17.0, *)
 struct FileBrowserNoFilesTip: Tip {
     var title: Text {
         Text("FileBrowser.Tip.NoFiles.Title")

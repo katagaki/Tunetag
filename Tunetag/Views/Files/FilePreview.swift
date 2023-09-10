@@ -14,8 +14,6 @@ struct FilePreview: View {
     @State var file: FSFile
     @State var tagData = Tag()
 
-    var availableTokensTip = AvailableTokensTip()
-
     var body: some View {
         List {
             FileHeaderSection(filename: file.name, albumArt: $tagData.albumArt, selectedAlbumArt: .constant(nil),

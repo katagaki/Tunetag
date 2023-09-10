@@ -21,23 +21,39 @@ struct TagEditorView: View {
     @State var saveState: SaveState = .notSaved
     @FocusState var focusedField: FocusedField?
 
-    var availableTokensTip = AvailableTokensTip()
+    // Support for iOS 16
+    @State var showsLegacyTip: Bool = true
 
     var body: some View {
         List {
+            if #unavailable(iOS 17.0) {
+                TipSection(title: "TagEditor.Tip.Tokens.Title",
+                           message: "TagEditor.Tip.Tokens.Text",
+                           image: Image(systemName: "info.circle.fill"),
+                           showsTip: $showsLegacyTip)
+            }
             if files.count == 1 {
                 FileHeaderSection(filename: files[0].name,
                                   albumArt: $tagData.albumArt,
                                   selectedAlbumArt: $selectedAlbumArt)
-                TagDataSection(tagData: $tagData, focusedField: $focusedField)
-                    .popoverTip(availableTokensTip, arrowEdge: .bottom)
+                if #available(iOS 17.0, *) {
+                    TagDataSection(tagData: $tagData, focusedField: $focusedField)
+                        .popoverTip(AvailableTokensTip(), arrowEdge: .bottom)
+                } else {
+                    TagDataSection(tagData: $tagData, focusedField: $focusedField)
+                }
             } else {
                 FileHeaderSection(filename: NSLocalizedString("BatchEdit.MultipleFiles", comment: ""),
                                   albumArt: $tagData.albumArt,
                                   selectedAlbumArt: $selectedAlbumArt)
-                TagDataSection(tagData: $tagData, focusedField: $focusedField,
-                               placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
-                    .popoverTip(availableTokensTip, arrowEdge: .bottom)
+                if #available(iOS 17.0, *) {
+                    TagDataSection(tagData: $tagData, focusedField: $focusedField,
+                                   placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
+                    .popoverTip(AvailableTokensTip(), arrowEdge: .bottom)
+                } else {
+                    TagDataSection(tagData: $tagData, focusedField: $focusedField,
+                                   placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
+                }
             }
             Section {
                 AvailableTokenRow(tokenName: "FILENAME", tokenDescription: "TagEditor.Tokens.Filename.Description")
@@ -84,17 +100,21 @@ struct TagEditorView: View {
             }
         }
         .onAppear {
+            showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.AvailableTokensTip")
             readAllTagData()
         }
-        .onChange(of: selectedAlbumArt, initial: false) {
+        .onChange(of: showsLegacyTip) { _ in
+            UserDefaults.standard.setValue(!showsLegacyTip, forKey: "LegacyTipsHidden.AvailableTokensTip")
+        }
+        .onChange(of: selectedAlbumArt, perform: { _ in
             Task {
                 if let selectedAlbumArt = selectedAlbumArt,
                     let data = try? await selectedAlbumArt.loadTransferable(type: Data.self) {
                     tagData.albumArt = data
                 }
             }
-        }
-        .onChange(of: saveState) {
+        })
+        .onChange(of: saveState, perform: { _ in
             switch saveState {
             case .saved:
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -103,7 +123,7 @@ struct TagEditorView: View {
             default:
                 break
             }
-        }
+        })
     }
 
     func readAllTagData() {
