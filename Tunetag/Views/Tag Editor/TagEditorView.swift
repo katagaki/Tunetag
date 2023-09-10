@@ -91,6 +91,7 @@ struct TagEditorView: View {
                     ProgressView()
                         .progressViewStyle(.circular)
                         .padding(.all, 8.0)
+                        .tint(.white)
                 case .saved:
                     Image(systemName: "checkmark")
                         .font(.body)
@@ -100,7 +101,9 @@ struct TagEditorView: View {
                 }
             }
             .buttonStyle(.borderedProminent)
+            .tint(saveState == .saved ? .green : .accentColor)
             .clipShape(RoundedRectangle(cornerRadius: 99))
+            .frame(minHeight: 56.0)
             .padding([.leading, .trailing, .bottom])
         }
         .toolbar {

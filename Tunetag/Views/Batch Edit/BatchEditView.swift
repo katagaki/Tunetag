@@ -46,6 +46,7 @@ struct BatchEditView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .clipShape(RoundedRectangle(cornerRadius: 99))
+                .frame(minHeight: 56.0)
                 .padding([.leading, .trailing, .bottom])
                 .disabled(batchFileManager.files.isEmpty)
             }
