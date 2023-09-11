@@ -160,11 +160,13 @@ struct FileBrowserView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    if #available(iOS 17.0, *) {
-                        openFilesAppButton()
-                            .popoverTip(FileBrowserNoFilesTip())
-                    } else {
-                        openFilesAppButton()
+                    if currentDirectory == nil {
+                        if #available(iOS 17.0, *) {
+                            openFilesAppButton()
+                                .popoverTip(FileBrowserNoFilesTip())
+                        } else {
+                            openFilesAppButton()
+                        }
                     }
                 }
             }
