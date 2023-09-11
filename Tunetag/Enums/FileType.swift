@@ -12,7 +12,7 @@ enum FileType: String, Codable {
     case mp3
     case zip
 
-    func iconName() -> Image {
+    func icon() -> Image {
         switch self {
         case .mp3:
             return Image("File.MP3")

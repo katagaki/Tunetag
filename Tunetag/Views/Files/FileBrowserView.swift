@@ -62,6 +62,19 @@ struct FileBrowserView: View {
                                 Text("Shared.BatchEditor")
                             }
                             .controlGroupStyle(.menu)
+                        }, preview: {
+                            NavigationStack {
+                                VStack(alignment: .center, spacing: 16.0) {
+                                    Image("Folder")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 64.0, height: 64.0)
+                                    Text(directory.name)
+                                        .bold()
+                                        .frame(maxWidth: .infinity)
+                                }
+                                .padding()
+                            }
                         })
                     } else if let file = file as? FSFile {
                         switch file.filetype {
@@ -69,10 +82,10 @@ struct FileBrowserView: View {
                             Button {
                                 navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
                             } label: {
-                                ListFileRow(name: file.name, icon: file.filetype.iconName())
+                                ListFileRow(name: file.name, icon: file.filetype.icon())
                             }
                             .draggable(file) {
-                                ListFileRow(name: file.name, icon: file.filetype.iconName())
+                                ListFileRow(name: file.name, icon: file.filetype.icon())
                                     .padding()
                                     .background(.background)
                                     .clipShape(RoundedRectangle(cornerRadius: 10.0))
@@ -100,13 +113,26 @@ struct FileBrowserView: View {
                             Button {
                                 extractFiles(file: file)
                             } label: {
-                                ListFileRow(name: file.name, icon: file.filetype.iconName())
+                                ListFileRow(name: file.name, icon: file.filetype.icon())
                             }
                             .contextMenu(menuItems: {
                                 Button {
                                     extractFiles(file: file)
                                 } label: {
                                     Label("Shared.Extract", systemImage: "doc.zipper")
+                                }
+                            }, preview: {
+                                NavigationStack {
+                                    VStack(alignment: .center, spacing: 16.0) {
+                                        file.filetype.icon()
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 64.0, height: 64.0)
+                                        Text(file.name)
+                                            .bold()
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    .padding()
                                 }
                             })
                         }

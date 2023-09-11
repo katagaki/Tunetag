@@ -18,10 +18,14 @@ struct FilePreview: View {
         List {
             FileHeaderSection(filename: file.name, albumArt: $tagData.albumArt, selectedAlbumArt: .constant(nil),
                               showsPhotosPicker: false)
-            TagDataSection(tagData: $tagData)
+            if file.filetype == .mp3 {
+                TagDataSection(tagData: $tagData)
+            }
         }
         .onAppear {
-            readAllTagData()
+            if file.filetype == .mp3 {
+                readAllTagData()
+            }
         }
     }
 
