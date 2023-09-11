@@ -162,19 +162,22 @@ struct FileBrowserView: View {
                 }
             }
             .toolbar {
-                if currentDirectory == nil {
-                    ToolbarItem(placement: .primaryAction) {
+                ToolbarItem(placement: .topBarTrailing) {
+                    if currentDirectory == nil {
                         if #available(iOS 17.0, *) {
                             openFilesAppButton()
                                 .popoverTip(FileBrowserNoFilesTip())
                         } else {
                             openFilesAppButton()
                         }
+                    } else {
+                        Color.clear
                     }
                 }
             }
             .safeAreaInset(edge: .bottom) {
                 DropZone()
+                    .opacity(0)
             }
             .overlay {
                 if isExtractingZIP {
