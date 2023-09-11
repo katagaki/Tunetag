@@ -17,7 +17,6 @@ struct ListFolderRow: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 28.0, height: 28.0)
-                .foregroundStyle(.cyan)
             Text(name)
                 .font(.body)
                 .lineLimit(1)
