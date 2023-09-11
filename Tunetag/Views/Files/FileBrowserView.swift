@@ -159,8 +159,8 @@ struct FileBrowserView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    if currentDirectory == nil {
+                if currentDirectory == nil {
+                    ToolbarItem(placement: .primaryAction) {
                         if #available(iOS 17.0, *) {
                             openFilesAppButton()
                                 .popoverTip(FileBrowserNoFilesTip())
