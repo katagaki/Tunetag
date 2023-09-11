@@ -136,13 +136,13 @@
 				E432A7102AA9FD5F0043BCC9 /* Tunetag.entitlements */,
 				E432A71C2AA9FE8D0043BCC9 /* Info.plist */,
 				E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */,
+				E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */,
 				E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */,
 				E432A71F2AAA08F10043BCC9 /* Views */,
 				E432A7212AAA093D0043BCC9 /* Structs */,
 				E432A7202AAA08F70043BCC9 /* Classes */,
 				E432A7242AAA09700043BCC9 /* Enums */,
 				E432A7312AAA0BAB0043BCC9 /* Protocols */,
-				E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */,
 			);
 			path = Tunetag;
 			sourceTree = "<group>";

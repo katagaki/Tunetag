@@ -190,13 +190,13 @@
               "ipad" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Tunetagにファイルを追加するには、「ファイル」アプリを開き、「このiPad内」の「Tunetag」フォルダーにファイルを移動してください。"
+                  "value" : "チューンタグにファイルを追加するには、「ファイル」アプリを開き、「このiPad内」の「チューンタグ」フォルダーにファイルを移動してください。"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Tunetagにファイルを追加するには、「ファイル」アプリを開き、「このiPhone内」の「Tunetag」フォルダーにファイルを移動してください。"
+                  "value" : "チューンタグにファイルを追加するには、「ファイル」アプリを開き、「このiPhone内」の「チューンタグ」フォルダーにファイルを移動してください。"
                 }
               }
             }
@@ -216,7 +216,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tunetagにファイルを追加する方法"
+            "value" : "チューンタグにファイルを追加する方法"
           }
         }
       }
@@ -569,7 +569,7 @@
       }
     },
     "Shared.Save" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
