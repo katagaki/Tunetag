@@ -9,11 +9,15 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct FSFile: FilesystemObject, Codable, Transferable {
+struct FSFile: FilesystemObject, Codable, Identifiable, Transferable {
 
     var name: String
     var path: String
     var filetype: FileType
+
+    var id: String {
+        return path
+    }
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(path)

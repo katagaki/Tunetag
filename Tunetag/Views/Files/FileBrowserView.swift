@@ -16,6 +16,7 @@ struct FileBrowserView: View {
     @EnvironmentObject var batchFileManager: BatchFileManager
     @State var currentDirectory: FSDirectory?
     @State var files: [any FilesystemObject] = []
+    @State var tagEditorFile: FSFile?
 
     @State var extractionProgress: Progress?
     @State var isExtractingZIP: Bool = false
@@ -80,9 +81,11 @@ struct FileBrowserView: View {
                         switch file.filetype {
                         case .mp3:
                             Button {
-                                navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
+                                tagEditorFile = file
+                                // navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
                             } label: {
                                 ListFileRow(name: file.name, icon: file.filetype.icon())
+                                    .tint(.primary)
                             }
                             .draggable(file) {
                                 ListFileRow(name: file.name, icon: file.filetype.icon())
@@ -92,7 +95,8 @@ struct FileBrowserView: View {
                             }
                             .contextMenu(menuItems: {
                                 Button {
-                                    navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
+                                    tagEditorFile = file
+                                    // navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
                                 } label: {
                                     Label("Shared.Edit", systemImage: "pencil")
                                 }
@@ -114,6 +118,7 @@ struct FileBrowserView: View {
                                 extractFiles(file: file)
                             } label: {
                                 ListFileRow(name: file.name, icon: file.filetype.icon())
+                                    .tint(.primary)
                             }
                             .contextMenu(menuItems: {
                                 Button {
@@ -139,7 +144,7 @@ struct FileBrowserView: View {
                     }
                 }
             }
-            .listStyle(.plain)
+            .listStyle(.grouped)
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
                 case .fileBrowser(let directory): FileBrowserView(currentDirectory: directory)
@@ -195,6 +200,10 @@ struct FileBrowserView: View {
                     }
                 }
             }
+            .sheet(item: $tagEditorFile, content: { file in
+                TagEditorView(files: [file])
+                    .presentationDragIndicator(.visible)
+            })
             .alert(Text("Alert.ExtractingZIP.Error.Title"),
                    isPresented: $isErrorAlertPresenting,
                    actions: {
