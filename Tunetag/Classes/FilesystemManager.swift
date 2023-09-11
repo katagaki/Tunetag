@@ -38,27 +38,29 @@ class FilesystemManager: ObservableObject {
         do {
             if let documentsDirectory = documentsDirectory,
                let documentsDirectoryURL = URL(string: documentsDirectory) {
-                let pathToEnumerate = subPath == "" ? documentsDirectoryURL : URL(string: subPath)!
-                return try manager
-                    .contentsOfDirectory(at: pathToEnumerate,
-                                         includingPropertiesForKeys: [.isRegularFileKey, .isDirectoryKey],
-                                         options: [.skipsHiddenFiles]).compactMap { url in
-                        if url.hasDirectoryPath {
-                            return FSDirectory(name: url.lastPathComponent,
-                                               path: url.path,
-                                               files: files(in: url.path(percentEncoded: true)))
-                        } else {
-                            let fileExtension = url.pathExtension.lowercased()
-                            switch fileExtension {
-                            case "mp3", "zip":
-                                return FSFile(name: url.lastPathComponent,
-                                              path: url.path,
-                                              filetype: FileType.init(rawValue: fileExtension)!)
-                            default: break
+                if directoryOrFileExists(at: subPath == "" ? documentsDirectoryURL.path() : subPath) {
+                    let pathToEnumerate = subPath == "" ? documentsDirectoryURL : URL(string: subPath)!
+                    return try manager
+                        .contentsOfDirectory(at: pathToEnumerate,
+                                             includingPropertiesForKeys: [.isRegularFileKey, .isDirectoryKey],
+                                             options: [.skipsHiddenFiles]).compactMap { url in
+                            if url.hasDirectoryPath {
+                                return FSDirectory(name: url.lastPathComponent,
+                                                   path: url.path,
+                                                   files: files(in: url.path(percentEncoded: true)))
+                            } else {
+                                let fileExtension = url.pathExtension.lowercased()
+                                switch fileExtension {
+                                case "mp3", "zip":
+                                    return FSFile(name: url.lastPathComponent,
+                                                  path: url.path,
+                                                  filetype: FileType.init(rawValue: fileExtension)!)
+                                default: break
+                                }
                             }
-                        }
-                        return nil
+                            return nil
                     }
+                }
             }
         } catch {
             debugPrint(error.localizedDescription)
