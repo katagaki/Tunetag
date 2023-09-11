@@ -85,7 +85,6 @@ struct FileBrowserView: View {
                                 // navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
                             } label: {
                                 ListFileRow(name: file.name, icon: file.filetype.icon())
-                                    .tint(.primary)
                             }
                             .draggable(file) {
                                 ListFileRow(name: file.name, icon: file.filetype.icon())
@@ -118,7 +117,6 @@ struct FileBrowserView: View {
                                 extractFiles(file: file)
                             } label: {
                                 ListFileRow(name: file.name, icon: file.filetype.icon())
-                                    .tint(.primary)
                             }
                             .contextMenu(menuItems: {
                                 Button {
@@ -144,7 +142,7 @@ struct FileBrowserView: View {
                     }
                 }
             }
-            .listStyle(.grouped)
+            .listStyle(.plain)
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
                 case .fileBrowser(let directory): FileBrowserView(currentDirectory: directory)
@@ -176,15 +174,7 @@ struct FileBrowserView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                VStack(alignment: .center, spacing: 16.0) {
-                    Image("DropZone.Icon")
-                    Text("FileBrowser.DropZone.Hint.Simple")
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(.regularMaterial)
-                .padding()
-                .opacity(0.0)
+                DropZone()
             }
             .overlay {
                 if isExtractingZIP {
@@ -201,7 +191,9 @@ struct FileBrowserView: View {
                 }
             }
             .sheet(item: $tagEditorFile, content: { file in
-                TagEditorView(files: [file])
+                NavigationStack {
+                    TagEditorView(files: [file])
+                }
                     .presentationDragIndicator(.visible)
             })
             .alert(Text("Alert.ExtractingZIP.Error.Title"),
