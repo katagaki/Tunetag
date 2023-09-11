@@ -171,7 +171,15 @@ struct FileBrowserView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                DropZone()
+                VStack(alignment: .center, spacing: 16.0) {
+                    Image("DropZone.Icon")
+                    Text("FileBrowser.DropZone.Hint.Simple")
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(.regularMaterial)
+                .padding()
+                .opacity(0.0)
             }
             .overlay {
                 if isExtractingZIP {
