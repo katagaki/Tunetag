@@ -355,24 +355,28 @@ struct TagEditorView: View {
         if componentsSplitByDash.count >= 1 {
             processedString = processedString
                 .replacingOccurrences(of: "%SPLITFRONT%",
-                                      with: componentsSplitByDash[0])
+                                      with: componentsSplitByDash[0],
+                                      options: .caseInsensitive)
         } else {
             processedString = processedString
                 .replacingOccurrences(of: "%SPLITFRONT%",
-                                      with: "")
+                                      with: "",
+                                      options: .caseInsensitive)
         }
         if componentsSplitByDash.count >= 2 {
             processedString = processedString
                 .replacingOccurrences(of: "%SPLITBACK%",
-                                      with: componentsSplitByDash[1])
+                                      with: componentsSplitByDash[1],
+                                      options: .caseInsensitive)
         } else {
             processedString = processedString
                 .replacingOccurrences(of: "%SPLITBACK%",
-                                      with: "")
+                                      with: "",
+                                      options: .caseInsensitive)
         }
         processedString =  processedString
-            .replacingOccurrences(of: "%filename%",
-                                  with: file.name.replacingOccurrences(of: ".mp3", with: ""),
+            .replacingOccurrences(of: "%FILENAME%",
+                                  with: file.name.replacingOccurrences(of: ".mp3", with: "", options: .caseInsensitive),
                                   options: .caseInsensitive)
         return processedString
     }
