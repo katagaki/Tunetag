@@ -76,7 +76,7 @@ struct TagEditorView: View {
                         Task {
                             changeSaveState(to: .saving)
                             await saveAllTagData()
-                            readAllTagData()
+                            await readAllTagData()
                             changeSaveState(to: .saved)
                         }
                     }
@@ -115,9 +115,9 @@ struct TagEditorView: View {
                 .bold()
             }
         }
-        .onAppear {
+        .task {
             showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.AvailableTokensTip")
-            readAllTagData()
+            await readAllTagData()
         }
         .onChange(of: showsLegacyTip) { _ in
             UserDefaults.standard.setValue(!showsLegacyTip, forKey: "LegacyTipsHidden.AvailableTokensTip")
@@ -142,7 +142,7 @@ struct TagEditorView: View {
         })
     }
 
-    func readAllTagData() {
+    func readAllTagData() async {
         debugPrint("Attempting to read tag data for \(files.count) files...")
         // Check for common tag data betwen all files
         var tagCombined: TagTyped?
@@ -154,9 +154,9 @@ struct TagEditorView: View {
                     tags.updateValue(tag, forKey: file)
                     let tagContentReader = ID3TagContentReader(id3Tag: tag)
                     if tagCombined == nil {
-                        tagCombined = TagTyped(reader: tagContentReader)
+                        tagCombined = await TagTyped(file, reader: tagContentReader)
                     } else {
-                        tagCombined!.merge(with: tagContentReader)
+                        await tagCombined!.merge(with: file, reader: tagContentReader)
                     }
                 }
             } catch {

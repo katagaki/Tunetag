@@ -22,20 +22,20 @@ struct FilePreview: View {
                 TagDataSection(tagData: $tagData)
             }
         }
-        .onAppear {
+        .task {
             if file.filetype == .mp3 {
-                readAllTagData()
+                await readAllTagData()
             }
         }
     }
 
-    func readAllTagData() {
+    func readAllTagData() async {
         debugPrint("Attempting to read tag data for \(file.name) files...")
         do {
             let tag = try id3TagEditor.read(from: file.path)
             if let tag = tag {
                 let tagContentReader = ID3TagContentReader(id3Tag: tag)
-                tagData = Tag(from: TagTyped(reader: tagContentReader))
+                tagData = await Tag(from: TagTyped(file, reader: tagContentReader))
             }
         } catch {
             debugPrint("Error occurred while reading tags: \n\(error.localizedDescription)")
