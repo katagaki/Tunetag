@@ -373,23 +373,6 @@
         }
       }
     },
-    "Shared.Cancel" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "キャンセル"
-          }
-        }
-      }
-    },
     "Shared.ClearAll" : {
       "localizations" : {
         "en" : {
@@ -435,23 +418,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "こちらにファイルを移動してください"
-          }
-        }
-      }
-    },
-    "Shared.OK" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "確認"
           }
         }
       }
@@ -739,7 +705,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "変換トークンを利用すると、ファイル名など既存の情報を利用し、より早くタグの情報を埋め込むことができます。\n下にスクロールすると、利用できるトークンがご覧になれます。"
+            "value" : "変換トークンを利用すると、ファイル名など既存の情報を利用し、より速くタグの情報を記入することができます。\n下にスクロールすると、利用できるトークンがご覧になれます。"
           }
         }
       }
