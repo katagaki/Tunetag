@@ -488,38 +488,6 @@
         }
       }
     },
-    "Shared.Edit" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Edit"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "編集"
-          }
-        }
-      }
-    },
-    "Shared.Extract" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Extract"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "解凍"
-          }
-        }
-      }
-    },
     "Shared.OK" : {
       "localizations" : {
         "en" : {
@@ -532,22 +500,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "確認"
-          }
-        }
-      }
-    },
-    "Shared.Open" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Open"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "開く"
           }
         }
       }

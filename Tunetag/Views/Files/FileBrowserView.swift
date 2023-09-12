@@ -43,41 +43,18 @@ struct FileBrowserView: View {
                         NavigationLink(value: ViewPath.fileBrowser(directory: directory)) {
                             ListFolderRow(name: directory.name)
                         }
-                        .contextMenu(menuItems: {
+                        .contextMenu {
                             Button {
-                                navigationManager.push(ViewPath.fileBrowser(directory: directory), for: .fileManager)
+                                addToQueue(directory: directory)
                             } label: {
-                                Label("Shared.Open", systemImage: "folder.fill")
+                                Label("Shared.AddFiles", systemImage: "folder.fill.badge.plus")
                             }
-                            ControlGroup {
-                                Button {
-                                    addToQueue(directory: directory)
-                                } label: {
-                                    Label("Shared.AddFiles", systemImage: "folder.fill.badge.plus")
-                                }
-                                Button {
-                                    addToQueue(directory: directory, recursively: true)
-                                } label: {
-                                    Label("Shared.AddFilesRecursively", systemImage: "folder.fill.badge.plus")
-                                }
+                            Button {
+                                addToQueue(directory: directory, recursively: true)
                             } label: {
-                                Text("Shared.BatchEditor")
+                                Label("Shared.AddFilesRecursively", systemImage: "folder.fill.badge.plus")
                             }
-                            .controlGroupStyle(.menu)
-                        }, preview: {
-                            NavigationStack {
-                                VStack(alignment: .center, spacing: 16.0) {
-                                    Image("Folder")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 64.0, height: 64.0)
-                                    Text(directory.name)
-                                        .bold()
-                                        .frame(maxWidth: .infinity)
-                                }
-                                .padding()
-                            }
-                        })
+                        }
                     } else if let file = file as? FSFile {
                         switch file.filetype {
                         case .mp3:
@@ -95,21 +72,10 @@ struct FileBrowserView: View {
                             }
                             .contextMenu(menuItems: {
                                 Button {
-                                    tagEditorFile = file
-                                    // navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
+                                    addToQueue(file: file)
                                 } label: {
-                                    Label("Shared.Edit", systemImage: "pencil")
+                                    Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
                                 }
-                                ControlGroup {
-                                    Button {
-                                        addToQueue(file: file)
-                                    } label: {
-                                        Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
-                                    }
-                                } label: {
-                                    Text("Shared.BatchEditor")
-                                }
-                                .controlGroupStyle(.menu)
                             }, preview: {
                                 FilePreview(file: file)
                             })
@@ -119,26 +85,6 @@ struct FileBrowserView: View {
                             } label: {
                                 ListFileRow(name: file.name, icon: file.filetype.icon())
                             }
-                            .contextMenu(menuItems: {
-                                Button {
-                                    extractFiles(file: file)
-                                } label: {
-                                    Label("Shared.Extract", systemImage: "doc.zipper")
-                                }
-                            }, preview: {
-                                NavigationStack {
-                                    VStack(alignment: .center, spacing: 16.0) {
-                                        file.filetype.icon()
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 64.0, height: 64.0)
-                                        Text(file.name)
-                                            .bold()
-                                            .frame(maxWidth: .infinity)
-                                    }
-                                    .padding()
-                                }
-                            })
                         }
                     }
                 }

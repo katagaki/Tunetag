@@ -356,7 +356,7 @@ struct TagEditorView: View {
         let tokens: [String: String] = [
             "fileName": file.name,
             "splitFront": componentsDash[0],
-            "splitBack": componentsDash.count >= 2 ? componentsDash[1] : "",
+            "splitBack": componentsDash.count >= 2 ? componentsDash[1] : ""
         ]
         for (key, value) in tokens {
             newString = newString.replacingOccurrences(of: "%\(key)%", with: value, options: .caseInsensitive)
