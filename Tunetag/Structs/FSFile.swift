@@ -13,7 +13,6 @@ struct FSFile: FilesystemObject, Codable, Identifiable, Transferable {
 
     var name: String
     var path: String
-    var filetype: FileType
 
     var id: String {
         return path

@@ -11,56 +11,6 @@
         }
       }
     },
-    "Alert.ExtractingZIP.Error.Title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error Occurred While Extracting Archive"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "解凍中にエラーが発生しました"
-          }
-        }
-      }
-    },
-    "Alert.ExtractingZIP.Text" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1% completed"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1%"
-          }
-        }
-      }
-    },
-    "Alert.ExtractingZIP.Title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Extracting..."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "解凍中…"
-          }
-        }
-      }
-    },
     "BatchEdit.Hint" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -424,6 +374,7 @@
       }
     },
     "Shared.Cancel" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -489,6 +440,7 @@
       }
     },
     "Shared.OK" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

@@ -51,10 +51,9 @@ class FilesystemManager: ObservableObject {
                             } else {
                                 let fileExtension = url.pathExtension.lowercased()
                                 switch fileExtension {
-                                case "mp3", "zip":
+                                case "mp3":
                                     return FSFile(name: url.lastPathComponent,
-                                                  path: url.path,
-                                                  filetype: FileType.init(rawValue: fileExtension)!)
+                                                  path: url.path)
                                 default: break
                                 }
                             }

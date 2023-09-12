@@ -48,9 +48,6 @@
 		E432A77E2AACB4410043BCC9 /* ListDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */; };
 		E432A7842AAD91240043BCC9 /* TipSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7832AAD91240043BCC9 /* TipSection.swift */; };
 		E432A7892AADAB7B0043BCC9 /* DropZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7882AADAB7B0043BCC9 /* DropZone.swift */; };
-		E432A78B2AADAC0E0043BCC9 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A78A2AADAC0E0043BCC9 /* FileType.swift */; };
-		E432A7922AADC5600043BCC9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E432A7912AADC5600043BCC9 /* ZIPFoundation */; };
-		E4641F4E2AADE19900DC6FB3 /* ProgressAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4641F4D2AADE19900DC6FB3 /* ProgressAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,8 +94,6 @@
 		E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailRow.swift; sourceTree = "<group>"; };
 		E432A7832AAD91240043BCC9 /* TipSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipSection.swift; sourceTree = "<group>"; };
 		E432A7882AADAB7B0043BCC9 /* DropZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropZone.swift; sourceTree = "<group>"; };
-		E432A78A2AADAC0E0043BCC9 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
-		E4641F4D2AADE19900DC6FB3 /* ProgressAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +102,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E432A74C2AAA43F00043BCC9 /* ID3TagEditor in Frameworks */,
-				E432A7922AADC5600043BCC9 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +183,6 @@
 		E432A7242AAA09700043BCC9 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				E432A78A2AADAC0E0043BCC9 /* FileType.swift */,
 				E432A75E2AAB35420043BCC9 /* SaveState.swift */,
 				E432A7252AAA097E0043BCC9 /* ViewPath.swift */,
 				E432A7292AAA09EE0043BCC9 /* TabType.swift */,
@@ -209,7 +202,6 @@
 		E432A74D2AAA498A0043BCC9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E4641F4D2AADE19900DC6FB3 /* ProgressAlert.swift */,
 				E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */,
 				E432A73B2AAA16910043BCC9 /* ListRow.swift */,
 				E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */,
@@ -280,7 +272,6 @@
 			name = Tunetag;
 			packageProductDependencies = (
 				E432A74B2AAA43F00043BCC9 /* ID3TagEditor */,
-				E432A7912AADC5600043BCC9 /* ZIPFoundation */,
 			);
 			productName = Tunetag;
 			productReference = E432A7072AA9FD5E0043BCC9 /* Tunetag.app */;
@@ -313,7 +304,6 @@
 			mainGroup = E432A6FE2AA9FD5E0043BCC9;
 			packageReferences = (
 				E432A74A2AAA43F00043BCC9 /* XCRemoteSwiftPackageReference "ID3TagEditor" */,
-				E432A7902AADC5600043BCC9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = E432A7082AA9FD5E0043BCC9 /* Products */;
 			projectDirPath = "";
@@ -380,7 +370,6 @@
 				E432A7722AAC445B0043BCC9 /* TagTyped.swift in Sources */,
 				E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */,
 				E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */,
-				E432A78B2AADAC0E0043BCC9 /* FileType.swift in Sources */,
 				E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */,
 				E432A77C2AACB2630043BCC9 /* FilePreview.swift in Sources */,
 				E432A7632AAB530A0043BCC9 /* BatchFileManager.swift in Sources */,
@@ -395,7 +384,6 @@
 				E432A7612AAB41920043BCC9 /* TagEditorView.swift in Sources */,
 				E432A73E2AAA169E0043BCC9 /* ListSectionHeader.swift in Sources */,
 				E432A73C2AAA16910043BCC9 /* ListRow.swift in Sources */,
-				E4641F4E2AADE19900DC6FB3 /* ProgressAlert.swift in Sources */,
 				E432A7402AAA16A90043BCC9 /* LicensesView.swift in Sources */,
 				E432A7442AAA20C20043BCC9 /* ListHintOverlay.swift in Sources */,
 				E432A7652AAB9AA70043BCC9 /* AvailableTokensTip.swift in Sources */,
@@ -636,14 +624,6 @@
 				minimumVersion = 4.6.0;
 			};
 		};
-		E432A7902AADC5600043BCC9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.9.16;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -651,11 +631,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E432A74A2AAA43F00043BCC9 /* XCRemoteSwiftPackageReference "ID3TagEditor" */;
 			productName = ID3TagEditor;
-		};
-		E432A7912AADC5600043BCC9 /* ZIPFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E432A7902AADC5600043BCC9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
-			productName = ZIPFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

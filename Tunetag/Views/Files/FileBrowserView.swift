@@ -7,9 +7,7 @@
 
 import SwiftUI
 import TipKit
-import ZIPFoundation
 
-// swiftlint:disable type_body_length
 struct FileBrowserView: View {
 
     @EnvironmentObject var navigationManager: NavigationManager
@@ -18,13 +16,7 @@ struct FileBrowserView: View {
     @State var currentDirectory: FSDirectory?
     @State var files: [any FilesystemObject] = []
     @State var tagEditorFile: FSFile?
-
-    @State var extractionProgress: Progress?
-    @State var isExtractingZIP: Bool = false
-    @State var extractionPercentage: Int = 0
-    @State var isExtractionCancelling: Bool = false
-    @State var isErrorAlertPresenting: Bool = false
-    @State var errorText: String = ""
+    @State var isInitialLoadCompleted: Bool = false
 
     // Support for iOS 16
     @State var showsLegacyTip: Bool = true
@@ -43,7 +35,7 @@ struct FileBrowserView: View {
                         NavigationLink(value: ViewPath.fileBrowser(directory: directory)) {
                             ListFolderRow(name: directory.name)
                         }
-                        .contextMenu {
+                        .contextMenu(menuItems: {
                             Button {
                                 addToQueue(directory: directory)
                             } label: {
@@ -54,38 +46,29 @@ struct FileBrowserView: View {
                             } label: {
                                 Label("Shared.AddFilesRecursively", systemImage: "folder.fill.badge.plus")
                             }
-                        }
+                        })
                     } else if let file = file as? FSFile {
-                        switch file.filetype {
-                        case .mp3:
-                            Button {
-                                tagEditorFile = file
-                                // navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
-                            } label: {
-                                ListFileRow(name: file.name, icon: file.filetype.icon())
-                            }
-                            .draggable(file) {
-                                ListFileRow(name: file.name, icon: file.filetype.icon())
-                                    .padding()
-                                    .background(.background)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                            }
-                            .contextMenu(menuItems: {
-                                Button {
-                                    addToQueue(file: file)
-                                } label: {
-                                    Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
-                                }
-                            }, preview: {
-                                FilePreview(file: file)
-                            })
-                        case .zip:
-                            Button {
-                                extractFiles(file: file)
-                            } label: {
-                                ListFileRow(name: file.name, icon: file.filetype.icon())
-                            }
+                        Button {
+                            tagEditorFile = file
+                            // navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
+                        } label: {
+                            ListFileRow(name: file.name, icon: Image("File.MP3"))
                         }
+                        .draggable(file) {
+                            ListFileRow(name: file.name, icon: Image("File.MP3"))
+                                .padding()
+                                .background(.background)
+                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                        }
+                        .contextMenu(menuItems: {
+                            Button {
+                                addToQueue(file: file)
+                            } label: {
+                                Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
+                            }
+                        }, preview: {
+                            FilePreview(file: file)
+                        })
                     }
                 }
             }
@@ -101,7 +84,7 @@ struct FileBrowserView: View {
                 refreshFiles()
             }
             .background {
-                if files.count == 0 {
+                if files.count == 0 && isInitialLoadCompleted {
                     VStack {
                         ListHintOverlay(image: "questionmark.folder",
                                         text: "FileBrowser.Hint")
@@ -126,33 +109,11 @@ struct FileBrowserView: View {
                 DropZone()
                     .opacity(0)
             }
-            .overlay {
-                if isExtractingZIP {
-                    ProgressAlert(title: "Alert.ExtractingZIP.Title",
-                                  message: "Alert.ExtractingZIP.Text",
-                                  percentage: $extractionPercentage) {
-                        withAnimation(.easeOut.speed(2)) {
-                            isExtractionCancelling = true
-                            extractionProgress?.cancel()
-                            extractionPercentage = 0
-                            isExtractingZIP = false
-                        }
-                    }
-                }
-            }
             .sheet(item: $tagEditorFile, content: { file in
                 NavigationStack {
                     TagEditorView(files: [file])
                 }
                     .presentationDragIndicator(.visible)
-            })
-            .alert(Text("Alert.ExtractingZIP.Error.Title"),
-                   isPresented: $isErrorAlertPresenting,
-                   actions: {
-                Button("Shared.OK", role: .cancel) { }
-            },
-                   message: {
-                Text(verbatim: errorText)
             })
             .navigationTitle(currentDirectory != nil ?
                              currentDirectory!.name :
@@ -176,59 +137,7 @@ struct FileBrowserView: View {
                 .sorted(by: { lhs, rhs in
                     return lhs is FSDirectory && rhs is FSFile
                 })
-        }
-    }
-
-    func extractFiles(file: FSFile, encoding: String.Encoding = .shiftJIS) {
-        withAnimation(.easeOut.speed(2)) {
-            isExtractingZIP = true
-        }
-        let destinationURL = URL(filePath: file.path).deletingPathExtension()
-        let destinationDirectory = destinationURL.path().removingPercentEncoding ?? destinationURL.path()
-        debugPrint("Attempting to create directory \(destinationDirectory)...")
-        fileManager.createDirectory(at: destinationDirectory)
-        debugPrint("Attempting to extract ZIP to \(destinationDirectory)...")
-        extractionProgress = Progress()
-        DispatchQueue.global(qos: .background).async {
-            let observation = extractionProgress?.observe(\.fractionCompleted) { progress, _ in
-                DispatchQueue.main.async {
-                    extractionPercentage = Int(progress.fractionCompleted * 100)
-                }
-            }
-            do {
-                try FileManager().unzipItem(at: URL(filePath: file.path),
-                                            to: URL(filePath: destinationDirectory),
-                                            skipCRC32: true,
-                                            progress: extractionProgress,
-                                            preferredEncoding: encoding)
-                DispatchQueue.main.async {
-                    withAnimation(.easeOut.speed(2)) {
-                        isExtractingZIP = false
-                    }
-                    refreshFiles()
-                }
-            } catch {
-                if !isExtractionCancelling {
-                    debugPrint("Error occurred while extracting ZIP: \(error.localizedDescription)")
-                    if encoding == .shiftJIS {
-                        debugPrint("Attempting extraction with UTF-8...")
-                        extractFiles(file: file, encoding: .utf8)
-                    } else {
-                        DispatchQueue.main.async {
-                            errorText = error.localizedDescription
-                            withAnimation(.easeOut.speed(2)) {
-                                isExtractingZIP = false
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                isErrorAlertPresenting = true
-                            }
-                        }
-                    }
-                } else {
-                    isExtractionCancelling = false
-                }
-            }
-            observation?.invalidate()
+            isInitialLoadCompleted = true
         }
     }
 
@@ -236,8 +145,7 @@ struct FileBrowserView: View {
         let contents = fileManager.files(in: directory.path)
         var files: [FSFile] = []
         for content in contents {
-            if let file = content as? FSFile,
-               file.filetype == .mp3 {
+            if let file = content as? FSFile {
                 files.append(file)
             }
         }
@@ -281,4 +189,3 @@ struct FileBrowserView: View {
         }
     }
 }
-// swiftlint:enable type_body_length
