@@ -348,7 +348,9 @@ struct TagEditorView: View {
 
     func replaceTokens(_ original: String, file: FSFile) -> String {
         var newString = original
-        let componentsDash = file.name.components(separatedBy: "-").map { string in
+        let componentsDash = file.name
+            .replacingOccurrences(of: ".mp3", with: "")
+            .components(separatedBy: "-").map { string in
             string.trimmingCharacters(in: .whitespaces)
         }
         let tokens: [String: String] = [
