@@ -52,8 +52,14 @@ struct TagDataSection: View {
                 ListDetailRow(title: "Tag.DiscNumber", value: tagData.discNumber)
             }
         } header: {
-            ListSectionHeader(text: "TagEditor.TagData")
-                .font(.body)
+            if #available(iOS 17.0, *) {
+                ListSectionHeader(text: "TagEditor.TagData")
+                    .font(.body)
+                    .popoverTip(AvailableTokensTip(), arrowEdge: .bottom)
+            } else {
+                ListSectionHeader(text: "TagEditor.TagData")
+                    .font(.body)
+            }
         }
         .onReceive(Just(tagData.year)) { _ in
             tagData.year = tagData.year.filter({ $0.isNumber })

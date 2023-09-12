@@ -38,7 +38,7 @@ struct TagEditorView: View {
                                   selectedAlbumArt: $selectedAlbumArt)
                 if #available(iOS 17.0, *) {
                     TagDataSection(tagData: $tagData, focusedField: $focusedField)
-                        .popoverTip(AvailableTokensTip(), arrowEdge: .bottom)
+                        .popoverTip(AvailableTokensTip(), arrowEdge: .top)
                 } else {
                     TagDataSection(tagData: $tagData, focusedField: $focusedField)
                 }
@@ -46,14 +46,8 @@ struct TagEditorView: View {
                 FileHeaderSection(filename: NSLocalizedString("BatchEdit.MultipleFiles", comment: ""),
                                   albumArt: $tagData.albumArt,
                                   selectedAlbumArt: $selectedAlbumArt)
-                if #available(iOS 17.0, *) {
-                    TagDataSection(tagData: $tagData, focusedField: $focusedField,
-                                   placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
-                    .popoverTip(AvailableTokensTip(), arrowEdge: .bottom)
-                } else {
-                    TagDataSection(tagData: $tagData, focusedField: $focusedField,
-                                   placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
-                }
+                TagDataSection(tagData: $tagData, focusedField: $focusedField,
+                               placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
             }
             Section {
                 AvailableTokenRow(tokenName: "FILENAME", tokenDescription: "TagEditor.Tokens.Filename.Description")
