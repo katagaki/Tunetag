@@ -19,8 +19,10 @@ struct DropZone: View {
         .frame(maxWidth: .infinity)
         .padding()
         .background(.regularMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 10.0))
-        .padding()
+        .overlay(Rectangle().frame(width: nil,
+                                    height: 1/3,
+                                    alignment: .top).foregroundColor(.primary.opacity(0.3)),
+                 alignment: .top)
         .dropDestination(for: FSFile.self) { items, _ in
             batchFileManager.addFiles(items)
             return true

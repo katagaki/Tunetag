@@ -19,6 +19,7 @@ struct MainTabView: View {
                 .tabItem {
                     Label("TabTitle.Files", image: "Tab.FileBrowser")
                 }
+                .toolbarBackground(.visible, for: .tabBar)
                 .tag(TabType.fileManager)
                 .safeAreaInset(edge: .bottom) {
                     DropZone()
