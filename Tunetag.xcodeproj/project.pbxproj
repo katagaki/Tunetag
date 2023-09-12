@@ -179,9 +179,9 @@
 				E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */,
 				E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */,
 				E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */,
-				E432A7412AAA16B90043BCC9 /* License.swift */,
 				E432A76F2AAC3E320043BCC9 /* Tag.swift */,
 				E432A7712AAC445B0043BCC9 /* TagTyped.swift */,
+				E432A7412AAA16B90043BCC9 /* License.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -212,12 +212,12 @@
 				E4641F4D2AADE19900DC6FB3 /* ProgressAlert.swift */,
 				E432A73D2AAA169E0043BCC9 /* ListSectionHeader.swift */,
 				E432A73B2AAA16910043BCC9 /* ListRow.swift */,
+				E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */,
 				E432A7472AAA2D2B0043BCC9 /* ListInputRow.swift */,
 				E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */,
 				E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */,
 				E432A7432AAA20C20043BCC9 /* ListHintOverlay.swift */,
 				E432A7582AAA524A0043BCC9 /* LargeButtonLabel.swift */,
-				E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
