@@ -347,38 +347,19 @@ struct TagEditorView: View {
     }
 
     func replaceTokens(_ original: String, file: FSFile) -> String {
-        var processedString = original
-        let componentsSplitByDash = file.name
-            .replacingOccurrences(of: ".mp3",
-                                  with: "")
-            .components(separatedBy: " - ")
-        if componentsSplitByDash.count >= 1 {
-            processedString = processedString
-                .replacingOccurrences(of: "%SPLITFRONT%",
-                                      with: componentsSplitByDash[0],
-                                      options: .caseInsensitive)
-        } else {
-            processedString = processedString
-                .replacingOccurrences(of: "%SPLITFRONT%",
-                                      with: "",
-                                      options: .caseInsensitive)
+        var newString = original
+        let componentsDash = file.name.components(separatedBy: "-").map { string in
+            string.trimmingCharacters(in: .whitespaces)
         }
-        if componentsSplitByDash.count >= 2 {
-            processedString = processedString
-                .replacingOccurrences(of: "%SPLITBACK%",
-                                      with: componentsSplitByDash[1],
-                                      options: .caseInsensitive)
-        } else {
-            processedString = processedString
-                .replacingOccurrences(of: "%SPLITBACK%",
-                                      with: "",
-                                      options: .caseInsensitive)
+        let tokens: [String: String] = [
+            "fileName": file.name,
+            "splitFront": componentsDash[0],
+            "splitBack": componentsDash.count >= 2 ? componentsDash[1] : "",
+        ]
+        for (key, value) in tokens {
+            newString = newString.replacingOccurrences(of: "%\(key)%", with: value, options: .caseInsensitive)
         }
-        processedString =  processedString
-            .replacingOccurrences(of: "%FILENAME%",
-                                  with: file.name.replacingOccurrences(of: ".mp3", with: "", options: .caseInsensitive),
-                                  options: .caseInsensitive)
-        return processedString
+        return newString
     }
 
     func changeSaveState(to newState: SaveState) {
