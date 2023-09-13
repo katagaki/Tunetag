@@ -2,7 +2,7 @@
 
 A batch MP3 tag editor built for iOS.
 
-**Download: [TestFlight](https://testflight.apple.com/join/3VvkvbCO)**
+**Download: [App Store](https://apps.apple.com/app/id6464678747)**
 
 ## Development
 
