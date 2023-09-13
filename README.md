@@ -11,4 +11,3 @@ A batch MP3 tag editor built for iOS.
 - Viewing, editing, and saving ID3 tags in MP3 files (including album art!)
 - Batch editing ID3 tags
 - Using tokens to fill out ID3 tags using existing data (such as filenames)
-- Extracting ZIP files
