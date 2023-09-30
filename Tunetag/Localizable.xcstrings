@@ -6,13 +6,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Other Apps"
+            "value" : "External Files"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "外部ｱﾌﾟﾘ"
+            "value" : "外部ﾌｧｲﾙ"
           }
         }
       }
@@ -22,13 +22,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. Return to the Home Screen and open the Files app.\n2. Find and select the files you want to add to the batch edit queue.\n3. Long pass on any one of the selected files, then using another finger, return to the Home Screen and open the Tunetag app.\n4. Drop the files onto the Batch Edit tab."
+            "value" : "1. Return to the Home Screen and open the Files app.\n2. Find and select the files you want to add to the batch edit queue.\n3. Long pass on any one of the selected files, then using another finger, return to the Home Screen and open the Tunetag app.\n4. Drop the files onto the Batch Edit tab.\n\nDepending on the actual location of the files, it may take some time to add the files to the queue."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. ホーム画面に戻り、「ファイル」アプリを開きます。\n2. 追加するファイルをすべて選択します。\n3. 選択したファイルのいずれかを長押しし、もう一本の指でホーム画面に戻り、チューンタグアプリを開きます。\n4. 一括編集キューにファイルを置き、指を離します。"
+            "value" : "1. ホーム画面に戻り、「ファイル」アプリを開きます。\n2. 追加するファイルをすべて選択します。\n3. 選択したファイルのいずれかを長押しし、もう一本の指でホーム画面に戻り、チューンタグアプリを開きます。\n4. 一括編集キューにファイルを置き、指を離します。\n\nファイルの場所によっては、追加する時間がかかる可能性があるので、ご了承ください。"
           }
         }
       }
@@ -56,13 +56,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Choose where you want to add files from:"
+            "value" : "Chose the type of file you are adding:"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "追加したいファイルの場所を選択してください。"
+            "value" : "追加したいファイルの種類を選択してください。"
           }
         }
       }
@@ -72,7 +72,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tunetag (Files)"
+            "value" : "In-App Files"
           }
         },
         "ja" : {
@@ -104,7 +104,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tunetag (Folders)"
+            "value" : "In-App Folders"
           }
         },
         "ja" : {
