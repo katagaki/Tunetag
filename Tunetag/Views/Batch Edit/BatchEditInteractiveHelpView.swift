@@ -84,6 +84,9 @@ struct BatchEditInteractiveHelpView: View {
         player = AVQueuePlayer(items: [playerItem])
         playerLooper = AVPlayerLooper(player: player!, templateItem: playerItem)
         player!.isMuted = true
+        player!.audiovisualBackgroundPlaybackPolicy = .pauses
+        _ = try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback,
+                                                             mode: .default, options: .mixWithOthers)
         player!.play()
     }
 }
