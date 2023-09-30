@@ -31,48 +31,82 @@ struct FileBrowserView: View {
                                image: Image(systemName: "questionmark.folder.fill"),
                                showsTip: $showsLegacyTip)
                 }
-                ForEach($files, id: \.path) { $file in
-                    if let directory = file as? FSDirectory {
-                        NavigationLink(value: ViewPath.fileBrowser(directory: directory)) {
-                            ListFolderRow(name: directory.name)
+                Section {
+                    ForEach($files, id: \.path) { $file in
+                        if let directory = file as? FSDirectory {
+                            NavigationLink(value: ViewPath.fileBrowser(directory: directory)) {
+                                ListFolderRow(name: directory.name)
+                            }
+                            .contextMenu(menuItems: {
+                                Button {
+                                    addToQueue(directory: directory)
+                                } label: {
+                                    Label("Shared.AddFiles", systemImage: "folder.fill.badge.plus")
+                                }
+                                Button {
+                                    addToQueue(directory: directory, recursively: true)
+                                } label: {
+                                    Label("Shared.AddFilesRecursively", systemImage: "folder.fill.badge.plus")
+                                }
+                            })
+                        } else if let file = file as? FSFile {
+                            Button {
+                                tagEditorFile = file
+                            } label: {
+                                ListFileRow(name: file.name, icon: Image("File.MP3"))
+                            }
+                            .tint(.primary)
+                            .draggable(file) {
+                                ListFileRow(name: file.name, icon: Image("File.MP3"))
+                                    .padding()
+                                    .background(.background)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                            }
+                            .contextMenu(menuItems: {
+                                Button {
+                                    addToQueue(file: file)
+                                } label: {
+                                    Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
+                                }
+                            }, preview: {
+                                FilePreview(file: file)
+                            })
                         }
-                        .contextMenu(menuItems: {
-                            Button {
-                                addToQueue(directory: directory)
-                            } label: {
-                                Label("Shared.AddFiles", systemImage: "folder.fill.badge.plus")
-                            }
-                            Button {
-                                addToQueue(directory: directory, recursively: true)
-                            } label: {
-                                Label("Shared.AddFilesRecursively", systemImage: "folder.fill.badge.plus")
-                            }
-                        })
-                    } else if let file = file as? FSFile {
+                    }
+                } header: {
+                    Text(verbatim: "")
+                }
+                if files.contains(where: { file in
+                    if let file = file as? FSFile {
+                        let url = URL(filePath: file.path)
+                        return url.pathExtension.lowercased() == "mp3"
+                    }
+                    return false
+                }) {
+                    Section {
                         Button {
-                            tagEditorFile = file
-                        } label: {
-                            ListFileRow(name: file.name, icon: Image("File.MP3"))
-                        }
-                        .draggable(file) {
-                            ListFileRow(name: file.name, icon: Image("File.MP3"))
-                                .padding()
-                                .background(.background)
-                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                        }
-                        .contextMenu(menuItems: {
-                            Button {
-                                addToQueue(file: file)
-                            } label: {
-                                Label("Shared.AddFile", systemImage: "doc.fill.badge.plus")
+                            if let currentDirectory = currentDirectory {
+                                addToQueue(directory: currentDirectory)
                             }
-                        }, preview: {
-                            FilePreview(file: file)
-                        })
+                        } label: {
+                            HStack(alignment: .center, spacing: 4.0) {
+                                Image(systemName: "plus.square.fill.on.square.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 18.0, height: 18.0)
+                                Text("FileBrowser.AddFiles")
+                                    .bold()
+                            }
+                            .frame(minHeight: 24.0)
+                            .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
+                        .clipShape(RoundedRectangle(cornerRadius: 99))
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
                     }
                 }
             }
-            .listStyle(.plain)
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
                 case .fileBrowser(let directory): FileBrowserView(currentDirectory: directory)
