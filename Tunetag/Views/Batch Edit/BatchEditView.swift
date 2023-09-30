@@ -21,15 +21,22 @@ struct BatchEditView: View {
             ScrollView(.vertical) {
                 LazyVStack(alignment: .leading, spacing: 0.0) {
                     ForEach(batchFileManager.files, id: \.path) { file in
-                        ListFileRow(name: file.name, icon: Image("File.MP3"))
-                            .frame(minHeight: 43)
-                            .padding([.leading, .trailing], 20.0)
+                        HStack {
+                            ListFileRow(name: file.name, icon: Image("File.MP3"))
+                                .frame(minHeight: 43)
+                            Spacer()
+                            Button {
+                                withAnimation(.snappy.speed(2)) {
+                                    batchFileManager.files.removeAll(where: { $0.id == file.id })
+                                }
+                            } label: {
+                                Image(systemName: "trash")
+                                    .foregroundStyle(.red)
+                            }
+                        }
+                        .padding([.leading, .trailing], 20.0)
                         Divider()
                             .padding(.leading, 64.0)
-                    }
-                    .onDelete { indexSet in
-                        // TODO: Migrate to new method of deletion (button?)
-                        batchFileManager.files.remove(atOffsets: indexSet)
                     }
                 }
             }
@@ -93,9 +100,12 @@ struct BatchEditView: View {
                 ToolbarItem(placement: .primaryAction) {
                     if !batchFileManager.files.isEmpty {
                         Button {
-                            batchFileManager.files.removeAll()
+                            withAnimation(.snappy.speed(2)) {
+                                batchFileManager.files.removeAll()
+                            }
                         } label: {
                             Text("Shared.ClearAll")
+                                .foregroundStyle(.red)
                         }
                     }
                 }
