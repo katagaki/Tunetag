@@ -55,10 +55,6 @@ struct BatchEditView: View {
                 }
                 return true
             }
-            .dropDestination(for: FSFile.self) { items, _ in
-                batchFileManager.addFiles(items)
-                return true
-            }
             .background {
                 if batchFileManager.files.isEmpty {
                     VStack(alignment: .center, spacing: 0.0) {
@@ -69,6 +65,7 @@ struct BatchEditView: View {
                             Text("Shared.LearnHow")
                         }
                         .buttonStyle(.bordered)
+                        .clipShape(RoundedRectangle(cornerRadius: 99))
                     }
                 }
             }

@@ -51,7 +51,6 @@ struct FileBrowserView: View {
                     } else if let file = file as? FSFile {
                         Button {
                             tagEditorFile = file
-                            // navigationManager.push(ViewPath.tagEditorSingle(file: file), for: .fileManager)
                         } label: {
                             ListFileRow(name: file.name, icon: Image("File.MP3"))
                         }
@@ -77,7 +76,6 @@ struct FileBrowserView: View {
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
                 case .fileBrowser(let directory): FileBrowserView(currentDirectory: directory)
-                case .tagEditorSingle(let file): TagEditorView(files: [file])
                 default: Color.clear
                 }
             })
@@ -112,8 +110,16 @@ struct FileBrowserView: View {
             .sheet(item: $tagEditorFile, content: { file in
                 NavigationStack {
                     TagEditorView(files: [file])
+                        .toolbar {
+                            ToolbarItem(placement: .topBarTrailing) {
+                                CloseButton {
+                                    tagEditorFile = nil
+                                }
+                            }
+                        }
                 }
-                    .presentationDragIndicator(.visible)
+                .interactiveDismissDisabled()
+                .presentationDragIndicator(.visible)
             })
             .navigationTitle(currentDirectory != nil ?
                              currentDirectory!.name :

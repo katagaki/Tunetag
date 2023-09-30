@@ -68,7 +68,6 @@ struct TagEditorView: View {
             }
         }
         .disabled(saveState == .saving)
-        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
             Button {
