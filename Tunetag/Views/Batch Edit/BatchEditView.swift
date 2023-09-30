@@ -6,29 +6,57 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct BatchEditView: View {
 
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var batchFileManager: BatchFileManager
+    @State var isDropZoneTarget: Bool = false
 
     var body: some View {
         NavigationStack(path: $navigationManager.batchEditTabPath) {
-            List {
-                ForEach(batchFileManager.files, id: \.path) { file in
-                    ListFileRow(name: file.name, icon: Image("File.MP3"))
-                }
-                .onDelete { indexSet in
-                    batchFileManager.files.remove(atOffsets: indexSet)
+            ScrollView(.vertical) {
+                LazyVStack(alignment: .leading, spacing: 0.0) {
+                    ForEach(batchFileManager.files, id: \.path) { file in
+                        ListFileRow(name: file.name, icon: Image("File.MP3"))
+                            .frame(minHeight: 43)
+                            .padding([.leading, .trailing], 20.0)
+                        Divider()
+                            .padding(.leading, 64.0)
+                    }
+                    .onDelete { indexSet in
+                        // TODO: Migrate to new method of deletion (button?)
+                        batchFileManager.files.remove(atOffsets: indexSet)
+                    }
                 }
             }
-            .listStyle(.plain)
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
                 case .tagEditorMultiple: TagEditorView(files: batchFileManager.files)
                 default: Color.clear
                 }
             })
+            .onDrop(of: [.mp3], isTargeted: $isDropZoneTarget) { items in
+                debugPrint(items.count)
+                for item in items {
+                    item.loadInPlaceFileRepresentation(
+                        forTypeIdentifier: UTType.mp3.identifier) { url, _, _ in
+                        if let url = url {
+                            DispatchQueue.main.async {
+                                batchFileManager.addFile(FSFile(name: url.lastPathComponent,
+                                                                path: url.path(percentEncoded: false),
+                                                                isArbitrarilyLoadedFromDragAndDrop: true))
+                            }
+                        }
+                    }
+                }
+                return true
+            }
+            .dropDestination(for: FSFile.self) { items, _ in
+                batchFileManager.addFiles(items)
+                return true
+            }
             .background {
                 if batchFileManager.files.isEmpty {
                     ListHintOverlay(image: "questionmark.folder", text: "BatchEdit.Hint")

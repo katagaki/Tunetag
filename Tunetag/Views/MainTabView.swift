@@ -19,11 +19,11 @@ struct MainTabView: View {
                 .tabItem {
                     Label("TabTitle.Files", image: "Tab.FileBrowser")
                 }
-                .toolbarBackground(.visible, for: .tabBar)
-                .tag(TabType.fileManager)
+                .toolbarBackground(.hidden, for: .tabBar)
                 .safeAreaInset(edge: .bottom) {
                     DropZone()
                 }
+                .tag(TabType.fileManager)
             BatchEditView()
                 .tabItem {
                     Label("TabTitle.BatchEditor", image: "Tab.BatchEditor")

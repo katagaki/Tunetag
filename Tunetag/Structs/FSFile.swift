@@ -13,6 +13,7 @@ struct FSFile: FilesystemObject, Codable, Identifiable, Transferable {
 
     var name: String
     var path: String
+    var isArbitrarilyLoadedFromDragAndDrop: Bool = false
 
     var id: String {
         return path

@@ -8,6 +8,6 @@
 import Foundation
 
 class TabManager: ObservableObject {
-    @Published var selectedTab: TabType = .fileManager
-    @Published var previouslySelectedTab: TabType = .fileManager
+    @Published var selectedTab: TabType = .batchEdit
+    @Published var previouslySelectedTab: TabType = .batchEdit
 }

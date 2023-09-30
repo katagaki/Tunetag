@@ -17,13 +17,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No files marked for edit.\nTo add a file, drag it from the Files tab to the drop zone below."
+            "value" : "No files marked for edit.\nTo add files from the Local Files tab, drag and drop them in the drop zone at the bottom of the tab.\nTo add files from the Files app, drag and drop them from the Files app to this tab."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "編集するファイルはありません。\nファイルを追加するには、ファイルタブでファイルをドラッグし、下のドロップゾーンにドロップしてください。"
+            "value" : "編集するファイルはありません。\n「ローカルファイル」タブからファイルを追加するには、ファイルをドラッグし、下のドロップゾーンにドロップしてください。\n「ファイル」アプリからファイルを追加するには、ファイルをドラッグし、このタブにドロップしてください。"
           }
         }
       }
@@ -478,13 +478,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Files"
+            "value" : "Local Files"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ファイル"
+            "value" : "ローカルファイル"
           }
         }
       }
@@ -835,13 +835,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Files"
+            "value" : "Local Files"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ファイル"
+            "value" : "ローカルファイル"
           }
         }
       }
