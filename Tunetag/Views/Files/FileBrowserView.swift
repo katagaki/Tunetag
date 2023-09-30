@@ -188,6 +188,7 @@ struct FileBrowserView: View {
                 files.append(file)
             }
         }
+        files.sort(by: { $0.name < $1.name })
         batchFileManager.addFiles(files)
         if isRecursiveAdd {
             for content in contents {
@@ -199,7 +200,9 @@ struct FileBrowserView: View {
     }
 
     func addToQueue(file: FSFile) {
-        batchFileManager.addFile(file)
+        if !batchFileManager.files.contains(file) {
+            batchFileManager.addFile(file)
+        }
     }
 
     @ViewBuilder
