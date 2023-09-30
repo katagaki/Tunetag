@@ -5,13 +5,16 @@
 //  Created by シン・ジャスティン on 2023/09/07.
 //
 
+import StoreKit
 import SwiftUI
 import TipKit
 
 struct MainTabView: View {
 
+    @Environment(\.requestReview) var requestReview
     @EnvironmentObject var tabManager: TabManager
     @EnvironmentObject var navigationManager: NavigationManager
+    @AppStorage(wrappedValue: false, "ReviewPrompted", store: .standard) var hasReviewBeenPrompted: Bool
 
     var body: some View {
         TabView(selection: $tabManager.selectedTab) {
@@ -41,6 +44,10 @@ struct MainTabView: View {
                     .displayFrequency(.immediate),
                     .datastoreLocation(.applicationDefault)
                 ])
+            }
+            if !hasReviewBeenPrompted {
+                requestReview()
+                hasReviewBeenPrompted = true
             }
         }
         .onReceive(tabManager.$selectedTab, perform: { newValue in
