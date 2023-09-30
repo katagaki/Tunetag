@@ -5,6 +5,7 @@
 //  Created by シン・ジャスティン on 2023/09/10.
 //
 
+import Komponents
 import SwiftUI
 
 struct TipSection: View {

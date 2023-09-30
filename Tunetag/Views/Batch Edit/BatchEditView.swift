@@ -5,6 +5,7 @@
 //  Created by シン・ジャスティン on 2023/09/08.
 //
 
+import Komponents
 import SwiftUI
 import UniformTypeIdentifiers
 
@@ -39,6 +40,7 @@ struct BatchEditView: View {
             })
             .onDrop(of: [.mp3], isTargeted: $isDropZoneTarget) { items in
                 debugPrint(items.count)
+                // TODO: Test with slow network share
                 for item in items {
                     item.loadInPlaceFileRepresentation(
                         forTypeIdentifier: UTType.mp3.identifier) { url, _, _ in
@@ -59,7 +61,15 @@ struct BatchEditView: View {
             }
             .background {
                 if batchFileManager.files.isEmpty {
-                    ListHintOverlay(image: "questionmark.folder", text: "BatchEdit.Hint")
+                    VStack(alignment: .center, spacing: 0.0) {
+                        HintOverlay(image: "questionmark.folder", text: "BatchEdit.Hint")
+                        Button {
+                            // TODO: Show video tutorial
+                        } label: {
+                            Text("Shared.LearnHow")
+                        }
+                        .buttonStyle(.bordered)
+                    }
                 }
             }
             .safeAreaInset(edge: .bottom) {

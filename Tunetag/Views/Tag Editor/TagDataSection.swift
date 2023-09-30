@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Komponents
 import SwiftUI
 
 struct TagDataSection: View {

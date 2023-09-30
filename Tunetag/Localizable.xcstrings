@@ -188,125 +188,6 @@
         }
       }
     },
-    "More.Help" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Help & Support"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サポート"
-          }
-        }
-      }
-    },
-    "More.Help.Email" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Email Me"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "メールを送信"
-          }
-        }
-      }
-    },
-    "More.Help.Email.Subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ktgk.public@icloud.com"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ktgk.public@icloud.com"
-          }
-        }
-      }
-    },
-    "More.Help.GitHub" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read Source Code"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ソースコードを閲覧"
-          }
-        }
-      }
-    },
-    "More.Help.GitHub.Subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "katagaki/Tunetag"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "katagaki/Tunetag"
-          }
-        }
-      }
-    },
-    "More.Help.Twitter" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Post on X"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Xでポスト"
-          }
-        }
-      }
-    },
-    "More.Help.Twitter.Subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "@katagaki_"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "@katagaki_"
-          }
-        }
-      }
-    },
     "Shared.AddFile" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -418,6 +299,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "こちらにファイルを移動してください"
+          }
+        }
+      }
+    },
+    "Shared.LearnHow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Learn How"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加方法を見る"
           }
         }
       }
@@ -842,22 +739,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ローカルファイル"
-          }
-        }
-      }
-    },
-    "ViewTitle.More" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "その他"
           }
         }
       }

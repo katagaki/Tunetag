@@ -5,6 +5,7 @@
 //  Created by シン・ジャスティン on 2023/09/07.
 //
 
+import Komponents
 import SwiftUI
 import TipKit
 
@@ -86,8 +87,7 @@ struct FileBrowserView: View {
             .background {
                 if files.count == 0 && isInitialLoadCompleted {
                     VStack {
-                        ListHintOverlay(image: "questionmark.folder",
-                                        text: "FileBrowser.Hint")
+                        HintOverlay(image: "questionmark.folder", text: "FileBrowser.Hint")
                     }
                 }
             }

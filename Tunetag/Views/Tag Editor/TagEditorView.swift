@@ -6,6 +6,7 @@
 //
 
 import ID3TagEditor
+import Komponents
 import PhotosUI
 import SwiftUI
 import TipKit
