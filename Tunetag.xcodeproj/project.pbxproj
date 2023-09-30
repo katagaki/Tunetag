@@ -43,6 +43,10 @@
 		E432A7842AAD91240043BCC9 /* TipSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7832AAD91240043BCC9 /* TipSection.swift */; };
 		E432A7892AADAB7B0043BCC9 /* DropZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7882AADAB7B0043BCC9 /* DropZone.swift */; };
 		E436724B2AC859F60016B57C /* Komponents in Frameworks */ = {isa = PBXBuildFile; productRef = E436724A2AC859F60016B57C /* Komponents */; };
+		E436724D2AC860F40016B57C /* BatchEditInteractiveHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436724C2AC860F40016B57C /* BatchEditInteractiveHelpView.swift */; };
+		E4E334872AC866F900A070A0 /* BatchEdit.ExternalApps.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334842AC866F900A070A0 /* BatchEdit.ExternalApps.mov */; };
+		E4E334882AC866F900A070A0 /* BatchEdit.InAppFiles.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334852AC866F900A070A0 /* BatchEdit.InAppFiles.mov */; };
+		E4E334892AC866F900A070A0 /* BatchEdit.InAppFolders.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334862AC866F900A070A0 /* BatchEdit.InAppFolders.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +87,10 @@
 		E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailRow.swift; sourceTree = "<group>"; };
 		E432A7832AAD91240043BCC9 /* TipSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipSection.swift; sourceTree = "<group>"; };
 		E432A7882AADAB7B0043BCC9 /* DropZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropZone.swift; sourceTree = "<group>"; };
+		E436724C2AC860F40016B57C /* BatchEditInteractiveHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEditInteractiveHelpView.swift; sourceTree = "<group>"; };
+		E4E334842AC866F900A070A0 /* BatchEdit.ExternalApps.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = BatchEdit.ExternalApps.mov; sourceTree = "<group>"; };
+		E4E334852AC866F900A070A0 /* BatchEdit.InAppFiles.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = BatchEdit.InAppFiles.mov; sourceTree = "<group>"; };
+		E4E334862AC866F900A070A0 /* BatchEdit.InAppFolders.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = BatchEdit.InAppFolders.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 				E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */,
 				E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */,
 				E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */,
+				E4E334832AC866E200A070A0 /* Videos */,
 				E432A71F2AAA08F10043BCC9 /* Views */,
 				E432A7212AAA093D0043BCC9 /* Structs */,
 				E432A7202AAA08F70043BCC9 /* Classes */,
@@ -221,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				E432A7512AAA49C50043BCC9 /* BatchEditView.swift */,
+				E436724C2AC860F40016B57C /* BatchEditInteractiveHelpView.swift */,
 			);
 			path = "Batch Edit";
 			sourceTree = "<group>";
@@ -235,6 +245,16 @@
 				E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */,
 			);
 			path = "Tag Editor";
+			sourceTree = "<group>";
+		};
+		E4E334832AC866E200A070A0 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				E4E334842AC866F900A070A0 /* BatchEdit.ExternalApps.mov */,
+				E4E334862AC866F900A070A0 /* BatchEdit.InAppFolders.mov */,
+				E4E334852AC866F900A070A0 /* BatchEdit.InAppFiles.mov */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +328,9 @@
 				E432A7762AAC55B70043BCC9 /* InfoPlist.xcstrings in Resources */,
 				E432A7462AAA265B0043BCC9 /* Localizable.xcstrings in Resources */,
 				E432A70F2AA9FD5F0043BCC9 /* Assets.xcassets in Resources */,
+				E4E334892AC866F900A070A0 /* BatchEdit.InAppFolders.mov in Resources */,
+				E4E334882AC866F900A070A0 /* BatchEdit.InAppFiles.mov in Resources */,
+				E4E334872AC866F900A070A0 /* BatchEdit.ExternalApps.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +365,7 @@
 				E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */,
 				E432A7672AAB9D9E0043BCC9 /* TagDataSection.swift in Sources */,
 				E432A7482AAA2D2B0043BCC9 /* ListInputRow.swift in Sources */,
+				E436724D2AC860F40016B57C /* BatchEditInteractiveHelpView.swift in Sources */,
 				E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */,
 				E432A7232AAA094A0043BCC9 /* FSFile.swift in Sources */,
 				E432A71E2AA9FF3A0043BCC9 /* FilesystemManager.swift in Sources */,

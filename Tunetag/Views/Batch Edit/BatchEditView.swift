@@ -14,6 +14,7 @@ struct BatchEditView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var batchFileManager: BatchFileManager
     @State var isDropZoneTarget: Bool = false
+    @State var isInteractiveHelpPresenting: Bool = false
 
     var body: some View {
         NavigationStack(path: $navigationManager.batchEditTabPath) {
@@ -55,12 +56,12 @@ struct BatchEditView: View {
                 }
                 return true
             }
-            .background {
+            .overlay {
                 if batchFileManager.files.isEmpty {
                     VStack(alignment: .center, spacing: 0.0) {
                         HintOverlay(image: "questionmark.folder", text: "BatchEdit.Hint")
                         Button {
-                            // TODO: Show video tutorial
+                            isInteractiveHelpPresenting = true
                         } label: {
                             Text("Shared.LearnHow")
                         }
@@ -85,6 +86,9 @@ struct BatchEditView: View {
                 .padding([.leading, .trailing, .bottom])
                 .disabled(batchFileManager.files.isEmpty)
             }
+            .sheet(isPresented: $isInteractiveHelpPresenting, content: {
+                BatchEditInteractiveHelpView()
+            })
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     if !batchFileManager.files.isEmpty {

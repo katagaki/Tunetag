@@ -1,19 +1,149 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "BatchEdit.Help.ExternalApps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other Apps"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外部ｱﾌﾟﾘ"
+          }
+        }
+      }
+    },
+    "BatchEdit.Help.ExternalApps.Text" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Return to the Home Screen and open the Files app.\n2. Find and select the files you want to add to the batch edit queue.\n3. Long pass on any one of the selected files, then using another finger, return to the Home Screen and open the Tunetag app.\n4. Drop the files onto the Batch Edit tab."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. ホーム画面に戻り、「ファイル」アプリを開きます。\n2. 追加するファイルをすべて選択します。\n3. 選択したファイルのいずれかを長押しし、もう一本の指でホーム画面に戻り、チューンタグアプリを開きます。\n4. 一括編集キューにファイルを置き、指を離します。"
+          }
+        }
+      }
+    },
+    "BatchEdit.Help.GuidanceHint.Bottom" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Here's how you can do it:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加方法はこちらです。"
+          }
+        }
+      }
+    },
+    "BatchEdit.Help.GuidanceHint.Top" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where you want to add files from:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加したいファイルの場所を選択してください。"
+          }
+        }
+      }
+    },
+    "BatchEdit.Help.InApp.Files" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag (Files)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ｱﾌﾟﾘ内ﾌｧｲﾙ"
+          }
+        }
+      }
+    },
+    "BatchEdit.Help.InApp.Files.Text" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Navigate to the folder with your files.\n2. Long press and drag the file you want to add to the drop zone at the bottom of the tab."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. ファイルを包含するフォルダーを開きます。\n2. ファイルに長押しし、画面の下にあるドロップゾーンに移動したら指を離します。"
+          }
+        }
+      }
+    },
+    "BatchEdit.Help.InApp.Folders" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag (Folders)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ｱﾌﾟﾘ内ﾌｫﾙﾀﾞｰ"
+          }
+        }
+      }
+    },
+    "BatchEdit.Help.InApp.Folders.Text" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Navigate to the location with your folder of files.\n2. Long press on the folder.\n3. Select an option to add files in the folder to the queue."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. フォルダーを包含する場所を開きます。\n2. フォルダーに長押しします。\n3. メニューの追加方法を選択します。"
+          }
+        }
+      }
+    },
     "BatchEdit.Hint" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No files marked for edit.\nTo add files from the Local Files tab, drag and drop them in the drop zone at the bottom of the tab.\nTo add files from the Files app, drag and drop them from the Files app to this tab."
+            "value" : "No files added to the batch edit queue.\nYou can add files to the batch edit queue either from within the app, or from an external source."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "編集するファイルはありません。\n「ローカルファイル」タブからファイルを追加するには、ファイルをドラッグし、下のドロップゾーンにドロップしてください。\n「ファイル」アプリからファイルを追加するには、ファイルをドラッグし、このタブにドロップしてください。"
+            "value" : "編集するファイルはありません。\nアプリ内のファイルまたは外部のファイルを追加することができます。"
           }
         }
       }
@@ -304,7 +434,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "追加方法を見る"
+            "value" : "追加方法を閲覧"
           }
         }
       }
@@ -695,6 +825,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "著者権表記"
+          }
+        }
+      }
+    },
+    "ViewTitle.BatchEditHelp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adding Files to the Batch Editor"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一括編集キューのファイル追加方法"
           }
         }
       }
