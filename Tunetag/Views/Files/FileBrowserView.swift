@@ -119,7 +119,6 @@ struct FileBrowserView: View {
                         }
                 }
                 .interactiveDismissDisabled()
-                .presentationDragIndicator(.visible)
             })
             .navigationTitle(currentDirectory != nil ?
                              currentDirectory!.name :
