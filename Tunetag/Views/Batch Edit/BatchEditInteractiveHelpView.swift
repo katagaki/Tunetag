@@ -12,6 +12,7 @@ import SwiftUI
 struct BatchEditInteractiveHelpView: View {
 
     @Environment(\.dismiss) var dismiss
+    @Environment(\.scenePhase) var scenePhase
     @State var player: AVQueuePlayer?
     @State var playerLooper: AVPlayerLooper?
     @State var helpSectionIndex: Int = 0
@@ -64,6 +65,15 @@ struct BatchEditInteractiveHelpView: View {
             .onAppear {
                 setPlayer()
             }
+            .onChange(of: scenePhase, perform: { newValue in
+                switch newValue {
+                case .active:
+                    if let player = player {
+                        player.play()
+                    }
+                @unknown default: break
+                }
+            })
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("ViewTitle.BatchEditHelp")
         }
