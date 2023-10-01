@@ -15,6 +15,7 @@ struct MainTabView: View {
     @EnvironmentObject var tabManager: TabManager
     @EnvironmentObject var navigationManager: NavigationManager
     @AppStorage(wrappedValue: false, "ReviewPrompted", store: .standard) var hasReviewBeenPrompted: Bool
+    @AppStorage(wrappedValue: 0, "LaunchCount", store: .standard) var launchCount: Int
 
     var body: some View {
         TabView(selection: $tabManager.selectedTab) {
@@ -45,7 +46,8 @@ struct MainTabView: View {
                     .datastoreLocation(.applicationDefault)
                 ])
             }
-            if !hasReviewBeenPrompted {
+            launchCount += 1
+            if launchCount > 2 && !hasReviewBeenPrompted {
                 requestReview()
                 hasReviewBeenPrompted = true
             }

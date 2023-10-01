@@ -71,7 +71,7 @@ struct BatchEditInteractiveHelpView: View {
                     if let player = player {
                         player.play()
                     }
-                @unknown default: break
+                default: break
                 }
             })
             .navigationBarTitleDisplayMode(.inline)
