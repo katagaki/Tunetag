@@ -210,13 +210,22 @@ struct FileBrowserView: View {
         Button {
             let documentsUrl = FileManager.default.urls(for: .documentDirectory,
                                                         in: .userDomainMask).first!
+#if targetEnvironment(macCatalyst)
+            UIApplication.shared.open(documentsUrl)
+#else
             if let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)") {
                 if UIApplication.shared.canOpenURL(sharedUrl) {
-                    UIApplication.shared.open(sharedUrl, options: [:])
+                    UIApplication.shared.open(sharedUrl)
                 }
             }
+#endif
         } label: {
             HStack(alignment: .center, spacing: 8.0) {
+#if targetEnvironment(macCatalyst)
+                Image("SystemApps.Finder")
+                    .resizable()
+                    .frame(width: 30.0, height: 30.0)
+#else
                 Image("SystemApps.Files")
                     .resizable()
                     .frame(width: 30.0, height: 30.0)
@@ -226,6 +235,7 @@ struct FileBrowserView: View {
                             .stroke(.black, lineWidth: 1/3)
                             .opacity(0.3)
                     }
+#endif
                 Text("Shared.OpenFilesApp")
             }
         }

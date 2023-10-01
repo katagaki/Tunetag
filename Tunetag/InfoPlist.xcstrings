@@ -34,6 +34,23 @@
           }
         }
       }
+    },
+    "NSLocalNetworkUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag may access other devices on your local network if you drag and drop files from a networked location to the Batch Edit tab."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ネットワーク上のファイルを一括編集キューに追加すると、ネットワーク上のデバイスにアクセスすることがあります。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

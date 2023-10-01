@@ -94,7 +94,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. ファイルを包含するフォルダーを開きます。\n2. ファイルに長押しし、画面の下にあるドロップゾーンに移動したら指を離します。"
+            "value" : "1. ファイルを内包するフォルダーを開きます。\n2. ファイルに長押しし、画面の下にあるドロップゾーンに移動したら指を離します。"
           }
         }
       }
@@ -126,7 +126,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. フォルダーを包含する場所を開きます。\n2. フォルダーに長押しします。\n3. メニューで追加方法を選択します。"
+            "value" : "1. フォルダーを内包する場所を開きます。\n2. フォルダーに長押しします。\n3. メニューで追加方法を選択します。"
           }
         }
       }
@@ -459,15 +459,39 @@
     "Shared.OpenFilesApp" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Open Files App"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Open Finder"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Open Files App"
+                }
+              }
+            }
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "「ファイル」アプリに移動"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "「Finder」アプリに移動"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "「ファイル」アプリに移動"
+                }
+              }
+            }
           }
         }
       }

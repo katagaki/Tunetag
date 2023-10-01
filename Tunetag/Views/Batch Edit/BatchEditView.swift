@@ -27,6 +27,7 @@ struct BatchEditView: View {
                             Spacer()
                             Button {
                                 withAnimation(.snappy.speed(2)) {
+                                    URL(filePath: file.path).stopAccessingSecurityScopedResource()
                                     batchFileManager.files.removeAll(where: { $0.id == file.id })
                                 }
                             } label: {
@@ -46,23 +47,6 @@ struct BatchEditView: View {
                 default: Color.clear
                 }
             })
-            .onDrop(of: [.mp3], isTargeted: $isDropZoneTarget) { items in
-                debugPrint(items.count)
-                // TODO: Test with slow network share
-                for item in items {
-                    item.loadInPlaceFileRepresentation(
-                        forTypeIdentifier: UTType.mp3.identifier) { url, _, _ in
-                        if let url = url {
-                            DispatchQueue.main.async {
-                                batchFileManager.addFile(FSFile(name: url.lastPathComponent,
-                                                                path: url.path(percentEncoded: false),
-                                                                isArbitrarilyLoadedFromDragAndDrop: true))
-                            }
-                        }
-                    }
-                }
-                return true
-            }
             .overlay {
                 if batchFileManager.files.isEmpty {
                     VStack(alignment: .center, spacing: 0.0) {
@@ -76,6 +60,24 @@ struct BatchEditView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 99))
                     }
                 }
+            }
+            .onDrop(of: [.mp3, .fileURL], isTargeted: $isDropZoneTarget) { items in
+                for item in items {
+                    debugPrint("Attempting to open in place...")
+                    getFile(item, for: UTType.mp3.identifier) { file in
+                        if let file = file {
+                            addFile(file)
+                        } else {
+                            debugPrint("Attempting to open in place (strategy #2)...")
+                            _ = getFile(item) { file in
+                                if let file = file {
+                                    addFile(file)
+                                }
+                            }
+                        }
+                    }
+                }
+                return true
             }
             .safeAreaInset(edge: .bottom) {
                 Button {
@@ -114,4 +116,38 @@ struct BatchEditView: View {
         }
     }
 
+    func addFile(_ file: FSFile) {
+        DispatchQueue.main.async {
+            withAnimation(.snappy.speed(2)) {
+                batchFileManager.addFile(file)
+            }
+        }
+    }
+
+    func getFile(_ item: NSItemProvider, for type: String, completion: @escaping (FSFile?) -> Void) {
+        item.loadInPlaceFileRepresentation(forTypeIdentifier: type) { url, _, error in
+            if let url = url {
+                completion(FSFile(name: url.lastPathComponent,
+                                  path: url.path(percentEncoded: false),
+                                  isArbitrarilyLoadedFromDragAndDrop: true))
+            } else if let error = error {
+                debugPrint(error.localizedDescription)
+            }
+            completion(nil)
+        }
+    }
+
+    func getFile(_ item: NSItemProvider, completion: @escaping (FSFile?) -> Void) -> Progress {
+        return item.loadFileRepresentation(for: .mp3, openInPlace: true) { url, _, error in
+            if let url = url {
+                _ = url.startAccessingSecurityScopedResource()
+                completion(FSFile(name: url.lastPathComponent,
+                                  path: url.path(percentEncoded: false),
+                                  isArbitrarilyLoadedFromDragAndDrop: true))
+            } else if let error = error {
+                debugPrint(error.localizedDescription)
+            }
+            completion(nil)
+        }
+    }
 }
