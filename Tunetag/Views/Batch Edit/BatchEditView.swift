@@ -55,8 +55,9 @@ struct BatchEditView: View {
                             isInteractiveHelpPresenting = true
                         } label: {
                             Text("Shared.LearnHow")
+                                .bold()
                         }
-                        .buttonStyle(.bordered)
+                        .buttonStyle(.borderedProminent)
                         .clipShape(RoundedRectangle(cornerRadius: 99))
                     }
                 }

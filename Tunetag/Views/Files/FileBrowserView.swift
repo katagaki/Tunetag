@@ -17,6 +17,7 @@ struct FileBrowserView: View {
     @State var currentDirectory: FSDirectory?
     @State var files: [any FilesystemObject] = []
     @State var tagEditorFile: FSFile?
+    @State var addToQueueState: SaveState = .notSaved
     @State var isInitialLoadCompleted: Bool = false
 
     // Support for iOS 16
@@ -84,24 +85,45 @@ struct FileBrowserView: View {
                     return false
                 }) {
                     Section {
-                        Button {
-                            if let currentDirectory = currentDirectory {
-                                addToQueue(directory: currentDirectory)
+                        HStack(alignment: .center, spacing: 0.0) {
+                            Spacer(minLength: 0.0)
+                            Button {
+                                if addToQueueState == .notSaved {
+                                    if let currentDirectory = currentDirectory {
+                                        addToQueue(directory: currentDirectory)
+                                        withAnimation(.snappy.speed(2)) {
+                                            addToQueueState = .saved
+                                        }
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                                            withAnimation(.snappy.speed(2)) {
+                                                addToQueueState = .notSaved
+                                            }
+                                        }
+                                    }
+                                }
+                            } label: {
+                                HStack(alignment: .center, spacing: 0.0) {
+                                    switch addToQueueState {
+                                    case .saved:
+                                        Image(systemName: "checkmark")
+                                    default:
+                                        HStack(alignment: .center, spacing: 4.0) {
+                                            Image(systemName: "plus.square.fill.on.square.fill")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 18.0, height: 18.0)
+                                            Text("FileBrowser.AddFiles")
+                                                .bold()
+                                        }
+                                        .frame(maxWidth: .infinity)
+                                    }
+                                }
+                                .frame(minHeight: 24.0)
                             }
-                        } label: {
-                            HStack(alignment: .center, spacing: 4.0) {
-                                Image(systemName: "plus.square.fill.on.square.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 18.0, height: 18.0)
-                                Text("FileBrowser.AddFiles")
-                                    .bold()
-                            }
-                            .frame(minHeight: 24.0)
-                            .frame(maxWidth: .infinity)
+                            .buttonStyle(.borderedProminent)
+                            .clipShape(RoundedRectangle(cornerRadius: 99))
+                            Spacer(minLength: 0.0)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(RoundedRectangle(cornerRadius: 99))
                         .listRowInsets(EdgeInsets())
                         .listRowBackground(Color.clear)
                     }
