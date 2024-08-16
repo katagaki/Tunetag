@@ -28,7 +28,6 @@ struct TipSection: View {
             } header: {
                 HStack {
                     ListSectionHeader(text: NSLocalizedString(title, comment: ""))
-                        .font(.body)
                     Spacer()
                     Button {
                         withAnimation {

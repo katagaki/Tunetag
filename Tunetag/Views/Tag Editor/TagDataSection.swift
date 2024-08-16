@@ -55,11 +55,9 @@ struct TagDataSection: View {
         } header: {
             if #available(iOS 17.0, *) {
                 ListSectionHeader(text: "TagEditor.TagData")
-                    .font(.body)
                     .popoverTip(AvailableTokensTip(), arrowEdge: .bottom)
             } else {
                 ListSectionHeader(text: "TagEditor.TagData")
-                    .font(.body)
             }
         }
         .onReceive(Just(tagData.year)) { _ in
