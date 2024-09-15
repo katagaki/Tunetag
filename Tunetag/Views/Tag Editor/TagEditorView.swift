@@ -237,7 +237,7 @@ struct TagEditorView: View {
             }
             // Build composer frame
             if let frame = id3Frame(tagData.composer, returns: ID3FrameWithStringContent.self, referencing: file) {
-                tagBuilder = tagBuilder.albumArtist(frame: frame)
+                tagBuilder = tagBuilder.composer(frame: frame)
             } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).composer() {
                 tagBuilder = tagBuilder.composer(frame: id3Frame(value, referencing: file))
             }
