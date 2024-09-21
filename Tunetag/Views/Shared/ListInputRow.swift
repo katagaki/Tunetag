@@ -11,26 +11,30 @@ struct ListInputRow: View {
 
     var title: String
     var placeholder: String?
-    @Binding var value: String
+    @Binding var value: String?
     @State var focusedFieldValue: FocusedField
     var focusedField: FocusState<FocusedField?>.Binding
+    @State var isEdited: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2.0) {
             Text(NSLocalizedString(title, comment: ""))
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            Group {
-                if let placeholder = placeholder {
-                    TextField(NSLocalizedString(placeholder, comment: ""),
-                              text: $value)
-                    .font(.body)
-                } else {
-                    TextField(NSLocalizedString(title, comment: ""),
-                              text: $value)
-                    .font(.body)
+            TextField(
+                (value == nil ?
+                 String(localized: "BatchEdit.Keep") :
+                    NSLocalizedString(title, comment: "")),
+                text: Binding(
+                get: {
+                    return value ?? ""
+                },
+                set: { newValue in
+                    value = newValue
+                    isEdited = true
                 }
-            }
+            ))
+            .font(.body)
             .focused(focusedField, equals: focusedFieldValue)
             .submitLabel(.next)
             .onSubmit {

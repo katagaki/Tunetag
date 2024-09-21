@@ -16,18 +16,18 @@ struct TagTyped {
     var year, track, discNumber: Int?
 
     init(_ file: FSFile, reader tagContentReader: ID3TagContentReader) async {
-        title = tagContentReader.title() ?? ""
-        artist = tagContentReader.artist() ?? ""
-        album = tagContentReader.album() ?? ""
-        albumArtist = tagContentReader.albumArtist() ?? ""
+        title = tagContentReader.title()
+        artist = tagContentReader.artist()
+        album = tagContentReader.album()
+        albumArtist = tagContentReader.albumArtist()
         if let yearFromTag = tagContentReader.recordingYear() {
             year = yearFromTag
         }
         if let trackFromTag = tagContentReader.trackPosition()?.position {
             track = trackFromTag
         }
-        genre = tagContentReader.genre()?.description ?? ""
-        composer = tagContentReader.composer() ?? ""
+        genre = tagContentReader.genre()?.description
+        composer = tagContentReader.composer()
         if let discNumberFromTag = tagContentReader.discPosition()?.position {
             discNumber = discNumberFromTag
         }
@@ -43,16 +43,16 @@ struct TagTyped {
 
     // swiftlint:disable cyclomatic_complexity function_body_length
     mutating func merge(with file: FSFile, reader tagContentReader: ID3TagContentReader) async {
-        if title != tagContentReader.title() ?? "" {
+        if title != tagContentReader.title() {
             title = nil
         }
-        if artist != tagContentReader.artist() ?? "" {
+        if artist != tagContentReader.artist() {
             artist = nil
         }
-        if album != tagContentReader.album() ?? "" {
+        if album != tagContentReader.album() {
             album = nil
         }
-        if albumArtist != tagContentReader.albumArtist() ?? "" {
+        if albumArtist != tagContentReader.albumArtist() {
             albumArtist = nil
         }
         if let yearFromTag = tagContentReader.recordingYear(), year != yearFromTag {
@@ -65,10 +65,10 @@ struct TagTyped {
         } else if tagContentReader.trackPosition()?.position == nil && track != nil {
             track = nil
         }
-        if genre != tagContentReader.genre()?.description ?? "" {
+        if genre != tagContentReader.genre()?.description {
             genre = nil
         }
-        if composer != tagContentReader.composer() ?? "" {
+        if composer != tagContentReader.composer() {
             composer = nil
         }
         if let discNumberFromTag = tagContentReader.discPosition()?.position,

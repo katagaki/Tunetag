@@ -10,17 +10,17 @@ import SwiftUI
 struct ListDetailRow: View {
 
     var title: String
-    var value: String
+    var value: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2.0) {
             Text(NSLocalizedString(title, comment: ""))
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            if value == "" {
-                Text(verbatim: "-")
-            } else {
+            if let value {
                 Text(value)
+            } else {
+                Text(verbatim: "-")
             }
         }
         .padding([.top, .bottom], 2.0)

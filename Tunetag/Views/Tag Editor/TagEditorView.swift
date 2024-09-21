@@ -73,10 +73,10 @@ struct TagEditorView: View {
                 if saveState == .notSaved {
                     DispatchQueue.global(qos: .background).async {
                         Task {
-                            changeSaveState(to: .saving)
+                            await changeSaveState(to: .saving)
                             await saveAllTagData()
                             await readAllTagData()
-                            changeSaveState(to: .saved)
+                            await changeSaveState(to: .saved)
                         }
                     }
                 }
@@ -172,7 +172,7 @@ struct TagEditorView: View {
         _ = await withTaskGroup(of: Bool.self, returning: [Bool].self) { group in
             for file in files {
                 group.addTask {
-                    return saveTagData(to: file)
+                    return await saveTagData(to: file)
                 }
             }
 
@@ -223,9 +223,9 @@ struct TagEditorView: View {
                 tagBuilder = tagBuilder.recordingYear(frame: ID3FrameWithIntegerContent(value: value))
             }
             // Build track frame
-            if let frame = id3Frame(tagData.track, returns: ID3FramePartOfTotal.self) {
+            if let frame = id3Frame(tagData.track, returns: ID3FramePartOfTotal.self), frame.part != -999999 {
                 tagBuilder = tagBuilder.trackPosition(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).trackPosition() {
+            } else if tagData.track == nil, let tag = tag, let value = ID3TagContentReader(id3Tag: tag).trackPosition() {
                 tagBuilder = tagBuilder.trackPosition(frame: id3Frame(value.position, total: value.total))
             }
             // Build genre frame
@@ -283,12 +283,12 @@ struct TagEditorView: View {
         }
     }
 
-    func id3Frame<T>(_ value: String,
+    func id3Frame<T>(_ value: String?,
                      returns type: T.Type,
                      referencing file: FSFile? = nil) -> T? {
         switch type {
         case is ID3FrameWithStringContent.Type:
-            if value != "" {
+            if let value {
                 if let file = file {
                     return ID3FrameWithStringContent(content: replaceTokens(value, file: file)) as? T
                 } else {
@@ -296,15 +296,23 @@ struct TagEditorView: View {
                 }
             }
         case is ID3FrameWithIntegerContent.Type:
-            if value != "", let int = Int(value) {
-                return ID3FrameWithIntegerContent(value: int) as? T
+            if let value {
+                if let int = Int(value) {
+                    return ID3FrameWithIntegerContent(value: int) as? T
+                } else {
+                    return ID3FrameWithIntegerContent(value: nil) as? T
+                }
             }
         case is ID3FramePartOfTotal.Type:
-            if value != "", let int = Int(value) {
-                return ID3FramePartOfTotal(part: int, total: nil) as? T
+            if let value {
+                if value != "", let int = Int(value) {
+                    return ID3FramePartOfTotal(part: int, total: nil) as? T
+                } else {
+                    return ID3FramePartOfTotal(part: -999999, total: nil) as? T
+                }
             }
         case is ID3FrameGenre.Type:
-            if value != "" {
+            if let value {
                 return ID3FrameGenre(genre: nil, description: value) as? T
             }
         default: break

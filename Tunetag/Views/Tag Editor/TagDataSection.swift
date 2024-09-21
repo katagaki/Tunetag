@@ -61,17 +61,25 @@ struct TagDataSection: View {
             }
         }
         .onReceive(Just(tagData.year)) { _ in
-            tagData.year = tagData.year.filter({ $0.isNumber })
-            tagData.year = String(tagData.year.prefix(4))
+            if let year = tagData.year {
+                tagData.year = year.filter({ $0.isNumber })
+                tagData.year = String(year.prefix(4))
+            }
         }
         .onReceive(Just(tagData.track)) { _ in
-            tagData.track = tagData.track.filter({ $0.isNumber })
+            if let track = tagData.track {
+                tagData.track = track.filter({ $0.isNumber })
+            }
         }
         .onReceive(Just(tagData.genre)) { _ in
-            tagData.genre = tagData.genre.filter({ $0.isLetter || $0.isWhitespace })
+            if let genre = tagData.genre {
+                tagData.genre = genre.filter({ $0.isLetter || $0.isWhitespace })
+            }
         }
         .onReceive(Just(tagData.discNumber)) { _ in
-            tagData.discNumber = tagData.discNumber.filter({ $0.isNumber })
+            if let discNumber = tagData.discNumber {
+                tagData.discNumber = discNumber.filter({ $0.isNumber })
+            }
         }
     }
 }
