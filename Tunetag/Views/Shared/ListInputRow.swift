@@ -10,7 +10,6 @@ import SwiftUI
 struct ListInputRow: View {
 
     var title: String
-    var placeholder: String?
     @Binding var value: String?
     @State var focusedFieldValue: FocusedField
     var focusedField: FocusState<FocusedField?>.Binding

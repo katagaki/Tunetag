@@ -19,27 +19,27 @@ struct TagDataSection: View {
     var body: some View {
         Section {
             if let focusedField = focusedField {
-                ListInputRow(title: "Tag.Title", placeholder: placeholder,
-                              value: $tagData.title, focusedFieldValue: .title, focusedField: focusedField)
-                ListInputRow(title: "Tag.Artist", placeholder: placeholder,
-                              value: $tagData.artist, focusedFieldValue: .artist, focusedField: focusedField)
-                ListInputRow(title: "Tag.Album", placeholder: placeholder,
-                              value: $tagData.album, focusedFieldValue: .album, focusedField: focusedField)
-                ListInputRow(title: "Tag.AlbumArtist", placeholder: placeholder,
-                              value: $tagData.albumArtist, focusedFieldValue: .albumArtist, focusedField: focusedField)
-                ListInputRow(title: "Tag.Year", placeholder: placeholder,
-                              value: $tagData.year, focusedFieldValue: .year, focusedField: focusedField)
+                ListInputRow(title: "Tag.Title", value: $tagData.title,
+                             focusedFieldValue: .title, focusedField: focusedField)
+                ListInputRow(title: "Tag.Artist", value: $tagData.artist,
+                             focusedFieldValue: .artist, focusedField: focusedField)
+                ListInputRow(title: "Tag.Album", value: $tagData.album,
+                             focusedFieldValue: .album, focusedField: focusedField)
+                ListInputRow(title: "Tag.AlbumArtist", value: $tagData.albumArtist,
+                             focusedFieldValue: .albumArtist, focusedField: focusedField)
+                ListInputRow(title: "Tag.Year", value: $tagData.year,
+                             focusedFieldValue: .year, focusedField: focusedField)
                 .keyboardType(.numberPad)
-                ListInputRow(title: "Tag.TrackNumber", placeholder: placeholder,
-                              value: $tagData.track, focusedFieldValue: .trackNumber, focusedField: focusedField)
+                ListInputRow(title: "Tag.TrackNumber", value: $tagData.track,
+                             focusedFieldValue: .trackNumber, focusedField: focusedField)
                 .keyboardType(.numberPad)
-                ListInputRow(title: "Tag.Genre", placeholder: placeholder,
-                              value: $tagData.genre, focusedFieldValue: .genre, focusedField: focusedField)
+                ListInputRow(title: "Tag.Genre", value: $tagData.genre,
+                             focusedFieldValue: .genre, focusedField: focusedField)
                 .keyboardType(.asciiCapable)
-                ListInputRow(title: "Tag.Composer", placeholder: placeholder,
-                              value: $tagData.composer, focusedFieldValue: .composer, focusedField: focusedField)
-                ListInputRow(title: "Tag.DiscNumber", placeholder: placeholder,
-                              value: $tagData.discNumber, focusedFieldValue: .discNumber, focusedField: focusedField)
+                ListInputRow(title: "Tag.Composer", value: $tagData.composer,
+                             focusedFieldValue: .composer, focusedField: focusedField)
+                ListInputRow(title: "Tag.DiscNumber", value: $tagData.discNumber,
+                             focusedFieldValue: .discNumber, focusedField: focusedField)
                 .keyboardType(.numberPad)
             } else {
                 ListDetailRow(title: "Tag.Title", value: tagData.title)
