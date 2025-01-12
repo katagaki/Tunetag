@@ -22,7 +22,6 @@
 		E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7392AAA167C0043BCC9 /* MoreView.swift */; };
 		E432A7462AAA265B0043BCC9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */; };
 		E432A7482AAA2D2B0043BCC9 /* ListInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7472AAA2D2B0043BCC9 /* ListInputRow.swift */; };
-		E432A74C2AAA43F00043BCC9 /* ID3TagEditor in Frameworks */ = {isa = PBXBuildFile; productRef = E432A74B2AAA43F00043BCC9 /* ID3TagEditor */; };
 		E432A7522AAA49C50043BCC9 /* BatchEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7512AAA49C50043BCC9 /* BatchEditView.swift */; };
 		E432A7542AAA4A250043BCC9 /* ListFolderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */; };
 		E432A7572AAA4A2F0043BCC9 /* ListFileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */; };
@@ -44,6 +43,7 @@
 		E432A7892AADAB7B0043BCC9 /* DropZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7882AADAB7B0043BCC9 /* DropZone.swift */; };
 		E436724B2AC859F60016B57C /* Komponents in Frameworks */ = {isa = PBXBuildFile; productRef = E436724A2AC859F60016B57C /* Komponents */; };
 		E436724D2AC860F40016B57C /* BatchEditInteractiveHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436724C2AC860F40016B57C /* BatchEditInteractiveHelpView.swift */; };
+		E4B206EC2D340C9D004CF4A1 /* ID3TagEditor in Frameworks */ = {isa = PBXBuildFile; productRef = E4B206EB2D340C9D004CF4A1 /* ID3TagEditor */; };
 		E4E334872AC866F900A070A0 /* BatchEdit.ExternalApps.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334842AC866F900A070A0 /* BatchEdit.ExternalApps.mov */; };
 		E4E334882AC866F900A070A0 /* BatchEdit.InAppFiles.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334852AC866F900A070A0 /* BatchEdit.InAppFiles.mov */; };
 		E4E334892AC866F900A070A0 /* BatchEdit.InAppFolders.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334862AC866F900A070A0 /* BatchEdit.InAppFolders.mov */; };
@@ -99,7 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E436724B2AC859F60016B57C /* Komponents in Frameworks */,
-				E432A74C2AAA43F00043BCC9 /* ID3TagEditor in Frameworks */,
+				E4B206EC2D340C9D004CF4A1 /* ID3TagEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,8 +275,8 @@
 			);
 			name = Tunetag;
 			packageProductDependencies = (
-				E432A74B2AAA43F00043BCC9 /* ID3TagEditor */,
 				E436724A2AC859F60016B57C /* Komponents */,
+				E4B206EB2D340C9D004CF4A1 /* ID3TagEditor */,
 			);
 			productName = Tunetag;
 			productReference = E432A7072AA9FD5E0043BCC9 /* Tunetag.app */;
@@ -308,8 +308,8 @@
 			);
 			mainGroup = E432A6FE2AA9FD5E0043BCC9;
 			packageReferences = (
-				E432A74A2AAA43F00043BCC9 /* XCRemoteSwiftPackageReference "ID3TagEditor" */,
 				E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */,
+				E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "ID3TagEditor" */,
 			);
 			productRefGroup = E432A7082AA9FD5E0043BCC9 /* Products */;
 			projectDirPath = "";
@@ -544,7 +544,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.Tunetag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -586,7 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.Tunetag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -622,14 +622,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E432A74A2AAA43F00043BCC9 /* XCRemoteSwiftPackageReference "ID3TagEditor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/chicio/ID3TagEditor";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 4.6.0;
-			};
-		};
 		E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/katagaki/Komponents";
@@ -638,18 +630,26 @@
 				kind = branch;
 			};
 		};
+		E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "ID3TagEditor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chicio/ID3TagEditor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E432A74B2AAA43F00043BCC9 /* ID3TagEditor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E432A74A2AAA43F00043BCC9 /* XCRemoteSwiftPackageReference "ID3TagEditor" */;
-			productName = ID3TagEditor;
-		};
 		E436724A2AC859F60016B57C /* Komponents */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */;
 			productName = Komponents;
+		};
+		E4B206EB2D340C9D004CF4A1 /* ID3TagEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "ID3TagEditor" */;
+			productName = ID3TagEditor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
