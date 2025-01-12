@@ -91,13 +91,23 @@ struct FileBrowserView: View {
                                 if addToQueueState == .notSaved {
                                     if let currentDirectory = currentDirectory {
                                         addToQueue(directory: currentDirectory)
+                                    } else {
+                                        addToQueue(
+                                            directory: FSDirectory(
+                                                name: "Documents",
+                                                path: FileManager.default.urls(
+                                                    for: .documentDirectory,
+                                                    in: .userDomainMask).first!.path,
+                                                files: []
+                                            )
+                                        )
+                                    }
+                                    withAnimation(.snappy.speed(2)) {
+                                        addToQueueState = .saved
+                                    }
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                         withAnimation(.snappy.speed(2)) {
-                                            addToQueueState = .saved
-                                        }
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                                            withAnimation(.snappy.speed(2)) {
-                                                addToQueueState = .notSaved
-                                            }
+                                            addToQueueState = .notSaved
                                         }
                                     }
                                 }
