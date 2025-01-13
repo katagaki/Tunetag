@@ -149,13 +149,17 @@ struct TagEditorView: View {
             debugPrint("Attempting to read tag data for file \(file.name)...")
             do {
                 let tag = try id3TagEditor.read(from: file.path)
-                if let tag = tag {
+                if let tag {
                     tags.updateValue(tag, forKey: file)
                     let tagContentReader = ID3TagContentReader(id3Tag: tag)
                     if tagCombined == nil {
                         tagCombined = await TagTyped(file, reader: tagContentReader)
                     } else {
                         await tagCombined!.merge(with: file, reader: tagContentReader)
+                    }
+                } else {
+                    if let newTag = newTag(for: file) {
+                        tags.updateValue(newTag, forKey: file)
                     }
                 }
             } catch {
@@ -270,6 +274,20 @@ struct TagEditorView: View {
     }
     // swiftlint:enable cyclomatic_complexity
     // swiftlint:enable function_body_length
+
+    func newTag(for file: FSFile) -> ID3Tag? {
+        debugPrint("Attempting to create new tag...")
+        do {
+            let id3Tag = ID32v3TagBuilder()
+                .title(frame: ID3FrameWithStringContent(content: ""))
+                .build()
+            try ID3TagEditor().write(tag: id3Tag, to: file.path)
+            return id3Tag
+        } catch {
+            debugPrint("Error occurred while initializing tag: \n\(error.localizedDescription)")
+        }
+        return nil
+    }
 
     func initializeTag(for file: FSFile) {
         debugPrint("Attempting to initialize tag...")
