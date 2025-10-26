@@ -24,9 +24,6 @@ struct MainTabView: View {
                     Label("TabTitle.Files", image: "Tab.FileBrowser")
                 }
                 .toolbarBackground(.hidden, for: .tabBar)
-                .safeAreaInset(edge: .bottom) {
-                    DropZone()
-                }
                 .tag(TabType.fileManager)
             BatchEditView()
                 .tabItem {

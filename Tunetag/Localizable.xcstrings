@@ -233,23 +233,6 @@
         }
       }
     },
-    "FileBrowser.DropZone.Hint.Simple" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drop files above into this area to add them to the batch edit queue."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "上に表示されているファイルを一括編集キューに追加するには、こちらにドロップしてください。"
-          }
-        }
-      }
-    },
     "FileBrowser.Hint" : {
       "extractionState" : "manual",
       "localizations" : {
