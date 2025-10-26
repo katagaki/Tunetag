@@ -13,8 +13,8 @@ struct BatchEditView: View {
 
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var batchFileManager: BatchFileManager
-    @State var isDropZoneTarget: Bool = false
     @State var isInteractiveHelpPresenting: Bool = false
+    @State var isFolderPickerPresenting: Bool = false
 
     var body: some View {
         NavigationStack(path: $navigationManager.batchEditTabPath) {
@@ -49,8 +49,16 @@ struct BatchEditView: View {
             })
             .overlay {
                 if batchFileManager.files.isEmpty {
-                    VStack(alignment: .center, spacing: 0.0) {
+                    VStack(alignment: .center, spacing: 16.0) {
                         HintOverlay(image: "questionmark.folder", text: "BatchEdit.Hint")
+                        Button {
+                            isFolderPickerPresenting = true
+                        } label: {
+                            Text("BatchEdit.SelectFiles")
+                                .bold()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .clipShape(RoundedRectangle(cornerRadius: 99))
                         Button {
                             isInteractiveHelpPresenting = true
                         } label: {
@@ -62,24 +70,15 @@ struct BatchEditView: View {
                     }
                 }
             }
-            .onDrop(of: [.mp3, .fileURL], isTargeted: $isDropZoneTarget) { items in
-                for item in items {
-                    debugPrint("Attempting to open in place...")
-                    getFile(item, for: UTType.mp3.identifier) { file in
-                        if let file = file {
-                            addFile(file)
-                        } else {
-                            debugPrint("Attempting to open in place (strategy #2)...")
-                            _ = getFile(item) { file in
-                                if let file = file {
-                                    addFile(file)
-                                }
-                            }
-                        }
-                    }
+            .sheet(isPresented: $isInteractiveHelpPresenting, content: {
+                BatchEditInteractiveHelpView()
+            })
+            .sheet(isPresented: $isFolderPickerPresenting, content: {
+                FolderPicker(isPresented: $isFolderPickerPresenting) { urls in
+                    handleSelectedFiles(urls)
                 }
-                return true
-            }
+                .ignoresSafeArea()
+            })
             .safeAreaInset(edge: .bottom) {
                 Button {
                     navigationManager.push(ViewPath.tagEditorMultiple,
@@ -96,9 +95,6 @@ struct BatchEditView: View {
                 .padding([.leading, .trailing, .bottom])
                 .disabled(batchFileManager.files.isEmpty)
             }
-            .sheet(isPresented: $isInteractiveHelpPresenting, content: {
-                BatchEditInteractiveHelpView()
-            })
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     if !batchFileManager.files.isEmpty {
@@ -117,38 +113,48 @@ struct BatchEditView: View {
         }
     }
 
+    func handleSelectedFiles(_ urls: [URL]) {
+        for url in urls {
+            if url.hasDirectoryPath {
+                // Handle folder
+                addFilesFromFolder(url)
+            } else if url.pathExtension.lowercased() == "mp3" {
+                // Handle individual file
+                _ = url.startAccessingSecurityScopedResource()
+                let file = FSFile(name: url.lastPathComponent,
+                                path: url.path(percentEncoded: false),
+                                isArbitrarilyLoadedFromDragAndDrop: true)
+                addFile(file)
+            }
+        }
+    }
+    
+    func addFilesFromFolder(_ folderUrl: URL) {
+        _ = folderUrl.startAccessingSecurityScopedResource()
+        do {
+            let fileManager = FileManager.default
+            let contents = try fileManager.contentsOfDirectory(at: folderUrl,
+                                                               includingPropertiesForKeys: [.isRegularFileKey],
+                                                               options: [.skipsHiddenFiles])
+            for fileUrl in contents {
+                if fileUrl.pathExtension.lowercased() == "mp3" {
+                    _ = fileUrl.startAccessingSecurityScopedResource()
+                    let file = FSFile(name: fileUrl.lastPathComponent,
+                                    path: fileUrl.path(percentEncoded: false),
+                                    isArbitrarilyLoadedFromDragAndDrop: true)
+                    addFile(file)
+                }
+            }
+        } catch {
+            debugPrint("Error reading folder contents: \(error.localizedDescription)")
+        }
+    }
+
     func addFile(_ file: FSFile) {
         DispatchQueue.main.async {
             withAnimation(.snappy.speed(2)) {
                 batchFileManager.addFile(file)
             }
-        }
-    }
-
-    func getFile(_ item: NSItemProvider, for type: String, completion: @escaping (FSFile?) -> Void) {
-        item.loadInPlaceFileRepresentation(forTypeIdentifier: type) { url, _, error in
-            if let url = url {
-                completion(FSFile(name: url.lastPathComponent,
-                                  path: url.path(percentEncoded: false),
-                                  isArbitrarilyLoadedFromDragAndDrop: true))
-            } else if let error = error {
-                debugPrint(error.localizedDescription)
-            }
-            completion(nil)
-        }
-    }
-
-    func getFile(_ item: NSItemProvider, completion: @escaping (FSFile?) -> Void) -> Progress {
-        return item.loadFileRepresentation(for: .mp3, openInPlace: true) { url, _, error in
-            if let url = url {
-                _ = url.startAccessingSecurityScopedResource()
-                completion(FSFile(name: url.lastPathComponent,
-                                  path: url.path(percentEncoded: false),
-                                  isArbitrarilyLoadedFromDragAndDrop: true))
-            } else if let error = error {
-                debugPrint(error.localizedDescription)
-            }
-            completion(nil)
         }
     }
 }

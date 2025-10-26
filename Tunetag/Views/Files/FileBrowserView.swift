@@ -57,12 +57,6 @@ struct FileBrowserView: View {
                                 ListFileRow(name: file.name, icon: Image("File.MP3"))
                             }
                             .tint(.primary)
-                            .draggable(file) {
-                                ListFileRow(name: file.name, icon: Image("File.MP3"))
-                                    .padding()
-                                    .background(.background)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                            }
                             .contextMenu(menuItems: {
                                 Button {
                                     addToQueue(file: file)
@@ -168,10 +162,6 @@ struct FileBrowserView: View {
                         Color.clear
                     }
                 }
-            }
-            .safeAreaInset(edge: .bottom) {
-                DropZone()
-                    .opacity(0)
             }
             .sheet(item: $tagEditorFile, content: { file in
                 NavigationStack {
