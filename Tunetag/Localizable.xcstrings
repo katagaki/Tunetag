@@ -1,38 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "BatchEdit.Help.ExternalApps" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "External Files"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "外部ﾌｧｲﾙ"
-          }
-        }
-      }
-    },
-    "BatchEdit.Help.ExternalApps.Text" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1. In the Batch Edit tab, tap the 'Select Files or Folders' button.\n2. Browse to the folder containing your MP3 files.\n3. Select the files or folders you want to add.\n4. Tap 'Open' to add them to the queue.\n\nDepending on the actual location of the files, it may take some time to add the files to the queue."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1. 一括編集タブで、「ファイルまたはフォルダーを選択」ボタンをタップします。\n2. MP3ファイルを含むフォルダーを参照します。\n3. 追加するファイルまたはフォルダーを選択します。\n4. 「開く」をタップして、キューに追加します。\n\nファイルの場所によっては、追加する時間がかかる可能性があるので、ご了承ください。"
-          }
-        }
-      }
-    },
     "BatchEdit.Help.GuidanceHint.Bottom" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -67,70 +35,6 @@
         }
       }
     },
-    "BatchEdit.Help.InApp.Files" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In-App Files"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ｱﾌﾟﾘ内ﾌｧｲﾙ"
-          }
-        }
-      }
-    },
-    "BatchEdit.Help.InApp.Files.Text" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1. Navigate to the folder with your files in the Files tab.\n2. Long press on a file to open the context menu.\n3. Select the option to add the file to the queue."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1. ファイルを内包するフォルダーを開きます。\n2. ファイルを長押しして、コンテキストメニューを開きます。\n3. キューにファイルを追加するオプションを選択します。"
-          }
-        }
-      }
-    },
-    "BatchEdit.Help.InApp.Folders" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In-App Folders"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ｱﾌﾟﾘ内ﾌｫﾙﾀﾞｰ"
-          }
-        }
-      }
-    },
-    "BatchEdit.Help.InApp.Folders.Text" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1. Navigate to the location with your folder of files.\n2. Long press on the folder.\n3. Select an option to add files in the folder to the queue."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1. フォルダーを内包する場所を開きます。\n2. フォルダーに長押しします。\n3. メニューで追加方法を選択します。"
-          }
-        }
-      }
-    },
     "BatchEdit.Hint" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -144,23 +48,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "編集するファイルはありません。\nアプリ内のファイルまたは外部のファイルとフォルダーを追加することができます。"
-          }
-        }
-      }
-    },
-    "BatchEdit.SelectFiles" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select Files or Folders"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイルまたはフォルダーを選択"
           }
         }
       }
@@ -195,6 +82,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "複数のファイル"
+          }
+        }
+      }
+    },
+    "BatchEdit.SelectFiles" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Files or Folders"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルまたはフォルダーを選択"
           }
         }
       }
@@ -436,22 +340,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "こちらにファイルを移動してください"
-          }
-        }
-      }
-    },
-    "Shared.LearnHow" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Learn How"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "追加方法を閲覧"
           }
         }
       }

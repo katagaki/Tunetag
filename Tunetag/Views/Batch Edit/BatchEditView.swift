@@ -13,7 +13,6 @@ struct BatchEditView: View {
 
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var batchFileManager: BatchFileManager
-    @State var isInteractiveHelpPresenting: Bool = false
     @State var isFolderPickerPresenting: Bool = false
 
     var body: some View {
@@ -59,20 +58,9 @@ struct BatchEditView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .clipShape(RoundedRectangle(cornerRadius: 99))
-                        Button {
-                            isInteractiveHelpPresenting = true
-                        } label: {
-                            Text("Shared.LearnHow")
-                                .bold()
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(RoundedRectangle(cornerRadius: 99))
                     }
                 }
             }
-            .sheet(isPresented: $isInteractiveHelpPresenting, content: {
-                BatchEditInteractiveHelpView()
-            })
             .sheet(isPresented: $isFolderPickerPresenting, content: {
                 FolderPicker(isPresented: $isFolderPickerPresenting) { urls in
                     handleSelectedFiles(urls)
@@ -128,7 +116,7 @@ struct BatchEditView: View {
             }
         }
     }
-    
+
     func addFilesFromFolder(_ folderUrl: URL) {
         _ = folderUrl.startAccessingSecurityScopedResource()
         do {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9B118D97C39493CB77F56C4 /* FolderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D538051065DC45B8B2F8B431 /* FolderPicker.swift */; };
 		E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A70A2AA9FD5E0043BCC9 /* App.swift */; };
 		E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */; };
 		E432A70F2AA9FD5F0043BCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */; };
@@ -25,7 +26,6 @@
 		E432A7522AAA49C50043BCC9 /* BatchEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7512AAA49C50043BCC9 /* BatchEditView.swift */; };
 		E432A7542AAA4A250043BCC9 /* ListFolderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */; };
 		E432A7572AAA4A2F0043BCC9 /* ListFileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */; };
-		A9B118D97C39493CB77F56C4 /* FolderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D538051065DC45B8B2F8B431 /* FolderPicker.swift */; };
 		E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */; };
 		E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75E2AAB35420043BCC9 /* SaveState.swift */; };
 		E432A7612AAB41920043BCC9 /* TagEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7602AAB41920043BCC9 /* TagEditorView.swift */; };
@@ -42,14 +42,11 @@
 		E432A77E2AACB4410043BCC9 /* ListDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */; };
 		E432A7842AAD91240043BCC9 /* TipSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7832AAD91240043BCC9 /* TipSection.swift */; };
 		E436724B2AC859F60016B57C /* Komponents in Frameworks */ = {isa = PBXBuildFile; productRef = E436724A2AC859F60016B57C /* Komponents */; };
-		E436724D2AC860F40016B57C /* BatchEditInteractiveHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436724C2AC860F40016B57C /* BatchEditInteractiveHelpView.swift */; };
 		E4B206EC2D340C9D004CF4A1 /* ID3TagEditor in Frameworks */ = {isa = PBXBuildFile; productRef = E4B206EB2D340C9D004CF4A1 /* ID3TagEditor */; };
-		E4E334872AC866F900A070A0 /* BatchEdit.ExternalApps.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334842AC866F900A070A0 /* BatchEdit.ExternalApps.mov */; };
-		E4E334882AC866F900A070A0 /* BatchEdit.InAppFiles.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334852AC866F900A070A0 /* BatchEdit.InAppFiles.mov */; };
-		E4E334892AC866F900A070A0 /* BatchEdit.InAppFolders.mov in Resources */ = {isa = PBXBuildFile; fileRef = E4E334862AC866F900A070A0 /* BatchEdit.InAppFolders.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D538051065DC45B8B2F8B431 /* FolderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderPicker.swift; sourceTree = "<group>"; };
 		E432A7072AA9FD5E0043BCC9 /* Tunetag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunetag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E432A70A2AA9FD5E0043BCC9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserView.swift; sourceTree = "<group>"; };
@@ -71,7 +68,6 @@
 		E432A7512AAA49C50043BCC9 /* BatchEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEditView.swift; sourceTree = "<group>"; };
 		E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFolderRow.swift; sourceTree = "<group>"; };
 		E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFileRow.swift; sourceTree = "<group>"; };
-		D538051065DC45B8B2F8B431 /* FolderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderPicker.swift; sourceTree = "<group>"; };
 		E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserNoFilesTip.swift; sourceTree = "<group>"; };
 		E432A75E2AAB35420043BCC9 /* SaveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveState.swift; sourceTree = "<group>"; };
 		E432A7602AAB41920043BCC9 /* TagEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEditorView.swift; sourceTree = "<group>"; };
@@ -87,10 +83,6 @@
 		E432A77B2AACB2630043BCC9 /* FilePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePreview.swift; sourceTree = "<group>"; };
 		E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailRow.swift; sourceTree = "<group>"; };
 		E432A7832AAD91240043BCC9 /* TipSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipSection.swift; sourceTree = "<group>"; };
-		E436724C2AC860F40016B57C /* BatchEditInteractiveHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEditInteractiveHelpView.swift; sourceTree = "<group>"; };
-		E4E334842AC866F900A070A0 /* BatchEdit.ExternalApps.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = BatchEdit.ExternalApps.mov; sourceTree = "<group>"; };
-		E4E334852AC866F900A070A0 /* BatchEdit.InAppFiles.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = BatchEdit.InAppFiles.mov; sourceTree = "<group>"; };
-		E4E334862AC866F900A070A0 /* BatchEdit.InAppFolders.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = BatchEdit.InAppFolders.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +122,6 @@
 				E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */,
 				E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */,
 				E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */,
-				E4E334832AC866E200A070A0 /* Videos */,
 				E432A71F2AAA08F10043BCC9 /* Views */,
 				E432A7212AAA093D0043BCC9 /* Structs */,
 				E432A7202AAA08F70043BCC9 /* Classes */,
@@ -230,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				E432A7512AAA49C50043BCC9 /* BatchEditView.swift */,
-				E436724C2AC860F40016B57C /* BatchEditInteractiveHelpView.swift */,
 			);
 			path = "Batch Edit";
 			sourceTree = "<group>";
@@ -245,16 +235,6 @@
 				E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */,
 			);
 			path = "Tag Editor";
-			sourceTree = "<group>";
-		};
-		E4E334832AC866E200A070A0 /* Videos */ = {
-			isa = PBXGroup;
-			children = (
-				E4E334842AC866F900A070A0 /* BatchEdit.ExternalApps.mov */,
-				E4E334862AC866F900A070A0 /* BatchEdit.InAppFolders.mov */,
-				E4E334852AC866F900A070A0 /* BatchEdit.InAppFiles.mov */,
-			);
-			path = Videos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +270,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					E432A7062AA9FD5E0043BCC9 = {
 						CreatedOnToolsVersion = 15.0;
@@ -328,9 +308,6 @@
 				E432A7762AAC55B70043BCC9 /* InfoPlist.xcstrings in Resources */,
 				E432A7462AAA265B0043BCC9 /* Localizable.xcstrings in Resources */,
 				E432A70F2AA9FD5F0043BCC9 /* Assets.xcassets in Resources */,
-				E4E334892AC866F900A070A0 /* BatchEdit.InAppFolders.mov in Resources */,
-				E4E334882AC866F900A070A0 /* BatchEdit.InAppFiles.mov in Resources */,
-				E4E334872AC866F900A070A0 /* BatchEdit.ExternalApps.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +342,6 @@
 				E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */,
 				E432A7672AAB9D9E0043BCC9 /* TagDataSection.swift in Sources */,
 				E432A7482AAA2D2B0043BCC9 /* ListInputRow.swift in Sources */,
-				E436724D2AC860F40016B57C /* BatchEditInteractiveHelpView.swift in Sources */,
 				E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */,
 				E432A7232AAA094A0043BCC9 /* FSFile.swift in Sources */,
 				E432A71E2AA9FF3A0043BCC9 /* FilesystemManager.swift in Sources */,
@@ -405,6 +381,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -434,7 +411,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = YYM4Z6MU8F;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -456,6 +435,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -466,6 +446,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -495,7 +476,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YYM4Z6MU8F;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -510,6 +493,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -522,10 +506,12 @@
 				CODE_SIGN_ENTITLEMENTS = Tunetag/Tunetag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YYM4Z6MU8F;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tunetag/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -540,7 +526,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -564,10 +550,12 @@
 				CODE_SIGN_ENTITLEMENTS = Tunetag/Tunetag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YYM4Z6MU8F;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tunetag/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -582,7 +570,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;

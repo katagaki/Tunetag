@@ -1,13 +1,13 @@
 {
-  "originHash" : "1be229d3a54ae1783f6c8df7bdcf61a731cce5d04eefe225b0052459d664bd93",
+  "originHash" : "37f8517d9cd34a993adf1b4a453cfb2e82fdbbd760c91a285d2486fe3a40625f",
   "pins" : [
     {
       "identity" : "id3tageditor",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/chicio/ID3TagEditor.git",
+      "location" : "https://github.com/chicio/ID3TagEditor",
       "state" : {
-        "revision" : "64f5667df0e779f2f02a08b7084b0cb5bd83ce61",
-        "version" : "5.2.0"
+        "revision" : "adcebd1680ac1a93f8a95f84c515680cac3c69d6",
+        "version" : "5.4.0"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "https://github.com/katagaki/Komponents",
       "state" : {
         "branch" : "main",
-        "revision" : "ac1ef7aefb1c4b5a0af65251cb8f14dd42bd1eb6"
+        "revision" : "2431ce046638dc3b86fa187ddcab0f1ed00b321d"
       }
     }
   ],
