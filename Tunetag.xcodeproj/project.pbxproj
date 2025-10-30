@@ -3,87 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A9B118D97C39493CB77F56C4 /* FolderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D538051065DC45B8B2F8B431 /* FolderPicker.swift */; };
-		E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A70A2AA9FD5E0043BCC9 /* App.swift */; };
-		E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */; };
-		E432A70F2AA9FD5F0043BCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */; };
-		E432A71E2AA9FF3A0043BCC9 /* FilesystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A71D2AA9FF3A0043BCC9 /* FilesystemManager.swift */; };
-		E432A7232AAA094A0043BCC9 /* FSFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7222AAA094A0043BCC9 /* FSFile.swift */; };
-		E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7252AAA097E0043BCC9 /* ViewPath.swift */; };
-		E432A7282AAA09D50043BCC9 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7272AAA09D50043BCC9 /* NavigationManager.swift */; };
-		E432A72A2AAA09EE0043BCC9 /* TabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7292AAA09EE0043BCC9 /* TabType.swift */; };
-		E432A72C2AAA0A490043BCC9 /* TabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A72B2AAA0A490043BCC9 /* TabManager.swift */; };
-		E432A72E2AAA0A640043BCC9 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A72D2AAA0A640043BCC9 /* MainTabView.swift */; };
-		E432A7302AAA0B2E0043BCC9 /* FSDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */; };
-		E432A7332AAA0BB90043BCC9 /* FilesystemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7322AAA0BB90043BCC9 /* FilesystemObject.swift */; };
-		E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7392AAA167C0043BCC9 /* MoreView.swift */; };
-		E432A7462AAA265B0043BCC9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */; };
-		E432A7482AAA2D2B0043BCC9 /* ListInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7472AAA2D2B0043BCC9 /* ListInputRow.swift */; };
-		E432A7522AAA49C50043BCC9 /* BatchEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7512AAA49C50043BCC9 /* BatchEditView.swift */; };
-		E432A7542AAA4A250043BCC9 /* ListFolderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */; };
-		E432A7572AAA4A2F0043BCC9 /* ListFileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */; };
-		E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */; };
-		E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A75E2AAB35420043BCC9 /* SaveState.swift */; };
-		E432A7612AAB41920043BCC9 /* TagEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7602AAB41920043BCC9 /* TagEditorView.swift */; };
-		E432A7632AAB530A0043BCC9 /* BatchFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */; };
-		E432A7652AAB9AA70043BCC9 /* AvailableTokensTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */; };
-		E432A7672AAB9D9E0043BCC9 /* TagDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7662AAB9D9E0043BCC9 /* TagDataSection.swift */; };
-		E432A7692AAB9EBE0043BCC9 /* AvailableTokenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */; };
-		E432A76B2AAB9F430043BCC9 /* FileHeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */; };
-		E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A76F2AAC3E320043BCC9 /* Tag.swift */; };
-		E432A7722AAC445B0043BCC9 /* TagTyped.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7712AAC445B0043BCC9 /* TagTyped.swift */; };
-		E432A7742AAC4A7B0043BCC9 /* FocusedField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7732AAC4A7B0043BCC9 /* FocusedField.swift */; };
-		E432A7762AAC55B70043BCC9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */; };
-		E432A77C2AACB2630043BCC9 /* FilePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A77B2AACB2630043BCC9 /* FilePreview.swift */; };
-		E432A77E2AACB4410043BCC9 /* ListDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */; };
-		E432A7842AAD91240043BCC9 /* TipSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432A7832AAD91240043BCC9 /* TipSection.swift */; };
 		E436724B2AC859F60016B57C /* Komponents in Frameworks */ = {isa = PBXBuildFile; productRef = E436724A2AC859F60016B57C /* Komponents */; };
 		E4B206EC2D340C9D004CF4A1 /* ID3TagEditor in Frameworks */ = {isa = PBXBuildFile; productRef = E4B206EB2D340C9D004CF4A1 /* ID3TagEditor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D538051065DC45B8B2F8B431 /* FolderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderPicker.swift; sourceTree = "<group>"; };
 		E432A7072AA9FD5E0043BCC9 /* Tunetag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunetag.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E432A70A2AA9FD5E0043BCC9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserView.swift; sourceTree = "<group>"; };
-		E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E432A7102AA9FD5F0043BCC9 /* Tunetag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tunetag.entitlements; sourceTree = "<group>"; };
-		E432A71C2AA9FE8D0043BCC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E432A71D2AA9FF3A0043BCC9 /* FilesystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemManager.swift; sourceTree = "<group>"; };
-		E432A7222AAA094A0043BCC9 /* FSFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSFile.swift; sourceTree = "<group>"; };
-		E432A7252AAA097E0043BCC9 /* ViewPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPath.swift; sourceTree = "<group>"; };
-		E432A7272AAA09D50043BCC9 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
-		E432A7292AAA09EE0043BCC9 /* TabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabType.swift; sourceTree = "<group>"; };
-		E432A72B2AAA0A490043BCC9 /* TabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManager.swift; sourceTree = "<group>"; };
-		E432A72D2AAA0A640043BCC9 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDirectory.swift; sourceTree = "<group>"; };
-		E432A7322AAA0BB90043BCC9 /* FilesystemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemObject.swift; sourceTree = "<group>"; };
-		E432A7392AAA167C0043BCC9 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
-		E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		E432A7472AAA2D2B0043BCC9 /* ListInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInputRow.swift; sourceTree = "<group>"; };
-		E432A7512AAA49C50043BCC9 /* BatchEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEditView.swift; sourceTree = "<group>"; };
-		E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFolderRow.swift; sourceTree = "<group>"; };
-		E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFileRow.swift; sourceTree = "<group>"; };
-		E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserNoFilesTip.swift; sourceTree = "<group>"; };
-		E432A75E2AAB35420043BCC9 /* SaveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveState.swift; sourceTree = "<group>"; };
-		E432A7602AAB41920043BCC9 /* TagEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEditorView.swift; sourceTree = "<group>"; };
-		E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFileManager.swift; sourceTree = "<group>"; };
-		E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTokensTip.swift; sourceTree = "<group>"; };
-		E432A7662AAB9D9E0043BCC9 /* TagDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataSection.swift; sourceTree = "<group>"; };
-		E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTokenRow.swift; sourceTree = "<group>"; };
-		E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHeaderSection.swift; sourceTree = "<group>"; };
-		E432A76F2AAC3E320043BCC9 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		E432A7712AAC445B0043BCC9 /* TagTyped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTyped.swift; sourceTree = "<group>"; };
-		E432A7732AAC4A7B0043BCC9 /* FocusedField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedField.swift; sourceTree = "<group>"; };
-		E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		E432A77B2AACB2630043BCC9 /* FilePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePreview.swift; sourceTree = "<group>"; };
-		E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailRow.swift; sourceTree = "<group>"; };
-		E432A7832AAD91240043BCC9 /* TipSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E416502F2EB397FB00CF6AE5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E432A7062AA9FD5E0043BCC9 /* Tunetag */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E416500A2EB397FB00CF6AE5 /* Tunetag */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E416502F2EB397FB00CF6AE5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Tunetag; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E432A7042AA9FD5E0043BCC9 /* Frameworks */ = {
@@ -101,7 +45,7 @@
 		E432A6FE2AA9FD5E0043BCC9 = {
 			isa = PBXGroup;
 			children = (
-				E432A7092AA9FD5E0043BCC9 /* Tunetag */,
+				E416500A2EB397FB00CF6AE5 /* Tunetag */,
 				E432A7082AA9FD5E0043BCC9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,129 +56,6 @@
 				E432A7072AA9FD5E0043BCC9 /* Tunetag.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E432A7092AA9FD5E0043BCC9 /* Tunetag */ = {
-			isa = PBXGroup;
-			children = (
-				E432A7102AA9FD5F0043BCC9 /* Tunetag.entitlements */,
-				E432A71C2AA9FE8D0043BCC9 /* Info.plist */,
-				E432A70E2AA9FD5F0043BCC9 /* Assets.xcassets */,
-				E432A7752AAC55B70043BCC9 /* InfoPlist.xcstrings */,
-				E432A7452AAA265B0043BCC9 /* Localizable.xcstrings */,
-				E432A71F2AAA08F10043BCC9 /* Views */,
-				E432A7212AAA093D0043BCC9 /* Structs */,
-				E432A7202AAA08F70043BCC9 /* Classes */,
-				E432A7242AAA09700043BCC9 /* Enums */,
-				E432A7312AAA0BAB0043BCC9 /* Protocols */,
-			);
-			path = Tunetag;
-			sourceTree = "<group>";
-		};
-		E432A71F2AAA08F10043BCC9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E432A70A2AA9FD5E0043BCC9 /* App.swift */,
-				E432A72D2AAA0A640043BCC9 /* MainTabView.swift */,
-				E432A74E2AAA498D0043BCC9 /* Files */,
-				E432A7502AAA49AE0043BCC9 /* Batch Edit */,
-				E432A78C2AADB4110043BCC9 /* Tag Editor */,
-				E432A74F2AAA49940043BCC9 /* More */,
-				E432A74D2AAA498A0043BCC9 /* Shared */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E432A7202AAA08F70043BCC9 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				E432A71D2AA9FF3A0043BCC9 /* FilesystemManager.swift */,
-				E432A7622AAB530A0043BCC9 /* BatchFileManager.swift */,
-				E432A7272AAA09D50043BCC9 /* NavigationManager.swift */,
-				E432A72B2AAA0A490043BCC9 /* TabManager.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		E432A7212AAA093D0043BCC9 /* Structs */ = {
-			isa = PBXGroup;
-			children = (
-				E432A7222AAA094A0043BCC9 /* FSFile.swift */,
-				E432A72F2AAA0B2E0043BCC9 /* FSDirectory.swift */,
-				E432A75A2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift */,
-				E432A7642AAB9AA70043BCC9 /* AvailableTokensTip.swift */,
-				E432A76F2AAC3E320043BCC9 /* Tag.swift */,
-				E432A7712AAC445B0043BCC9 /* TagTyped.swift */,
-			);
-			path = Structs;
-			sourceTree = "<group>";
-		};
-		E432A7242AAA09700043BCC9 /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				E432A75E2AAB35420043BCC9 /* SaveState.swift */,
-				E432A7252AAA097E0043BCC9 /* ViewPath.swift */,
-				E432A7292AAA09EE0043BCC9 /* TabType.swift */,
-				E432A7732AAC4A7B0043BCC9 /* FocusedField.swift */,
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
-		E432A7312AAA0BAB0043BCC9 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				E432A7322AAA0BB90043BCC9 /* FilesystemObject.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		E432A74D2AAA498A0043BCC9 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				E432A77D2AACB4410043BCC9 /* ListDetailRow.swift */,
-				E432A7472AAA2D2B0043BCC9 /* ListInputRow.swift */,
-				D538051065DC45B8B2F8B431 /* FolderPicker.swift */,
-				E432A7532AAA4A250043BCC9 /* ListFolderRow.swift */,
-				E432A7562AAA4A2F0043BCC9 /* ListFileRow.swift */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		E432A74E2AAA498D0043BCC9 /* Files */ = {
-			isa = PBXGroup;
-			children = (
-				E432A70C2AA9FD5E0043BCC9 /* FileBrowserView.swift */,
-				E432A77B2AACB2630043BCC9 /* FilePreview.swift */,
-			);
-			path = Files;
-			sourceTree = "<group>";
-		};
-		E432A74F2AAA49940043BCC9 /* More */ = {
-			isa = PBXGroup;
-			children = (
-				E432A7392AAA167C0043BCC9 /* MoreView.swift */,
-			);
-			path = More;
-			sourceTree = "<group>";
-		};
-		E432A7502AAA49AE0043BCC9 /* Batch Edit */ = {
-			isa = PBXGroup;
-			children = (
-				E432A7512AAA49C50043BCC9 /* BatchEditView.swift */,
-			);
-			path = "Batch Edit";
-			sourceTree = "<group>";
-		};
-		E432A78C2AADB4110043BCC9 /* Tag Editor */ = {
-			isa = PBXGroup;
-			children = (
-				E432A7602AAB41920043BCC9 /* TagEditorView.swift */,
-				E432A76A2AAB9F430043BCC9 /* FileHeaderSection.swift */,
-				E432A7662AAB9D9E0043BCC9 /* TagDataSection.swift */,
-				E432A7832AAD91240043BCC9 /* TipSection.swift */,
-				E432A7682AAB9EBE0043BCC9 /* AvailableTokenRow.swift */,
-			);
-			path = "Tag Editor";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +73,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E416500A2EB397FB00CF6AE5 /* Tunetag */,
 			);
 			name = Tunetag;
 			packageProductDependencies = (
@@ -305,9 +129,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E432A7762AAC55B70043BCC9 /* InfoPlist.xcstrings in Resources */,
-				E432A7462AAA265B0043BCC9 /* Localizable.xcstrings in Resources */,
-				E432A70F2AA9FD5F0043BCC9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,37 +160,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E432A7702AAC3E320043BCC9 /* Tag.swift in Sources */,
-				E432A7672AAB9D9E0043BCC9 /* TagDataSection.swift in Sources */,
-				E432A7482AAA2D2B0043BCC9 /* ListInputRow.swift in Sources */,
-				E432A75F2AAB35420043BCC9 /* SaveState.swift in Sources */,
-				E432A7232AAA094A0043BCC9 /* FSFile.swift in Sources */,
-				E432A71E2AA9FF3A0043BCC9 /* FilesystemManager.swift in Sources */,
-				E432A7742AAC4A7B0043BCC9 /* FocusedField.swift in Sources */,
-				E432A77E2AACB4410043BCC9 /* ListDetailRow.swift in Sources */,
-				E432A7332AAA0BB90043BCC9 /* FilesystemObject.swift in Sources */,
-				E432A73A2AAA167C0043BCC9 /* MoreView.swift in Sources */,
-				E432A72E2AAA0A640043BCC9 /* MainTabView.swift in Sources */,
-				E432A76B2AAB9F430043BCC9 /* FileHeaderSection.swift in Sources */,
-				E432A7722AAC445B0043BCC9 /* TagTyped.swift in Sources */,
-				E432A7262AAA097E0043BCC9 /* ViewPath.swift in Sources */,
-				E432A70D2AA9FD5E0043BCC9 /* FileBrowserView.swift in Sources */,
-				E432A70B2AA9FD5E0043BCC9 /* App.swift in Sources */,
-				E432A77C2AACB2630043BCC9 /* FilePreview.swift in Sources */,
-				E432A7632AAB530A0043BCC9 /* BatchFileManager.swift in Sources */,
-				E432A7692AAB9EBE0043BCC9 /* AvailableTokenRow.swift in Sources */,
-				E432A7572AAA4A2F0043BCC9 /* ListFileRow.swift in Sources */,
-				A9B118D97C39493CB77F56C4 /* FolderPicker.swift in Sources */,
-				E432A7302AAA0B2E0043BCC9 /* FSDirectory.swift in Sources */,
-				E432A72C2AAA0A490043BCC9 /* TabManager.swift in Sources */,
-				E432A7542AAA4A250043BCC9 /* ListFolderRow.swift in Sources */,
-				E432A75B2AAA545C0043BCC9 /* FileBrowserNoFilesTip.swift in Sources */,
-				E432A7282AAA09D50043BCC9 /* NavigationManager.swift in Sources */,
-				E432A7522AAA49C50043BCC9 /* BatchEditView.swift in Sources */,
-				E432A7612AAB41920043BCC9 /* TagEditorView.swift in Sources */,
-				E432A7652AAB9AA70043BCC9 /* AvailableTokensTip.swift in Sources */,
-				E432A7842AAD91240043BCC9 /* TipSection.swift in Sources */,
-				E432A72A2AAA09EE0043BCC9 /* TabType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +320,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.Tunetag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -574,7 +364,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.Tunetag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

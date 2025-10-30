@@ -1,0 +1,98 @@
+{
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:1.00000,0.15201,0.47045,1.00000",
+      "srgb:0.93333,0.44156,0.62022,1.00000"
+    ],
+    "orientation" : {
+      "start" : {
+        "x" : 0.5,
+        "y" : 0
+      },
+      "stop" : {
+        "x" : 0.5,
+        "y" : 0.7
+      }
+    }
+  },
+  "groups" : [
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "extended-gray:1.00000,1.00000",
+              "srgb:0.98213,1.00000,0.76145,1.00000"
+            ],
+            "orientation" : {
+              "start" : {
+                "x" : 0.7910616326645606,
+                "y" : 0.08799617369321827
+              },
+              "stop" : {
+                "x" : 0.42383550676887355,
+                "y" : 0.752076211519823
+              }
+            }
+          },
+          "image-name" : "Tunetag.008.png",
+          "name" : "Tunetag.008"
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "Music Note",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 1
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.3
+      }
+    },
+    {
+      "layers" : [
+        {
+          "blend-mode" : "plus-lighter",
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:1.00000,0.93653,0.97760,1.00000",
+              "srgb:1.00000,0.68417,0.84930,1.00000"
+            ],
+            "orientation" : {
+              "start" : {
+                "x" : 0.5,
+                "y" : 0
+              },
+              "stop" : {
+                "x" : 0.5,
+                "y" : 0.7
+              }
+            }
+          },
+          "glass" : true,
+          "image-name" : "Tunetag.009.png",
+          "name" : "Tunetag.009"
+        }
+      ],
+      "name" : "Tag",
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.9
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 1
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
