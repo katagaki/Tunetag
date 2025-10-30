@@ -54,7 +54,7 @@ struct FileBrowserView: View {
                             Button {
                                 tagEditorFile = file
                             } label: {
-                                ListFileRow(name: file.name, icon: Image("File.MP3"))
+                                ListFileRow(name: file.name, icon: Image(systemName: "waveform"))
                             }
                             .tint(.primary)
                             .contextMenu(menuItems: {

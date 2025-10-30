@@ -21,7 +21,7 @@ struct BatchEditView: View {
                 LazyVStack(alignment: .leading, spacing: 0.0) {
                     ForEach(batchFileManager.files, id: \.path) { file in
                         HStack {
-                            ListFileRow(name: file.name, icon: Image("File.MP3"))
+                            ListFileRow(name: file.name, icon: Image(systemName: "waveform"))
                                 .frame(minHeight: 43)
                             Spacer()
                             Button {

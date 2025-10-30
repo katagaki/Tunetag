@@ -21,13 +21,13 @@ struct MainTabView: View {
         TabView(selection: $tabManager.selectedTab) {
             FileBrowserView()
                 .tabItem {
-                    Label("TabTitle.Files", image: "Tab.FileBrowser")
+                    Label("TabTitle.Files", systemImage: "iphone")
                 }
                 .toolbarBackground(.hidden, for: .tabBar)
                 .tag(TabType.fileManager)
             BatchEditView()
                 .tabItem {
-                    Label("TabTitle.BatchEditor", image: "Tab.BatchEditor")
+                    Label("TabTitle.BatchEditor", systemImage: "square.and.pencil")
                 }
                 .tag(TabType.batchEdit)
             MoreView()
