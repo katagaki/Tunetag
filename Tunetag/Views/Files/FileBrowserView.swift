@@ -54,15 +54,9 @@ struct FileBrowserView: View {
                             Button {
                                 tagEditorFile = file
                             } label: {
-                                ListFileRow(name: file.name, icon: Image("File.MP3"))
+                                ListFileRow(name: file.name, icon: Image(systemName: "waveform"))
                             }
                             .tint(.primary)
-                            .draggable(file) {
-                                ListFileRow(name: file.name, icon: Image("File.MP3"))
-                                    .padding()
-                                    .background(.background)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                            }
                             .contextMenu(menuItems: {
                                 Button {
                                     addToQueue(file: file)
@@ -164,14 +158,8 @@ struct FileBrowserView: View {
                         } else {
                             openFilesAppButton()
                         }
-                    } else {
-                        Color.clear
                     }
                 }
-            }
-            .safeAreaInset(edge: .bottom) {
-                DropZone()
-                    .opacity(0)
             }
             .sheet(item: $tagEditorFile, content: { file in
                 NavigationStack {
@@ -194,7 +182,7 @@ struct FileBrowserView: View {
             showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.FileBrowserNoFilesTip")
             refreshFiles()
         }
-        .onChange(of: showsLegacyTip) { _ in
+        .onChange(of: showsLegacyTip) { _, _ in
             UserDefaults.standard.setValue(!showsLegacyTip, forKey: "LegacyTipsHidden.FileBrowserNoFilesTip")
         }
     }

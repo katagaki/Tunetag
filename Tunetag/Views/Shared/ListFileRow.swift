@@ -17,7 +17,7 @@ struct ListFileRow: View {
             icon
                 .resizable()
                 .scaledToFit()
-                .frame(width: 28.0, height: 28.0)
+                .frame(width: 24.0, height: 24.0)
             Text(name)
                 .font(.body)
                 .lineLimit(1)

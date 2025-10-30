@@ -67,6 +67,7 @@ struct TagEditorView: View {
             }
         }
         .disabled(saveState == .saving)
+        .scrollDismissesKeyboard(.interactively)
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
             Button {
@@ -105,31 +106,22 @@ struct TagEditorView: View {
             .frame(minHeight: 56.0)
             .padding([.leading, .trailing, .bottom])
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("Shared.Done") {
-                    focusedField = nil
-                }
-                .bold()
-            }
-        }
         .task {
             showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.AvailableTokensTip")
             await readAllTagData()
         }
-        .onChange(of: showsLegacyTip) { _ in
+        .onChange(of: showsLegacyTip) { _, _ in
             UserDefaults.standard.setValue(!showsLegacyTip, forKey: "LegacyTipsHidden.AvailableTokensTip")
         }
-        .onChange(of: selectedAlbumArt, perform: { _ in
+        .onChange(of: selectedAlbumArt) { _, _ in
             Task {
                 if let selectedAlbumArt = selectedAlbumArt,
                     let data = try? await selectedAlbumArt.loadTransferable(type: Data.self) {
                     tagData.albumArt = data
                 }
             }
-        })
-        .onChange(of: saveState, perform: { _ in
+        }
+        .onChange(of: saveState) { _, _ in
             switch saveState {
             case .saved:
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -138,7 +130,7 @@ struct TagEditorView: View {
             default:
                 break
             }
-        })
+        }
     }
 
     func readAllTagData() async {
