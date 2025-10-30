@@ -30,7 +30,7 @@ struct FileHeaderSection: View {
                 }
                 .scaledToFill()
                 .frame(width: 100.0, height: 100.0)
-                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                .clipShape(RoundedRectangle(cornerRadius: 36.0))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10.0)
                         .stroke(.primary, lineWidth: 1/3)
