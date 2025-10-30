@@ -158,8 +158,6 @@ struct FileBrowserView: View {
                         } else {
                             openFilesAppButton()
                         }
-                    } else {
-                        Color.clear
                     }
                 }
             }
@@ -184,7 +182,7 @@ struct FileBrowserView: View {
             showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.FileBrowserNoFilesTip")
             refreshFiles()
         }
-        .onChange(of: showsLegacyTip) { _ in
+        .onChange(of: showsLegacyTip) { _, _ in
             UserDefaults.standard.setValue(!showsLegacyTip, forKey: "LegacyTipsHidden.FileBrowserNoFilesTip")
         }
     }

@@ -124,14 +124,12 @@ struct BatchEditView: View {
             let contents = try fileManager.contentsOfDirectory(at: folderUrl,
                                                                includingPropertiesForKeys: [.isRegularFileKey],
                                                                options: [.skipsHiddenFiles])
-            for fileUrl in contents {
-                if fileUrl.pathExtension.lowercased() == "mp3" {
-                    _ = fileUrl.startAccessingSecurityScopedResource()
-                    let file = FSFile(name: fileUrl.lastPathComponent,
-                                    path: fileUrl.path(percentEncoded: false),
-                                    isArbitrarilyLoadedFromDragAndDrop: true)
-                    addFile(file)
-                }
+            for fileUrl in contents where fileUrl.pathExtension.lowercased() == "mp3" {
+                _ = fileUrl.startAccessingSecurityScopedResource()
+                let file = FSFile(name: fileUrl.lastPathComponent,
+                                  path: fileUrl.path(percentEncoded: false),
+                                  isArbitrarilyLoadedFromDragAndDrop: true)
+                addFile(file)
             }
         } catch {
             debugPrint("Error reading folder contents: \(error.localizedDescription)")
