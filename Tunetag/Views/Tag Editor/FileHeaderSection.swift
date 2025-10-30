@@ -17,7 +17,7 @@ struct FileHeaderSection: View {
 
     var body: some View {
         Section {
-            HStack(alignment: .top, spacing: 16.0) {
+            VStack(alignment: .center, spacing: 16.0) {
                 Group {
                     if let albumArt = albumArt,
                        let albumArtImage = UIImage(data: albumArt) {
@@ -29,14 +29,14 @@ struct FileHeaderSection: View {
                     }
                 }
                 .scaledToFill()
-                .frame(width: 100.0, height: 100.0)
-                .clipShape(RoundedRectangle(cornerRadius: 36.0))
+                .frame(width: 180.0, height: 180.0)
+                .clipShape(RoundedRectangle(cornerRadius: 10.0))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10.0)
                         .stroke(.primary, lineWidth: 1/3)
                         .opacity(0.3)
                 )
-                VStack(alignment: .leading) {
+                VStack(alignment: .center, spacing: 8.0) {
                     Text(filename)
                         .bold()
                         .textCase(.none)
@@ -48,12 +48,13 @@ struct FileHeaderSection: View {
                             Text("TagEditor.SelectAlbumArt")
                                 .bold()
                         }
-                        .clipShape(RoundedRectangle(cornerRadius: 99))
-                        .buttonStyle(.borderedProminent)
+                                     .clipShape(RoundedRectangle(cornerRadius: 99))
+                                     .buttonStyle(.borderedProminent)
                     }
                 }
             }
             .listRowBackground(Color.clear)
+            .frame(maxWidth: .infinity)
         }
         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
