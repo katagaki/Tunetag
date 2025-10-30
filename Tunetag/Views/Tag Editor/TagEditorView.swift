@@ -67,6 +67,7 @@ struct TagEditorView: View {
             }
         }
         .disabled(saveState == .saving)
+        .scrollDismissesKeyboard(.interactively)
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
             Button {
@@ -104,15 +105,6 @@ struct TagEditorView: View {
             .clipShape(RoundedRectangle(cornerRadius: 99))
             .frame(minHeight: 56.0)
             .padding([.leading, .trailing, .bottom])
-        }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("Shared.Done") {
-                    focusedField = nil
-                }
-                .bold()
-            }
         }
         .task {
             showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.AvailableTokensTip")
