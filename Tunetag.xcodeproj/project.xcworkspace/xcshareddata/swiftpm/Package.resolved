@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/chicio/ID3TagEditor",
       "state" : {
-        "revision" : "adcebd1680ac1a93f8a95f84c515680cac3c69d6",
-        "version" : "5.4.0"
+        "revision" : "e08dd0118d4418900ac3b8f621a6b3d24ae5416f",
+        "version" : "5.5.0"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "https://github.com/katagaki/Komponents",
       "state" : {
         "branch" : "main",
-        "revision" : "2431ce046638dc3b86fa187ddcab0f1ed00b321d"
+        "revision" : "93f484d6f2cef9c179387fcca2b2048413f9f0a6"
       }
     }
   ],
