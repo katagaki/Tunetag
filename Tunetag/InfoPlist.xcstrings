@@ -9,12 +9,6 @@
             "state" : "translated",
             "value" : "Tunetag"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チューンタグ"
-          }
         }
       }
     },
@@ -25,12 +19,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tunetag"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チューンタグ"
           }
         }
       }
