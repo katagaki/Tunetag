@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoreView: View {
 
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
@@ -29,6 +30,13 @@ struct MoreView: View {
             }
             .navigationTitle("ViewTitle.More")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Shared.Done") {
+                        dismiss()
+                    }
+                }
+            }
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
                 case .moreAttributions: MoreLicensesView()
