@@ -45,5 +45,8 @@ struct MoreView: View {
                 }
             })
         }
+        .onDisappear {
+            navigationManager.moreTabPath = []
+        }
     }
 }
