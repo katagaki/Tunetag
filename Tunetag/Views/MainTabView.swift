@@ -19,12 +19,6 @@ struct MainTabView: View {
 
     var body: some View {
         TabView(selection: $tabManager.selectedTab) {
-            FileBrowserView()
-                .tabItem {
-                    Label("TabTitle.Files", systemImage: "iphone")
-                }
-                .toolbarBackground(.hidden, for: .tabBar)
-                .tag(TabType.fileManager)
             BatchEditView()
                 .tabItem {
                     Label("TabTitle.BatchEditor", systemImage: "square.and.pencil")

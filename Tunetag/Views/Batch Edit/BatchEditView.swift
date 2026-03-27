@@ -98,6 +98,11 @@ struct BatchEditView: View {
                 }
             }
             .navigationTitle("ViewTitle.BatchEditor")
+            .task {
+                if batchFileManager.files.isEmpty {
+                    isFolderPickerPresenting = true
+                }
+            }
         }
     }
 
