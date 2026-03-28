@@ -1,1950 +1,3222 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "BatchEdit.Help.GuidanceHint.Bottom" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Here's how you can do it:"
+  "sourceLanguage": "en",
+  "strings": {
+    "BatchEdit.Keep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Don't Change"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "追加方法はこちらです。"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "変更しない"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "다음과 같이 할 수 있습니다:"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "변경 안 함"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Đây là cách bạn có thể làm:"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không Thay Đổi"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您可以这样操作："
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不更改"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您可以這樣操作："
-          }
-        }
-      }
-    },
-    "BatchEdit.Help.GuidanceHint.Top" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chose the type of file you are adding:"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不更改"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "追加したいファイルの種類を選択してください。"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicht ändern"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "추가할 파일 유형을 선택하세요:"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No cambiar"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chọn loại tệp bạn đang thêm:"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ne pas modifier"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "选择您要添加的文件类型："
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non modificare"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "選擇您要新增的檔案類型："
-          }
-        }
-      }
-    },
-    "BatchEdit.Hint" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No files added to the batch edit queue.\nYou can add files from within the app, or select external files and folders."
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não alterar"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "編集するファイルはありません。\nアプリ内のファイルまたは外部のファイルとフォルダーを追加することができます。"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่เปลี่ยนแปลง"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "일괄 편집 대기열에 파일이 추가되지 않았습니다.\n앱 내에서 파일을 추가하거나 외부 파일 및 폴더를 선택할 수 있습니다."
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jangan Ubah"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chưa có tệp nào được thêm vào hàng đợi chỉnh sửa hàng loạt.\nBạn có thể thêm tệp từ trong ứng dụng hoặc chọn tệp và thư mục bên ngoài."
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Değiştirme"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "批量编辑队列中没有文件。\n您可以从应用内添加文件，或选择外部文件和文件夹。"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nie zmieniaj"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "批次編輯佇列中沒有檔案。\n您可以從應用程式內新增檔案，或選擇外部檔案和資料夾。"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عدم التغيير"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niet wijzigen"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jangan Ubah"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "बदलें नहीं"
           }
         }
       }
     },
-    "BatchEdit.Keep" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Don't Change"
+    "BatchEdit.MultipleFiles": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Multiple Files"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "変更しない"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "複数のファイル"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "변경 안 함"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "여러 파일"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Không Thay Đổi"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhiều Tệp"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "不更改"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "多个文件"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "不更改"
-          }
-        }
-      }
-    },
-    "BatchEdit.MultipleFiles" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Multiple Files"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "多個檔案"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "複数のファイル"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mehrere Dateien"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "여러 파일"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Varios archivos"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nhiều Tệp"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fichiers multiples"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "多个文件"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "File multipli"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "多個檔案"
-          }
-        }
-      }
-    },
-    "BatchEdit.SelectFiles" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select Files or Folders"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vários arquivos"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイルまたはフォルダーを選択"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หลายไฟล์"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "파일 또는 폴더 선택"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beberapa File"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chọn Tệp hoặc Thư mục"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Birden Fazla Dosya"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "选择文件或文件夹"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wiele plików"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "選擇檔案或資料夾"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملفات متعددة"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meerdere bestanden"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berbilang Fail"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एकाधिक फ़ाइलें"
           }
         }
       }
     },
-    "BatchEdit.StartEditing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start Editing"
+    "katagaki/Tunetag": {
+      "shouldTranslate": false
+    },
+    "More.Attributions": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attributions"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "編集開始"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "著者権表記"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "편집 시작"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "저작자 표시"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bắt Đầu Chỉnh Sửa"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ghi Công"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "开始编辑"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版权声明"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "開始編輯"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版權聲明"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Danksagungen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atribuciones"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attributions"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attribuzioni"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atribuições"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เครดิต"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atribusi"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atıflar"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Podziękowania"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الإسنادات"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vermeldingen"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atribusi"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "श्रेय"
           }
         }
       }
     },
-    "FileBrowser.AddFiles" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Queue All Files"
+    "More.GitHub": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source Code"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "すべてのファイルをキューに追加"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ソースコード"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "모든 파일 대기열에 추가"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "소스 코드"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thêm Tất Cả Tệp Vào Hàng Đợi"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mã Nguồn"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将所有文件加入队列"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "源代码"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "將所有檔案加入佇列"
-          }
-        }
-      }
-    },
-    "FileBrowser.Hint" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This folder does not contain any MP3 files."
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "原始碼"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "このフォルダーにMP3ファイルはありません。"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quellcode"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이 폴더에 MP3 파일이 없습니다."
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Código fuente"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thư mục này không chứa tệp MP3 nào."
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Code source"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "此文件夹不包含任何 MP3 文件。"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codice sorgente"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "此資料夾不包含任何 MP3 檔案。"
-          }
-        }
-      }
-    },
-    "FileBrowser.Tip.NoFiles.Text" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "device" : {
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "To add files to Tunetag, open the Files app, navigate to 'On My iPad', and drop your files in the Tunetag folder."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "To add files to Tunetag, open the Files app, navigate to 'On My iPhone', and drop your files in the Tunetag folder."
-                }
-              }
-            }
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Código-fonte"
           }
         },
-        "ja" : {
-          "variations" : {
-            "device" : {
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "チューンタグにファイルを追加するには、「ファイル」アプリを開き、「このiPad内」の「チューンタグ」フォルダーにファイルを移動してください。"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "チューンタグにファイルを追加するには、「ファイル」アプリを開き、「このiPhone内」の「チューンタグ」フォルダーにファイルを移動してください。"
-                }
-              }
-            }
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซอร์สโค้ด"
           }
         },
-        "ko" : {
-          "variations" : {
-            "device" : {
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tunetag에 파일을 추가하려면 파일 앱을 열고 '나의 iPad'로 이동한 다음 Tunetag 폴더에 파일을 넣으세요."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tunetag에 파일을 추가하려면 파일 앱을 열고 '나의 iPhone'으로 이동한 다음 Tunetag 폴더에 파일을 넣으세요."
-                }
-              }
-            }
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kode Sumber"
           }
         },
-        "vi" : {
-          "variations" : {
-            "device" : {
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Để thêm tệp vào Tunetag, hãy mở ứng dụng Files, điều hướng đến 'Trên iPad của Tôi' và thả tệp của bạn vào thư mục Tunetag."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Để thêm tệp vào Tunetag, hãy mở ứng dụng Files, điều hướng đến 'Trên iPhone của Tôi' và thả tệp của bạn vào thư mục Tunetag."
-                }
-              }
-            }
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaynak Kodu"
           }
         },
-        "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "要将文件添加到 Tunetag，请打开\"文件\"应用，导航至\"我的 iPad\"，然后将文件放入 Tunetag 文件夹。"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "要将文件添加到 Tunetag，请打开\"文件\"应用，导航至\"我的 iPhone\"，然后将文件放入 Tunetag 文件夹。"
-                }
-              }
-            }
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kod źródłowy"
           }
         },
-        "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "要將檔案加入 Tunetag，請開啟「檔案」應用程式，前往「我的 iPad」，然後將檔案放入 Tunetag 資料夾。"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "要將檔案加入 Tunetag，請開啟「檔案」應用程式，前往「我的 iPhone」，然後將檔案放入 Tunetag 資料夾。"
-                }
-              }
-            }
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الشيفرة المصدرية"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Broncode"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kod Sumber"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सोर्स कोड"
           }
         }
       }
     },
-    "FileBrowser.Tip.NoFiles.Title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add Files to Tunetag"
+    "Shared.Done": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チューンタグにファイルを追加する方法"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完了"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tunetag에 파일 추가"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "완료"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thêm Tệp vào Tunetag"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xong"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将文件添加到 Tunetag"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "將檔案加入 Tunetag"
-          }
-        }
-      }
-    },
-    "More.Attribution" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Attributions"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "著者権表記"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fertig"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "저작자 표시"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listo"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ghi Công"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminé"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版权声明"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fatto"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版權聲明"
-          }
-        }
-      }
-    },
-    "Shared.AddFile" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Queue File"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluído"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "キューに追加"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสร็จ"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "파일 대기열에 추가"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selesai"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thêm Tệp Vào Hàng Đợi"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bitti"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将文件加入队列"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gotowe"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "將檔案加入佇列"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تم"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gereed"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selesai"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "पूर्ण"
           }
         }
       }
     },
-    "Shared.AddFiles" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Queue Files"
+    "Shared.Save": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "キューに追加"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "파일 대기열에 추가"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "저장"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thêm Tệp Vào Hàng Đợi"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lưu"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将文件加入队列"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "將檔案加入佇列"
-          }
-        }
-      }
-    },
-    "Shared.AddFilesRecursively" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Queue Files Recursively"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "儲存"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "再帰的にキューに追加"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sichern"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "하위 폴더 포함하여 대기열에 추가"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thêm Tệp Đệ Quy Vào Hàng Đợi"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "递归加入文件到队列"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salva"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "遞迴加入檔案到佇列"
-          }
-        }
-      }
-    },
-    "Shared.BatchEditor" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batch Editor"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvar"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一括編集"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บันทึก"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "일괄 편집기"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trình Chỉnh Sửa Hàng Loạt"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydet"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "批量编辑器"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zapisz"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "批次編輯器"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حفظ"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaar"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सहेजें"
           }
         }
       }
     },
-    "Shared.ClearAll" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Clear"
+    "Tag.Album": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "クリア"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アルバム"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "지우기"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앨범"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Xóa"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "清除"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "专辑"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "清除"
-          }
-        }
-      }
-    },
-    "Shared.DropFilesFileName" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drop Your Files Here"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "專輯"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "こちらにファイルを移動してください"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "여기에 파일을 드롭하세요"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Álbum"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thả Tệp Của Bạn Vào Đây"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将文件拖放到此处"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "將檔案拖放到此處"
-          }
-        }
-      }
-    },
-    "Shared.OpenFilesApp" : {
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "device" : {
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Open Finder"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Open Files App"
-                }
-              }
-            }
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Álbum"
           }
         },
-        "ja" : {
-          "variations" : {
-            "device" : {
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "「Finder」アプリに移動"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "「ファイル」アプリに移動"
-                }
-              }
-            }
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อัลบั้ม"
           }
         },
-        "ko" : {
-          "variations" : {
-            "device" : {
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Finder 열기"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "파일 앱 열기"
-                }
-              }
-            }
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
           }
         },
-        "vi" : {
-          "variations" : {
-            "device" : {
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Mở Finder"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Mở Ứng Dụng Files"
-                }
-              }
-            }
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Albüm"
           }
         },
-        "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "打开访达"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "打开文件应用"
-                }
-              }
-            }
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
           }
         },
-        "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "開啟 Finder"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "開啟檔案應用程式"
-                }
-              }
-            }
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الألبوم"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एल्बम"
           }
         }
       }
     },
-    "Shared.Save" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save"
+    "Tag.AlbumArtist": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album Artist"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保存"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アルバムアーティスト"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "저장"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앨범 아티스트"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lưu"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nghệ Sĩ Album"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保存"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "专辑艺人"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "儲存"
-          }
-        }
-      }
-    },
-    "TabTitle.BatchEditor" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batch Editor"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "專輯藝人"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一括編集"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Album-Interpret"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "일괄 편집기"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artista del álbum"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trình Chỉnh Sửa Hàng Loạt"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artiste de l'album"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "批量编辑器"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artista dell'album"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "批次編輯器"
-          }
-        }
-      }
-    },
-    "TabTitle.Files" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Local Files"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artista do álbum"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ローカルファイル"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ศิลปินอัลบั้ม"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "로컬 파일"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artis Album"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tệp Cục Bộ"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Albüm Sanatçısı"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本地文件"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wykonawca albumu"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本機檔案"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فنان الألبوم"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Albumartiest"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artis Album"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एल्बम कलाकार"
           }
         }
       }
     },
-    "TabTitle.More" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More"
+    "Tag.Artist": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artist"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "その他"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アーティスト"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "더 보기"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "아티스트"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thêm"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nghệ Sĩ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更多"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "艺人"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更多"
-          }
-        }
-      }
-    },
-    "Tag.Album" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Album"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "藝人"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アルバム"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Interpret"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앨범"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artista"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Album"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artiste"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "专辑"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artista"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "專輯"
-          }
-        }
-      }
-    },
-    "Tag.AlbumArtist" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Album Artist"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artista"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アルバムアーティスト"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ศิลปิน"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앨범 아티스트"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artis"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nghệ Sĩ Album"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sanatçı"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "专辑艺人"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wykonawca"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "專輯藝人"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الفنان"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artiest"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artis"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "कलाकार"
           }
         }
       }
     },
-    "Tag.Artist" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Artist"
+    "Tag.Composer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Composer"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アーティスト"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作曲家"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "아티스트"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "작곡가"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nghệ Sĩ"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhạc Sĩ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "艺人"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作曲家"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "藝人"
-          }
-        }
-      }
-    },
-    "Tag.Composer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Composer"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作曲家"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "作曲家"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komponist"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "작곡가"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compositor"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nhạc Sĩ"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compositeur"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "作曲家"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compositore"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "作曲家"
-          }
-        }
-      }
-    },
-    "Tag.DiscNumber" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disc Number"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compositor"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ディスク番号"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ผู้แต่งเพลง"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "디스크 번호"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komposer"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Số Đĩa"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Besteci"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "光盘编号"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kompozytor"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "光碟編號"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الملحن"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Componist"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komposer"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "संगीतकार"
           }
         }
       }
     },
-    "Tag.Genre" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Genre"
+    "Tag.DiscNumber": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disc Number"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ジャンル"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ディスク番号"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "장르"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "디스크 번호"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thể Loại"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Số Đĩa"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "流派"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "光盘编号"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "流派"
-          }
-        }
-      }
-    },
-    "Tag.Title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Title"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "光碟編號"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タイトル"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CD-Nummer"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "제목"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Número de disco"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tiêu Đề"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numéro de disque"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "标题"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numero disco"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "標題"
-          }
-        }
-      }
-    },
-    "Tag.TrackNumber" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Track Number"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Número do disco"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "トラック番号"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หมายเลขแผ่น"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "트랙 번호"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nomor Disk"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Số Bài Hát"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disk Numarası"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "音轨编号"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numer płyty"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "音軌編號"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رقم القرص"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schijfnummer"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombor Cakera"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डिस्क नंबर"
           }
         }
       }
     },
-    "Tag.Year" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Year"
+    "Tag.Genre": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genre"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "年"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ジャンル"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "년도"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "장르"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Năm"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thể Loại"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "年份"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "流派"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "年份"
-          }
-        }
-      }
-    },
-    "TagEditor.SelectAlbumArt" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select Album Art"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "流派"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アルバムカバーを選択"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genre"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앨범 아트 선택"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Género"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chọn Ảnh Bìa Album"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genre"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "选择专辑封面"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genere"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "選擇專輯封面"
-          }
-        }
-      }
-    },
-    "TagEditor.TagData" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tag Data"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gênero"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タグ情報"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แนวเพลง"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "태그 데이터"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genre"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dữ Liệu Thẻ"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tür"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "标签数据"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gatunek"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "標籤資料"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النوع"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genre"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genre"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "शैली"
           }
         }
       }
     },
-    "TagEditor.Tip.Tokens.Text" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use various tokens to make use of existing information (such as the MP3 file's filename) to edit your tags.\nScroll down to see the tokens you can use."
+    "Tag.Title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Title"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "変換トークンを利用すると、ファイル名など既存の情報を利用し、より速くタグの情報を記入することができます。\n下にスクロールすると、利用できるトークンがご覧になれます。"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タイトル"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "다양한 토큰을 사용하여 기존 정보(MP3 파일의 파일 이름 등)를 활용하여 태그를 편집할 수 있습니다.\n아래로 스크롤하여 사용 가능한 토큰을 확인하세요."
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "제목"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bạn có thể sử dụng các token khác nhau để tận dụng thông tin hiện có (chẳng hạn như tên tệp MP3) để chỉnh sửa thẻ của bạn.\nCuộn xuống để xem các token bạn có thể sử dụng."
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiêu Đề"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您可以使用各种令牌来利用现有信息（例如 MP3 文件的文件名）来编辑您的标签。\n向下滚动以查看您可以使用的令牌。"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标题"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您可以使用各種令牌來利用現有資訊（例如 MP3 檔案的檔案名稱）來編輯您的標籤。\n向下滾動以查看您可以使用的令牌。"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "標題"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Titel"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Título"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Titre"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Titolo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Título"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อเพลง"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Judul"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlık"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tytuł"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "العنوان"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Titel"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tajuk"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "शीर्षक"
           }
         }
       }
     },
-    "TagEditor.Tip.Tokens.Title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Using Tokens"
+    "Tag.TrackNumber": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Track Number"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "より速く編集する方法"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "トラック番号"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "토큰 사용하기"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "트랙 번호"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sử Dụng Token"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Số Bài Hát"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用令牌"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音轨编号"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用令牌"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音軌編號"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Titelnummer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Número de pista"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numéro de piste"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numero traccia"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Número da faixa"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หมายเลขแทร็ก"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nomor Trek"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parça Numarası"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numer utworu"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رقم المسار"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tracknummer"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombor Trek"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ट्रैक नंबर"
           }
         }
       }
     },
-    "TagEditor.Tokens.Filename.Description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Represents the filename without its extension."
+    "Tag.Year": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Year"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "拡張子なしのファイル名に変換します。"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "年"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "확장자를 제외한 파일 이름을 나타냅니다."
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "년도"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Đại diện cho tên tệp không có phần mở rộng."
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Năm"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表示不带扩展名的文件名。"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "年份"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表示不帶副檔名的檔案名稱。"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "年份"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jahr"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Año"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Année"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anno"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ano"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปี"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tahun"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yıl"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rok"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "السنة"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jaar"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tahun"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "वर्ष"
           }
         }
       }
     },
-    "TagEditor.Tokens.SplitBack.Description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Represents the text in the filename after the '-' (dash) symbol. For example, \"Rick Astley - Never Gonna Give You Up.mp3\" will result in \"Never Gonna Give You Up\"."
+    "TagEditor.SelectAlbumArt": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select Album Art"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイル名にある「-」の後ろのテキストに変換します。例えば、「さユり - 花の塔.mp3」の場合、「花の塔」になります。"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アルバムカバーを選択"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "파일 이름에서 '-'(대시) 기호 뒤의 텍스트를 나타냅니다. 예를 들어, \"ミツキヨ - Unwelcome School.mp3\"는 \"Unwelcome School\"이 됩니다."
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앨범 아트 선택"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Đại diện cho văn bản trong tên tệp sau ký hiệu '-' (gạch ngang). Ví dụ, \"Hoàng Thùy Linh - See Tình.mp3\" sẽ cho kết quả là \"See Tình\"."
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chọn Ảnh Bìa Album"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表示文件名中 '-'（破折号）符号之后的文本。例如，\"阿肆 - 熱愛105C的你.mp3\" 将得到 \"熱愛105C的你\"。"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择专辑封面"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表示檔案名稱中 '-'（破折號）符號之後的文字。例如，\"費玉清 - 一翦梅.mp3\" 將得到 \"一翦梅\"。"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選擇專輯封面"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Albumcover auswählen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleccionar portada del álbum"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sélectionner la pochette"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleziona copertina album"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecionar capa do álbum"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกปกอัลบั้ม"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih Sampul Album"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Albüm Kapağı Seç"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wybierz okładkę albumu"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اختيار غلاف الألبوم"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Albumhoes selecteren"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih Seni Album"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एल्बम आर्ट चुनें"
           }
         }
       }
     },
-    "TagEditor.Tokens.SplitFront.Description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Represents the text in the filename before the '-' (dash) symbol. For example, \"Rick Astley - Never Gonna Give You Up.mp3\" will result in \"Rick Astley\"."
+    "TagEditor.TagData": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tag Data"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイル名にある「-」の前のテキストに変換します。例えば、「さユり - 花の塔.mp3」の場合、「さユり」になります。"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タグ情報"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "파일 이름에서 '-'(대시) 기호 앞의 텍스트를 나타냅니다. 예를 들어, \"ミツキヨ - Unwelcome School.mp3\"는 \"ミツキヨ\"가 됩니다."
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "태그 데이터"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Đại diện cho văn bản trong tên tệp trước ký hiệu '-' (gạch ngang). Ví dụ, \"Hoàng Thùy Linh - See Tình.mp3\" sẽ cho kết quả là \"Hoàng Thùy Linh\"."
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dữ Liệu Thẻ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表示文件名中 '-'（破折号）符号之前的文本。例如，\"阿肆 - 熱愛105C的你.mp3\" 将得到 \"阿肆\"。"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标签数据"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表示檔案名稱中 '-'（破折號）符號之前的文字。例如，\"費玉清 - 一翦梅.mp3\" 將得到 \"費玉清\"。"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "標籤資料"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tag-Daten"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datos de etiqueta"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Données du tag"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dati tag"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dados da tag"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ข้อมูลแท็ก"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data Tag"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etiket Verileri"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dane tagów"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بيانات الوسم"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taggegevens"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data Tag"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "टैग डेटा"
           }
         }
       }
     },
-    "TagEditor.Tokens.Title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Available Tokens"
+    "TagEditor.Tip.Tokens.Text": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You can use various tokens to make use of existing information (such as the MP3 file's filename) to edit your tags.\nScroll down to see the tokens you can use."
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "変換トークン"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "変換トークンを利用すると、ファイル名など既存の情報を利用し、より速くタグの情報を記入することができます。\n下にスクロールすると、利用できるトークンがご覧になれます。"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "사용 가능한 토큰"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다양한 토큰을 사용하여 기존 정보(MP3 파일의 파일 이름 등)를 활용하여 태그를 편집할 수 있습니다.\n아래로 스크롤하여 사용 가능한 토큰을 확인하세요."
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Các Token Khả Dụng"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn có thể sử dụng các token khác nhau để tận dụng thông tin hiện có (chẳng hạn như tên tệp MP3) để chỉnh sửa thẻ của bạn.\nCuộn xuống để xem các token bạn có thể sử dụng."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "可用令牌"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "您可以使用各种令牌来利用现有信息（例如 MP3 文件的文件名）来编辑您的标签。\n向下滚动以查看您可以使用的令牌。"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "可用令牌"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "您可以使用各種令牌來利用現有資訊（例如 MP3 檔案的檔案名稱）來編輯您的標籤。\n向下滾動以查看您可以使用的令牌。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sie können verschiedene Token verwenden, um vorhandene Informationen (z. B. den Dateinamen der MP3-Datei) zum Bearbeiten Ihrer Tags zu nutzen.\nScrollen Sie nach unten, um die verfügbaren Token zu sehen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puedes usar varios tokens para aprovechar la información existente (como el nombre del archivo MP3) para editar tus etiquetas.\nDesplázate hacia abajo para ver los tokens disponibles."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vous pouvez utiliser différents jetons pour exploiter les informations existantes (comme le nom du fichier MP3) afin de modifier vos tags.\nFaites défiler vers le bas pour voir les jetons disponibles."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puoi usare vari token per sfruttare le informazioni esistenti (come il nome del file MP3) per modificare i tuoi tag.\nScorri verso il basso per vedere i token disponibili."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você pode usar vários tokens para aproveitar informações existentes (como o nome do arquivo MP3) para editar suas tags.\nRole para baixo para ver os tokens disponíveis."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คุณสามารถใช้โทเค็นต่าง ๆ เพื่อใช้ข้อมูลที่มีอยู่ (เช่น ชื่อไฟล์ MP3) ในการแก้ไขแท็กของคุณ\nเลื่อนลงเพื่อดูโทเค็นที่สามารถใช้ได้"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda dapat menggunakan berbagai token untuk memanfaatkan informasi yang ada (seperti nama file MP3) untuk mengedit tag Anda.\nGulir ke bawah untuk melihat token yang tersedia."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etiketlerinizi düzenlemek için mevcut bilgilerden (MP3 dosyasının adı gibi) yararlanmak üzere çeşitli belirteçler kullanabilirsiniz.\nKullanabileceğiniz belirteçleri görmek için aşağı kaydırın."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Możesz używać różnych tokenów, aby wykorzystać istniejące informacje (takie jak nazwa pliku MP3) do edycji tagów.\nPrzewiń w dół, aby zobaczyć dostępne tokeny."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يمكنك استخدام رموز مختلفة للاستفادة من المعلومات الموجودة (مثل اسم ملف MP3) لتعديل الوسوم.\nمرر لأسفل لرؤية الرموز المتاحة."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je kunt verschillende tokens gebruiken om bestaande informatie (zoals de bestandsnaam van het MP3-bestand) te gebruiken bij het bewerken van je tags.\nScrol omlaag om de beschikbare tokens te zien."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda boleh menggunakan pelbagai token untuk memanfaatkan maklumat sedia ada (seperti nama fail MP3) untuk mengedit tag anda.\nTatal ke bawah untuk melihat token yang tersedia."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आप अपने टैग संपादित करने के लिए मौजूदा जानकारी (जैसे MP3 फ़ाइल का नाम) का उपयोग करने हेतु विभिन्न टोकन का उपयोग कर सकते हैं।\nउपलब्ध टोकन देखने के लिए नीचे स्क्रॉल करें।"
           }
         }
       }
     },
-    "ViewTitle.Attributions" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Attributions"
+    "TagEditor.Tip.Tokens.Title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Using Tokens"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "著者権表記"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "より速く編集する方法"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "저작자 표시"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "토큰 사용하기"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ghi Công"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sử Dụng Token"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版权声明"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用令牌"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版權聲明"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用令牌"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Token verwenden"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usar tokens"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Utiliser les jetons"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usare i token"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usando tokens"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การใช้โทเค็น"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menggunakan Token"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belirteçleri Kullanma"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Używanie tokenów"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "استخدام الرموز"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokens gebruiken"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menggunakan Token"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "टोकन का उपयोग"
           }
         }
       }
     },
-    "ViewTitle.BatchEditHelp" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adding Files to the Batch Editor"
+    "TagEditor.Tokens.Filename.Description": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Represents the filename without its extension."
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一括編集キューのファイル追加方法"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拡張子なしのファイル名に変換します。"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "일괄 편집기에 파일 추가하기"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "확장자를 제외한 파일 이름을 나타냅니다."
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thêm Tệp Vào Trình Chỉnh Sửa Hàng Loạt"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đại diện cho tên tệp không có phần mở rộng."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将文件添加到批量编辑器"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示不带扩展名的文件名。"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "將檔案新增到批次編輯器"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示不帶副檔名的檔案名稱。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Steht für den Dateinamen ohne Erweiterung."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Representa el nombre del archivo sin su extensión."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Représente le nom du fichier sans son extension."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rappresenta il nome del file senza estensione."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Representa o nome do arquivo sem a extensão."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แทนชื่อไฟล์โดยไม่มีนามสกุล"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mewakili nama file tanpa ekstensinya."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosya adını uzantısı olmadan temsil eder."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reprezentuje nazwę pliku bez rozszerzenia."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يمثل اسم الملف بدون امتداده."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vertegenwoordigt de bestandsnaam zonder extensie."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mewakili nama fail tanpa sambungannya."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एक्सटेंशन के बिना फ़ाइल नाम का प्रतिनिधित्व करता है।"
           }
         }
       }
     },
-    "ViewTitle.BatchEditor" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batch Edit Queue"
+    "TagEditor.Tokens.SplitBack.Description": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Represents the text in the filename after the '-' (dash) symbol. For example, \"Rick Astley - Never Gonna Give You Up.mp3\" will result in \"Never Gonna Give You Up\"."
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一括編集キュー"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファイル名にある「-」の後ろのテキストに変換します。例えば、「さユり - 花の塔.mp3」の場合、「花の塔」になります。"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "일괄 편집 대기열"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "파일 이름에서 '-'(대시) 기호 뒤의 텍스트를 나타냅니다. 예를 들어, \"ミツキヨ - Unwelcome School.mp3\"는 \"Unwelcome School\"이 됩니다."
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hàng Đợi Chỉnh Sửa Hàng Loạt"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đại diện cho văn bản trong tên tệp sau ký hiệu '-' (gạch ngang). Ví dụ, \"Hoàng Thùy Linh - See Tình.mp3\" sẽ cho kết quả là \"See Tình\"."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "批量编辑队列"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示文件名中 '-'（破折号）符号之后的文本。例如，\"阿肆 - 熱愛105C的你.mp3\" 将得到 \"熱愛105C的你\"。"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "批次編輯佇列"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示檔案名稱中 '-'（破折號）符號之後的文字。例如，\"費玉清 - 一翦梅.mp3\" 將得到 \"一翦梅\"。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Steht für den Text im Dateinamen nach dem Zeichen '-' (Bindestrich). Zum Beispiel ergibt \"Rick Astley - Never Gonna Give You Up.mp3\" den Wert \"Never Gonna Give You Up\"."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Representa el texto en el nombre del archivo después del símbolo '-' (guion). Por ejemplo, \"Rick Astley - Never Gonna Give You Up.mp3\" dará como resultado \"Never Gonna Give You Up\"."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Représente le texte dans le nom du fichier après le symbole '-' (tiret). Par exemple, \"Rick Astley - Never Gonna Give You Up.mp3\" donnera \"Never Gonna Give You Up\"."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rappresenta il testo nel nome del file dopo il simbolo '-' (trattino). Ad esempio, \"Rick Astley - Never Gonna Give You Up.mp3\" darà come risultato \"Never Gonna Give You Up\"."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Representa o texto no nome do arquivo após o símbolo '-' (traço). Por exemplo, \"Rick Astley - Never Gonna Give You Up.mp3\" resultará em \"Never Gonna Give You Up\"."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แทนข้อความในชื่อไฟล์หลังเครื่องหมาย '-' (ขีดกลาง) เช่น \"Rick Astley - Never Gonna Give You Up.mp3\" จะได้ผลลัพธ์เป็น \"Never Gonna Give You Up\""
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mewakili teks dalam nama file setelah simbol '-' (tanda hubung). Misalnya, \"Rick Astley - Never Gonna Give You Up.mp3\" akan menghasilkan \"Never Gonna Give You Up\"."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosya adındaki '-' (tire) sembolünden sonraki metni temsil eder. Örneğin, \"Rick Astley - Never Gonna Give You Up.mp3\" dosyası \"Never Gonna Give You Up\" sonucunu verir."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reprezentuje tekst w nazwie pliku po symbolu '-' (myślnik). Na przykład \"Rick Astley - Never Gonna Give You Up.mp3\" da wynik \"Never Gonna Give You Up\"."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يمثل النص في اسم الملف بعد رمز '-' (شرطة). على سبيل المثال، \"Rick Astley - Never Gonna Give You Up.mp3\" سينتج \"Never Gonna Give You Up\"."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vertegenwoordigt de tekst in de bestandsnaam na het '-' (streepje) symbool. Bijvoorbeeld, \"Rick Astley - Never Gonna Give You Up.mp3\" resulteert in \"Never Gonna Give You Up\"."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mewakili teks dalam nama fail selepas simbol '-' (sengkang). Contohnya, \"Rick Astley - Never Gonna Give You Up.mp3\" akan menghasilkan \"Never Gonna Give You Up\"."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "फ़ाइल नाम में '-' (डैश) चिह्न के बाद के टेक्स्ट का प्रतिनिधित्व करता है। उदाहरण के लिए, \"Rick Astley - Never Gonna Give You Up.mp3\" का परिणाम \"Never Gonna Give You Up\" होगा।"
           }
         }
       }
     },
-    "ViewTitle.Files" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Local Files"
+    "TagEditor.Tokens.SplitFront.Description": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Represents the text in the filename before the '-' (dash) symbol. For example, \"Rick Astley - Never Gonna Give You Up.mp3\" will result in \"Rick Astley\"."
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ローカルファイル"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファイル名にある「-」の前のテキストに変換します。例えば、「さユり - 花の塔.mp3」の場合、「さユり」になります。"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "로컬 파일"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "파일 이름에서 '-'(대시) 기호 앞의 텍스트를 나타냅니다. 예를 들어, \"ミツキヨ - Unwelcome School.mp3\"는 \"ミツキヨ\"가 됩니다."
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tệp Cục Bộ"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đại diện cho văn bản trong tên tệp trước ký hiệu '-' (gạch ngang). Ví dụ, \"Hoàng Thùy Linh - See Tình.mp3\" sẽ cho kết quả là \"Hoàng Thùy Linh\"."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本地文件"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示文件名中 '-'（破折号）符号之前的文本。例如，\"阿肆 - 熱愛105C的你.mp3\" 将得到 \"阿肆\"。"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本機檔案"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示檔案名稱中 '-'（破折號）符號之前的文字。例如，\"費玉清 - 一翦梅.mp3\" 將得到 \"費玉清\"。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Steht für den Text im Dateinamen vor dem Zeichen '-' (Bindestrich). Zum Beispiel ergibt \"Rick Astley - Never Gonna Give You Up.mp3\" den Wert \"Rick Astley\"."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Representa el texto en el nombre del archivo antes del símbolo '-' (guion). Por ejemplo, \"Rick Astley - Never Gonna Give You Up.mp3\" dará como resultado \"Rick Astley\"."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Représente le texte dans le nom du fichier avant le symbole '-' (tiret). Par exemple, \"Rick Astley - Never Gonna Give You Up.mp3\" donnera \"Rick Astley\"."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rappresenta il testo nel nome del file prima del simbolo '-' (trattino). Ad esempio, \"Rick Astley - Never Gonna Give You Up.mp3\" darà come risultato \"Rick Astley\"."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Representa o texto no nome do arquivo antes do símbolo '-' (traço). Por exemplo, \"Rick Astley - Never Gonna Give You Up.mp3\" resultará em \"Rick Astley\"."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แทนข้อความในชื่อไฟล์ก่อนเครื่องหมาย '-' (ขีดกลาง) เช่น \"Rick Astley - Never Gonna Give You Up.mp3\" จะได้ผลลัพธ์เป็น \"Rick Astley\""
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mewakili teks dalam nama file sebelum simbol '-' (tanda hubung). Misalnya, \"Rick Astley - Never Gonna Give You Up.mp3\" akan menghasilkan \"Rick Astley\"."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosya adındaki '-' (tire) sembolünden önceki metni temsil eder. Örneğin, \"Rick Astley - Never Gonna Give You Up.mp3\" dosyası \"Rick Astley\" sonucunu verir."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reprezentuje tekst w nazwie pliku przed symbolem '-' (myślnik). Na przykład \"Rick Astley - Never Gonna Give You Up.mp3\" da wynik \"Rick Astley\"."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يمثل النص في اسم الملف قبل رمز '-' (شرطة). على سبيل المثال، \"Rick Astley - Never Gonna Give You Up.mp3\" سينتج \"Rick Astley\"."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vertegenwoordigt de tekst in de bestandsnaam vóór het '-' (streepje) symbool. Bijvoorbeeld, \"Rick Astley - Never Gonna Give You Up.mp3\" resulteert in \"Rick Astley\"."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mewakili teks dalam nama fail sebelum simbol '-' (sengkang). Contohnya, \"Rick Astley - Never Gonna Give You Up.mp3\" akan menghasilkan \"Rick Astley\"."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "फ़ाइल नाम में '-' (डैश) चिह्न से पहले के टेक्स्ट का प्रतिनिधित्व करता है। उदाहरण के लिए, \"Rick Astley - Never Gonna Give You Up.mp3\" का परिणाम \"Rick Astley\" होगा।"
+          }
+        }
+      }
+    },
+    "TagEditor.Tokens.Title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Available Tokens"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "変換トークン"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용 가능한 토큰"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Các Token Khả Dụng"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可用令牌"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可用令牌"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verfügbare Token"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokens disponibles"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetons disponibles"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Token disponibili"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokens disponíveis"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โทเค็นที่ใช้ได้"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Token yang Tersedia"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kullanılabilir Belirteçler"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dostępne tokeny"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الرموز المتاحة"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beschikbare tokens"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Token yang Tersedia"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उपलब्ध टोकन"
+          }
+        }
+      }
+    },
+    "ViewTitle.More": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "More"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "その他"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "더 보기"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更多"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更多"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mehr"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Más"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altro"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mais"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มเติม"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lainnya"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diğer"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Więcej"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المزيد"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meer"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lagi"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अधिक"
+          }
+        }
+      }
+    },
+    "Alert.NoMP3Files.Title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No MP3 Files Found"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MP3ファイルが見つかりません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MP3 파일을 찾을 수 없음"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không tìm thấy tệp MP3"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未找到MP3文件"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找不到MP3檔案"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine MP3-Dateien gefunden"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se encontraron archivos MP3"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun fichier MP3 trouvé"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun file MP3 trovato"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum arquivo MP3 encontrado"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบไฟล์ MP3"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak Ada File MP3 Ditemukan"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MP3 Dosyası Bulunamadı"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nie znaleziono plików MP3"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لم يتم العثور على ملفات MP3"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen MP3-bestanden gevonden"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiada Fail MP3 Ditemui"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "कोई MP3 फ़ाइल नहीं मिली"
+          }
+        }
+      }
+    },
+    "Alert.NoMP3Files.Message": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The selection does not contain any MP3 files."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選択された項目にMP3ファイルが含まれていません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "선택한 항목에 MP3 파일이 없습니다."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lựa chọn không chứa tệp MP3 nào."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所选内容不包含任何MP3文件。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所選內容不包含任何MP3檔案。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Auswahl enthält keine MP3-Dateien."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La selección no contiene archivos MP3."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La sélection ne contient aucun fichier MP3."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La selezione non contiene file MP3."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A seleção não contém nenhum arquivo MP3."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รายการที่เลือกไม่มีไฟล์ MP3"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilihan tidak berisi file MP3."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seçim herhangi bir MP3 dosyası içermiyor."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaznaczenie nie zawiera plików MP3."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التحديد لا يحتوي على أي ملفات MP3."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De selectie bevat geen MP3-bestanden."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilihan tidak mengandungi sebarang fail MP3."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "चयन में कोई MP3 फ़ाइल नहीं है।"
+          }
+        }
+      }
+    },
+    "Shared.OK": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "확인"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aceptar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตกลง"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamam"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حسنًا"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ठीक है"
           }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

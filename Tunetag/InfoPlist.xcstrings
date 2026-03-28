@@ -1,57 +1,149 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "CFBundleDisplayName" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tunetag"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チューンタグ"
+  "sourceLanguage": "en",
+  "strings": {
+    "CFBundleDisplayName": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag"
           }
         }
-      }
+      },
+      "shouldTranslate": false
     },
-    "CFBundleName" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tunetag"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チューンタグ"
+    "CFBundleName": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag"
           }
         }
-      }
+      },
+      "shouldTranslate": false
     },
-    "NSLocalNetworkUsageDescription" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tunetag may access other devices on your local network if you drag and drop files from a networked location to the Batch Edit tab."
+    "NSLocalNetworkUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag may access other devices on your local network if you drag and drop files from a networked location to the Batch Edit tab."
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ネットワーク上のファイルを一括編集キューに追加すると、ネットワーク上のデバイスにアクセスすることがあります。"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ネットワーク上のファイルを一括編集キューに追加すると、ネットワーク上のデバイスにアクセスすることがあります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "네트워크 위치에서 일괄 편집 탭으로 파일을 드래그 앤 드롭하면 Tunetag이 로컬 네트워크의 다른 기기에 접근할 수 있습니다."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag có thể truy cập các thiết bị khác trên mạng cục bộ của bạn nếu bạn kéo và thả tệp từ vị trí mạng vào tab Chỉnh Sửa Hàng Loạt."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如果您将网络位置的文件拖放到批量编辑标签页，Tunetag 可能会访问本地网络上的其他设备。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如果您將網路位置的檔案拖放到批次編輯標籤頁，Tunetag 可能會存取本機網路上的其他裝置。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag greift möglicherweise auf andere Geräte in Ihrem lokalen Netzwerk zu, wenn Sie Dateien von einem Netzwerkspeicherort in den Stapelbearbeitungs-Tab ziehen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag puede acceder a otros dispositivos en tu red local si arrastras y sueltas archivos desde una ubicación de red a la pestaña de edición por lotes."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag peut accéder à d'autres appareils sur votre réseau local si vous glissez-déposez des fichiers depuis un emplacement réseau vers l'onglet Édition par lot."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag potrebbe accedere ad altri dispositivi sulla rete locale se trascini file da una posizione di rete nella scheda Modifica in blocco."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Tunetag pode acessar outros dispositivos na sua rede local se você arrastar e soltar arquivos de um local de rede para a aba de edição em lote."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag อาจเข้าถึงอุปกรณ์อื่นบนเครือข่ายท้องถิ่นของคุณ หากคุณลากและวางไฟล์จากตำแหน่งเครือข่ายไปยังแท็บแก้ไขเป็นชุด"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag mungkin mengakses perangkat lain di jaringan lokal Anda jika Anda menarik dan melepas file dari lokasi jaringan ke tab Edit Massal."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir ağ konumundan Toplu Düzenleme sekmesine dosya sürükleyip bırakırsanız, Tunetag yerel ağınızdaki diğer cihazlara erişebilir."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag może uzyskać dostęp do innych urządzeń w sieci lokalnej, jeśli przeciągniesz i upuścisz pliki z lokalizacji sieciowej na kartę Edycji zbiorczej."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قد يصل Tunetag إلى أجهزة أخرى على شبكتك المحلية إذا قمت بسحب وإفلات ملفات من موقع شبكي إلى علامة تبويب التحرير الجماعي."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag heeft mogelijk toegang tot andere apparaten op je lokale netwerk als je bestanden van een netwerklocatie naar het tabblad Batchbewerking sleept."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunetag mungkin mengakses peranti lain pada rangkaian tempatan anda jika anda menyeret dan melepaskan fail dari lokasi rangkaian ke tab Edit Kelompok."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यदि आप किसी नेटवर्क स्थान से बैच संपादन टैब में फ़ाइलें खींचकर छोड़ते हैं, तो Tunetag आपके स्थानीय नेटवर्क पर अन्य उपकरणों तक पहुँच सकता है।"
           }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

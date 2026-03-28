@@ -10,18 +10,13 @@ import SwiftUI
 @main
 struct TunetagApp: App {
 
-    @StateObject var tabManager = TabManager()
-    @StateObject var navigationManager = NavigationManager()
-    @StateObject var fileManager = FilesystemManager()
-    @StateObject var batchFileManager = BatchFileManager()
+    // Window and root view controller are managed by SceneDelegate.
+    // UIDocumentBrowserViewController must be the root view controller of the
+    // window to enable all features including multiple selection.
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
-        WindowGroup {
-            MainTabView()
-                .environmentObject(tabManager)
-                .environmentObject(navigationManager)
-                .environmentObject(fileManager)
-                .environmentObject(batchFileManager)
-        }
+        // SceneDelegate sets up the UIWindow directly; this WindowGroup is not rendered.
+        WindowGroup { EmptyView() }
     }
 }
