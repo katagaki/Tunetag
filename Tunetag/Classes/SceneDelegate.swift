@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         browser.delegate = self
 
         let moreButton = UIBarButtonItem(
-            title: NSLocalizedString("TabTitle.More", comment: ""),
+            image: UIImage(systemName: "gear"),
             style: .plain,
             target: self,
             action: #selector(moreTapped)
