@@ -32,16 +32,20 @@ struct MoreView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Shared.Done") {
-                        dismiss()
+                    if #available(iOS 26.0, *) {
+                        Button(role: .close) {
+                            dismiss()
+                        }
+                    } else {
+                        Button("Shared.Done") {
+                            dismiss()
+                        }
                     }
                 }
             }
             .navigationDestination(for: ViewPath.self, destination: { viewPath in
                 switch viewPath {
                 case .moreAttributions: MoreLicensesView()
-                default:
-                    Color.clear
                 }
             })
         }

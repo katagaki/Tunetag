@@ -102,7 +102,7 @@ struct TagEditorView: View {
             }
             .buttonStyle(.borderedProminent)
             .tint(saveState == .saved ? .green : .accentColor)
-            .clipShape(RoundedRectangle(cornerRadius: 99))
+            .modifier(SaveButtonStyleModifier())
             .frame(minHeight: 56.0)
             .padding([.leading, .trailing, .bottom])
         }
@@ -389,3 +389,15 @@ struct TagEditorView: View {
 
 }
 // swiftlint:enable type_body_length
+
+struct SaveButtonStyleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26.0, *) {
+            content
+                .glassEffect(.regular.interactive())
+        } else {
+            content
+                .clipShape(RoundedRectangle(cornerRadius: 99))
+        }
+    }
+}

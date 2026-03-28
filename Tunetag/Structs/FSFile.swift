@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct FSFile: FilesystemObject, Codable, Identifiable, Transferable {
+struct FSFile: Hashable, Codable, Identifiable, Transferable {
 
     var name: String
     var path: String

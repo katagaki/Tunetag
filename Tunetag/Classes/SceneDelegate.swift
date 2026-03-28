@@ -31,12 +31,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         browser.delegate = self
 
         let moreButton = UIBarButtonItem(
-            image: UIImage(systemName: "gear"),
+            image: UIImage(systemName: "info.circle"),
             style: .plain,
             target: self,
             action: #selector(moreTapped)
         )
-        browser.additionalTrailingNavigationBarButtonItems = [moreButton]
+        browser.additionalLeadingNavigationBarButtonItems = [moreButton]
 
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = browser
@@ -72,6 +72,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
         browser.present(hostingController, animated: true)
     }
+
+    private func presentTagEditor(files: [FSFile], accessedURLs: [URL],
+                                   from presenter: UIViewController) {
+        guard !files.isEmpty else {
+            accessedURLs.forEach { $0.stopAccessingSecurityScopedResource() }
+            let alert = UIAlertController(
+                title: String(localized: "Alert.NoMP3Files.Title"),
+                message: String(localized: "Alert.NoMP3Files.Message"),
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: String(localized: "Shared.OK"), style: .default))
+            presenter.present(alert, animated: true)
+            return
+        }
+        let hostingController = UIHostingController(
+            rootView: TagEditorSheet(files: files, accessedURLs: accessedURLs)
+        )
+        hostingController.isModalInPresentation = true
+        presenter.present(hostingController, animated: true)
+    }
 }
 
 // MARK: - UIDocumentBrowserViewControllerDelegate
@@ -80,16 +100,19 @@ extension SceneDelegate: UIDocumentBrowserViewControllerDelegate {
 
     func documentBrowser(_ controller: UIDocumentBrowserViewController,
                          didPickDocumentsAt documentURLs: [URL]) {
-        let files = documentURLs.compactMap { url -> FSFile? in
-            guard url.pathExtension.lowercased() == "mp3" else { return nil }
+        var accessedURLs: [URL] = []
+        var files: [FSFile] = []
+
+        for url in documentURLs {
             _ = url.startAccessingSecurityScopedResource()
-            return FSFile(name: url.lastPathComponent,
-                          path: url.path(percentEncoded: false),
-                          isArbitrarilyLoadedFromDragAndDrop: true)
+            accessedURLs.append(url)
+            if url.pathExtension.lowercased() == "mp3" {
+                files.append(FSFile(name: url.lastPathComponent,
+                                    path: url.path(percentEncoded: false),
+                                    isArbitrarilyLoadedFromDragAndDrop: true))
+            }
         }
-        guard !files.isEmpty else { return }
-        let hostingController = UIHostingController(rootView: TagEditorSheet(files: files))
-        hostingController.isModalInPresentation = true
-        controller.present(hostingController, animated: true)
+
+        presentTagEditor(files: files, accessedURLs: accessedURLs, from: controller)
     }
 }

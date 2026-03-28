@@ -8,8 +8,5 @@
 import Foundation
 
 enum ViewPath: Hashable {
-    case fileBrowser(directory: FSDirectory)
-    case tagEditorSingle(file: FSFile)
-    case tagEditorMultiple
     case moreAttributions
 }
