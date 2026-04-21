@@ -13,6 +13,7 @@ struct FileHeaderSection: View {
     @State var filename: String
     @Binding var albumArt: Data?
     @Binding var selectedAlbumArt: PhotosPickerItem?
+    @Binding var isAlbumArtRemoved: Bool
     @State var showsPhotosPicker: Bool = true
 
     var body: some View {
@@ -42,14 +43,30 @@ struct FileHeaderSection: View {
                         .textCase(.none)
                         .foregroundStyle(.primary)
                     if showsPhotosPicker {
-                        PhotosPicker(selection: $selectedAlbumArt,
-                                     matching: .images,
-                                     photoLibrary: .shared()) {
-                            Text("TagEditor.SelectAlbumArt")
-                                .bold()
+                        HStack(spacing: 8.0) {
+                            PhotosPicker(selection: $selectedAlbumArt,
+                                         matching: .images,
+                                         photoLibrary: .shared()) {
+                                Text("TagEditor.SelectAlbumArt")
+                                    .bold()
+                            }
+                                         .clipShape(RoundedRectangle(cornerRadius: 99))
+                                         .buttonStyle(.borderedProminent)
+                            if albumArt != nil {
+                                Button(role: .destructive) {
+                                    selectedAlbumArt = nil
+                                    albumArt = nil
+                                    isAlbumArtRemoved = true
+                                } label: {
+                                    Label("TagEditor.RemoveAlbumArt", systemImage: "trash")
+                                        .labelStyle(.iconOnly)
+                                        .bold()
+                                }
+                                .clipShape(RoundedRectangle(cornerRadius: 99))
+                                .buttonStyle(.bordered)
+                                .tint(.red)
+                            }
                         }
-                                     .clipShape(RoundedRectangle(cornerRadius: 99))
-                                     .buttonStyle(.borderedProminent)
                     }
                 }
             }

@@ -19,7 +19,10 @@ struct TagEditorView: View {
     @State var tags: [FSFile: ID3Tag] = [:]
     @State var tagData = Tag()
     @State var selectedAlbumArt: PhotosPickerItem?
+    @State var isAlbumArtRemoved: Bool = false
     @State var saveState: SaveState = .notSaved
+    @State var savedFileCount: Int = 0
+    @State var totalFileCount: Int = 0
     @FocusState var focusedField: FocusedField?
 
     // Support for iOS 16
@@ -36,7 +39,8 @@ struct TagEditorView: View {
             if files.count == 1 {
                 FileHeaderSection(filename: files[0].name,
                                   albumArt: $tagData.albumArt,
-                                  selectedAlbumArt: $selectedAlbumArt)
+                                  selectedAlbumArt: $selectedAlbumArt,
+                                  isAlbumArtRemoved: $isAlbumArtRemoved)
                 if #available(iOS 17.0, *) {
                     TagDataSection(tagData: $tagData, focusedField: $focusedField)
                         .popoverTip(AvailableTokensTip(), arrowEdge: .top)
@@ -46,7 +50,8 @@ struct TagEditorView: View {
             } else {
                 FileHeaderSection(filename: NSLocalizedString("BatchEdit.MultipleFiles", comment: ""),
                                   albumArt: $tagData.albumArt,
-                                  selectedAlbumArt: $selectedAlbumArt)
+                                  selectedAlbumArt: $selectedAlbumArt,
+                                  isAlbumArtRemoved: $isAlbumArtRemoved)
                 if #available(iOS 17.0, *) {
                     TagDataSection(tagData: $tagData, focusedField: $focusedField,
                                    placeholder: NSLocalizedString("BatchEdit.Keep", comment: ""))
@@ -88,10 +93,27 @@ struct TagEditorView: View {
                         .bold()
                         .frame(maxWidth: .infinity)
                 case .saving:
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                        .padding(.all, 8.0)
-                        .tint(.white)
+                    if totalFileCount > 1 {
+                        VStack(spacing: 4.0) {
+                            ProgressView(value: Double(savedFileCount),
+                                         total: Double(max(totalFileCount, 1)))
+                                .progressViewStyle(.linear)
+                                .tint(.white)
+                            Text("\(savedFileCount) / \(totalFileCount)")
+                                .font(.caption)
+                                .bold()
+                                .foregroundStyle(.white)
+                                .monospacedDigit()
+                        }
+                        .padding([.top, .bottom], 8.0)
+                        .padding([.leading, .trailing], 16.0)
+                        .frame(maxWidth: .infinity)
+                    } else {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .padding(.all, 8.0)
+                            .tint(.white)
+                    }
                 case .saved:
                     Image(systemName: "checkmark")
                         .font(.body)
@@ -118,6 +140,7 @@ struct TagEditorView: View {
                 if let selectedAlbumArt = selectedAlbumArt,
                     let data = try? await selectedAlbumArt.loadTransferable(type: Data.self) {
                     tagData.albumArt = data
+                    isAlbumArtRemoved = false
                 }
             }
         }
@@ -162,9 +185,16 @@ struct TagEditorView: View {
         if let tagCombined = tagCombined {
             tagData = Tag(from: tagCombined)
         }
+        isAlbumArtRemoved = false
     }
 
     func saveAllTagData() async {
+        await MainActor.run {
+            withAnimation(.snappy.speed(2)) {
+                savedFileCount = 0
+                totalFileCount = files.count
+            }
+        }
         _ = await withTaskGroup(of: Bool.self, returning: [Bool].self) { group in
             for file in files {
                 group.addTask {
@@ -175,6 +205,11 @@ struct TagEditorView: View {
             var saveStates: [Bool] = []
             for await result in group {
                 saveStates.append(result)
+                await MainActor.run {
+                    withAnimation(.snappy.speed(2)) {
+                        savedFileCount += 1
+                    }
+                }
             }
             return saveStates
         }
@@ -238,15 +273,17 @@ struct TagEditorView: View {
                 tagBuilder = tagBuilder.composer(frame: id3Frame(value, referencing: file))
             }
             // Build disc number frame
-            if let frame = id3Frame(tagData.discNumber, returns: ID3FramePartOfTotal.self) {
+            if let frame = id3Frame(tagData.discNumber, returns: ID3FramePartOfTotal.self), frame.part != -999999 {
                 tagBuilder = tagBuilder.discPosition(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).discPosition() {
+            } else if tagData.discNumber == nil, let tag = tag,
+                      let value = ID3TagContentReader(id3Tag: tag).discPosition() {
                 tagBuilder = tagBuilder.discPosition(frame: id3Frame(value.position, total: value.total))
             }
             // Build album art frame
             if let frame = id3Frame(tagData.albumArt, type: .frontCover) {
                 tagBuilder = tagBuilder.attachedPicture(pictureType: .frontCover, frame: frame)
-            } else if let tag = tag, let albumArt = ID3TagContentReader(id3Tag: tag).attachedPictures()
+            } else if !isAlbumArtRemoved, let tag = tag,
+                      let albumArt = ID3TagContentReader(id3Tag: tag).attachedPictures()
                 .first(where: { $0.type == .frontCover }),
                       let frame = id3Frame(albumArt.picture, type: .frontCover) {
                 tagBuilder = tagBuilder
