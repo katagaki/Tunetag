@@ -28,9 +28,7 @@ struct Tag {
         artist = tagCombined.artist
         album = tagCombined.album
         albumArtist = tagCombined.albumArtist
-        if let year = tagCombined.year {
-            self.year = String(year)
-        }
+        year = tagCombined.year
         if let track = tagCombined.track {
             self.track = String(track)
         }

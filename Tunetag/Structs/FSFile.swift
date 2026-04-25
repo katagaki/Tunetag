@@ -24,11 +24,7 @@ struct FSFile: Hashable, Codable, Identifiable, Transferable {
     }
 
     static var transferRepresentation: some TransferRepresentation {
-        CodableRepresentation(for: FSFile.self, contentType: .file)
+        CodableRepresentation(for: FSFile.self, contentType: .audio)
         ProxyRepresentation(exporting: \.name)
     }
-}
-
-extension UTType {
-    static var file: UTType { UTType(exportedAs: "com.tsubuzaki.Tunetag.MP3File") }
 }

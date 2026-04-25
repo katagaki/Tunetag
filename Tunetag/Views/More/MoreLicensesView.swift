@@ -38,11 +38,11 @@ private struct Dependency: Identifiable {
     }
 
     static let all: [Dependency] = [
-        Dependency(name: "ID3TagEditor", licenseText:
+        Dependency(name: "SFBAudioEngine", licenseText:
 """
-The MIT License (MIT)
+MIT License
 
-Copyright (c) 2018 Fabrizio Duroni
+Copyright (c) 2006-2026 Stephen F. Booth
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

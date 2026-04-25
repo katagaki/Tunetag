@@ -3,6 +3,7 @@
 //  Tunetag
 //
 
+import SFBAudioEngine
 import StoreKit
 import SwiftUI
 import TipKit
@@ -24,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         configureTipKit()
         promptReviewIfNeeded(in: windowScene)
 
-        let browser = UIDocumentBrowserViewController(forOpening: [.mp3])
+        let browser = UIDocumentBrowserViewController(forOpening: [.audio])
         browser.allowsDocumentCreation = false
         browser.allowsPickingMultipleItems = true
         browser.shouldShowFileExtensions = true
@@ -106,7 +107,7 @@ extension SceneDelegate: UIDocumentBrowserViewControllerDelegate {
         for url in documentURLs {
             _ = url.startAccessingSecurityScopedResource()
             accessedURLs.append(url)
-            if url.pathExtension.lowercased() == "mp3" {
+            if AudioFile.handlesPaths(withExtension: url.pathExtension.lowercased()) {
                 files.append(FSFile(name: url.lastPathComponent,
                                     path: url.path(percentEncoded: false),
                                     isArbitrarilyLoadedFromDragAndDrop: true))

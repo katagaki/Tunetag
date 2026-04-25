@@ -2,21 +2,21 @@
   "originHash" : "37f8517d9cd34a993adf1b4a453cfb2e82fdbbd760c91a285d2486fe3a40625f",
   "pins" : [
     {
-      "identity" : "id3tageditor",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/chicio/ID3TagEditor",
-      "state" : {
-        "revision" : "e08dd0118d4418900ac3b8f621a6b3d24ae5416f",
-        "version" : "5.5.0"
-      }
-    },
-    {
       "identity" : "komponents",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/katagaki/Komponents",
       "state" : {
         "branch" : "main",
         "revision" : "93f484d6f2cef9c179387fcca2b2048413f9f0a6"
+      }
+    },
+    {
+      "identity" : "sfbaudioengine",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sbooth/SFBAudioEngine",
+      "state" : {
+        "revision" : "10670eb58f9acc0e5ac2907dc744a78ade2597cd",
+        "version" : "0.12.1"
       }
     }
   ],
