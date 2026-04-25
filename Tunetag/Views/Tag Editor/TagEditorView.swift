@@ -5,7 +5,6 @@
 //  Created by シン・ジャスティン on 2023/09/08.
 //
 
-import Komponents
 import PhotosUI
 import SFBAudioEngine
 import SwiftUI
@@ -212,7 +211,12 @@ struct TagEditorView: View {
         debugPrint("Attempting to save tag data...")
         do {
             let url = URL(filePath: file.path)
-            let audioFile = audioFiles[file] ?? (try AudioFile(readingPropertiesAndMetadataFrom: url))
+            let audioFile: AudioFile
+            if let cached = audioFiles[file] {
+                audioFile = cached
+            } else {
+                audioFile = try AudioFile(readingPropertiesAndMetadataFrom: url)
+            }
             let metadata = audioFile.metadata
             applyEdits(to: metadata, for: file)
             try audioFile.writeMetadata()

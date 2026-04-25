@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E436724B2AC859F60016B57C /* Komponents in Frameworks */ = {isa = PBXBuildFile; productRef = E436724A2AC859F60016B57C /* Komponents */; };
 		E4B206EC2D340C9D004CF4A1 /* SFBAudioEngine in Frameworks */ = {isa = PBXBuildFile; productRef = E4B206EB2D340C9D004CF4A1 /* SFBAudioEngine */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E436724B2AC859F60016B57C /* Komponents in Frameworks */,
 				E4B206EC2D340C9D004CF4A1 /* SFBAudioEngine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,7 +77,6 @@
 			);
 			name = Tunetag;
 			packageProductDependencies = (
-				E436724A2AC859F60016B57C /* Komponents */,
 				E4B206EB2D340C9D004CF4A1 /* SFBAudioEngine */,
 			);
 			productName = Tunetag;
@@ -129,7 +126,6 @@
 			);
 			mainGroup = E432A6FE2AA9FD5E0043BCC9;
 			packageReferences = (
-				E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */,
 				E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "SFBAudioEngine" */,
 			);
 			productRefGroup = E432A7082AA9FD5E0043BCC9 /* Products */;
@@ -419,14 +415,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/katagaki/Komponents";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "SFBAudioEngine" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sbooth/SFBAudioEngine";
@@ -438,11 +426,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E436724A2AC859F60016B57C /* Komponents */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */;
-			productName = Komponents;
-		};
 		E4B206EB2D340C9D004CF4A1 /* SFBAudioEngine */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "SFBAudioEngine" */;

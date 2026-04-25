@@ -92,15 +92,6 @@
       }
     },
     {
-      "identity" : "komponents",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/katagaki/Komponents",
-      "state" : {
-        "branch" : "main",
-        "revision" : "93f484d6f2cef9c179387fcca2b2048413f9f0a6"
-      }
-    },
-    {
       "identity" : "lame-binary-xcframework",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sbooth/lame-binary-xcframework",
