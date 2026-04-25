@@ -6,62 +6,56 @@
 import SwiftUI
 
 struct MoreLicensesView: View {
+    private let dependencies: [Dependency] = Dependency.loadAll()
+    @State private var expanded: Set<String> = []
+
     var body: some View {
         List {
-            ForEach(Dependency.all) { dependency in
-                Section {
+            ForEach(dependencies) { dependency in
+                DisclosureGroup(
+                    isExpanded: Binding(
+                        get: { expanded.contains(dependency.id) },
+                        set: { isOn in
+                            if isOn {
+                                expanded.insert(dependency.id)
+                            } else {
+                                expanded.remove(dependency.id)
+                            }
+                        }
+                    )
+                ) {
                     Text(dependency.licenseText)
                         .font(.caption)
                         .monospaced()
-                        .listRowBackground(Color.clear)
-                } header: {
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                } label: {
                     Text(dependency.name)
+                        .monospaced()
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
         }
-        .listStyle(.grouped)
+        .listStyle(.plain)
         .navigationTitle("More.Attributions")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-// swiftlint:disable type_body_length
-private struct Dependency: Identifiable {
-    let id: String
+private struct Dependency: Identifiable, Decodable {
+    var id: String { name }
     let name: String
     let licenseText: String
 
-    init(name: String, licenseText: String) {
-        self.id = name
-        self.name = name
-        self.licenseText = licenseText
+    static func loadAll() -> [Dependency] {
+        guard let url = Bundle.main.url(forResource: "Licenses", withExtension: "plist"),
+              let data = try? Data(contentsOf: url),
+              let wrapper = try? PropertyListDecoder().decode(Wrapper.self, from: data) else {
+            return []
+        }
+        return wrapper.dependencies
     }
 
-    static let all: [Dependency] = [
-        Dependency(name: "SFBAudioEngine", licenseText:
-"""
-MIT License
-
-Copyright (c) 2006-2026 Stephen F. Booth
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-""")
-    ]
+    private struct Wrapper: Decodable {
+        let dependencies: [Dependency]
+    }
 }
-// swiftlint:enable type_body_length

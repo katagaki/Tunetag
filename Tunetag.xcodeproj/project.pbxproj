@@ -63,6 +63,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E432A7162AA9FD5F0043BCC9 /* Build configuration list for PBXNativeTarget "Tunetag" */;
 			buildPhases = (
+				E432A7502AAA31820043BCC9 /* Generate Licenses */,
 				E432A7032AA9FD5E0043BCC9 /* Sources */,
 				E432A7042AA9FD5E0043BCC9 /* Frameworks */,
 				E432A7052AA9FD5E0043BCC9 /* Resources */,
@@ -165,6 +166,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		E432A7502AAA31820043BCC9 /* Generate Licenses */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Tunetag.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
+				"$(SRCROOT)/Scripts/generate_licenses.sh",
+			);
+			name = "Generate Licenses";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Tunetag/Licenses.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Scripts/generate_licenses.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
