@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E436724B2AC859F60016B57C /* Komponents in Frameworks */ = {isa = PBXBuildFile; productRef = E436724A2AC859F60016B57C /* Komponents */; };
-		E4B206EC2D340C9D004CF4A1 /* ID3TagEditor in Frameworks */ = {isa = PBXBuildFile; productRef = E4B206EB2D340C9D004CF4A1 /* ID3TagEditor */; };
+		E4B206EC2D340C9D004CF4A1 /* SFBAudioEngine in Frameworks */ = {isa = PBXBuildFile; productRef = E4B206EB2D340C9D004CF4A1 /* SFBAudioEngine */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E436724B2AC859F60016B57C /* Komponents in Frameworks */,
-				E4B206EC2D340C9D004CF4A1 /* ID3TagEditor in Frameworks */,
+				E4B206EC2D340C9D004CF4A1 /* SFBAudioEngine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +63,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E432A7162AA9FD5F0043BCC9 /* Build configuration list for PBXNativeTarget "Tunetag" */;
 			buildPhases = (
+				E432A7502AAA31820043BCC9 /* Generate Licenses */,
 				E432A7032AA9FD5E0043BCC9 /* Sources */,
 				E432A7042AA9FD5E0043BCC9 /* Frameworks */,
 				E432A7052AA9FD5E0043BCC9 /* Resources */,
@@ -79,8 +78,7 @@
 			);
 			name = Tunetag;
 			packageProductDependencies = (
-				E436724A2AC859F60016B57C /* Komponents */,
-				E4B206EB2D340C9D004CF4A1 /* ID3TagEditor */,
+				E4B206EB2D340C9D004CF4A1 /* SFBAudioEngine */,
 			);
 			productName = Tunetag;
 			productReference = E432A7072AA9FD5E0043BCC9 /* Tunetag.app */;
@@ -129,8 +127,7 @@
 			);
 			mainGroup = E432A6FE2AA9FD5E0043BCC9;
 			packageReferences = (
-				E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */,
-				E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "ID3TagEditor" */,
+				E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "SFBAudioEngine" */,
 			);
 			productRefGroup = E432A7082AA9FD5E0043BCC9 /* Products */;
 			projectDirPath = "";
@@ -169,6 +166,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		E432A7502AAA31820043BCC9 /* Generate Licenses */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Tunetag.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
+				"$(SRCROOT)/Scripts/generate_licenses.sh",
+			);
+			name = "Generate Licenses";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Tunetag/Licenses.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Scripts/generate_licenses.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -338,7 +356,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.Tunetag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -383,7 +401,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.Tunetag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -419,34 +437,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */ = {
+		E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "SFBAudioEngine" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/katagaki/Komponents";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "ID3TagEditor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/chicio/ID3TagEditor";
+			repositoryURL = "https://github.com/sbooth/SFBAudioEngine";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
+				minimumVersion = 0.12.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E436724A2AC859F60016B57C /* Komponents */ = {
+		E4B206EB2D340C9D004CF4A1 /* SFBAudioEngine */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E43672492AC859F60016B57C /* XCRemoteSwiftPackageReference "Komponents" */;
-			productName = Komponents;
-		};
-		E4B206EB2D340C9D004CF4A1 /* ID3TagEditor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "ID3TagEditor" */;
-			productName = ID3TagEditor;
+			package = E4B206EA2D340C9D004CF4A1 /* XCRemoteSwiftPackageReference "SFBAudioEngine" */;
+			productName = SFBAudioEngine;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

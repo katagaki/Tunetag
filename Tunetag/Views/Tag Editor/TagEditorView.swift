@@ -5,18 +5,15 @@
 //  Created by シン・ジャスティン on 2023/09/08.
 //
 
-import ID3TagEditor
-import Komponents
 import PhotosUI
+import SFBAudioEngine
 import SwiftUI
 import TipKit
 
-// swiftlint:disable type_body_length
 struct TagEditorView: View {
 
-    let id3TagEditor = ID3TagEditor()
     @State var files: [FSFile]
-    @State var tags: [FSFile: ID3Tag] = [:]
+    @State var audioFiles: [FSFile: AudioFile] = [:]
     @State var tagData = Tag()
     @State var selectedAlbumArt: PhotosPickerItem?
     @State var isAlbumArtRemoved: Bool = false
@@ -158,30 +155,25 @@ struct TagEditorView: View {
 
     func readAllTagData() async {
         debugPrint("Attempting to read tag data for \(files.count) files...")
-        // Check for common tag data betwen all files
         var tagCombined: TagTyped?
+        var loadedAudioFiles: [FSFile: AudioFile] = [:]
         for file in files {
             debugPrint("Attempting to read tag data for file \(file.name)...")
             do {
-                let tag = try id3TagEditor.read(from: file.path)
-                if let tag {
-                    tags.updateValue(tag, forKey: file)
-                    let tagContentReader = ID3TagContentReader(id3Tag: tag)
-                    if tagCombined == nil {
-                        tagCombined = await TagTyped(file, reader: tagContentReader)
-                    } else {
-                        await tagCombined!.merge(with: file, reader: tagContentReader)
-                    }
+                let url = URL(filePath: file.path)
+                let audioFile = try AudioFile(readingPropertiesAndMetadataFrom: url)
+                loadedAudioFiles[file] = audioFile
+                let metadata = audioFile.metadata
+                if tagCombined == nil {
+                    tagCombined = TagTyped(file, metadata: metadata)
                 } else {
-                    if let newTag = newTag(for: file) {
-                        tags.updateValue(newTag, forKey: file)
-                    }
+                    tagCombined!.merge(with: file, metadata: metadata)
                 }
             } catch {
                 debugPrint("Error occurred while reading tags: \n\(error.localizedDescription)")
             }
         }
-        // Load data into view
+        audioFiles = loadedAudioFiles
         if let tagCombined = tagCombined {
             tagData = Tag(from: tagCombined)
         }
@@ -213,202 +205,86 @@ struct TagEditorView: View {
             }
             return saveStates
         }
-        // TODO: Report status of save
     }
 
-    // swiftlint:disable cyclomatic_complexity
-    // swiftlint:disable function_body_length
-    func saveTagData(to file: FSFile, retriesWhenFailed willRetry: Bool = true) -> Bool {
+    func saveTagData(to file: FSFile) -> Bool {
         debugPrint("Attempting to save tag data...")
         do {
-            let tag = tags[file]
-            var tagBuilder = ID32v3TagBuilder()
-            // Build title frame
-            if let frame = id3Frame(tagData.title, returns: ID3FrameWithStringContent.self, referencing: file) {
-                tagBuilder = tagBuilder.title(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).title() {
-                tagBuilder = tagBuilder.title(frame: id3Frame(value, referencing: file))
+            let url = URL(filePath: file.path)
+            let audioFile: AudioFile
+            if let cached = audioFiles[file] {
+                audioFile = cached
+            } else {
+                audioFile = try AudioFile(readingPropertiesAndMetadataFrom: url)
             }
-            // Build artist frame
-            if let frame = id3Frame(tagData.artist, returns: ID3FrameWithStringContent.self, referencing: file) {
-                tagBuilder = tagBuilder.artist(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).artist() {
-                tagBuilder = tagBuilder.artist(frame: id3Frame(value, referencing: file))
-            }
-            // Build album frame
-            if let frame = id3Frame(tagData.album, returns: ID3FrameWithStringContent.self, referencing: file) {
-                tagBuilder = tagBuilder.album(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).album() {
-                tagBuilder = tagBuilder.album(frame: id3Frame(value, referencing: file))
-            }
-            // Build album artist frame
-            if let frame = id3Frame(tagData.albumArtist, returns: ID3FrameWithStringContent.self, referencing: file) {
-                tagBuilder = tagBuilder.albumArtist(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).albumArtist() {
-                tagBuilder = tagBuilder.albumArtist(frame: id3Frame(value, referencing: file))
-            }
-            // Build year frame
-            if let frame = id3Frame(tagData.year, returns: ID3FrameWithIntegerContent.self) {
-                tagBuilder = tagBuilder.recordingYear(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).recordingYear() {
-                tagBuilder = tagBuilder.recordingYear(frame: ID3FrameWithIntegerContent(value: value))
-            }
-            // Build track frame
-            if let frame = id3Frame(tagData.track, returns: ID3FramePartOfTotal.self), frame.part != -999999 {
-                tagBuilder = tagBuilder.trackPosition(frame: frame)
-            } else if tagData.track == nil, let tag = tag, let value = ID3TagContentReader(id3Tag: tag).trackPosition() {
-                tagBuilder = tagBuilder.trackPosition(frame: id3Frame(value.position, total: value.total))
-            }
-            // Build genre frame
-            if let frame = id3Frame(tagData.genre, returns: ID3FrameGenre.self) {
-                tagBuilder = tagBuilder.genre(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).genre(),
-                      let description = value.description {
-                tagBuilder = tagBuilder.genre(frame: id3Frame(description, identifier: value.identifier))
-            }
-            // Build composer frame
-            if let frame = id3Frame(tagData.composer, returns: ID3FrameWithStringContent.self, referencing: file) {
-                tagBuilder = tagBuilder.composer(frame: frame)
-            } else if let tag = tag, let value = ID3TagContentReader(id3Tag: tag).composer() {
-                tagBuilder = tagBuilder.composer(frame: id3Frame(value, referencing: file))
-            }
-            // Build disc number frame
-            if let frame = id3Frame(tagData.discNumber, returns: ID3FramePartOfTotal.self), frame.part != -999999 {
-                tagBuilder = tagBuilder.discPosition(frame: frame)
-            } else if tagData.discNumber == nil, let tag = tag,
-                      let value = ID3TagContentReader(id3Tag: tag).discPosition() {
-                tagBuilder = tagBuilder.discPosition(frame: id3Frame(value.position, total: value.total))
-            }
-            // Build album art frame
-            if let frame = id3Frame(tagData.albumArt, type: .frontCover) {
-                tagBuilder = tagBuilder.attachedPicture(pictureType: .frontCover, frame: frame)
-            } else if !isAlbumArtRemoved, let tag = tag,
-                      let albumArt = ID3TagContentReader(id3Tag: tag).attachedPictures()
-                .first(where: { $0.type == .frontCover }),
-                      let frame = id3Frame(albumArt.picture, type: .frontCover) {
-                tagBuilder = tagBuilder
-                    .attachedPicture(pictureType: .frontCover, frame: frame)
-            }
-            try id3TagEditor.write(tag: tagBuilder.build(), to: file.path)
+            let metadata = audioFile.metadata
+            applyEdits(to: metadata, for: file)
+            try audioFile.writeMetadata()
             return true
         } catch {
             debugPrint("Error occurred while saving tag: \n\(error.localizedDescription)")
-            if willRetry {
-                initializeTag(for: file)
-                return saveTagData(to: file, retriesWhenFailed: false)
-            } else {
-                return false
-            }
-        }
-    }
-    // swiftlint:enable cyclomatic_complexity
-    // swiftlint:enable function_body_length
-
-    func newTag(for file: FSFile) -> ID3Tag? {
-        debugPrint("Attempting to create new tag...")
-        do {
-            let id3Tag = ID32v3TagBuilder()
-                .title(frame: ID3FrameWithStringContent(content: ""))
-                .build()
-            try ID3TagEditor().write(tag: id3Tag, to: file.path)
-            return id3Tag
-        } catch {
-            debugPrint("Error occurred while initializing tag: \n\(error.localizedDescription)")
-        }
-        return nil
-    }
-
-    func initializeTag(for file: FSFile) {
-        debugPrint("Attempting to initialize tag...")
-        do {
-            let id3Tag = ID32v3TagBuilder()
-                .title(frame: ID3FrameWithStringContent(content: ""))
-                .build()
-            try id3TagEditor.write(tag: id3Tag, to: file.path)
-        } catch {
-            debugPrint("Error occurred while initializing tag: \n\(error.localizedDescription)")
+            return false
         }
     }
 
-    func id3Frame<T>(_ value: String?,
-                     returns type: T.Type,
-                     referencing file: FSFile? = nil) -> T? {
-        switch type {
-        case is ID3FrameWithStringContent.Type:
-            if let value {
-                if let file = file {
-                    return ID3FrameWithStringContent(content: replaceTokens(value, file: file)) as? T
-                } else {
-                    return ID3FrameWithStringContent(content: value) as? T
-                }
-            }
-        case is ID3FrameWithIntegerContent.Type:
-            if let value {
-                if let int = Int(value) {
-                    return ID3FrameWithIntegerContent(value: int) as? T
-                } else {
-                    return ID3FrameWithIntegerContent(value: nil) as? T
-                }
-            }
-        case is ID3FramePartOfTotal.Type:
-            if let value {
-                if value != "", let int = Int(value) {
-                    return ID3FramePartOfTotal(part: int, total: nil) as? T
-                } else {
-                    return ID3FramePartOfTotal(part: -999999, total: nil) as? T
-                }
-            }
-        case is ID3FrameGenre.Type:
-            if let value {
-                return ID3FrameGenre(genre: nil, description: value) as? T
-            }
-        default: break
+    private func applyEdits(to metadata: AudioMetadata, for file: FSFile) {
+        if let title = tagData.title {
+            metadata.title = replaceTokens(title, file: file)
         }
-        return nil
+        if let artist = tagData.artist {
+            metadata.artist = replaceTokens(artist, file: file)
+        }
+        if let album = tagData.album {
+            metadata.albumTitle = replaceTokens(album, file: file)
+        }
+        if let albumArtist = tagData.albumArtist {
+            metadata.albumArtist = replaceTokens(albumArtist, file: file)
+        }
+        if let year = tagData.year {
+            metadata.releaseDate = year.isEmpty ? nil : year
+        }
+        if let track = tagData.track {
+            metadata.trackNumber = track.isEmpty ? nil : Int(track)
+        }
+        if let genre = tagData.genre {
+            metadata.genre = genre.isEmpty ? nil : genre
+        }
+        if let composer = tagData.composer {
+            metadata.composer = replaceTokens(composer, file: file)
+        }
+        if let discNumber = tagData.discNumber {
+            metadata.discNumber = discNumber.isEmpty ? nil : Int(discNumber)
+        }
+        applyAlbumArtEdits(to: metadata)
     }
 
-    func id3Frame(_ value: String,
-                  referencing file: FSFile?) -> ID3FrameWithStringContent {
-        if let file = file {
-            return ID3FrameWithStringContent(content: replaceTokens(value, file: file))
-        } else {
-            return ID3FrameWithStringContent(content: value)
+    private func applyAlbumArtEdits(to metadata: AudioMetadata) {
+        if let newArtData = tagData.albumArt,
+           let sanitized = sanitizedImageData(newArtData) {
+            metadata.removeAttachedPicturesOfType(.frontCover)
+            metadata.attachPicture(AttachedPicture(imageData: sanitized, type: .frontCover))
+        } else if isAlbumArtRemoved {
+            metadata.removeAttachedPicturesOfType(.frontCover)
         }
     }
 
-    func id3Frame(_ value: Int, total: Int?) -> ID3FramePartOfTotal {
-        return ID3FramePartOfTotal(part: value, total: total)
-    }
-
-    func id3Frame(_ value: String, identifier: ID3Genre?) -> ID3FrameGenre {
-        return ID3FrameGenre(genre: identifier, description: value)
-    }
-
-    func id3Frame(_ data: Data?, type: ID3PictureType) -> ID3FrameAttachedPicture? {
-        if let data = data,
-           let image = UIImage(data: data) {
-            if let pngData = image.pngData() {
-                return ID3FrameAttachedPicture(picture: pngData,
-                                               type: type,
-                                               format: .png)
-            } else if let jpgData = image.jpegData(compressionQuality: 1.0) {
-                return ID3FrameAttachedPicture(picture: jpgData,
-                                               type: type,
-                                               format: .jpeg)
-            }
+    private func sanitizedImageData(_ data: Data) -> Data? {
+        guard let image = UIImage(data: data) else { return nil }
+        if let pngData = image.pngData() {
+            return pngData
         }
-        return nil
+        return image.jpegData(compressionQuality: 1.0)
     }
 
     func replaceTokens(_ original: String, file: FSFile) -> String {
         var newString = original
-        let componentsDash = file.name
-            .replacingOccurrences(of: ".mp3", with: "")
+        let nameWithoutExtension = (file.name as NSString).deletingPathExtension
+        let componentsDash = nameWithoutExtension
             .components(separatedBy: "-").map { string in
-            string.trimmingCharacters(in: .whitespaces)
-        }
+                string.trimmingCharacters(in: .whitespaces)
+            }
         let tokens: [String: String] = [
-            "fileName": file.name,
+            "fileName": nameWithoutExtension,
             "splitFront": componentsDash[0],
             "splitBack": componentsDash.count >= 2 ? componentsDash[1] : ""
         ]
@@ -425,7 +301,6 @@ struct TagEditorView: View {
     }
 
 }
-// swiftlint:enable type_body_length
 
 struct SaveButtonStyleModifier: ViewModifier {
     func body(content: Content) -> some View {

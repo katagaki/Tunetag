@@ -6,12 +6,20 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>MP3 Audio</string>
+			<string>Audio File</string>
 			<key>LSHandlerRank</key>
 			<string>Alternate</string>
 			<key>LSItemContentTypes</key>
 			<array>
+				<string>public.audio</string>
 				<string>public.mp3</string>
+				<string>public.mpeg-4-audio</string>
+				<string>public.aiff-audio</string>
+				<string>public.aifc-audio</string>
+				<string>com.microsoft.waveform-audio</string>
+				<string>org.xiph.flac</string>
+				<string>org.xiph.ogg-audio</string>
+				<string>org.xiph.opus</string>
 			</array>
 		</dict>
 	</array>

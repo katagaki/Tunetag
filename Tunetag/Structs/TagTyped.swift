@@ -5,116 +5,65 @@
 //  Created by シン・ジャスティン on 2023/09/09.
 //
 
-import AVFoundation
 import Foundation
-import ID3TagEditor
+import SFBAudioEngine
 
 struct TagTyped {
 
     var albumArt: Data?
-    var title, artist, album, albumArtist, genre, composer: String?
-    var year, track, discNumber: Int?
+    var title, artist, album, albumArtist, genre, composer, year: String?
+    var track, discNumber: Int?
 
-    init(_ file: FSFile, reader tagContentReader: ID3TagContentReader) async {
-        title = tagContentReader.title()
-        artist = tagContentReader.artist()
-        album = tagContentReader.album()
-        albumArtist = tagContentReader.albumArtist()
-        if let yearFromTag = tagContentReader.recordingYear() {
-            year = yearFromTag
-        }
-        if let trackFromTag = tagContentReader.trackPosition()?.position {
-            track = trackFromTag
-        }
-        genre = tagContentReader.genre()?.description
-        composer = tagContentReader.composer()
-        if let discNumberFromTag = tagContentReader.discPosition()?.position {
-            discNumber = discNumberFromTag
-        }
-        if let albumArtFromTag = tagContentReader.attachedPictures()
-                .first(where: { $0.type == .frontCover }) {
-            albumArt = albumArtFromTag.picture
-        } else if let albumArtFromTag = tagContentReader.attachedPictures().first {
-            albumArt = albumArtFromTag.picture
-        } else {
-            albumArt = await albumArtUsingAVPlayer(file: file)
-        }
+    init(_ file: FSFile, metadata: AudioMetadata) {
+        title = metadata.title
+        artist = metadata.artist
+        album = metadata.albumTitle
+        albumArtist = metadata.albumArtist
+        year = metadata.releaseDate
+        track = metadata.trackNumber
+        discNumber = metadata.discNumber
+        genre = metadata.genre
+        composer = metadata.composer
+        albumArt = TagTyped.albumArtData(from: metadata)
     }
 
-    // swiftlint:disable cyclomatic_complexity function_body_length
-    mutating func merge(with file: FSFile, reader tagContentReader: ID3TagContentReader) async {
-        if title != tagContentReader.title() {
+    mutating func merge(with file: FSFile, metadata: AudioMetadata) {
+        if title != metadata.title {
             title = nil
         }
-        if artist != tagContentReader.artist() {
+        if artist != metadata.artist {
             artist = nil
         }
-        if album != tagContentReader.album() {
+        if album != metadata.albumTitle {
             album = nil
         }
-        if albumArtist != tagContentReader.albumArtist() {
+        if albumArtist != metadata.albumArtist {
             albumArtist = nil
         }
-        if let yearFromTag = tagContentReader.recordingYear(), year != yearFromTag {
-            year = nil
-        } else if tagContentReader.recordingYear() == nil && year != nil {
+        if year != metadata.releaseDate {
             year = nil
         }
-        if let trackFromTag = tagContentReader.trackPosition()?.position, track != trackFromTag {
-            track = nil
-        } else if tagContentReader.trackPosition()?.position == nil && track != nil {
+        if track != metadata.trackNumber {
             track = nil
         }
-        if genre != tagContentReader.genre()?.description {
+        if discNumber != metadata.discNumber {
+            discNumber = nil
+        }
+        if genre != metadata.genre {
             genre = nil
         }
-        if composer != tagContentReader.composer() {
+        if composer != metadata.composer {
             composer = nil
         }
-        if let discNumberFromTag = tagContentReader.discPosition()?.position,
-           discNumber != discNumberFromTag {
-            discNumber = nil
-        } else if tagContentReader.discPosition()?.position == nil && discNumber != nil {
-            discNumber = nil
-        }
-        if let albumArtFromTag = tagContentReader.attachedPictures().first(where: { picture in
-            picture.type == .frontCover
-        }) {
-            if albumArt != albumArtFromTag.picture {
-                albumArt = nil
-            }
-        } else if let albumArtFromTag = tagContentReader.attachedPictures().first {
-            if albumArt != albumArtFromTag.picture {
-                albumArt = nil
-            }
-        } else if let albumArtFromTag = await albumArtUsingAVPlayer(file: file) {
-            if albumArt != albumArtFromTag {
-                albumArt = nil
-            }
-        } else {
-            if albumArt != nil {
-                albumArt = nil
-            }
+        if albumArt != TagTyped.albumArtData(from: metadata) {
+            albumArt = nil
         }
     }
-    // swiftlint:enable cyclomatic_complexity function_body_length
 
-    func albumArtUsingAVPlayer(file: FSFile) async -> Data? {
-        do {
-            let playerItem = AVPlayerItem(url: URL(filePath: file.path))
-            let metadataList = try await playerItem.asset.load(.metadata)
-            for item in metadataList {
-                switch item.commonKey {
-                case .commonKeyArtwork?:
-                    if let data = try await item.load(.dataValue) {
-                        return data
-                    }
-                default: break
-                }
-            }
-        } catch {
-            debugPrint(error.localizedDescription)
+    static func albumArtData(from metadata: AudioMetadata) -> Data? {
+        if let frontCover = metadata.attachedPictures(ofType: .frontCover).first {
+            return frontCover.imageData
         }
-        return nil
+        return metadata.attachedPictures.first?.imageData
     }
 }
