@@ -73,7 +73,7 @@ struct TagDataSection: View {
         }
         .onReceive(Just(tagData.genre)) { _ in
             if let genre = tagData.genre {
-                tagData.genre = genre.filter({ $0.isLetter || $0.isWhitespace })
+                tagData.genre = genre.filter({ $0.isLetter || $0.isWhitespace || $0 == "-" })
             }
         }
         .onReceive(Just(tagData.discNumber)) { _ in
