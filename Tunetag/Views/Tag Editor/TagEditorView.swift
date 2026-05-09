@@ -20,6 +20,7 @@ struct TagEditorView: View {
     @State var saveState: SaveState = .notSaved
     @State var savedFileCount: Int = 0
     @State var totalFileCount: Int = 0
+    @State var isReadingTags: Bool = true
     @FocusState var focusedField: FocusedField?
 
     // Support for iOS 16
@@ -68,19 +69,30 @@ struct TagEditorView: View {
                 }
             }
         }
-        .disabled(saveState == .saving)
+        .disabled(saveState == .saving || isReadingTags)
+        .overlay {
+            if isReadingTags {
+                ZStack {
+                    Color(.systemBackground).opacity(0.6)
+                    ProgressView()
+                        .controlSize(.large)
+                }
+                .ignoresSafeArea()
+                .transition(.opacity)
+            }
+        }
         .scrollDismissesKeyboard(.interactively)
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
             Button {
-                if saveState == .notSaved {
-                    DispatchQueue.global(qos: .background).async {
-                        Task {
-                            await changeSaveState(to: .saving)
-                            await saveAllTagData()
-                            await readAllTagData()
-                            await changeSaveState(to: .saved)
-                        }
+                if saveState == .notSaved && !isReadingTags {
+                    Task {
+                        changeSaveState(to: .saving)
+                        UIApplication.shared.isIdleTimerDisabled = true
+                        await saveAllTagData()
+                        await readAllTagData()
+                        UIApplication.shared.isIdleTimerDisabled = false
+                        changeSaveState(to: .saved)
                     }
                 }
             } label: {
@@ -90,27 +102,11 @@ struct TagEditorView: View {
                         .bold()
                         .frame(maxWidth: .infinity)
                 case .saving:
-                    if totalFileCount > 1 {
-                        VStack(spacing: 4.0) {
-                            ProgressView(value: Double(savedFileCount),
-                                         total: Double(max(totalFileCount, 1)))
-                                .progressViewStyle(.linear)
-                                .tint(.white)
-                            Text("\(savedFileCount) / \(totalFileCount)")
-                                .font(.caption)
-                                .bold()
-                                .foregroundStyle(.white)
-                                .monospacedDigit()
-                        }
-                        .padding([.top, .bottom], 8.0)
-                        .padding([.leading, .trailing], 16.0)
-                        .frame(maxWidth: .infinity)
-                    } else {
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                            .padding(.all, 8.0)
-                            .tint(.white)
-                    }
+                    ProgressDonut(progress: totalFileCount > 0
+                                  ? Double(savedFileCount) / Double(totalFileCount)
+                                  : 0)
+                        .frame(width: 24.0, height: 24.0)
+                        .padding(.all, 8.0)
                 case .saved:
                     Image(systemName: "checkmark")
                         .font(.body)
@@ -120,10 +116,11 @@ struct TagEditorView: View {
                 }
             }
             .buttonStyle(.borderedProminent)
-            .tint(saveState == .saved ? .green : .accentColor)
+            .tint(tintForSaveState)
             .modifier(SaveButtonStyleModifier())
             .frame(minHeight: 56.0)
             .padding([.leading, .trailing, .bottom])
+            .disabled(isReadingTags)
         }
         .task {
             showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.AvailableTokensTip")
@@ -154,30 +151,46 @@ struct TagEditorView: View {
     }
 
     func readAllTagData() async {
-        debugPrint("Attempting to read tag data for \(files.count) files...")
-        var tagCombined: TagTyped?
-        var loadedAudioFiles: [FSFile: AudioFile] = [:]
-        for file in files {
-            debugPrint("Attempting to read tag data for file \(file.name)...")
-            do {
-                let url = URL(filePath: file.path)
-                let audioFile = try AudioFile(readingPropertiesAndMetadataFrom: url)
-                loadedAudioFiles[file] = audioFile
-                let metadata = audioFile.metadata
-                if tagCombined == nil {
-                    tagCombined = TagTyped(file, metadata: metadata)
-                } else {
-                    tagCombined!.merge(with: file, metadata: metadata)
-                }
-            } catch {
-                debugPrint("Error occurred while reading tags: \n\(error.localizedDescription)")
+        await MainActor.run {
+            withAnimation(.snappy.speed(2)) {
+                isReadingTags = true
             }
         }
-        audioFiles = loadedAudioFiles
-        if let tagCombined = tagCombined {
-            tagData = Tag(from: tagCombined)
+        let filesToRead = files
+        let result = await Task.detached(priority: .userInitiated) {
+            () -> (audioFiles: [FSFile: AudioFile], tagCombined: TagTyped?) in
+            debugPrint("Attempting to read tag data for \(filesToRead.count) files...")
+            var tagCombined: TagTyped?
+            var loadedAudioFiles: [FSFile: AudioFile] = [:]
+            for file in filesToRead {
+                debugPrint("Attempting to read tag data for file \(file.name)...")
+                do {
+                    let url = URL(filePath: file.path)
+                    let audioFile = try AudioFile(readingPropertiesAndMetadataFrom: url)
+                    loadedAudioFiles[file] = audioFile
+                    let metadata = audioFile.metadata
+                    if tagCombined == nil {
+                        tagCombined = TagTyped(file, metadata: metadata)
+                    } else {
+                        tagCombined!.merge(with: file, metadata: metadata)
+                    }
+                } catch {
+                    debugPrint("Error occurred while reading tags: \n\(error.localizedDescription)")
+                }
+            }
+            return (loadedAudioFiles, tagCombined)
+        }.value
+
+        await MainActor.run {
+            audioFiles = result.audioFiles
+            if let tagCombined = result.tagCombined {
+                tagData = Tag(from: tagCombined)
+            }
+            isAlbumArtRemoved = false
+            withAnimation(.snappy.speed(2)) {
+                isReadingTags = false
+            }
         }
-        isAlbumArtRemoved = false
     }
 
     func saveAllTagData() async {
@@ -187,88 +200,114 @@ struct TagEditorView: View {
                 totalFileCount = files.count
             }
         }
-        _ = await withTaskGroup(of: Bool.self, returning: [Bool].self) { group in
-            for file in files {
-                group.addTask {
-                    return await saveTagData(to: file)
+        let filesToSave = files
+        let cachedAudioFiles = audioFiles
+        let tagSnapshot = tagData
+        let albumArtRemoved = isAlbumArtRemoved
+
+        let maxConcurrentSaves = 4
+        await withTaskGroup(of: Bool.self) { group in
+            var iterator = filesToSave.makeIterator()
+
+            func addNext() -> Bool {
+                guard let file = iterator.next() else { return false }
+                let cached = cachedAudioFiles[file]
+                group.addTask(priority: .userInitiated) {
+                    return await Self.saveTagData(to: file,
+                                                  cached: cached,
+                                                  tag: tagSnapshot,
+                                                  albumArtRemoved: albumArtRemoved)
                 }
+                return true
             }
 
-            var saveStates: [Bool] = []
-            for await result in group {
-                saveStates.append(result)
+            for _ in 0..<maxConcurrentSaves {
+                if !addNext() { break }
+            }
+
+            while await group.next() != nil {
                 await MainActor.run {
                     withAnimation(.snappy.speed(2)) {
                         savedFileCount += 1
                     }
                 }
+                _ = addNext()
             }
-            return saveStates
         }
     }
 
-    func saveTagData(to file: FSFile) -> Bool {
-        debugPrint("Attempting to save tag data...")
-        do {
-            let url = URL(filePath: file.path)
-            let audioFile: AudioFile
-            if let cached = audioFiles[file] {
-                audioFile = cached
-            } else {
-                audioFile = try AudioFile(readingPropertiesAndMetadataFrom: url)
+    nonisolated static func saveTagData(to file: FSFile,
+                                        cached: AudioFile?,
+                                        tag: Tag,
+                                        albumArtRemoved: Bool) async -> Bool {
+        return await Task.detached(priority: .userInitiated) {
+            debugPrint("Attempting to save tag data...")
+            do {
+                let url = URL(filePath: file.path)
+                let audioFile: AudioFile
+                if let cached {
+                    audioFile = cached
+                } else {
+                    audioFile = try AudioFile(readingPropertiesAndMetadataFrom: url)
+                }
+                let metadata = audioFile.metadata
+                applyEdits(to: metadata, file: file, tag: tag, albumArtRemoved: albumArtRemoved)
+                try audioFile.writeMetadata()
+                return true
+            } catch {
+                debugPrint("Error occurred while saving tag: \n\(error.localizedDescription)")
+                return false
             }
-            let metadata = audioFile.metadata
-            applyEdits(to: metadata, for: file)
-            try audioFile.writeMetadata()
-            return true
-        } catch {
-            debugPrint("Error occurred while saving tag: \n\(error.localizedDescription)")
-            return false
-        }
+        }.value
     }
 
-    private func applyEdits(to metadata: AudioMetadata, for file: FSFile) {
-        if let title = tagData.title {
+    nonisolated private static func applyEdits(to metadata: AudioMetadata,
+                                               file: FSFile,
+                                               tag: Tag,
+                                               albumArtRemoved: Bool) {
+        if let title = tag.title {
             metadata.title = replaceTokens(title, file: file)
         }
-        if let artist = tagData.artist {
+        if let artist = tag.artist {
             metadata.artist = replaceTokens(artist, file: file)
         }
-        if let album = tagData.album {
+        if let album = tag.album {
             metadata.albumTitle = replaceTokens(album, file: file)
         }
-        if let albumArtist = tagData.albumArtist {
+        if let albumArtist = tag.albumArtist {
             metadata.albumArtist = replaceTokens(albumArtist, file: file)
         }
-        if let year = tagData.year {
+        if let year = tag.year {
             metadata.releaseDate = year.isEmpty ? nil : year
         }
-        if let track = tagData.track {
+        if let track = tag.track {
             metadata.trackNumber = track.isEmpty ? nil : Int(track)
         }
-        if let genre = tagData.genre {
+        if let genre = tag.genre {
             metadata.genre = genre.isEmpty ? nil : genre
         }
-        if let composer = tagData.composer {
+        if let composer = tag.composer {
             metadata.composer = replaceTokens(composer, file: file)
         }
-        if let discNumber = tagData.discNumber {
+        if let discNumber = tag.discNumber {
             metadata.discNumber = discNumber.isEmpty ? nil : Int(discNumber)
         }
-        applyAlbumArtEdits(to: metadata)
+        applyAlbumArtEdits(to: metadata, tag: tag, albumArtRemoved: albumArtRemoved)
     }
 
-    private func applyAlbumArtEdits(to metadata: AudioMetadata) {
-        if let newArtData = tagData.albumArt,
+    nonisolated private static func applyAlbumArtEdits(to metadata: AudioMetadata,
+                                                       tag: Tag,
+                                                       albumArtRemoved: Bool) {
+        if let newArtData = tag.albumArt,
            let sanitized = sanitizedImageData(newArtData) {
             metadata.removeAttachedPicturesOfType(.frontCover)
             metadata.attachPicture(AttachedPicture(imageData: sanitized, type: .frontCover))
-        } else if isAlbumArtRemoved {
+        } else if albumArtRemoved {
             metadata.removeAttachedPicturesOfType(.frontCover)
         }
     }
 
-    private func sanitizedImageData(_ data: Data) -> Data? {
+    nonisolated private static func sanitizedImageData(_ data: Data) -> Data? {
         guard let image = UIImage(data: data) else { return nil }
         if let pngData = image.pngData() {
             return pngData
@@ -276,7 +315,7 @@ struct TagEditorView: View {
         return image.jpegData(compressionQuality: 1.0)
     }
 
-    func replaceTokens(_ original: String, file: FSFile) -> String {
+    nonisolated static func replaceTokens(_ original: String, file: FSFile) -> String {
         var newString = original
         let nameWithoutExtension = (file.name as NSString).deletingPathExtension
         let componentsDash = nameWithoutExtension
@@ -300,6 +339,31 @@ struct TagEditorView: View {
         }
     }
 
+    var tintForSaveState: Color {
+        switch saveState {
+        case .notSaved: return .accentColor
+        case .saving: return .orange
+        case .saved: return .green
+        }
+    }
+
+}
+
+struct ProgressDonut: View {
+    var progress: Double
+    var lineWidth: CGFloat = 3.0
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(Color.white.opacity(0.3), lineWidth: lineWidth)
+            Circle()
+                .trim(from: 0, to: max(0, min(1, progress)))
+                .stroke(Color.white,
+                        style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+                .rotationEffect(.degrees(-90))
+        }
+    }
 }
 
 struct SaveButtonStyleModifier: ViewModifier {
