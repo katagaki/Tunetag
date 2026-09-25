@@ -20,6 +20,13 @@ struct Tag {
     var composer: String?
     var discNumber: String?
 
+    var hasValidNumbers: Bool {
+        [track, discNumber].allSatisfy { value in
+            guard let value, !value.isEmpty else { return true }
+            return value.allSatisfy { "0"..."9" ~= $0 } && Int(value) != nil
+        }
+    }
+
     init() { }
 
     init(from tagCombined: TagTyped) {

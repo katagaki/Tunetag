@@ -21,6 +21,7 @@ struct TagEditorView: View {
     @State var savedFileCount: Int = 0
     @State var totalFileCount: Int = 0
     @State var isReadingTags: Bool = true
+    @State var showsSaveError: Bool = false
     @FocusState var focusedField: FocusedField?
 
     // Support for iOS 16
@@ -84,43 +85,51 @@ struct TagEditorView: View {
         .scrollDismissesKeyboard(.interactively)
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
-            Button {
-                if saveState == .notSaved && !isReadingTags {
-                    Task {
-                        changeSaveState(to: .saving)
-                        UIApplication.shared.isIdleTimerDisabled = true
-                        await saveAllTagData()
-                        await readAllTagData()
-                        UIApplication.shared.isIdleTimerDisabled = false
-                        changeSaveState(to: .saved)
+            VStack(spacing: 4) {
+                if !tagData.hasValidNumbers {
+                    Text("TagEditor.InvalidNumber.Message")
+                        .font(.footnote)
+                        .foregroundStyle(.red)
+                }
+                Button {
+                    if saveState == .notSaved && !isReadingTags {
+                        Task {
+                            changeSaveState(to: .saving)
+                            UIApplication.shared.isIdleTimerDisabled = true
+                            let allSaved = await saveAllTagData()
+                            await readAllTagData()
+                            UIApplication.shared.isIdleTimerDisabled = false
+                            changeSaveState(to: allSaved ? .saved : .notSaved)
+                            showsSaveError = !allSaved
+                        }
+                    }
+                } label: {
+                    switch saveState {
+                    case .notSaved:
+                        LargeButtonLabel(iconName: "square.and.arrow.down.fill", text: "Shared.Save")
+                            .bold()
+                            .frame(maxWidth: .infinity)
+                    case .saving:
+                        ProgressDonut(progress: totalFileCount > 0
+                                      ? Double(savedFileCount) / Double(totalFileCount)
+                                      : 0)
+                            .frame(width: 24.0, height: 24.0)
+                            .padding(.all, 8.0)
+                    case .saved:
+                        Image(systemName: "checkmark")
+                            .font(.body)
+                            .bold()
+                            .padding([.top, .bottom], 8.0)
+                            .frame(maxWidth: .infinity)
                     }
                 }
-            } label: {
-                switch saveState {
-                case .notSaved:
-                    LargeButtonLabel(iconName: "square.and.arrow.down.fill", text: "Shared.Save")
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                case .saving:
-                    ProgressDonut(progress: totalFileCount > 0
-                                  ? Double(savedFileCount) / Double(totalFileCount)
-                                  : 0)
-                        .frame(width: 24.0, height: 24.0)
-                        .padding(.all, 8.0)
-                case .saved:
-                    Image(systemName: "checkmark")
-                        .font(.body)
-                        .bold()
-                        .padding([.top, .bottom], 8.0)
-                        .frame(maxWidth: .infinity)
-                }
+                .buttonStyle(.borderedProminent)
+                .tint(tintForSaveState)
+                .modifier(SaveButtonStyleModifier())
+                .frame(minHeight: 56.0)
             }
-            .buttonStyle(.borderedProminent)
-            .tint(tintForSaveState)
-            .modifier(SaveButtonStyleModifier())
-            .frame(minHeight: 56.0)
             .padding([.leading, .trailing, .bottom])
-            .disabled(isReadingTags)
+            .disabled(isReadingTags || !tagData.hasValidNumbers)
         }
         .task {
             showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.AvailableTokensTip")
@@ -147,6 +156,9 @@ struct TagEditorView: View {
             default:
                 break
             }
+        }
+        .alert("TagEditor.SaveFailed.Message", isPresented: $showsSaveError) {
+            Button("Shared.OK", role: .cancel) { }
         }
     }
 
@@ -193,7 +205,7 @@ struct TagEditorView: View {
         }
     }
 
-    func saveAllTagData() async {
+    func saveAllTagData() async -> Bool {
         await MainActor.run {
             withAnimation(.snappy.speed(2)) {
                 savedFileCount = 0
@@ -206,8 +218,9 @@ struct TagEditorView: View {
         let albumArtRemoved = isAlbumArtRemoved
 
         let maxConcurrentSaves = 4
-        await withTaskGroup(of: Bool.self) { group in
+        return await withTaskGroup(of: Bool.self) { group in
             var iterator = filesToSave.makeIterator()
+            var allSaved = true
 
             func addNext() -> Bool {
                 guard let file = iterator.next() else { return false }
@@ -225,14 +238,18 @@ struct TagEditorView: View {
                 if !addNext() { break }
             }
 
-            while await group.next() != nil {
+            while let saved = await group.next() {
+                allSaved = allSaved && saved
                 await MainActor.run {
                     withAnimation(.snappy.speed(2)) {
-                        savedFileCount += 1
+                        if saved {
+                            savedFileCount += 1
+                        }
                     }
                 }
                 _ = addNext()
             }
+            return allSaved
         }
     }
 
@@ -253,6 +270,12 @@ struct TagEditorView: View {
                 let metadata = audioFile.metadata
                 applyEdits(to: metadata, file: file, tag: tag, albumArtRemoved: albumArtRemoved)
                 try audioFile.writeMetadata()
+                if url.pathExtension.lowercased() == "mp3",
+                   let releaseDate = metadata.releaseDate,
+                   !releaseDate.isEmpty,
+                   !ID3DateWriter.writeDate(releaseDate, toMP3AtPath: file.path) {
+                    return false
+                }
                 return true
             } catch {
                 debugPrint("Error occurred while saving tag: \n\(error.localizedDescription)")
@@ -346,9 +369,7 @@ struct TagEditorView: View {
         case .saved: return .green
         }
     }
-
 }
-
 struct ProgressDonut: View {
     var progress: Double
     var lineWidth: CGFloat = 3.0
