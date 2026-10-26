@@ -30,12 +30,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         browser.shouldShowFileExtensions = true
         browser.delegate = self
 
-        // The title shows when Files moves the button into its overflow menu
-        let attributionsButton = UIBarButtonItem(
-            title: String(localized: "More.Attributions"),
-            image: UIImage(systemName: "info.circle"),
-            primaryAction: UIAction { [weak self] _ in self?.presentAttributions() }
-        )
+        // The bar shows the icon, and the overflow menu shows the icon with the title
+        let attributionsTitle = String(localized: "More.Attributions")
+        let attributionsImage = UIImage(systemName: "info.circle")
+        let showAttributions: UIActionHandler = { [weak self] _ in self?.presentAttributions() }
+        let attributionsButton = UIBarButtonItem(image: attributionsImage,
+                                                 primaryAction: UIAction(handler: showAttributions))
+        attributionsButton.accessibilityLabel = attributionsTitle
+        attributionsButton.menuRepresentation = UIAction(title: attributionsTitle, image: attributionsImage,
+                                                         handler: showAttributions)
         browser.additionalLeadingNavigationBarButtonItems = [attributionsButton]
 
         window = UIWindow(windowScene: windowScene)
