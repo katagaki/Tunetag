@@ -1,0 +1,149 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleDisplayName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "CFBundleName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "NSLocalNetworkUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قد يصل Tunetag إلى أجهزة أخرى على شبكتك المحلية عند فتح ملفات من موقع على الشبكة."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag greift möglicherweise auf andere Geräte in deinem lokalen Netzwerk zu, wenn du Dateien von einem Netzwerkspeicherort öffnest."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag may access other devices on your local network when you open files from a network location."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag puede acceder a otros dispositivos de tu red local cuando abres archivos desde una ubicación de red."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag peut accéder à d'autres appareils de votre réseau local lorsque vous ouvrez des fichiers depuis un emplacement réseau."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जब आप किसी नेटवर्क स्थान से फ़ाइलें खोलते हैं, तो Tunetag आपके लोकल नेटवर्क पर अन्य डिवाइस तक पहुँच सकता है।"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag mungkin mengakses perangkat lain di jaringan lokal Anda saat Anda membuka file dari lokasi jaringan."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag potrebbe accedere ad altri dispositivi della rete locale quando apri file da una posizione di rete."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ネットワーク上の場所からファイルを開くと、Tunetagがローカルネットワーク上のほかのデバイスにアクセスする場合があります。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "네트워크 위치에서 파일을 열면 Tunetag가 로컬 네트워크의 다른 기기에 접근할 수 있습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag mungkin mengakses peranti lain pada rangkaian tempatan anda apabila anda membuka fail dari lokasi rangkaian."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag heeft mogelijk toegang tot andere apparaten op je lokale netwerk wanneer je bestanden opent vanaf een netwerklocatie."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag może uzyskać dostęp do innych urządzeń w sieci lokalnej, gdy otwierasz pliki z lokalizacji sieciowej."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Tunetag pode acessar outros dispositivos na sua rede local quando você abre arquivos de um local de rede."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag อาจเข้าถึงอุปกรณ์อื่นในเครือข่ายภายในของคุณเมื่อคุณเปิดไฟล์จากตำแหน่งเครือข่าย"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir ağ konumundan dosya açtığınızda Tunetag yerel ağınızdaki diğer cihazlara erişebilir."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunetag có thể truy cập các thiết bị khác trên mạng cục bộ của bạn khi bạn mở tệp từ vị trí mạng."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当你从网络位置打开文件时，Tunetag 可能会访问你本地网络上的其他设备。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "當你從網路位置開啟檔案時，Tunetag 可能會存取你區域網路上的其他裝置。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

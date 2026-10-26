@@ -1,0 +1,220 @@
+//
+//  ListInputRow.swift
+//  Tunetag
+//
+//  Created by シン・ジャスティン on 2023/09/08.
+//
+
+import Prelude
+import SwiftUI
+
+struct ListInputRow: View {
+
+    var title: String
+    @Binding var value: String?
+    var field: FocusedField
+    var focusedField: FocusState<FocusedField?>.Binding
+    var isBatchEditing: Bool = false
+    var isMultiline: Bool = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 2.0) {
+            TagFieldLabel(title: title)
+                .accessibilityHidden(true)
+            TextField(placeholder,
+                      text: keepAwareBinding($value),
+                      axis: isMultiline ? .vertical : .horizontal)
+            .lineLimit(isMultiline ? 1...8 : 1...1)
+            .tagFieldBox()
+            .focused(focusedField, equals: field)
+            .submitLabel(.next)
+            .onSubmit {
+                focusedField.wrappedValue = field.next
+            }
+            .accessibilityLabel(Text(NSLocalizedString(title, comment: "")))
+        }
+    }
+
+    var placeholder: String {
+        isBatchEditing && value == nil ? String(localized: "BatchEdit.Keep") : ""
+    }
+}
+
+struct ListNumberPairRow: View {
+
+    var title: String
+    @Binding var number: String?
+    @Binding var total: String?
+    var numberField: FocusedField
+    var totalField: FocusedField
+    var focusedField: FocusState<FocusedField?>.Binding
+    var isBatchEditing: Bool = false
+
+    /// Built from already-localized parts so it doesn't add a format string to the catalog
+    var totalAccessibilityLabel: String {
+        String(localized: String.LocalizationValue(title)) + ", " + String(localized: "Tag.Total")
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 2.0) {
+            TagFieldLabel(title: title)
+                .accessibilityHidden(true)
+            HStack(alignment: .firstTextBaseline, spacing: 8.0) {
+                TextField(placeholder(for: number, fallback: ""),
+                          text: keepAwareBinding($number))
+                .tagFieldBox()
+                .focused(focusedField, equals: numberField)
+                .accessibilityLabel(Text(NSLocalizedString(title, comment: "")))
+                .accessibilityValue(accessibilityValue(for: number))
+                Text(verbatim: "/")
+                    .foregroundStyle(.tertiary)
+                    .accessibilityHidden(true)
+                TextField(placeholder(for: total, fallback: String(localized: "Tag.Total")),
+                          text: keepAwareBinding($total))
+                .tagFieldBox()
+                .focused(focusedField, equals: totalField)
+                .accessibilityLabel(Text(verbatim: totalAccessibilityLabel))
+                .accessibilityValue(accessibilityValue(for: total))
+            }
+        }
+        .keyboardType(.numberPad)
+    }
+
+    func placeholder(for value: String?, fallback: String) -> String {
+        isBatchEditing && value == nil ? String(localized: "BatchEdit.Keep") : fallback
+    }
+
+    func accessibilityValue(for value: String?) -> Text {
+        isBatchEditing && value == nil ? Text("BatchEdit.Keep") : Text(verbatim: value ?? "")
+    }
+}
+
+struct ListTrackDiscRow: View {
+
+    @Binding var tagData: Tag
+    var focusedField: FocusState<FocusedField?>.Binding
+    var isBatchEditing: Bool = false
+
+    var body: some View {
+        HStack(spacing: 12.0) {
+            ListNumberPairRow(title: "Tag.Track", number: $tagData.track, total: $tagData.trackTotal,
+                              numberField: .trackNumber, totalField: .trackTotal,
+                              focusedField: focusedField, isBatchEditing: isBatchEditing)
+            Divider()
+            ListNumberPairRow(title: "Tag.Disc", number: $tagData.discNumber, total: $tagData.discTotal,
+                              numberField: .discNumber, totalField: .discTotal,
+                              focusedField: focusedField, isBatchEditing: isBatchEditing)
+        }
+    }
+}
+
+struct ListCompilationRow: View {
+
+    @Binding var isCompilation: Bool?
+    var isBatchEditing: Bool = false
+
+    @Environment(\.isTagFieldBoxed) var isBoxed
+
+    var body: some View {
+        if isBatchEditing && isBoxed {
+            // Menu pickers hide their label outside of lists, so show it above like the other fields
+            VStack(alignment: .leading, spacing: 2.0) {
+                TagFieldLabel(title: "Tag.Compilation")
+                    .accessibilityHidden(true)
+                Menu {
+                    compilationPicker
+                        .pickerStyle(.inline)
+                } label: {
+                    HStack {
+                        Text(LocalizedStringKey(selectionTitle))
+                            .foregroundStyle(isCompilation == nil ? .secondary : .primary)
+                        Spacer()
+                        Image(systemName: "chevron.up.chevron.down")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .tagFieldBox()
+                }
+                .tint(.primary)
+                .accessibilityLabel(Text("Tag.Compilation"))
+                .accessibilityValue(Text(LocalizedStringKey(selectionTitle)))
+            }
+        } else if isBatchEditing {
+            compilationPicker
+                .pickerStyle(.menu)
+        } else {
+            Toggle(isOn: Binding(get: { isCompilation ?? false }, set: { isCompilation = $0 })) {
+                Text("Tag.Compilation")
+            }
+        }
+    }
+
+    var selectionTitle: String {
+        switch isCompilation {
+        case .none: "BatchEdit.Keep"
+        case .some(true): "Shared.Yes"
+        case .some(false): "Shared.No"
+        }
+    }
+
+    var compilationPicker: some View {
+        Picker(selection: $isCompilation) {
+            Text("BatchEdit.Keep").tag(Bool?.none)
+            Text("Shared.Yes").tag(Bool?.some(true))
+            Text("Shared.No").tag(Bool?.some(false))
+        } label: {
+            Text("Tag.Compilation")
+        }
+    }
+}
+
+/// Binds a text field to an optional value. Text fields write back an empty string when they're focused, which
+/// would turn a field that keeps each file's value into one that clears it, so empty writes are ignored while the
+/// value is nil. Use the keyboard's Don't Change button to go back to keeping values.
+func keepAwareBinding(_ value: Binding<String?>) -> Binding<String> {
+    Binding {
+        value.wrappedValue ?? ""
+    } set: { newValue in
+        guard !(value.wrappedValue == nil && newValue.isEmpty) else { return }
+        value.wrappedValue = newValue
+    }
+}
+
+struct TagFieldLabel: View {
+
+    var title: String
+
+    var body: some View {
+        Text(NSLocalizedString(title, comment: ""))
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .lineLimit(1)
+    }
+}
+
+extension EnvironmentValues {
+    /// Draws text fields with a filled background, as in a desktop form, instead of as plain list rows.
+    @Entry var isTagFieldBoxed: Bool = false
+}
+
+struct TagFieldBox: ViewModifier {
+
+    @Environment(\.isTagFieldBoxed) var isBoxed
+
+    func body(content: Content) -> some View {
+        if isBoxed {
+            content
+                .padding(.horizontal, 10.0)
+                .padding(.vertical, 7.0)
+                .background(Color(.tertiarySystemFill), in: RoundedRectangle(cornerRadius: 8.0))
+        } else {
+            content
+        }
+    }
+}
+
+extension View {
+    func tagFieldBox() -> some View {
+        modifier(TagFieldBox())
+    }
+}
