@@ -109,20 +109,57 @@ struct ListCompilationRow: View {
     @Binding var isCompilation: Bool?
     var isBatchEditing: Bool = false
 
+    @Environment(\.isTagFieldBoxed) var isBoxed
+
     var body: some View {
-        if isBatchEditing {
-            Picker(selection: $isCompilation) {
-                Text("BatchEdit.Keep").tag(Bool?.none)
-                Text("Shared.Yes").tag(Bool?.some(true))
-                Text("Shared.No").tag(Bool?.some(false))
-            } label: {
-                Text("Tag.Compilation")
+        if isBatchEditing && isBoxed {
+            // Menu pickers hide their label outside of lists, so show it above like the other fields
+            VStack(alignment: .leading, spacing: 2.0) {
+                TagFieldLabel(title: "Tag.Compilation")
+                    .accessibilityHidden(true)
+                Menu {
+                    compilationPicker
+                        .pickerStyle(.inline)
+                } label: {
+                    HStack {
+                        Text(LocalizedStringKey(selectionTitle))
+                            .foregroundStyle(isCompilation == nil ? .secondary : .primary)
+                        Spacer()
+                        Image(systemName: "chevron.up.chevron.down")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .tagFieldBox()
+                }
+                .tint(.primary)
+                .accessibilityLabel(Text("Tag.Compilation"))
+                .accessibilityValue(Text(LocalizedStringKey(selectionTitle)))
             }
-            .pickerStyle(.menu)
+        } else if isBatchEditing {
+            compilationPicker
+                .pickerStyle(.menu)
         } else {
             Toggle(isOn: Binding(get: { isCompilation ?? false }, set: { isCompilation = $0 })) {
                 Text("Tag.Compilation")
             }
+        }
+    }
+
+    var selectionTitle: String {
+        switch isCompilation {
+        case .none: "BatchEdit.Keep"
+        case .some(true): "Shared.Yes"
+        case .some(false): "Shared.No"
+        }
+    }
+
+    var compilationPicker: some View {
+        Picker(selection: $isCompilation) {
+            Text("BatchEdit.Keep").tag(Bool?.none)
+            Text("Shared.Yes").tag(Bool?.some(true))
+            Text("Shared.No").tag(Bool?.some(false))
+        } label: {
+            Text("Tag.Compilation")
         }
     }
 }

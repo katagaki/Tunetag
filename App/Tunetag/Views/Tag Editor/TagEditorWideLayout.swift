@@ -93,7 +93,7 @@ struct TagEditorWideLayout<Header: View, SidebarFooter: View>: View {
                                   numberField: .discNumber, totalField: .discTotal,
                                   focusedField: focusedField, isBatchEditing: isBatchEditing)
                 ListCompilationRow(isCompilation: $tagData.isCompilation, isBatchEditing: isBatchEditing)
-                    .padding(.top, 14.0)
+                    .padding(.top, isBatchEditing ? 0.0 : 14.0)
             }
             TagFieldCard(title: "TagEditor.Section.Publishing") {
                 inputRow("Tag.Publisher", $tagData.publisher, .publisher)
