@@ -364,115 +364,115 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "عدم التغيير"
+            "value" : "إبقاء"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nicht ändern"
+            "value" : "Beibehalten"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Don't Change"
+            "value" : "Keep"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No cambiar"
+            "value" : "Mantener"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ne pas modifier"
+            "value" : "Conserver"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "बदलें नहीं"
+            "value" : "रखें"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jangan Ubah"
+            "value" : "Pertahankan"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non modificare"
+            "value" : "Mantieni"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "変更しない"
+            "value" : "保持"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "변경 안 함"
+            "value" : "유지"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jangan Ubah"
+            "value" : "Kekal"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Niet wijzigen"
+            "value" : "Behouden"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nie zmieniaj"
+            "value" : "Zachowaj"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Não alterar"
+            "value" : "Manter"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ไม่เปลี่ยนแปลง"
+            "value" : "คงเดิม"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Değiştirme"
+            "value" : "Koru"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Không Thay Đổi"
+            "value" : "Giữ"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不更改"
+            "value" : "保留"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不更改"
+            "value" : "保留"
           }
         }
       }

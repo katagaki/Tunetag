@@ -80,9 +80,8 @@ struct ListNumberPairRow: View {
         .keyboardType(.numberPad)
     }
 
-    /// The number fields are too narrow for "Don't Change", so mixed values show a dash instead.
     func placeholder(for value: String?, fallback: String) -> String {
-        isBatchEditing && value == nil ? "-" : fallback
+        isBatchEditing && value == nil ? String(localized: "BatchEdit.Keep") : fallback
     }
 
     func accessibilityValue(for value: String?) -> Text {
