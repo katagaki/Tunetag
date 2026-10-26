@@ -91,6 +91,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             rootView: TagEditorSheet(files: files, accessedURLs: accessedURLs)
         )
         hostingController.isModalInPresentation = true
+        // Use the larger page size on iPad so more fields fit on screen
+        hostingController.modalPresentationStyle = .pageSheet
+        hostingController.sheetPresentationController?.prefersPageSizing = true
         presenter.present(hostingController, animated: true)
     }
 }
