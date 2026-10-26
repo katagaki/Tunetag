@@ -1,240 +1,240 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Alert.NoMP3Files.Message" : {
+    "Alert.NoAudioFiles.Message" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "التحديد لا يحتوي على أي ملفات MP3."
+            "value" : "لا يحتوي التحديد على أي ملفات صوتية مدعومة."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Auswahl enthält keine MP3-Dateien."
+            "value" : "Die Auswahl enthält keine unterstützten Audiodateien."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The selection does not contain any MP3 files."
+            "value" : "The selection does not contain any supported audio files."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La selección no contiene archivos MP3."
+            "value" : "La selección no contiene archivos de audio compatibles."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La sélection ne contient aucun fichier MP3."
+            "value" : "La sélection ne contient aucun fichier audio pris en charge."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "चयन में कोई MP3 फ़ाइल नहीं है।"
+            "value" : "चयन में कोई समर्थित ऑडियो फ़ाइल नहीं है।"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pilihan tidak berisi file MP3."
+            "value" : "Pilihan tidak berisi file audio yang didukung."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La selezione non contiene file MP3."
+            "value" : "La selezione non contiene file audio supportati."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "選択された項目にMP3ファイルが含まれていません。"
+            "value" : "選択した項目に対応しているオーディオファイルが含まれていません。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "선택한 항목에 MP3 파일이 없습니다."
+            "value" : "선택한 항목에 지원되는 오디오 파일이 없습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pilihan tidak mengandungi sebarang fail MP3."
+            "value" : "Pilihan tidak mengandungi sebarang fail audio yang disokong."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "De selectie bevat geen MP3-bestanden."
+            "value" : "De selectie bevat geen ondersteunde audiobestanden."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zaznaczenie nie zawiera plików MP3."
+            "value" : "Zaznaczenie nie zawiera obsługiwanych plików audio."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A seleção não contém nenhum arquivo MP3."
+            "value" : "A seleção não contém arquivos de áudio compatíveis."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "รายการที่เลือกไม่มีไฟล์ MP3"
+            "value" : "รายการที่เลือกไม่มีไฟล์เสียงที่รองรับ"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seçim herhangi bir MP3 dosyası içermiyor."
+            "value" : "Seçim desteklenen bir ses dosyası içermiyor."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lựa chọn không chứa tệp MP3 nào."
+            "value" : "Lựa chọn không chứa tệp âm thanh được hỗ trợ nào."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所选内容不包含任何MP3文件。"
+            "value" : "所选内容不包含任何受支持的音频文件。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所選內容不包含任何MP3檔案。"
+            "value" : "所選項目不包含任何支援的音訊檔案。"
           }
         }
       }
     },
-    "Alert.NoMP3Files.Title" : {
+    "Alert.NoAudioFiles.Title" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "لم يتم العثور على ملفات MP3"
+            "value" : "لم يتم العثور على ملفات صوتية"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Keine MP3-Dateien gefunden"
+            "value" : "Keine Audiodateien gefunden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No MP3 Files Found"
+            "value" : "No Audio Files Found"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No se encontraron archivos MP3"
+            "value" : "No se encontraron archivos de audio"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aucun fichier MP3 trouvé"
+            "value" : "Aucun fichier audio trouvé"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "कोई MP3 फ़ाइल नहीं मिली"
+            "value" : "कोई ऑडियो फ़ाइल नहीं मिली"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tidak Ada File MP3 Ditemukan"
+            "value" : "Tidak Ada File Audio"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nessun file MP3 trovato"
+            "value" : "Nessun file audio trovato"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "MP3ファイルが見つかりません"
+            "value" : "オーディオファイルが見つかりません"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "MP3 파일을 찾을 수 없음"
+            "value" : "오디오 파일을 찾을 수 없음"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tiada Fail MP3 Ditemui"
+            "value" : "Tiada Fail Audio Ditemui"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Geen MP3-bestanden gevonden"
+            "value" : "Geen audiobestanden gevonden"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nie znaleziono plików MP3"
+            "value" : "Nie znaleziono plików audio"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nenhum arquivo MP3 encontrado"
+            "value" : "Nenhum Arquivo de Áudio Encontrado"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ไม่พบไฟล์ MP3"
+            "value" : "ไม่พบไฟล์เสียง"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "MP3 Dosyası Bulunamadı"
+            "value" : "Ses Dosyası Bulunamadı"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Không tìm thấy tệp MP3"
+            "value" : "Không Tìm Thấy Tệp Âm Thanh"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "未找到MP3文件"
+            "value" : "未找到音频文件"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "找不到MP3檔案"
+            "value" : "找不到音訊檔案"
           }
         }
       }
@@ -1190,9 +1190,6 @@
           }
         }
       }
-    },
-    "katagaki/Tunetag" : {
-      "shouldTranslate" : false
     },
     "More.Attributions" : {
       "extractionState" : "manual",
@@ -6195,16 +6192,118 @@
     "TagEditor.InvalidNumber.Message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يجب أن تكون قيم المقطع والقرص وBPM أعدادًا صحيحة."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Track-, Disc- und BPM-Werte müssen ganze Zahlen sein."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Track, disc, and BPM values must be whole numbers."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los valores de pista, disco y BPM deben ser números enteros."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les valeurs de piste, de disque et de BPM doivent être des nombres entiers."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ट्रैक, डिस्क और BPM के मान पूर्ण संख्याएँ होने चाहिए।"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nilai trek, disk, dan BPM harus berupa bilangan bulat."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I valori di traccia, disco e BPM devono essere numeri interi."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "トラック番号、ディスク番号、BPMには0以上の整数を入力してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "트랙, 디스크, BPM 값은 정수여야 합니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nilai lagu, cakera dan BPM mestilah nombor bulat."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nummer-, schijf- en BPM-waarden moeten hele getallen zijn."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wartości utworu, płyty i BPM muszą być liczbami całkowitymi."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os valores de faixa, disco e BPM devem ser números inteiros."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค่าแทร็ก แผ่น และ BPM ต้องเป็นจำนวนเต็ม"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parça, disk ve BPM değerleri tam sayı olmalıdır."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giá trị bài hát, đĩa và BPM phải là số nguyên."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "曲目、碟片和 BPM 的值必须为整数。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "曲目、光碟和 BPM 的值必須為整數。"
           }
         }
       }
@@ -6807,16 +6906,118 @@
     "TagEditor.SaveFailed.Message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذّر حفظ بعض الملفات."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einige Dateien konnten nicht gesichert werden."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some files could not be saved."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron guardar algunos archivos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certains fichiers n'ont pas pu être enregistrés."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कुछ फ़ाइलें सहेजी नहीं जा सकीं।"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beberapa file tidak dapat disimpan."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile salvare alcuni file."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "一部のファイルを保存できませんでした。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "일부 파일을 저장할 수 없습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sesetengah fail tidak dapat disimpan."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sommige bestanden konden niet worden bewaard."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie udało się zapisać niektórych plików."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível salvar alguns arquivos."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่สามารถบันทึกไฟล์บางไฟล์ได้"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bazı dosyalar kaydedilemedi."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không thể lưu một số tệp."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "部分文件无法存储。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "部分檔案無法儲存。"
           }
         }
       }
@@ -7779,49 +7980,49 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "يمكنك استخدام رموز مختلفة للاستفادة من المعلومات الموجودة (مثل اسم ملف MP3) لتعديل الوسوم."
+            "value" : "يمكنك استخدام رموز مختلفة للاستفادة من المعلومات الموجودة (مثل اسم الملف) لتعديل الوسوم."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sie können verschiedene Token verwenden, um vorhandene Informationen (z. B. den Dateinamen der MP3-Datei) zum Bearbeiten Ihrer Tags zu nutzen."
+            "value" : "Sie können verschiedene Token verwenden, um vorhandene Informationen (z. B. den Dateinamen) zum Bearbeiten Ihrer Tags zu nutzen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can use various tokens to make use of existing information (such as the MP3 file's filename) to edit your tags."
+            "value" : "You can use various tokens to make use of existing information (such as the file's name) to edit your tags."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puedes usar varios tokens para aprovechar la información existente (como el nombre del archivo MP3) para editar tus etiquetas."
+            "value" : "Puedes usar varios tokens para aprovechar la información existente (como el nombre del archivo) para editar tus etiquetas."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous pouvez utiliser différents jetons pour exploiter les informations existantes (comme le nom du fichier MP3) afin de modifier vos tags."
+            "value" : "Vous pouvez utiliser différents jetons pour exploiter les informations existantes (comme le nom du fichier) afin de modifier vos tags."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "आप अपने टैग संपादित करने के लिए मौजूदा जानकारी (जैसे MP3 फ़ाइल का नाम) का उपयोग करने हेतु विभिन्न टोकन का उपयोग कर सकते हैं।"
+            "value" : "आप अपने टैग संपादित करने के लिए मौजूदा जानकारी (जैसे फ़ाइल का नाम) का उपयोग करने हेतु विभिन्न टोकन का उपयोग कर सकते हैं।"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Anda dapat menggunakan berbagai token untuk memanfaatkan informasi yang ada (seperti nama file MP3) untuk mengedit tag Anda."
+            "value" : "Anda dapat menggunakan berbagai token untuk memanfaatkan informasi yang ada (seperti nama file) untuk mengedit tag Anda."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puoi usare vari token per sfruttare le informazioni esistenti (come il nome del file MP3) per modificare i tuoi tag."
+            "value" : "Puoi usare vari token per sfruttare le informazioni esistenti (come il nome del file) per modificare i tuoi tag."
           }
         },
         "ja" : {
@@ -7833,61 +8034,61 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "다양한 토큰을 사용하여 기존 정보(MP3 파일의 파일 이름 등)를 활용하여 태그를 편집할 수 있습니다."
+            "value" : "다양한 토큰을 사용하여 기존 정보(파일 이름 등)를 활용하여 태그를 편집할 수 있습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Anda boleh menggunakan pelbagai token untuk memanfaatkan maklumat sedia ada (seperti nama fail MP3) untuk mengedit tag anda."
+            "value" : "Anda boleh menggunakan pelbagai token untuk memanfaatkan maklumat sedia ada (seperti nama fail) untuk mengedit tag anda."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Je kunt verschillende tokens gebruiken om bestaande informatie (zoals de bestandsnaam van het MP3-bestand) te gebruiken bij het bewerken van je tags."
+            "value" : "Je kunt verschillende tokens gebruiken om bestaande informatie (zoals de bestandsnaam) te gebruiken bij het bewerken van je tags."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Możesz używać różnych tokenów, aby wykorzystać istniejące informacje (takie jak nazwa pliku MP3) do edycji tagów."
+            "value" : "Możesz używać różnych tokenów, aby wykorzystać istniejące informacje (takie jak nazwa pliku) do edycji tagów."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Você pode usar vários tokens para aproveitar informações existentes (como o nome do arquivo MP3) para editar suas tags."
+            "value" : "Você pode usar vários tokens para aproveitar informações existentes (como o nome do arquivo) para editar suas tags."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "คุณสามารถใช้โทเค็นต่าง ๆ เพื่อใช้ข้อมูลที่มีอยู่ (เช่น ชื่อไฟล์ MP3) ในการแก้ไขแท็กของคุณ"
+            "value" : "คุณสามารถใช้โทเค็นต่าง ๆ เพื่อใช้ข้อมูลที่มีอยู่ (เช่น ชื่อไฟล์) ในการแก้ไขแท็กของคุณ"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Etiketlerinizi düzenlemek için mevcut bilgilerden (MP3 dosyasının adı gibi) yararlanmak üzere çeşitli belirteçler kullanabilirsiniz."
+            "value" : "Etiketlerinizi düzenlemek için mevcut bilgilerden (dosya adı gibi) yararlanmak üzere çeşitli belirteçler kullanabilirsiniz."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bạn có thể sử dụng các token khác nhau để tận dụng thông tin hiện có (chẳng hạn như tên tệp MP3) để chỉnh sửa thẻ của bạn."
+            "value" : "Bạn có thể sử dụng các token khác nhau để tận dụng thông tin hiện có (chẳng hạn như tên tệp) để chỉnh sửa thẻ của bạn."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您可以使用各种令牌来利用现有信息（例如 MP3 文件的文件名）来编辑您的标签。"
+            "value" : "您可以使用各种令牌来利用现有信息（例如文件名）来编辑您的标签。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您可以使用各種令牌來利用現有資訊（例如 MP3 檔案的檔案名稱）來編輯您的標籤。"
+            "value" : "您可以使用各種令牌來利用現有資訊（例如檔案名稱）來編輯您的標籤。"
           }
         }
       }

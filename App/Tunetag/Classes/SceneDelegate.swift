@@ -76,8 +76,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard !files.isEmpty else {
             accessedURLs.forEach { $0.stopAccessingSecurityScopedResource() }
             let alert = UIAlertController(
-                title: String(localized: "Alert.NoMP3Files.Title"),
-                message: String(localized: "Alert.NoMP3Files.Message"),
+                title: String(localized: "Alert.NoAudioFiles.Title"),
+                message: String(localized: "Alert.NoAudioFiles.Message"),
                 preferredStyle: .alert
             )
             alert.addAction(UIAlertAction(title: String(localized: "Shared.OK"), style: .default))
