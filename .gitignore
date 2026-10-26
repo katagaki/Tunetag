@@ -1,4 +1,9 @@
 xcuserdata/
-xcshareddata/xcodecloud/
+**/xcshareddata/xcodecloud/
 .DS_Store
-Tunetag/Licenses.plist
+App/Tunetag/Licenses.plist
+
+# Swift package
+.build/
+.swiftpm/
+/Package.resolved
