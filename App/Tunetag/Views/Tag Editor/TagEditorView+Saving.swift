@@ -22,9 +22,6 @@ extension TagEditorView {
         await MainActor.run {
             tagData = tagCombined.map { Tag(from: $0) } ?? Tag()
             loadedTagData = tagData
-            if tagData.hasSortOrders && files.count == 1 {
-                isSortingExpanded = true
-            }
             isAlbumArtRemoved = false
             withAnimation(.snappy.speed(2)) {
                 isReadingTags = false
