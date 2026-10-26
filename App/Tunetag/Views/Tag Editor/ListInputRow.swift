@@ -25,6 +25,7 @@ struct ListInputRow: View {
                       text: Binding(get: { value ?? "" }, set: { value = $0 }),
                       axis: isMultiline ? .vertical : .horizontal)
             .lineLimit(isMultiline ? 1...8 : 1...1)
+            .tagFieldBox()
             .focused(focusedField, equals: field)
             .submitLabel(.next)
             .onSubmit {
@@ -56,6 +57,7 @@ struct ListNumberPairRow: View {
             HStack(alignment: .firstTextBaseline, spacing: 8.0) {
                 TextField(placeholder(for: number, fallback: ""),
                           text: Binding(get: { number ?? "" }, set: { number = $0 }))
+                .tagFieldBox()
                 .focused(focusedField, equals: numberField)
                 .accessibilityLabel(Text(NSLocalizedString(title, comment: "")))
                 .accessibilityValue(accessibilityValue(for: number))
@@ -64,6 +66,7 @@ struct ListNumberPairRow: View {
                     .accessibilityHidden(true)
                 TextField(placeholder(for: total, fallback: String(localized: "Tag.Total")),
                           text: Binding(get: { total ?? "" }, set: { total = $0 }))
+                .tagFieldBox()
                 .focused(focusedField, equals: totalField)
                 .accessibilityLabel(Text("\(NSLocalizedString(title, comment: "")), \(String(localized: "Tag.Total"))"))
                 .accessibilityValue(accessibilityValue(for: total))
@@ -133,5 +136,32 @@ struct TagFieldLabel: View {
             .font(.caption)
             .foregroundStyle(.secondary)
             .lineLimit(1)
+    }
+}
+
+extension EnvironmentValues {
+    /// Draws text fields with a filled background, as in a desktop form, instead of as plain list rows.
+    @Entry var isTagFieldBoxed: Bool = false
+}
+
+struct TagFieldBox: ViewModifier {
+
+    @Environment(\.isTagFieldBoxed) var isBoxed
+
+    func body(content: Content) -> some View {
+        if isBoxed {
+            content
+                .padding(.horizontal, 10.0)
+                .padding(.vertical, 7.0)
+                .background(Color(.tertiarySystemFill), in: RoundedRectangle(cornerRadius: 8.0))
+        } else {
+            content
+        }
+    }
+}
+
+extension View {
+    func tagFieldBox() -> some View {
+        modifier(TagFieldBox())
     }
 }

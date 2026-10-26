@@ -32,25 +32,14 @@ struct TagEditorView: View {
     // Support for iOS 16
     @State var showsLegacyTip: Bool = true
 
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+
+    var usesWideLayout: Bool {
+        horizontalSizeClass == .regular
+    }
+
     var body: some View {
-        List {
-            if #unavailable(iOS 17.0) {
-                TipSection(title: "TagEditor.Tip.Tokens.Title",
-                           message: "TagEditor.Tip.Tokens.Text",
-                           image: Image(systemName: "info.circle.fill"),
-                           showsTip: $showsLegacyTip)
-            }
-            FileHeaderSection(filename: files.count == 1 ?
-                              files[0].name : NSLocalizedString("BatchEdit.MultipleFiles", comment: ""),
-                              albumArt: $tagData.albumArt,
-                              selectedAlbumArt: $selectedAlbumArt,
-                              isAlbumArtRemoved: $isAlbumArtRemoved)
-            TagDataSection(tagData: $tagData, focusedField: $focusedField,
-                           isBatchEditing: files.count > 1, isSortingExpanded: $isSortingExpanded)
-            if files.count == 1 {
-                TagInfoSection(tagData: tagData)
-            }
-        }
+        editorContent
         .disabled(saveState == .saving || isReadingTags)
         .overlay {
             if isReadingTags {
@@ -109,6 +98,7 @@ struct TagEditorView: View {
                 .modifier(SaveButtonStyleModifier())
                 .frame(minHeight: 56.0)
             }
+            .frame(maxWidth: usesWideLayout ? 480.0 : .infinity)
             .padding([.leading, .trailing, .bottom])
             .disabled(isReadingTags || !tagData.hasValidNumbers)
         }
@@ -163,6 +153,43 @@ struct TagEditorView: View {
         .alert("TagEditor.RemoveAllTags.Failed", isPresented: $showsRemoveTagsError) {
             Button("Shared.OK", role: .cancel) { }
         }
+    }
+
+    @ViewBuilder
+    var editorContent: some View {
+        if usesWideLayout {
+            TagEditorWideLayout(tagData: $tagData, focusedField: $focusedField,
+                                isBatchEditing: files.count > 1, showsAdvancedInformation: files.count == 1,
+                                isSortingExpanded: $isSortingExpanded) {
+                FileHeaderView(filename: filename,
+                               albumArt: $tagData.albumArt,
+                               selectedAlbumArt: $selectedAlbumArt,
+                               isAlbumArtRemoved: $isAlbumArtRemoved)
+                .frame(maxWidth: .infinity)
+            }
+        } else {
+            List {
+                if #unavailable(iOS 17.0) {
+                    TipSection(title: "TagEditor.Tip.Tokens.Title",
+                               message: "TagEditor.Tip.Tokens.Text",
+                               image: Image(systemName: "info.circle.fill"),
+                               showsTip: $showsLegacyTip)
+                }
+                FileHeaderSection(filename: filename,
+                                  albumArt: $tagData.albumArt,
+                                  selectedAlbumArt: $selectedAlbumArt,
+                                  isAlbumArtRemoved: $isAlbumArtRemoved)
+                TagDataSection(tagData: $tagData, focusedField: $focusedField,
+                               isBatchEditing: files.count > 1, isSortingExpanded: $isSortingExpanded)
+                if files.count == 1 {
+                    TagInfoSection(tagData: tagData)
+                }
+            }
+        }
+    }
+
+    var filename: String {
+        files.count == 1 ? files[0].name : NSLocalizedString("BatchEdit.MultipleFiles", comment: "")
     }
 
     var moreMenu: some View {

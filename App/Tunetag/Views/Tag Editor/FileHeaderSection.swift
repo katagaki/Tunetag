@@ -10,34 +10,49 @@ import SwiftUI
 
 struct FileHeaderSection: View {
 
-    @State var filename: String
+    var filename: String
     @Binding var albumArt: Data?
     @Binding var selectedAlbumArt: PhotosPickerItem?
     @Binding var isAlbumArtRemoved: Bool
-    @State var showsPhotosPicker: Bool = true
-
-    @Environment(\.verticalSizeClass) var verticalSizeClass
 
     var body: some View {
         Section {
-            Group {
-                if verticalSizeClass == .compact {
-                    // Landscape on iPhone: keep the header short so the fields stay visible
-                    HStack(alignment: .center, spacing: 16.0) {
-                        albumArtView(size: 96.0)
-                        details(alignment: .leading)
-                    }
-                } else {
-                    VStack(alignment: .center, spacing: 16.0) {
-                        albumArtView(size: 180.0)
-                        details(alignment: .center)
-                    }
-                }
-            }
+            FileHeaderView(filename: filename,
+                           albumArt: $albumArt,
+                           selectedAlbumArt: $selectedAlbumArt,
+                           isAlbumArtRemoved: $isAlbumArtRemoved)
             .listRowBackground(Color.clear)
             .frame(maxWidth: .infinity)
         }
         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+    }
+}
+
+struct FileHeaderView: View {
+
+    var filename: String
+    @Binding var albumArt: Data?
+    @Binding var selectedAlbumArt: PhotosPickerItem?
+    @Binding var isAlbumArtRemoved: Bool
+    var showsPhotosPicker: Bool = true
+
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+
+    var body: some View {
+        Group {
+            if verticalSizeClass == .compact {
+                // Landscape on iPhone: keep the header short so the fields stay visible
+                HStack(alignment: .center, spacing: 16.0) {
+                    albumArtView(size: 96.0)
+                    details(alignment: .leading)
+                }
+            } else {
+                VStack(alignment: .center, spacing: 16.0) {
+                    albumArtView(size: 180.0)
+                    details(alignment: .center)
+                }
+            }
+        }
     }
 
     func albumArtView(size: CGFloat) -> some View {
