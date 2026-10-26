@@ -56,7 +56,11 @@ struct TagEditorView: View {
         .scrollDismissesKeyboard(.interactively)
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
-            if !(usesWideLayout && isSidebarShown) {
+            // While typing, the keyboard bar takes the place of the Save button
+            if focusedField != nil {
+                keyboardBar
+                    .padding([.leading, .trailing, .bottom])
+            } else if !(usesWideLayout && isSidebarShown) {
                 saveControls
                     .frame(maxWidth: usesWideLayout ? 480.0 : .infinity)
                     .padding([.leading, .trailing, .bottom])
@@ -270,5 +274,27 @@ struct SaveButtonStyleModifier: ViewModifier {
             content
                 .clipShape(RoundedRectangle(cornerRadius: 99))
         }
+    }
+}
+
+extension TagEditorView {
+
+    var keyboardBar: some View {
+        HStack {
+            if files.count > 1, let field = focusedField {
+                // Puts a field back to keeping each file's own value
+                Button("BatchEdit.DontChange") {
+                    tagData[keyPath: field.keyPath] = nil
+                }
+                .disabled(tagData[keyPath: field.keyPath] == nil)
+            }
+            Spacer()
+            Button("Shared.DismissKeyboard", systemImage: "keyboard.chevron.compact.down") {
+                focusedField = nil
+            }
+            .labelStyle(.iconOnly)
+        }
+        .buttonStyle(.glass)
+        .controlSize(.large)
     }
 }
