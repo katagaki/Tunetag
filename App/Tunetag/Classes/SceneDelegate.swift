@@ -13,7 +13,6 @@ import UniformTypeIdentifiers
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let navigationManager = NavigationManager()
 
     // MARK: - Scene lifecycle
 
@@ -31,13 +30,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         browser.shouldShowFileExtensions = true
         browser.delegate = self
 
-        let moreButton = UIBarButtonItem(
+        // The title shows when Files moves the button into its overflow menu
+        let attributionsButton = UIBarButtonItem(
+            title: String(localized: "More.Attributions"),
             image: UIImage(systemName: "info.circle"),
-            style: .plain,
-            target: self,
-            action: #selector(moreTapped)
+            primaryAction: UIAction { [weak self] _ in self?.presentAttributions() }
         )
-        browser.additionalLeadingNavigationBarButtonItems = [moreButton]
+        browser.additionalLeadingNavigationBarButtonItems = [attributionsButton]
 
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = browser
@@ -66,11 +65,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.set(true, forKey: "ReviewPrompted")
     }
 
-    @objc private func moreTapped() {
+    private func presentAttributions() {
         guard let browser = window?.rootViewController else { return }
-        let hostingController = UIHostingController(
-            rootView: MoreView().environmentObject(navigationManager)
-        )
+        let hostingController = UIHostingController(rootView: AttributionsView())
         browser.present(hostingController, animated: true)
     }
 
