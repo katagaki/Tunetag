@@ -27,6 +27,7 @@ struct TagEditorView: View {
     @State var showsSaveBeforeExtendedTags: Bool = false
     @State var showsRemoveTagsConfirmation: Bool = false
     @State var showsRemoveTagsError: Bool = false
+    @State var isSidebarShown: Bool = false
     @FocusState var focusedField: FocusedField?
 
     // Support for iOS 16
@@ -55,52 +56,11 @@ struct TagEditorView: View {
         .scrollDismissesKeyboard(.interactively)
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
-            VStack(spacing: 4) {
-                if !tagData.hasValidNumbers {
-                    Text("TagEditor.InvalidNumber.Message")
-                        .font(.footnote)
-                        .foregroundStyle(.red)
-                }
-                Button {
-                    if saveState == .notSaved && !isReadingTags {
-                        Task {
-                            changeSaveState(to: .saving)
-                            UIApplication.shared.isIdleTimerDisabled = true
-                            let allSaved = await saveAllTagData()
-                            await readAllTagData()
-                            UIApplication.shared.isIdleTimerDisabled = false
-                            changeSaveState(to: allSaved ? .saved : .notSaved)
-                            showsSaveError = !allSaved
-                        }
-                    }
-                } label: {
-                    switch saveState {
-                    case .notSaved:
-                        LargeButtonLabel(iconName: "square.and.arrow.down.fill", text: "Shared.Save")
-                            .bold()
-                            .frame(maxWidth: .infinity)
-                    case .saving:
-                        ProgressDonut(progress: totalFileCount > 0
-                                      ? Double(savedFileCount) / Double(totalFileCount)
-                                      : 0)
-                            .frame(width: 24.0, height: 24.0)
-                            .padding(.all, 8.0)
-                    case .saved:
-                        Image(systemName: "checkmark")
-                            .font(.body)
-                            .bold()
-                            .padding([.top, .bottom], 8.0)
-                            .frame(maxWidth: .infinity)
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(tintForSaveState)
-                .modifier(SaveButtonStyleModifier())
-                .frame(minHeight: 56.0)
+            if !(usesWideLayout && isSidebarShown) {
+                saveControls
+                    .frame(maxWidth: usesWideLayout ? 480.0 : .infinity)
+                    .padding([.leading, .trailing, .bottom])
             }
-            .frame(maxWidth: usesWideLayout ? 480.0 : .infinity)
-            .padding([.leading, .trailing, .bottom])
-            .disabled(isReadingTags || !tagData.hasValidNumbers)
         }
         .task {
             showsLegacyTip = !UserDefaults.standard.bool(forKey: "LegacyTipsHidden.AvailableTokensTip")
@@ -160,12 +120,15 @@ struct TagEditorView: View {
         if usesWideLayout {
             TagEditorWideLayout(tagData: $tagData, focusedField: $focusedField,
                                 isBatchEditing: files.count > 1, showsAdvancedInformation: files.count == 1,
-                                isSortingExpanded: $isSortingExpanded) {
+                                isSortingExpanded: $isSortingExpanded,
+                                isSidebarShown: $isSidebarShown) {
                 FileHeaderView(filename: filename,
                                albumArt: $tagData.albumArt,
                                selectedAlbumArt: $selectedAlbumArt,
                                isAlbumArtRemoved: $isAlbumArtRemoved)
                 .frame(maxWidth: .infinity)
+            } sidebarFooter: {
+                saveControls
             }
         } else {
             List {
@@ -186,6 +149,53 @@ struct TagEditorView: View {
                 }
             }
         }
+    }
+
+    var saveControls: some View {
+        VStack(spacing: 4) {
+            if !tagData.hasValidNumbers {
+                Text("TagEditor.InvalidNumber.Message")
+                    .font(.footnote)
+                    .foregroundStyle(.red)
+            }
+            Button {
+                if saveState == .notSaved && !isReadingTags {
+                    Task {
+                        changeSaveState(to: .saving)
+                        UIApplication.shared.isIdleTimerDisabled = true
+                        let allSaved = await saveAllTagData()
+                        await readAllTagData()
+                        UIApplication.shared.isIdleTimerDisabled = false
+                        changeSaveState(to: allSaved ? .saved : .notSaved)
+                        showsSaveError = !allSaved
+                    }
+                }
+            } label: {
+                switch saveState {
+                case .notSaved:
+                    LargeButtonLabel(iconName: "square.and.arrow.down.fill", text: "Shared.Save")
+                        .bold()
+                        .frame(maxWidth: .infinity)
+                case .saving:
+                    ProgressDonut(progress: totalFileCount > 0
+                                  ? Double(savedFileCount) / Double(totalFileCount)
+                                  : 0)
+                        .frame(width: 24.0, height: 24.0)
+                        .padding(.all, 8.0)
+                case .saved:
+                    Image(systemName: "checkmark")
+                        .font(.body)
+                        .bold()
+                        .padding([.top, .bottom], 8.0)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(tintForSaveState)
+            .modifier(SaveButtonStyleModifier())
+            .frame(minHeight: 56.0)
+        }
+        .disabled(isReadingTags || !tagData.hasValidNumbers)
     }
 
     var filename: String {

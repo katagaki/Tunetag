@@ -8,28 +8,37 @@ import SwiftUI
 
 /// A desktop-style layout for wide windows, such as on iPad. Each section is a card, and its fields flow into as
 /// many columns as the window has room for.
-struct TagEditorWideLayout<Header: View>: View {
+struct TagEditorWideLayout<Header: View, SidebarFooter: View>: View {
 
     @Binding var tagData: Tag
     var focusedField: FocusState<FocusedField?>.Binding
     var isBatchEditing: Bool
     var showsAdvancedInformation: Bool
     @Binding var isSortingExpanded: Bool
+    /// Set while the sidebar is shown, so the editor can move its Save button into it.
+    @Binding var isSidebarShown: Bool
     @ViewBuilder var header: () -> Header
+    @ViewBuilder var sidebarFooter: () -> SidebarFooter
 
-    @State var width: CGFloat = 0.0
+    @State var size: CGSize = .zero
     @State var isAdvancedExpanded: Bool = false
 
-    /// Windows at least this wide show the file header in a sidebar next to the fields.
-    static var sidebarMinimumWidth: CGFloat { 900.0 }
+    /// Shows the file header in a sidebar next to the fields when the window is wide, or landscape-shaped and
+    /// wide enough that a header on top would push the fields down.
+    var showsSidebar: Bool {
+        size.width >= 900.0 || (size.width >= 700.0 && size.width > size.height * 1.2)
+    }
 
     var body: some View {
         Group {
-            if width >= Self.sidebarMinimumWidth {
+            if showsSidebar {
                 HStack(alignment: .top, spacing: 0.0) {
                     ScrollView {
-                        header()
-                            .padding(24.0)
+                        VStack(spacing: 24.0) {
+                            header()
+                            sidebarFooter()
+                        }
+                        .padding(24.0)
                     }
                     .frame(width: 300.0)
                     Divider()
@@ -50,10 +59,13 @@ struct TagEditorWideLayout<Header: View>: View {
         }
         .background(Color(.systemGroupedBackground))
         .environment(\.isTagFieldBoxed, true)
-        .onGeometryChange(for: CGFloat.self) { proxy in
-            proxy.size.width
-        } action: { newWidth in
-            width = newWidth
+        .onGeometryChange(for: CGSize.self) { proxy in
+            proxy.size
+        } action: { newSize in
+            size = newSize
+        }
+        .onChange(of: showsSidebar, initial: true) { _, newValue in
+            isSidebarShown = newValue
         }
     }
 
