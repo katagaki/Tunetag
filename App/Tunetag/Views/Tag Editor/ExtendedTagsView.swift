@@ -54,6 +54,7 @@ struct ExtendedTagsView: View {
                 ContentUnavailableView("ExtendedTags.Empty", systemImage: "tag.slash")
             }
         }
+        .editorListBackground()
         .disabled(isLoading || isSaving)
         .scrollDismissesKeyboard(.interactively)
         .navigationTitle("TagEditor.ExtendedTags")

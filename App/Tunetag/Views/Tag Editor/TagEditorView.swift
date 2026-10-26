@@ -148,6 +148,7 @@ struct TagEditorView: View {
                     TagInfoSection(tagData: tagData)
                 }
             }
+            .editorListBackground()
         }
     }
 
