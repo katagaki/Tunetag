@@ -45,6 +45,7 @@ struct ExtendedTagsView: View {
             .onDelete { offsets in
                 fields.remove(atOffsets: offsets)
             }
+            .editorRowBackground()
         }
         .overlay {
             if isLoading {

@@ -28,4 +28,9 @@ extension View {
         scrollContentBackground(.hidden)
             .background(EditorBackground())
     }
+
+    /// Gives list rows a material background so they sit on the gradient like frosted cards.
+    func editorRowBackground() -> some View {
+        listRowBackground(Rectangle().fill(.regularMaterial))
+    }
 }

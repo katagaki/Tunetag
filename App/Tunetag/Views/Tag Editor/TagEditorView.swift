@@ -137,6 +137,7 @@ struct TagEditorView: View {
                                message: "TagEditor.Tip.Tokens.Text",
                                image: Image(systemName: "info.circle.fill"),
                                showsTip: $showsLegacyTip)
+                    .editorRowBackground()
                 }
                 FileHeaderSection(filename: filename,
                                   albumArt: $tagData.albumArt,
@@ -144,8 +145,10 @@ struct TagEditorView: View {
                                   isAlbumArtRemoved: $isAlbumArtRemoved)
                 TagDataSection(tagData: $tagData, focusedField: $focusedField,
                                isBatchEditing: files.count > 1, isSortingExpanded: $isSortingExpanded)
+                .editorRowBackground()
                 if files.count == 1 {
                     TagInfoSection(tagData: tagData)
+                        .editorRowBackground()
                 }
             }
             .editorListBackground()

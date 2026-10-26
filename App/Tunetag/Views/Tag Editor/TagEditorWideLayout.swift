@@ -183,13 +183,7 @@ struct TagFieldCard<Content: View>: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(16.0)
-                .background(Color(.secondarySystemGroupedBackground),
-                            in: RoundedRectangle(cornerRadius: 16.0))
-                .overlay {
-                    // Keeps the card edges visible against the tinted background in light and dark mode
-                    RoundedRectangle(cornerRadius: 16.0)
-                        .strokeBorder(Color.primary.opacity(0.08), lineWidth: 1.0)
-                }
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16.0))
                 if let footer {
                     Text(LocalizedStringKey(footer))
                         .font(.footnote)
