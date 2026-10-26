@@ -59,13 +59,26 @@ public struct LookupMatch: Identifiable, Sendable {
         }
     }
 
-    /// Matches files to tracks by their disc and track numbers, then gives the remaining files
-    /// the remaining tracks in album order.
-    public static func matched(_ matches: [LookupMatch], to tracks: [OnlineTrack]) -> [LookupMatch] {
+    /// Matches recognized files to their exact tracks, then other files by their disc and track numbers,
+    /// then gives the remaining files the remaining tracks in album order.
+    /// - Parameter identifiers: Store or recording IDs recognized for each file, by path.
+    public static func matched(_ matches: [LookupMatch],
+                               to tracks: [OnlineTrack],
+                               identifiers: [String: Set<String>] = [:]) -> [LookupMatch] {
         var matches = matches
         var usedTrackIDs = Set<OnlineTrack.ID>()
         for index in matches.indices {
             matches[index].trackID = nil
+            guard let fileIdentifiers = identifiers[matches[index].path] else { continue }
+            if let track = tracks.first(where: { track in
+                !usedTrackIDs.contains(track.id) &&
+                    [track.storeID, track.recordingID].contains { $0.map(fileIdentifiers.contains) ?? false }
+            }) {
+                matches[index].trackID = track.id
+                usedTrackIDs.insert(track.id)
+            }
+        }
+        for index in matches.indices where matches[index].trackID == nil {
             guard let number = matches[index].currentTrack else { continue }
             let disc = matches[index].currentDisc ?? 1
             if let track = tracks.first(where: { $0.number == number && $0.disc == disc }),

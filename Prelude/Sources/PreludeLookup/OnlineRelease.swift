@@ -50,6 +50,9 @@ public struct OnlineTrack: Identifiable, Hashable, Sendable {
     public var number: Int
     public var disc: Int
     public var duration: TimeInterval?
+    /// The iTunes Store's ID for the song, which is also its Apple Music ID.
+    public var storeID: String?
+    /// The MusicBrainz recording ID.
     public var recordingID: String?
 
     public var id: String {
@@ -61,12 +64,14 @@ public struct OnlineTrack: Identifiable, Hashable, Sendable {
                 number: Int,
                 disc: Int = 1,
                 duration: TimeInterval? = nil,
+                storeID: String? = nil,
                 recordingID: String? = nil) {
         self.title = title
         self.artist = artist
         self.number = number
         self.disc = disc
         self.duration = duration
+        self.storeID = storeID
         self.recordingID = recordingID
     }
 }

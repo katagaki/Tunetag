@@ -6,7 +6,7 @@
 import PreludeLookup
 import SwiftUI
 
-/// Searches an online source for an album to fill the selected files' tags from.
+/// Finds the album that the selected files belong to, by recognizing their audio or by searching for their names.
 struct OnlineLookupView: View {
 
     @Environment(\.dismiss) var dismiss
@@ -14,14 +14,14 @@ struct OnlineLookupView: View {
     var files: [FSFile]
     var onApply: () -> Void
 
-    @AppStorage("OnlineLookup.Source") var source: LookupSource = .iTunes
     @State var artist: String
     @State var album: String
+    @State var path: [OnlineRelease] = []
     @State var results: [OnlineRelease] = []
+    @State var identifiers: [String: Set<String>] = [:]
+    @State var isIdentifying: Bool = true
     @State var isSearching: Bool = false
-    @State var hasSearched: Bool = false
     @State var showsSearchError: Bool = false
-    @State var latestSearchID = UUID()
     @FocusState var isAlbumFocused: Bool
 
     init(files: [FSFile], artist: String, album: String, onApply: @escaping () -> Void) {
@@ -32,60 +32,28 @@ struct OnlineLookupView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
-                Section {
-                    Picker("OnlineLookup.Source", selection: $source) {
-                        ForEach(LookupSource.allCases) { source in
-                            Text(verbatim: source.name)
-                                .tag(source)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                    .listRowBackground(Color.clear)
-                    .listRowInsets(EdgeInsets())
-                }
-                Section {
-                    VStack(alignment: .leading, spacing: 2.0) {
-                        TagFieldLabel(title: "Tag.Artist")
-                            .accessibilityHidden(true)
-                        TextField("", text: $artist)
-                            .tagFieldBox()
-                            .submitLabel(.next)
-                            .onSubmit { isAlbumFocused = true }
-                            .accessibilityLabel(Text("Tag.Artist"))
-                    }
-                    VStack(alignment: .leading, spacing: 2.0) {
-                        TagFieldLabel(title: "Tag.Album")
-                            .accessibilityHidden(true)
-                        TextField("", text: $album)
-                            .tagFieldBox()
-                            .focused($isAlbumFocused)
-                            .submitLabel(.search)
-                            .onSubmit { Task { await search() } }
-                            .accessibilityLabel(Text("Tag.Album"))
-                    }
-                    Button("OnlineLookup.Search", systemImage: "magnifyingglass") {
-                        Task { await search() }
-                    }
-                    .disabled(!canSearch || isSearching)
-                }
-                .autocorrectionDisabled()
-                .editorRowBackground()
-                if isSearching {
+                if isIdentifying || isSearching {
                     Section {
-                        ProgressView()
-                            .controlSize(.large)
-                            .frame(maxWidth: .infinity)
-                            .padding()
+                        VStack(spacing: 12.0) {
+                            ProgressView()
+                                .controlSize(.large)
+                            if isIdentifying {
+                                Text("OnlineLookup.Identifying")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
                     }
                     .listRowBackground(Color.clear)
-                } else if hasSearched && results.isEmpty {
+                } else if results.isEmpty {
                     Section {
                         ContentUnavailableView.search
                     }
                     .listRowBackground(Color.clear)
-                } else if !results.isEmpty {
+                } else {
                     Section {
                         ForEach(results) { release in
                             NavigationLink(value: release) {
@@ -97,13 +65,16 @@ struct OnlineLookupView: View {
                     }
                     .editorRowBackground()
                 }
+                if !isIdentifying {
+                    searchSection
+                }
             }
             .editorListBackground()
             .scrollDismissesKeyboard(.interactively)
             .navigationTitle("OnlineLookup.Title")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: OnlineRelease.self) { release in
-                OnlineReleaseView(release: release, files: files) {
+                OnlineReleaseView(release: release, files: files, identifiers: identifiers) {
                     onApply()
                     dismiss()
                 }
@@ -124,17 +95,42 @@ struct OnlineLookupView: View {
             .alert("OnlineLookup.SearchFailed", isPresented: $showsSearchError) {
                 Button("Shared.OK", role: .cancel) { }
             }
-            .onChange(of: source) { _, _ in
-                if hasSearched {
-                    Task { await search() }
-                }
-            }
             .task {
-                if canSearch && !hasSearched {
-                    await search()
-                }
+                await identify()
             }
         }
+    }
+
+    var searchSection: some View {
+        Section {
+            VStack(alignment: .leading, spacing: 2.0) {
+                TagFieldLabel(title: "Tag.Artist")
+                    .accessibilityHidden(true)
+                TextField("", text: $artist)
+                    .tagFieldBox()
+                    .submitLabel(.next)
+                    .onSubmit { isAlbumFocused = true }
+                    .accessibilityLabel(Text("Tag.Artist"))
+            }
+            VStack(alignment: .leading, spacing: 2.0) {
+                TagFieldLabel(title: "Tag.Album")
+                    .accessibilityHidden(true)
+                TextField("", text: $album)
+                    .tagFieldBox()
+                    .focused($isAlbumFocused)
+                    .submitLabel(.search)
+                    .onSubmit { Task { await search() } }
+                    .accessibilityLabel(Text("Tag.Album"))
+            }
+            Button("OnlineLookup.Search", systemImage: "magnifyingglass") {
+                Task { await search() }
+            }
+            .disabled(!canSearch || isSearching)
+        } header: {
+            ListSectionHeader(text: "OnlineLookup.SearchByName")
+        }
+        .autocorrectionDisabled()
+        .editorRowBackground()
     }
 
     var canSearch: Bool {
@@ -149,24 +145,31 @@ struct OnlineLookupView: View {
         album.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
+    /// Recognizes the files and opens their album straight away if one clearly fits.
+    func identify() async {
+        guard isIdentifying else { return }
+        let result = await AutomaticLookup.lookUp(filesAt: files.map(\.path),
+                                                  artist: trimmedArtist, album: trimmedAlbum)
+        results = result.releases
+        identifiers = result.identifiers
+        withAnimation {
+            isIdentifying = false
+        }
+        if let bestMatch = result.bestMatch {
+            path = [bestMatch]
+        }
+    }
+
     func search() async {
-        guard canSearch else { return }
-        let searchID = UUID()
-        latestSearchID = searchID
+        guard canSearch, !isSearching else { return }
         isAlbumFocused = false
         isSearching = true
         results = []
-        let found: [OnlineRelease]?
         do {
-            found = try await source.search(artist: trimmedArtist, album: trimmedAlbum)
+            results = try await AutomaticLookup.search(artist: trimmedArtist, album: trimmedAlbum)
         } catch {
-            found = nil
+            showsSearchError = true
         }
-        // A newer search, such as after changing the source, replaces this one
-        guard latestSearchID == searchID else { return }
-        results = found ?? []
-        showsSearchError = found == nil
-        hasSearched = true
         isSearching = false
     }
 }
@@ -206,6 +209,7 @@ struct OnlineReleaseRow: View {
             parts.append(String(localized: "OnlineLookup.TrackCount \(trackCount)"))
         }
         parts.append(contentsOf: release.details)
+        parts.append(release.source.name)
         return parts.joined(separator: " · ")
     }
 }

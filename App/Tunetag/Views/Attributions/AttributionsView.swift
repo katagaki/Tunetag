@@ -26,6 +26,23 @@ struct AttributionsView: View {
                 } header: {
                     ListSectionHeader(text: "More.GitHub")
                 }
+                Section {
+                    ForEach(DataSource.all) { source in
+                        Link(destination: source.url) {
+                            HStack {
+                                Text(verbatim: source.name)
+                                Spacer()
+                                Image(systemName: "arrow.up.right")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .tint(.primary)
+                    }
+                } header: {
+                    ListSectionHeader(text: "Attributions.DataSources")
+                } footer: {
+                    Text("Attributions.DataSources.Footer")
+                }
                 ForEach(dependencies) { dependency in
                     Section {
                         DisclosureGroup("Attributions.License") {
@@ -56,6 +73,20 @@ struct AttributionsView: View {
             }
         }
     }
+}
+
+/// Online services that tags looked up online may come from.
+private struct DataSource: Identifiable {
+    var id: String { name }
+    let name: String
+    let url: URL
+
+    static let all: [DataSource] = [
+        DataSource(name: "Shazam", url: URL(string: "https://www.shazam.com")!),
+        DataSource(name: "iTunes", url: URL(string: "https://www.apple.com/itunes/")!),
+        DataSource(name: "MusicBrainz", url: URL(string: "https://musicbrainz.org")!),
+        DataSource(name: "Cover Art Archive", url: URL(string: "https://coverartarchive.org")!)
+    ]
 }
 
 private struct Dependency: Identifiable, Decodable {

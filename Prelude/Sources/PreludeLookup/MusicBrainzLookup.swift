@@ -12,9 +12,22 @@ enum MusicBrainzLookup {
         var releases: [Release]
     }
 
+    private struct RecordingSearchResponse: Decodable {
+        var recordings: [SearchedRecording]
+    }
+
+    private struct SearchedRecording: Decodable {
+        var id: String
+        var score: Int?
+        var isrcs: [String]?
+        var artistCredit: [ArtistCredit]?
+        var releases: [Release]?
+    }
+
     private struct Release: Decodable {
         var id: String
         var title: String
+        var status: String?
         var date: String?
         var country: String?
         var disambiguation: String?
@@ -108,6 +121,56 @@ enum MusicBrainzLookup {
         let data = try await LookupSource.data(from: components.url!)
         let response = try decoder.decode(SearchResponse.self, from: data)
         return response.releases.map { release(from: $0) }
+    }
+
+    /// A recording found by its ISRC or title, with the releases it's on.
+    struct RecordingMatch {
+        var recordingID: String
+        var isrcs: [String]
+        var releases: [OnlineRelease]
+    }
+
+    /// Finds recordings by their ISRCs in a single request.
+    static func recordings(isrcs: [String]) async throws -> [RecordingMatch] {
+        guard !isrcs.isEmpty else { return [] }
+        let query = "isrc:(\(isrcs.map(escaped).joined(separator: " OR ")))"
+        return try await recordings(query: query, minimumScore: 0)
+    }
+
+    /// Finds recordings by title and artist, keeping only close matches.
+    static func recordings(title: String, artist: String?) async throws -> [RecordingMatch] {
+        let query = [("recording", title), ("artist", artist ?? "")]
+            .filter { !$0.1.isEmpty }
+            .map { "\($0.0):(\(escaped($0.1)))" }
+            .joined(separator: " AND ")
+        return try await recordings(query: query, minimumScore: 90)
+    }
+
+    private static func recordings(query: String, minimumScore: Int) async throws -> [RecordingMatch] {
+        var components = URLComponents(string: "https://musicbrainz.org/ws/2/recording")!
+        components.queryItems = [
+            URLQueryItem(name: "query", value: query),
+            URLQueryItem(name: "fmt", value: "json"),
+            URLQueryItem(name: "limit", value: "25")
+        ]
+        let data = try await LookupSource.data(from: components.url!)
+        let response = try decoder.decode(RecordingSearchResponse.self, from: data)
+        return response.recordings
+            .filter { ($0.score ?? 100) >= minimumScore }
+            .map { recording in
+                let artist = artistName(recording.artistCredit)
+                // Official releases first, since bootlegs and promos rarely match files
+                let releases = (recording.releases ?? [])
+                    .sorted { ($0.status == "Official" ? 0 : 1) < ($1.status == "Official" ? 0 : 1) }
+                    .map { release in
+                        var onlineRelease = self.release(from: release)
+                        if onlineRelease.artist.isEmpty, let artist {
+                            onlineRelease.artist = artist
+                        }
+                        return onlineRelease
+                    }
+                return RecordingMatch(recordingID: recording.id, isrcs: recording.isrcs ?? [], releases: releases)
+            }
     }
 
     static func detail(for release: OnlineRelease) async throws -> OnlineReleaseDetail {

@@ -83,6 +83,31 @@ final class PreludeLookupTests: XCTestCase {
         XCTAssertEqual(matches.compactMap(\.trackID), ["1-1", "1-2"])
     }
 
+    func testMatchesRecognizedFilesToTheirExactTracks() {
+        var tracks = Self.tracks
+        tracks[2].storeID = "123"
+        let files = [
+            LookupMatch(path: "/recognized.m4a", currentTrack: 1),
+            LookupMatch(path: "/numbered.m4a", currentTrack: 1, currentDisc: 2)
+        ]
+        let identifiers = ["/recognized.m4a": Set(["123"]), "/numbered.m4a": Set(["recording"])]
+        let matches = LookupMatch.matched(files, to: tracks, identifiers: identifiers)
+        XCTAssertEqual(matches.map(\.trackID), ["1-3", "2-1"])
+    }
+
+    func testSpreadsRecognitionAcrossFiles() {
+        XCTAssertEqual(AudioRecognizer.spread(Array(1...10), count: 3), [1, 5, 10])
+        XCTAssertEqual(AudioRecognizer.spread([1, 2], count: 3), [1, 2])
+    }
+
+    func testPicksBestMatchOnlyWhenItHasTheMostSongs() {
+        let first = OnlineRelease(id: "1", source: .iTunes, title: "Album", artist: "")
+        let second = OnlineRelease(id: "2", source: .iTunes, title: "Compilation", artist: "")
+        XCTAssertEqual(AutomaticLookup.bestMatch([(first, 3), (second, 1)])?.id, "1")
+        XCTAssertNil(AutomaticLookup.bestMatch([(first, 2), (second, 2)]))
+        XCTAssertEqual(AutomaticLookup.bestMatch([(second, 1)])?.id, "2")
+    }
+
     func testBuildsTagFromChosenFields() {
         let track = Self.tracks[3]
         let tag = Self.detail.tag(for: track, fields: [.title, .track, .disc])

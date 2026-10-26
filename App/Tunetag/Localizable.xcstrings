@@ -239,6 +239,244 @@
         }
       }
     },
+    "Attributions.DataSources" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Sources"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مصادر البيانات"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenquellen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fuentes de datos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sources de données"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "डेटा स्रोत"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sumber Data"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fonti dei dati"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データ提供元"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터 출처"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sumber Data"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gegevensbronnen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Źródła danych"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fontes de dados"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แหล่งข้อมูล"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veri Kaynakları"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nguồn dữ liệu"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据来源"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "資料來源"
+          }
+        }
+      }
+    },
+    "Attributions.DataSources.Footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tags and album art looked up online may be provided by iTunes, MusicBrainz, and the Cover Art Archive. Songs are recognized with Shazam."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قد يتم توفير الوسوم وصور الألبومات التي يتم البحث عنها عبر الإنترنت بواسطة iTunes وMusicBrainz وCover Art Archive. يتم التعرّف على الأغاني باستخدام Shazam."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online gesuchte Tags und Albumcover können von iTunes, MusicBrainz und dem Cover Art Archive stammen. Songs werden mit Shazam erkannt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las etiquetas y portadas buscadas en línea pueden proceder de iTunes, MusicBrainz y Cover Art Archive. Las canciones se reconocen con Shazam."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les tags et pochettes recherchés en ligne peuvent provenir d’iTunes, de MusicBrainz et du Cover Art Archive. Les morceaux sont reconnus avec Shazam."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ऑनलाइन खोजे गए टैग और एल्बम आर्ट iTunes, MusicBrainz और Cover Art Archive से मिल सकते हैं। गाने Shazam से पहचाने जाते हैं।"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tag dan sampul album yang dicari secara online dapat disediakan oleh iTunes, MusicBrainz, dan Cover Art Archive. Lagu dikenali dengan Shazam."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I tag e le copertine cercati online possono essere forniti da iTunes, MusicBrainz e Cover Art Archive. I brani vengono riconosciuti con Shazam."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オンラインで検索したタグとアートワークは、iTunes、MusicBrainz、Cover Art Archiveから提供される場合があります。曲の認識にはShazamを使用しています。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "온라인에서 찾은 태그와 앨범 아트는 iTunes, MusicBrainz 및 Cover Art Archive에서 제공될 수 있습니다. 노래는 Shazam으로 인식됩니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tag dan kulit album yang dicari dalam talian mungkin disediakan oleh iTunes, MusicBrainz dan Cover Art Archive. Lagu dikenal pasti dengan Shazam."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online opgezochte tags en albumhoezen kunnen afkomstig zijn van iTunes, MusicBrainz en het Cover Art Archive. Nummers worden herkend met Shazam."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tagi i okładki wyszukane online mogą pochodzić z iTunes, MusicBrainz i Cover Art Archive. Utwory są rozpoznawane za pomocą Shazam."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As tags e capas buscadas on-line podem ser fornecidas pelo iTunes, MusicBrainz e Cover Art Archive. As músicas são reconhecidas com o Shazam."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แท็กและภาพปกอัลบั้มที่ค้นหาออนไลน์อาจมาจาก iTunes, MusicBrainz และ Cover Art Archive เพลงจะถูกระบุด้วย Shazam"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çevrimiçi aranan etiketler ve albüm kapakları iTunes, MusicBrainz ve Cover Art Archive tarafından sağlanabilir. Şarkılar Shazam ile tanınır."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thẻ và ảnh bìa album tra cứu trực tuyến có thể được cung cấp bởi iTunes, MusicBrainz và Cover Art Archive. Bài hát được nhận dạng bằng Shazam."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在线查找的标签和专辑插图可能由 iTunes、MusicBrainz 和 Cover Art Archive 提供。歌曲通过 Shazam 识别。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "線上查詢的標籤和專輯插圖可能由 iTunes、MusicBrainz 和 Cover Art Archive 提供。歌曲透過 Shazam 辨識。"
+          }
+        }
+      }
+    },
     "Attributions.License" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1905,6 +2143,125 @@
         }
       }
     },
+    "OnlineLookup.Identifying" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifying songs…"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جارٍ التعرّف على الأغاني…"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Songs werden erkannt …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identificando canciones…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identification des morceaux…"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "गाने पहचाने जा रहे हैं…"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mengenali lagu…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identificazione dei brani…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "曲を認識中…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "노래 인식 중…"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mengecam lagu…"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nummers herkennen…"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozpoznawanie utworów…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identificando músicas…"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กำลังระบุเพลง…"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şarkılar tanınıyor…"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đang nhận dạng bài hát…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在识别歌曲…"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在辨識歌曲…"
+          }
+        }
+      }
+    },
     "OnlineLookup.LoadFailed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2149,115 +2506,115 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Files are matched to tracks by their disc and track numbers, then in order. Tap a file to choose a different track."
+            "value" : "Recognized files are matched to their tracks. Other files are matched by their disc and track numbers, then in order. Tap a file to choose a different track."
           }
         },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تتم مطابقة الملفات مع المقاطع حسب رقم القرص ورقم المقطع، ثم حسب الترتيب. اضغط على ملف لاختيار مقطع آخر."
+            "value" : "تتم مطابقة الملفات التي تم التعرّف عليها مع مقاطعها. وتتم مطابقة الملفات الأخرى حسب رقم القرص ورقم المقطع، ثم حسب الترتيب. اضغط على ملف لاختيار مقطع آخر."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dateien werden anhand ihrer CD- und Titelnummern den Titeln zugeordnet, danach in Reihenfolge. Tippe auf eine Datei, um einen anderen Titel auszuwählen."
+            "value" : "Erkannte Dateien werden ihren Titeln zugeordnet. Andere Dateien werden anhand ihrer CD- und Titelnummern zugeordnet, danach in Reihenfolge. Tippe auf eine Datei, um einen anderen Titel auszuwählen."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Los archivos se asocian a las pistas por su número de disco y de pista, y después por orden. Toca un archivo para elegir otra pista."
+            "value" : "Los archivos reconocidos se asocian a sus pistas. Los demás se asocian por su número de disco y de pista, y después por orden. Toca un archivo para elegir otra pista."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les fichiers sont associés aux pistes selon leurs numéros de disque et de piste, puis dans l’ordre. Touchez un fichier pour choisir une autre piste."
+            "value" : "Les fichiers reconnus sont associés à leurs pistes. Les autres fichiers sont associés selon leurs numéros de disque et de piste, puis dans l’ordre. Touchez un fichier pour choisir une autre piste."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "फ़ाइलों को पहले डिस्क और ट्रैक नंबर से, फिर क्रम से ट्रैक से मिलाया जाता है। कोई दूसरा ट्रैक चुनने के लिए फ़ाइल पर टैप करें।"
+            "value" : "पहचानी गई फ़ाइलों को उनके ट्रैक से मिलाया जाता है। अन्य फ़ाइलों को डिस्क और ट्रैक नंबर से, फिर क्रम से मिलाया जाता है। कोई दूसरा ट्रैक चुनने के लिए फ़ाइल पर टैप करें।"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "File dicocokkan dengan trek berdasarkan nomor disk dan nomor trek, lalu berdasarkan urutan. Ketuk file untuk memilih trek lain."
+            "value" : "File yang dikenali dicocokkan dengan treknya. File lain dicocokkan berdasarkan nomor disk dan nomor trek, lalu berdasarkan urutan. Ketuk file untuk memilih trek lain."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "I file vengono abbinati ai brani in base al numero di disco e di brano, poi in ordine. Tocca un file per scegliere un altro brano."
+            "value" : "I file riconosciuti vengono abbinati ai rispettivi brani. Gli altri file vengono abbinati in base al numero di disco e di brano, poi in ordine. Tocca un file per scegliere un altro brano."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ファイルはディスク番号とトラック番号、次に順番でトラックと照合されます。別のトラックを選ぶには、ファイルをタップしてください。"
+            "value" : "認識されたファイルは該当するトラックと照合されます。その他のファイルはディスク番号とトラック番号、次に順番で照合されます。別のトラックを選ぶには、ファイルをタップしてください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "파일은 디스크 번호와 트랙 번호, 그다음 순서대로 트랙과 연결됩니다. 다른 트랙을 선택하려면 파일을 탭하세요."
+            "value" : "인식된 파일은 해당 트랙과 연결됩니다. 다른 파일은 디스크 번호와 트랙 번호, 그다음 순서대로 연결됩니다. 다른 트랙을 선택하려면 파일을 탭하세요."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fail dipadankan dengan trek mengikut nombor cakera dan nombor trek, kemudian mengikut susunan. Ketik fail untuk memilih trek lain."
+            "value" : "Fail yang dikenal pasti dipadankan dengan trek masing-masing. Fail lain dipadankan mengikut nombor cakera dan nombor trek, kemudian mengikut susunan. Ketik fail untuk memilih trek lain."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bestanden worden aan nummers gekoppeld op basis van schijf- en tracknummer, daarna op volgorde. Tik op een bestand om een ander nummer te kiezen."
+            "value" : "Herkende bestanden worden aan hun nummers gekoppeld. Andere bestanden worden gekoppeld op basis van schijf- en tracknummer, daarna op volgorde. Tik op een bestand om een ander nummer te kiezen."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pliki są dopasowywane do utworów według numeru płyty i utworu, a następnie według kolejności. Stuknij plik, aby wybrać inny utwór."
+            "value" : "Rozpoznane pliki są dopasowywane do ich utworów. Pozostałe pliki są dopasowywane według numeru płyty i utworu, a następnie według kolejności. Stuknij plik, aby wybrać inny utwór."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Os arquivos são associados às faixas pelo número do disco e da faixa e, depois, pela ordem. Toque em um arquivo para escolher outra faixa."
+            "value" : "Os arquivos reconhecidos são associados às suas faixas. Os demais são associados pelo número do disco e da faixa e, depois, pela ordem. Toque em um arquivo para escolher outra faixa."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ไฟล์จะจับคู่กับแทร็กตามหมายเลขดิสก์และหมายเลขแทร็ก จากนั้นตามลำดับ แตะไฟล์เพื่อเลือกแทร็กอื่น"
+            "value" : "ไฟล์ที่ระบุได้จะจับคู่กับแทร็กของตน ไฟล์อื่นจะจับคู่ตามหมายเลขดิสก์และหมายเลขแทร็ก จากนั้นตามลำดับ แตะไฟล์เพื่อเลือกแทร็กอื่น"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dosyalar parçalarla önce disk ve parça numaralarına, ardından sıraya göre eşleştirilir. Farklı bir parça seçmek için bir dosyaya dokunun."
+            "value" : "Tanınan dosyalar kendi parçalarıyla eşleştirilir. Diğer dosyalar önce disk ve parça numaralarına, ardından sıraya göre eşleştirilir. Farklı bir parça seçmek için bir dosyaya dokunun."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Các tệp được ghép với bài hát theo số đĩa và số bài, sau đó theo thứ tự. Chạm vào một tệp để chọn bài hát khác."
+            "value" : "Các tệp được nhận dạng sẽ được ghép với bài hát tương ứng. Các tệp khác được ghép theo số đĩa và số bài, sau đó theo thứ tự. Chạm vào một tệp để chọn bài hát khác."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "文件会先按光盘编号和曲目编号、再按顺序与曲目匹配。轻点文件可选择其他曲目。"
+            "value" : "已识别的文件会与对应的曲目匹配。其他文件会先按光盘编号和曲目编号、再按顺序匹配。轻点文件可选择其他曲目。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "檔案會先依光碟編號與曲目編號、再依順序與曲目配對。點一下檔案即可選擇其他曲目。"
+            "value" : "已辨識的檔案會與對應的曲目配對。其他檔案會先依光碟編號與曲目編號、再依順序配對。點一下檔案即可選擇其他曲目。"
           }
         }
       }
@@ -2738,6 +3095,125 @@
         }
       }
     },
+    "OnlineLookup.SearchByName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search by Name"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "البحث بالاسم"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach Name suchen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar por nombre"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher par nom"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नाम से खोजें"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cari berdasarkan Nama"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca per nome"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前で検索"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이름으로 검색"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cari mengikut Nama"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoeken op naam"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szukaj według nazwy"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar por nome"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค้นหาตามชื่อ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ada Göre Ara"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tìm theo tên"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按名称搜索"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "依名稱搜尋"
+          }
+        }
+      }
+    },
     "OnlineLookup.SearchFailed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2853,125 +3329,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法搜尋。請檢查你的網際網路連線，然後再試一次。"
-          }
-        }
-      }
-    },
-    "OnlineLookup.Source" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Source"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "المصدر"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quelle"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fuente"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Source"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "स्रोत"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sumber"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fonte"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "検索元"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "검색 소스"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sumber"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bron"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Źródło"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fonte"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "แหล่งข้อมูล"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kaynak"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nguồn"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "来源"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "來源"
           }
         }
       }

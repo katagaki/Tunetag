@@ -11,6 +11,8 @@ struct OnlineReleaseView: View {
 
     var release: OnlineRelease
     var files: [FSFile]
+    /// Track IDs recognized for each file, by path.
+    var identifiers: [String: Set<String>] = [:]
     var onApply: () -> Void
 
     @AppStorage("OnlineLookup.Fields") var storedFields: String =
@@ -152,7 +154,7 @@ struct OnlineReleaseView: View {
         async let fileMatches = LookupMatch.read(paths: files.map(\.path))
         do {
             let loaded = try await release.source.detail(for: release)
-            matches = LookupMatch.matched(await fileMatches, to: loaded.tracks)
+            matches = LookupMatch.matched(await fileMatches, to: loaded.tracks, identifiers: identifiers)
             detail = loaded
         } catch {
             _ = await fileMatches

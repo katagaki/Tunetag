@@ -58,6 +58,9 @@ public enum LookupSource: String, CaseIterable, Identifiable, Sendable {
 
     /// Downloads data, failing on anything other than a successful response.
     public static func data(from url: URL) async throws -> Data {
+        if url.host() == "musicbrainz.org" {
+            await musicBrainzThrottle.wait()
+        }
         var request = URLRequest(url: url)
         request.setValue(userAgent, forHTTPHeaderField: "User-Agent")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -68,11 +71,35 @@ public enum LookupSource: String, CaseIterable, Identifiable, Sendable {
         return data
     }
 
+    /// MusicBrainz allows one request per second from each client.
+    private static let musicBrainzThrottle = RequestThrottle(interval: 1.0)
+
     /// MusicBrainz asks every client to identify itself with its name, version, and contact details.
     private static var userAgent: String {
         let info = Bundle.main.infoDictionary
         let name = info?["CFBundleName"] as? String ?? "Prelude"
         let version = info?["CFBundleShortVersionString"] as? String ?? "1.0"
         return "\(name)/\(version) ( https://github.com/katagaki/Tunetag )"
+    }
+}
+
+/// Spaces out requests to a service with a rate limit.
+actor RequestThrottle {
+
+    let interval: TimeInterval
+    private var nextRequest = Date.distantPast
+
+    init(interval: TimeInterval) {
+        self.interval = interval
+    }
+
+    func wait() async {
+        let now = Date()
+        let start = max(now, nextRequest)
+        nextRequest = start.addingTimeInterval(interval)
+        let delay = start.timeIntervalSince(now)
+        if delay > 0 {
+            try? await Task.sleep(for: .seconds(delay))
+        }
     }
 }
