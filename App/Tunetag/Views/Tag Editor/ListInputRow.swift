@@ -22,7 +22,7 @@ struct ListInputRow: View {
             TagFieldLabel(title: title)
                 .accessibilityHidden(true)
             TextField(placeholder,
-                      text: Binding(get: { value ?? "" }, set: { value = $0 }),
+                      text: keepAwareBinding($value),
                       axis: isMultiline ? .vertical : .horizontal)
             .lineLimit(isMultiline ? 1...8 : 1...1)
             .tagFieldBox()
@@ -61,7 +61,7 @@ struct ListNumberPairRow: View {
                 .accessibilityHidden(true)
             HStack(alignment: .firstTextBaseline, spacing: 8.0) {
                 TextField(placeholder(for: number, fallback: ""),
-                          text: Binding(get: { number ?? "" }, set: { number = $0 }))
+                          text: keepAwareBinding($number))
                 .tagFieldBox()
                 .focused(focusedField, equals: numberField)
                 .accessibilityLabel(Text(NSLocalizedString(title, comment: "")))
@@ -70,7 +70,7 @@ struct ListNumberPairRow: View {
                     .foregroundStyle(.tertiary)
                     .accessibilityHidden(true)
                 TextField(placeholder(for: total, fallback: String(localized: "Tag.Total")),
-                          text: Binding(get: { total ?? "" }, set: { total = $0 }))
+                          text: keepAwareBinding($total))
                 .tagFieldBox()
                 .focused(focusedField, equals: totalField)
                 .accessibilityLabel(Text(verbatim: totalAccessibilityLabel))
@@ -165,6 +165,18 @@ struct ListCompilationRow: View {
         } label: {
             Text("Tag.Compilation")
         }
+    }
+}
+
+/// Binds a text field to an optional value. Text fields write back an empty string when they're focused, which
+/// would turn a field that keeps each file's value into one that clears it, so empty writes are ignored while the
+/// value is nil. Use the keyboard's Don't Change button to go back to keeping values.
+func keepAwareBinding(_ value: Binding<String?>) -> Binding<String> {
+    Binding {
+        value.wrappedValue ?? ""
+    } set: { newValue in
+        guard !(value.wrappedValue == nil && newValue.isEmpty) else { return }
+        value.wrappedValue = newValue
     }
 }
 
