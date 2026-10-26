@@ -7303,115 +7303,115 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تستخدم تطبيقات الموسيقى هذه الحقول لفرز مكتبتك. على سبيل المثال، يؤدي “Beatles, The” إلى فرز “The Beatles” تحت حرف B."
+            "value" : "تستخدم تطبيقات الموسيقى هذه الحقول لفرز مكتبتك. على سبيل المثال، يؤدي إدخال “Unwelcome School” في العنوان (الفرز) إلى فرز المقطع تحت حرف U مهما كان عنوانه."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Musik-Apps sortieren deine Mediathek danach. Mit „Beatles, The“ wird z. B. „The Beatles“ unter B einsortiert."
+            "value" : "Musik-Apps sortieren deine Mediathek danach. Steht z. B. „Unwelcome School“ in Titel (Sortierung), wird der Track unabhängig von seinem Titel unter U einsortiert."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music apps use these to sort your library. For example, “Beatles, The” sorts “The Beatles” under B."
+            "value" : "Music apps use these to sort your library. For example, entering “Unwelcome School” in Sort Title sorts the track under U, whatever its title is."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Las apps de música los usan para ordenar tu biblioteca. Por ejemplo, «Beatles, The» ordena «The Beatles» en la B."
+            "value" : "Las apps de música los usan para ordenar tu biblioteca. Por ejemplo, si escribes «Unwelcome School» en Título (orden), la pista se ordena en la U, sea cual sea su título."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les apps de musique s'en servent pour trier votre bibliothèque. Par exemple, « Beatles, The » classe « The Beatles » à la lettre B."
+            "value" : "Les apps de musique s'en servent pour trier votre bibliothèque. Par exemple, avec « Unwelcome School » dans Titre (tri), la piste est classée à la lettre U, quel que soit son titre."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "संगीत ऐप्स आपकी लाइब्रेरी को क्रमबद्ध करने के लिए इनका उपयोग करते हैं। उदाहरण के लिए, “Beatles, The” से “The Beatles” B के अंतर्गत आता है।"
+            "value" : "संगीत ऐप्स आपकी लाइब्रेरी को क्रमबद्ध करने के लिए इनका उपयोग करते हैं। उदाहरण के लिए, शीर्षक (क्रम) में “Unwelcome School” डालने पर, शीर्षक चाहे जो भी हो, ट्रैक U के अंतर्गत आता है।"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aplikasi musik menggunakan ini untuk mengurutkan perpustakaan Anda. Misalnya, “Beatles, The” mengurutkan “The Beatles” di bawah B."
+            "value" : "Aplikasi musik menggunakan ini untuk mengurutkan perpustakaan Anda. Misalnya, mengisi Judul (urutan) dengan “Unwelcome School” akan mengurutkan trek di bawah U, apa pun judulnya."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le app musicali li usano per ordinare la libreria. Ad esempio, «Beatles, The» ordina «The Beatles» sotto la B."
+            "value" : "Le app musicali li usano per ordinare la libreria. Ad esempio, inserendo «Unwelcome School» in Titolo (ordinamento), il brano viene ordinato sotto la U, qualunque sia il titolo."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ミュージックアプリでライブラリを並べ替えるときに使われます。例えば「Beatles, The」と入力すると、「The Beatles」がBの項目に並びます。"
+            "value" : "ミュージックアプリでライブラリを並べ替えるときに使われます。例えば「タイトルの読み」に「Unwelcome School」と入力すると、タイトルにかかわらずUの項目に並びます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "음악 앱에서 보관함을 정렬할 때 사용됩니다. 예를 들어 “Beatles, The”를 입력하면 “The Beatles”가 B 항목에 정렬됩니다."
+            "value" : "음악 앱에서 보관함을 정렬할 때 사용됩니다. 예를 들어 제목 정렬에 “Unwelcome School”을 입력하면 제목과 관계없이 트랙이 U 항목에 정렬됩니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apl muzik menggunakan ini untuk mengisih pustaka anda. Contohnya, “Beatles, The” mengisih “The Beatles” di bawah B."
+            "value" : "Apl muzik menggunakan ini untuk mengisih pustaka anda. Contohnya, mengisi Tajuk (isihan) dengan “Unwelcome School” mengisih lagu di bawah U, walau apa pun tajuknya."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Muziekapps gebruiken deze om je bibliotheek te sorteren. Met ‘Beatles, The’ wordt ‘The Beatles’ bijvoorbeeld onder de B gesorteerd."
+            "value" : "Muziekapps gebruiken deze om je bibliotheek te sorteren. Met ‘Unwelcome School’ in Titel (sortering) wordt het nummer bijvoorbeeld onder de U gesorteerd, wat de titel ook is."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aplikacje muzyczne używają ich do sortowania biblioteki. Na przykład „Beatles, The” umieszcza „The Beatles” pod literą B."
+            "value" : "Aplikacje muzyczne używają ich do sortowania biblioteki. Na przykład wpisanie „Unwelcome School” w polu Tytuł (sortowanie) umieszcza utwór pod literą U niezależnie od tytułu."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Os apps de música usam esses campos para ordenar sua biblioteca. Por exemplo, “Beatles, The” coloca “The Beatles” na letra B."
+            "value" : "Os apps de música usam esses campos para ordenar sua biblioteca. Por exemplo, inserir “Unwelcome School” em Título (ordenação) coloca a faixa na letra U, seja qual for o título."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "แอปเพลงใช้ข้อมูลนี้ในการเรียงคลังเพลง เช่น “Beatles, The” จะเรียง “The Beatles” ไว้ในหมวด B"
+            "value" : "แอปเพลงใช้ข้อมูลนี้ในการเรียงคลังเพลง เช่น การใส่ “Unwelcome School” ใน ชื่อเพลง (เรียงลำดับ) จะเรียงแทร็กไว้ในหมวด U ไม่ว่าชื่อเพลงจะเป็นอะไร"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Müzik uygulamaları arşivinizi sıralamak için bunları kullanır. Örneğin “Beatles, The”, “The Beatles”ı B harfinin altına yerleştirir."
+            "value" : "Müzik uygulamaları arşivinizi sıralamak için bunları kullanır. Örneğin Başlık (sıralama) alanına “Unwelcome School” yazmak, başlığı ne olursa olsun parçayı U harfinin altına yerleştirir."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Các ứng dụng nhạc dùng các trường này để sắp xếp thư viện. Ví dụ, “Beatles, The” sẽ xếp “The Beatles” vào mục B."
+            "value" : "Các ứng dụng nhạc dùng các trường này để sắp xếp thư viện. Ví dụ, nhập “Unwelcome School” vào Tiêu Đề (sắp xếp) sẽ xếp bài hát vào mục U, bất kể tiêu đề là gì."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音乐 App 会按这些内容对资料库进行排序。例如，“Beatles, The”会将“The Beatles”排在 B 下。"
+            "value" : "音乐 App 会按这些内容对资料库进行排序。例如，在“标题排序”中输入“Unwelcome School”，无论标题是什么，该曲目都会排在 U 下。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音樂 App 會依這些內容排序資料庫。例如，「Beatles, The」會將「The Beatles」排在 B 底下。"
+            "value" : "音樂 App 會依這些內容排序資料庫。例如，在「標題排序」中輸入「Unwelcome School」，無論標題為何，該曲目都會排在 U 底下。"
           }
         }
       }
