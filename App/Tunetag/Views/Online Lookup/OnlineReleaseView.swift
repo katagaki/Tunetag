@@ -3,6 +3,7 @@
 //  Tunetag
 //
 
+import PreludeLookup
 import SwiftUI
 
 /// Shows how an online release's tracks match the selected files, and applies the chosen fields.
@@ -148,7 +149,7 @@ struct OnlineReleaseView: View {
     func load() async {
         guard detail == nil else { return }
         isLoading = true
-        async let fileMatches = LookupMatch.read(files)
+        async let fileMatches = LookupMatch.read(paths: files.map(\.path))
         do {
             let loaded = try await release.source.detail(for: release)
             matches = LookupMatch.matched(await fileMatches, to: loaded.tracks)
@@ -171,11 +172,11 @@ struct OnlineReleaseView: View {
         let artwork = albumArt
         let tracks = Dictionary(uniqueKeysWithValues: detail.tracks.map { ($0.id, $0) })
         let pairs = matches.compactMap { match in
-            match.trackID.flatMap { tracks[$0] }.map { (match.file, $0) }
+            match.trackID.flatMap { tracks[$0] }.map { (match.path, $0) }
         }
         let allApplied = await Task.detached(priority: .userInitiated) {
-            pairs.map { file, track in
-                detail.apply(track, fields: fields, albumArt: artwork, to: file)
+            pairs.map { path, track in
+                detail.apply(track, fields: fields, albumArt: artwork, toFileAt: path)
             }
             .allSatisfy { $0 }
         }.value
@@ -207,7 +208,7 @@ struct LookupMatchRow: View {
         } label: {
             HStack(spacing: 12.0) {
                 VStack(alignment: .leading, spacing: 2.0) {
-                    Text(verbatim: match.file.name)
+                    Text(verbatim: match.filename)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)

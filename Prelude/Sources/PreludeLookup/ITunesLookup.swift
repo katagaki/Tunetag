@@ -1,6 +1,6 @@
 //
 //  ITunesLookup.swift
-//  Tunetag
+//  PreludeLookup
 //
 
 import Foundation
@@ -29,12 +29,7 @@ enum ITunesLookup {
         var copyright: String?
     }
 
-    /// Searches the store of the user's region, so that titles appear as they are sold locally.
-    private static var country: String {
-        Locale.current.region?.identifier ?? "US"
-    }
-
-    static func search(artist: String, album: String) async throws -> [OnlineRelease] {
+    static func search(artist: String, album: String, country: String) async throws -> [OnlineRelease] {
         let term = [artist, album].filter { !$0.isEmpty }.joined(separator: " ")
         var components = URLComponents(string: "https://itunes.apple.com/search")!
         components.queryItems = [
@@ -44,7 +39,7 @@ enum ITunesLookup {
             URLQueryItem(name: "limit", value: "50")
         ]
         let response = try await fetch(components.url!)
-        return response.results.compactMap { release(from: $0) }
+        return response.results.compactMap { release(from: $0, country: country) }
     }
 
     static func detail(for release: OnlineRelease) async throws -> OnlineReleaseDetail {
@@ -52,7 +47,9 @@ enum ITunesLookup {
         components.queryItems = [
             URLQueryItem(name: "id", value: release.id),
             URLQueryItem(name: "entity", value: "song"),
-            URLQueryItem(name: "country", value: country)
+            URLQueryItem(name: "country", value: release.country ?? "US"),
+            // Lookups return 50 results unless asked for more, which cuts off longer albums
+            URLQueryItem(name: "limit", value: "200")
         ]
         let response = try await fetch(components.url!)
         guard let collection = response.results.first(where: { $0.wrapperType == "collection" }) else {
@@ -69,7 +66,7 @@ enum ITunesLookup {
                                    duration: result.trackTimeMillis.map { $0 / 1000.0 })
             }
             .sorted { ($0.disc, $0.number) < ($1.disc, $1.number) }
-        return OnlineReleaseDetail(release: self.release(from: collection) ?? release,
+        return OnlineReleaseDetail(release: self.release(from: collection, country: release.country) ?? release,
                                    tracks: tracks,
                                    genre: collection.primaryGenreName,
                                    copyright: collection.copyright)
@@ -79,11 +76,12 @@ enum ITunesLookup {
         try JSONDecoder().decode(Response.self, from: try await LookupSource.data(from: url))
     }
 
-    private static func release(from result: Result) -> OnlineRelease? {
+    private static func release(from result: Result, country: String?) -> OnlineRelease? {
         guard result.wrapperType == "collection", let id = result.collectionId,
               let title = result.collectionName else { return nil }
         return OnlineRelease(id: String(id),
                              source: .iTunes,
+                             country: country,
                              title: title,
                              artist: result.artistName ?? "",
                              year: result.releaseDate.map { String($0.prefix(4)) },

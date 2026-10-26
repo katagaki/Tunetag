@@ -3,6 +3,7 @@
 //  Tunetag
 //
 
+import PreludeLookup
 import SwiftUI
 
 /// Searches an online source for an album to fill the selected files' tags from.
@@ -20,6 +21,7 @@ struct OnlineLookupView: View {
     @State var isSearching: Bool = false
     @State var hasSearched: Bool = false
     @State var showsSearchError: Bool = false
+    @State var latestSearchID = UUID()
     @FocusState var isAlbumFocused: Bool
 
     init(files: [FSFile], artist: String, album: String, onApply: @escaping () -> Void) {
@@ -44,21 +46,46 @@ struct OnlineLookupView: View {
                     .listRowInsets(EdgeInsets())
                 }
                 Section {
-                    TextField("Tag.Artist", text: $artist)
-                        .submitLabel(.next)
-                        .onSubmit { isAlbumFocused = true }
-                    TextField("Tag.Album", text: $album)
-                        .focused($isAlbumFocused)
-                        .submitLabel(.search)
-                        .onSubmit { Task { await search() } }
+                    VStack(alignment: .leading, spacing: 2.0) {
+                        TagFieldLabel(title: "Tag.Artist")
+                            .accessibilityHidden(true)
+                        TextField("", text: $artist)
+                            .tagFieldBox()
+                            .submitLabel(.next)
+                            .onSubmit { isAlbumFocused = true }
+                            .accessibilityLabel(Text("Tag.Artist"))
+                    }
+                    VStack(alignment: .leading, spacing: 2.0) {
+                        TagFieldLabel(title: "Tag.Album")
+                            .accessibilityHidden(true)
+                        TextField("", text: $album)
+                            .tagFieldBox()
+                            .focused($isAlbumFocused)
+                            .submitLabel(.search)
+                            .onSubmit { Task { await search() } }
+                            .accessibilityLabel(Text("Tag.Album"))
+                    }
                     Button("OnlineLookup.Search", systemImage: "magnifyingglass") {
                         Task { await search() }
                     }
-                    .disabled(!canSearch)
+                    .disabled(!canSearch || isSearching)
                 }
                 .autocorrectionDisabled()
                 .editorRowBackground()
-                if !results.isEmpty {
+                if isSearching {
+                    Section {
+                        ProgressView()
+                            .controlSize(.large)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                    }
+                    .listRowBackground(Color.clear)
+                } else if hasSearched && results.isEmpty {
+                    Section {
+                        ContentUnavailableView.search
+                    }
+                    .listRowBackground(Color.clear)
+                } else if !results.isEmpty {
                     Section {
                         ForEach(results) { release in
                             NavigationLink(value: release) {
@@ -69,14 +96,6 @@ struct OnlineLookupView: View {
                         ListSectionHeader(text: "OnlineLookup.Results")
                     }
                     .editorRowBackground()
-                }
-            }
-            .overlay {
-                if isSearching {
-                    ProgressView()
-                        .controlSize(.large)
-                } else if hasSearched && results.isEmpty {
-                    ContentUnavailableView.search
                 }
             }
             .editorListBackground()
@@ -132,16 +151,21 @@ struct OnlineLookupView: View {
 
     func search() async {
         guard canSearch else { return }
+        let searchID = UUID()
+        latestSearchID = searchID
         isAlbumFocused = false
         isSearching = true
         results = []
+        let found: [OnlineRelease]?
         do {
-            results = try await source.search(artist: trimmedArtist, album: trimmedAlbum)
-        } catch is CancellationError {
-            // A newer search replaced this one
+            found = try await source.search(artist: trimmedArtist, album: trimmedAlbum)
         } catch {
-            showsSearchError = true
+            found = nil
         }
+        // A newer search, such as after changing the source, replaces this one
+        guard latestSearchID == searchID else { return }
+        results = found ?? []
+        showsSearchError = found == nil
         hasSearched = true
         isSearching = false
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E4C0FFEE2EB4000000000003 /* Prelude in Frameworks */ = {isa = PBXBuildFile; productRef = E4C0FFEE2EB4000000000002 /* Prelude */; };
+		E4C0FFEE2EB4000000000005 /* PreludeLookup in Frameworks */ = {isa = PBXBuildFile; productRef = E4C0FFEE2EB4000000000004 /* PreludeLookup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4C0FFEE2EB4000000000003 /* Prelude in Frameworks */,
+				E4C0FFEE2EB4000000000005 /* PreludeLookup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 			name = Tunetag;
 			packageProductDependencies = (
 				E4C0FFEE2EB4000000000002 /* Prelude */,
+				E4C0FFEE2EB4000000000004 /* PreludeLookup */,
 			);
 			productName = Tunetag;
 			productReference = E432A7072AA9FD5E0043BCC9 /* Tunetag.app */;
@@ -449,6 +452,10 @@
 		E4C0FFEE2EB4000000000002 /* Prelude */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Prelude;
+		};
+		E4C0FFEE2EB4000000000004 /* PreludeLookup */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PreludeLookup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
