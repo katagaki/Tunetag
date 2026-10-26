@@ -50,6 +50,11 @@ struct ListNumberPairRow: View {
     var focusedField: FocusState<FocusedField?>.Binding
     var isBatchEditing: Bool = false
 
+    /// Built from already-localized parts so it doesn't add a format string to the catalog
+    var totalAccessibilityLabel: String {
+        String(localized: String.LocalizationValue(title)) + ", " + String(localized: "Tag.Total")
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 2.0) {
             TagFieldLabel(title: title)
@@ -68,7 +73,7 @@ struct ListNumberPairRow: View {
                           text: Binding(get: { total ?? "" }, set: { total = $0 }))
                 .tagFieldBox()
                 .focused(focusedField, equals: totalField)
-                .accessibilityLabel(Text("\(NSLocalizedString(title, comment: "")), \(String(localized: "Tag.Total"))"))
+                .accessibilityLabel(Text(verbatim: totalAccessibilityLabel))
                 .accessibilityValue(accessibilityValue(for: total))
             }
         }
