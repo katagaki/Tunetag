@@ -1,13 +1,13 @@
 //
-//  ID3EngineTests.swift
-//  ID3Engine
+//  PreludeTests.swift
+//  Prelude
 //
 
 import Foundation
 import XCTest
-@testable import ID3Engine
+@testable import Prelude
 
-final class ID3EngineTests: XCTestCase {
+final class PreludeTests: XCTestCase {
 
     static let formats = ["mp3_v23_v1.mp3", "mp3_v24.mp3", "m4a_aac.m4a", "m4a_alac.m4a", "flac.flac",
                           "vorbis.ogg", "opus.opus", "wav.wav", "aiff.aiff"]
@@ -16,7 +16,7 @@ final class ID3EngineTests: XCTestCase {
 
     override func setUpWithError() throws {
         workDirectory = FileManager.default.temporaryDirectory
-            .appending(path: "ID3EngineTests-\(UUID().uuidString)")
+            .appending(path: "PreludeTests-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: workDirectory, withIntermediateDirectories: true)
     }
 
@@ -221,5 +221,15 @@ final class ID3EngineTests: XCTestCase {
         for ext in ["mp3", "m4a", "flac", "ogg", "opus", "wav", "aiff"] {
             XCTAssertTrue(extensions.contains(ext), ext)
         }
+    }
+
+    func testDisplayNames() {
+        XCTAssertEqual(TagKey.displayName(for: "ALBUMARTISTSORT"), "Album Artist Sort")
+        XCTAssertEqual(TagKey.displayName(for: "MUSICBRAINZ_ALBUMID"), "MusicBrainz Release ID")
+        XCTAssertEqual(TagKey.displayName(for: "COMMENT:ITUNNORM"), "Comment (Itunnorm)")
+        XCTAssertEqual(TagKey.displayName(for: "MY_CUSTOM_FIELD"), "My Custom Field")
+        XCTAssertEqual(TagKey.key(forDisplayName: "album artist sort"), "ALBUMARTISTSORT")
+        XCTAssertEqual(TagKey.key(forDisplayName: " Mood "), "MOOD")
+        XCTAssertEqual(TagKey.key(forDisplayName: "My Custom Field"), "MY_CUSTOM_FIELD")
     }
 }

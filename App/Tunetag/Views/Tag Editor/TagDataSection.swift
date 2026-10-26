@@ -5,7 +5,7 @@
 //  Created by シン・ジャスティン on 2023/09/09.
 //
 
-import ID3Engine
+import Prelude
 import SwiftUI
 
 struct TagDataSection: View {
@@ -27,8 +27,7 @@ struct TagDataSection: View {
             inputRow("Tag.BPM", $tagData.bpm, .bpm)
                 .keyboardType(.numberPad)
         } header: {
-            ListSectionHeader(text: "TagEditor.Section.Song")
-                .popoverTip(AvailableTokensTip(), arrowEdge: .bottom)
+            ListSectionHeader(text: "TagEditor.Section.Track")
         }
 
         Section {
@@ -59,30 +58,18 @@ struct TagDataSection: View {
 
         Section {
             if isSortingExpanded {
-                inputRow("Tag.Title", $tagData.titleSortOrder, .titleSortOrder)
-                inputRow("Tag.Artist", $tagData.artistSortOrder, .artistSortOrder)
-                inputRow("Tag.Album", $tagData.albumSortOrder, .albumSortOrder)
-                inputRow("Tag.AlbumArtist", $tagData.albumArtistSortOrder, .albumArtistSortOrder)
-                inputRow("Tag.Composer", $tagData.composerSortOrder, .composerSortOrder)
+                inputRow("Tag.SortTitle", $tagData.titleSortOrder, .titleSortOrder)
+                inputRow("Tag.SortArtist", $tagData.artistSortOrder, .artistSortOrder)
+                inputRow("Tag.SortAlbum", $tagData.albumSortOrder, .albumSortOrder)
+                inputRow("Tag.SortAlbumArtist", $tagData.albumArtistSortOrder, .albumArtistSortOrder)
+                inputRow("Tag.SortComposer", $tagData.composerSortOrder, .composerSortOrder)
             }
         } header: {
-            Button {
-                withAnimation(.snappy.speed(2)) {
-                    isSortingExpanded.toggle()
-                }
-            } label: {
-                HStack {
-                    ListSectionHeader(text: "TagEditor.Section.Sorting")
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.secondary)
-                        .rotationEffect(.degrees(isSortingExpanded ? 90.0 : 0.0))
-                }
-                .contentShape(Rectangle())
+            CollapsibleSectionHeader(text: "TagEditor.Section.Sorting", isExpanded: $isSortingExpanded)
+        } footer: {
+            if isSortingExpanded {
+                Text("TagEditor.Section.Sorting.Footer")
             }
-            .buttonStyle(.plain)
-            .accessibilityAddTraits(.isHeader)
         }
     }
 
@@ -97,26 +84,30 @@ struct TagInfoSection: View {
 
     var tagData: Tag
 
+    @State var isExpanded: Bool = false
+
     var body: some View {
-        if tagData.hasIdentifiers {
+        if tagData.hasIdentifiers || tagData.hasReplayGain {
             Section {
-                ListDetailRow(title: "Tag.ISRC", value: tagData.isrc)
-                ListDetailRow(title: "Tag.ReleaseID", value: tagData.musicBrainzReleaseID)
-                ListDetailRow(title: "Tag.RecordingID", value: tagData.musicBrainzRecordingID)
+                if isExpanded {
+                    if tagData.hasIdentifiers {
+                        ListDetailRow(title: "Tag.ISRC", value: tagData.isrc)
+                        ListDetailRow(title: "Tag.ReleaseID", value: tagData.musicBrainzReleaseID)
+                        ListDetailRow(title: "Tag.RecordingID", value: tagData.musicBrainzRecordingID)
+                    }
+                    if tagData.hasReplayGain {
+                        ListDetailRow(title: "Tag.TrackGain", value: tagData.replayGainTrackGain)
+                        ListDetailRow(title: "Tag.TrackPeak", value: tagData.replayGainTrackPeak)
+                        ListDetailRow(title: "Tag.AlbumGain", value: tagData.replayGainAlbumGain)
+                        ListDetailRow(title: "Tag.AlbumPeak", value: tagData.replayGainAlbumPeak)
+                    }
+                }
             } header: {
-                ListSectionHeader(text: "TagEditor.Section.Identifiers")
+                CollapsibleSectionHeader(text: "TagEditor.Section.AdvancedInformation", isExpanded: $isExpanded)
             } footer: {
-                Text("TagEditor.Section.Identifiers.Footer")
-            }
-        }
-        if tagData.hasReplayGain {
-            Section {
-                ListDetailRow(title: "Tag.TrackGain", value: tagData.replayGainTrackGain)
-                ListDetailRow(title: "Tag.TrackPeak", value: tagData.replayGainTrackPeak)
-                ListDetailRow(title: "Tag.AlbumGain", value: tagData.replayGainAlbumGain)
-                ListDetailRow(title: "Tag.AlbumPeak", value: tagData.replayGainAlbumPeak)
-            } header: {
-                ListSectionHeader(text: "TagEditor.Section.ReplayGain")
+                if isExpanded && tagData.hasIdentifiers {
+                    Text("TagEditor.Section.Identifiers.Footer")
+                }
             }
         }
     }

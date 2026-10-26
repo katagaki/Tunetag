@@ -5,7 +5,7 @@
 //  Created by シン・ジャスティン on 2023/09/08.
 //
 
-import ID3Engine
+import Prelude
 import SwiftUI
 
 struct ListInputRow: View {
@@ -58,6 +58,7 @@ struct ListNumberPairRow: View {
                           text: Binding(get: { number ?? "" }, set: { number = $0 }))
                 .focused(focusedField, equals: numberField)
                 .accessibilityLabel(Text(NSLocalizedString(title, comment: "")))
+                .accessibilityValue(accessibilityValue(for: number))
                 Text(verbatim: "/")
                     .foregroundStyle(.tertiary)
                     .accessibilityHidden(true)
@@ -65,13 +66,19 @@ struct ListNumberPairRow: View {
                           text: Binding(get: { total ?? "" }, set: { total = $0 }))
                 .focused(focusedField, equals: totalField)
                 .accessibilityLabel(Text("\(NSLocalizedString(title, comment: "")), \(String(localized: "Tag.Total"))"))
+                .accessibilityValue(accessibilityValue(for: total))
             }
         }
         .keyboardType(.numberPad)
     }
 
+    /// The number fields are too narrow for "Don't Change", so mixed values show a dash instead.
     func placeholder(for value: String?, fallback: String) -> String {
-        isBatchEditing && value == nil ? String(localized: "BatchEdit.Keep") : fallback
+        isBatchEditing && value == nil ? "—" : fallback
+    }
+
+    func accessibilityValue(for value: String?) -> Text {
+        isBatchEditing && value == nil ? Text("BatchEdit.Keep") : Text(verbatim: value ?? "")
     }
 }
 

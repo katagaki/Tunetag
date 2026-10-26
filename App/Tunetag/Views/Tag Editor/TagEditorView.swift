@@ -5,8 +5,8 @@
 //  Created by シン・ジャスティン on 2023/09/08.
 //
 
-import ID3Engine
 import PhotosUI
+import Prelude
 import SwiftUI
 import TipKit
 
@@ -49,15 +49,6 @@ struct TagEditorView: View {
                            isBatchEditing: files.count > 1, isSortingExpanded: $isSortingExpanded)
             if files.count == 1 {
                 TagInfoSection(tagData: tagData)
-            }
-            Section {
-                AvailableTokenRow(tokenName: "FILENAME", tokenDescription: "TagEditor.Tokens.Filename.Description")
-                AvailableTokenRow(tokenName: "SPLITFRONT", tokenDescription: "TagEditor.Tokens.SplitFront.Description")
-                AvailableTokenRow(tokenName: "SPLITBACK", tokenDescription: "TagEditor.Tokens.SplitBack.Description")
-            } header: {
-                VStack(alignment: .leading, spacing: 2.0) {
-                    ListSectionHeader(text: "TagEditor.Tokens.Title")
-                }
             }
         }
         .disabled(saveState == .saving || isReadingTags)

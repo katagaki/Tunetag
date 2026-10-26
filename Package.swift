@@ -3,35 +3,35 @@
 import PackageDescription
 
 let package = Package(
-    name: "ID3Engine",
+    name: "Prelude",
     platforms: [
         .iOS(.v16),
         .macOS(.v13)
     ],
     products: [
-        .library(name: "ID3Engine", targets: ["ID3Engine"])
+        .library(name: "Prelude", targets: ["Prelude"])
     ],
     dependencies: [
         .package(url: "https://github.com/sbooth/CXXTagLib", from: "2.3.2")
     ],
     targets: [
         .target(
-            name: "CID3Engine",
+            name: "CPrelude",
             dependencies: [
                 .product(name: "taglib", package: "CXXTagLib")
             ],
-            path: "ID3Engine/Sources/CID3Engine",
+            path: "Prelude/Sources/CPrelude",
             publicHeadersPath: "include"
         ),
         .target(
-            name: "ID3Engine",
-            dependencies: ["CID3Engine"],
-            path: "ID3Engine/Sources/ID3Engine"
+            name: "Prelude",
+            dependencies: ["CPrelude"],
+            path: "Prelude/Sources/Prelude"
         ),
         .testTarget(
-            name: "ID3EngineTests",
-            dependencies: ["ID3Engine"],
-            path: "ID3Engine/Tests/ID3EngineTests",
+            name: "PreludeTests",
+            dependencies: ["Prelude"],
+            path: "Prelude/Tests/PreludeTests",
             resources: [.copy("Fixtures")]
         )
     ],

@@ -3,7 +3,7 @@
 //  Tunetag
 //
 
-import ID3Engine
+import Prelude
 import SwiftUI
 
 struct ExtendedTagsView: View {
@@ -32,14 +32,14 @@ struct ExtendedTagsView: View {
         List {
             ForEach($fields) { $field in
                 VStack(alignment: .leading, spacing: 2.0) {
-                    Text(verbatim: field.key)
-                        .font(.caption.monospaced())
+                    Text(verbatim: TagKey.displayName(for: field.key))
+                        .font(.caption)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
                         .accessibilityHidden(true)
                     TextField("ExtendedTags.Value", text: $field.value, axis: .vertical)
                         .lineLimit(1...8)
-                        .accessibilityLabel(Text(verbatim: field.key))
+                        .accessibilityLabel(Text(verbatim: TagKey.displayName(for: field.key)))
                 }
             }
             .onDelete { offsets in
@@ -92,7 +92,7 @@ struct ExtendedTagsView: View {
         }
         .alert("ExtendedTags.AddField", isPresented: $showsAddField) {
             TextField("ExtendedTags.FieldName", text: $newFieldKey)
-                .textInputAutocapitalization(.characters)
+                .textInputAutocapitalization(.words)
                 .autocorrectionDisabled()
             TextField("ExtendedTags.Value", text: $newFieldValue)
             Button("Shared.Cancel", role: .cancel) { }
@@ -115,7 +115,7 @@ struct ExtendedTagsView: View {
     }
 
     func normalizedKey(_ key: String) -> String {
-        key.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        TagKey.key(forDisplayName: key)
     }
 
     func addField() {
@@ -131,7 +131,10 @@ struct ExtendedTagsView: View {
         let properties = await Task.detached(priority: .userInitiated) {
             TagLibFile(path: path)?.properties ?? [:]
         }.value
-        let loaded = properties.keys.sorted().flatMap { key in
+        let sortedKeys = properties.keys.sorted {
+            TagKey.displayName(for: $0).localizedStandardCompare(TagKey.displayName(for: $1)) == .orderedAscending
+        }
+        let loaded = sortedKeys.flatMap { key in
             (properties[key] ?? []).map { Field(key: key, value: $0) }
         }
         fields = loaded

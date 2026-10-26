@@ -7,12 +7,12 @@ A batch audio tag editor built for iOS.
 | Path | Contents |
 |---|---|
 | `App/` | The Tunetag app. Open `App/Tunetag.xcodeproj`. |
-| `ID3Engine/` | The tag reading and writing engine, built on [TagLib](https://taglib.org) through [CXXTagLib](https://github.com/sbooth/CXXTagLib). |
-| `Package.swift` | Swift package manifest for ID3Engine. |
+| `Prelude/` | The tag reading and writing engine, built on [TagLib](https://taglib.org) through [CXXTagLib](https://github.com/sbooth/CXXTagLib). |
+| `Package.swift` | Swift package manifest for Prelude. |
 
-## ID3Engine
+## Prelude
 
-ID3Engine reads and writes tags in MP3, M4A, FLAC, Ogg Vorbis, Opus, WAV, AIFF and the other formats TagLib supports.
+Prelude reads and writes tags in MP3, M4A, FLAC, Ogg Vorbis, Opus, WAV, AIFF and the other formats TagLib supports.
 
 Add it to another project as a Swift package:
 
@@ -20,10 +20,10 @@ Add it to another project as a Swift package:
 .package(url: "https://github.com/katagaki/Tunetag", branch: "main")
 ```
 
-Then depend on the `ID3Engine` product:
+Then depend on the `Prelude` product:
 
 ```swift
-import ID3Engine
+import Prelude
 
 // Read
 guard let file = TagLibFile(path: path) else { return }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E4C0FFEE2EB4000000000003 /* ID3Engine in Frameworks */ = {isa = PBXBuildFile; productRef = E4C0FFEE2EB4000000000002 /* ID3Engine */; };
+		E4C0FFEE2EB4000000000003 /* Prelude in Frameworks */ = {isa = PBXBuildFile; productRef = E4C0FFEE2EB4000000000002 /* Prelude */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4C0FFEE2EB4000000000003 /* ID3Engine in Frameworks */,
+				E4C0FFEE2EB4000000000003 /* Prelude in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +78,7 @@
 			);
 			name = Tunetag;
 			packageProductDependencies = (
-				E4C0FFEE2EB4000000000002 /* ID3Engine */,
+				E4C0FFEE2EB4000000000002 /* Prelude */,
 			);
 			productName = Tunetag;
 			productReference = E432A7072AA9FD5E0043BCC9 /* Tunetag.app */;
@@ -446,9 +446,9 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E4C0FFEE2EB4000000000002 /* ID3Engine */ = {
+		E4C0FFEE2EB4000000000002 /* Prelude */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ID3Engine;
+			productName = Prelude;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

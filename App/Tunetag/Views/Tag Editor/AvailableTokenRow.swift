@@ -24,3 +24,21 @@ struct AvailableTokenRow: View {
         }
     }
 }
+
+struct AvailableTokensPopover: View {
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 12.0) {
+                ListSectionHeader(text: "TagEditor.Tokens.Title")
+                AvailableTokenRow(tokenName: "FILENAME", tokenDescription: "TagEditor.Tokens.Filename.Description")
+                Divider()
+                AvailableTokenRow(tokenName: "SPLITFRONT", tokenDescription: "TagEditor.Tokens.SplitFront.Description")
+                Divider()
+                AvailableTokenRow(tokenName: "SPLITBACK", tokenDescription: "TagEditor.Tokens.SplitBack.Description")
+            }
+            .padding()
+        }
+        .frame(width: 300.0, height: 280.0)
+    }
+}
