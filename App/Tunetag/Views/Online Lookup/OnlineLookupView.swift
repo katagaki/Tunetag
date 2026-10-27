@@ -6,7 +6,8 @@
 import PreludeLookup
 import SwiftUI
 
-/// Finds the album that the selected files belong to, by recognizing their audio or by searching for their names.
+/// Finds the album that the selected files belong to by recognizing their audio,
+/// or by looking it up by name if their songs aren't recognized.
 struct OnlineLookupView: View {
 
     @Environment(\.dismiss) var dismiss
@@ -22,6 +23,7 @@ struct OnlineLookupView: View {
     @State var isIdentifying: Bool = true
     @State var isSearching: Bool = false
     @State var showsSearchError: Bool = false
+    @State var showsNoMatch: Bool = false
     @FocusState var isAlbumFocused: Bool
 
     init(files: [FSFile], artist: String, album: String, onApply: @escaping () -> Void) {
@@ -50,7 +52,8 @@ struct OnlineLookupView: View {
                     .listRowBackground(Color.clear)
                 } else if results.isEmpty {
                     Section {
-                        ContentUnavailableView.search
+                        ContentUnavailableView("OnlineLookup.NotRecognized", systemImage: "music.note",
+                                               description: Text("OnlineLookup.NotRecognized.Description"))
                     }
                     .listRowBackground(Color.clear)
                 } else {
@@ -65,7 +68,8 @@ struct OnlineLookupView: View {
                     }
                     .editorRowBackground()
                 }
-                if !isIdentifying {
+                // Only offered when nothing was recognized, since files often have no tags to search for
+                if !isIdentifying && results.isEmpty {
                     searchSection
                 }
             }
@@ -93,6 +97,9 @@ struct OnlineLookupView: View {
                 }
             }
             .alert("OnlineLookup.SearchFailed", isPresented: $showsSearchError) {
+                Button("Shared.OK", role: .cancel) { }
+            }
+            .alert("OnlineLookup.NoMatch", isPresented: $showsNoMatch) {
                 Button("Shared.OK", role: .cancel) { }
             }
             .task {
@@ -148,8 +155,7 @@ struct OnlineLookupView: View {
     /// Recognizes the files and opens their album straight away if one clearly fits.
     func identify() async {
         guard isIdentifying else { return }
-        let result = await AutomaticLookup.lookUp(filesAt: files.map(\.path),
-                                                  artist: trimmedArtist, album: trimmedAlbum)
+        let result = await AutomaticLookup.lookUp(filesAt: files.map(\.path))
         results = result.releases
         identifiers = result.identifiers
         withAnimation {
@@ -160,13 +166,17 @@ struct OnlineLookupView: View {
         }
     }
 
+    /// Looks up the single album that best matches the artist and album, and opens it.
     func search() async {
         guard canSearch, !isSearching else { return }
         isAlbumFocused = false
         isSearching = true
-        results = []
         do {
-            results = try await AutomaticLookup.search(artist: trimmedArtist, album: trimmedAlbum)
+            if let release = try await AutomaticLookup.lookUp(artist: trimmedArtist, album: trimmedAlbum) {
+                path = [release]
+            } else {
+                showsNoMatch = true
+            }
         } catch {
             showsSearchError = true
         }

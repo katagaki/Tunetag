@@ -8,7 +8,7 @@ import Foundation
 /// Finds the album that files belong to without the user choosing a source.
 ///
 /// Songs are recognized by their audio with Shazam, then their album is looked up on iTunes, and on MusicBrainz if
-/// iTunes doesn't have it. If no songs are recognized, the files' artist and album are searched for instead.
+/// iTunes doesn't have it. If no songs are recognized, an album can be looked up by its artist and name instead.
 public enum AutomaticLookup {
 
     public struct Result: Sendable {
@@ -28,37 +28,31 @@ public enum AutomaticLookup {
         }
     }
 
-    /// Recognizes the files and finds their album.
-    /// - Parameters:
-    ///   - artist: The files' current artist, searched for if no songs are recognized.
-    ///   - album: The files' current album, searched for if no songs are recognized.
+    /// Recognizes the files and finds their album. Returns no releases if no songs are recognized,
+    /// since files often have no tags to search for until they are looked up.
     public static func lookUp(filesAt paths: [String],
-                              artist: String,
-                              album: String,
                               country: String = LookupSource.defaultCountry) async -> Result {
         let songs = await AudioRecognizer.recognize(filesAt: paths)
-        if !songs.isEmpty {
-            if let result = try? await iTunesReleases(for: songs, country: country), !result.releases.isEmpty {
-                return result
-            }
-            if let result = try? await musicBrainzReleases(for: songs), !result.releases.isEmpty {
-                return result
-            }
+        guard !songs.isEmpty else { return Result() }
+        if let result = try? await iTunesReleases(for: songs, country: country), !result.releases.isEmpty {
+            return result
         }
-        let releases = (try? await search(artist: artist, album: album, country: country)) ?? []
-        return Result(releases: releases, bestMatch: releases.count == 1 ? releases.first : nil)
+        if let result = try? await musicBrainzReleases(for: songs), !result.releases.isEmpty {
+            return result
+        }
+        return Result()
     }
 
-    /// Searches iTunes for an album by name, then MusicBrainz if iTunes doesn't have it.
-    public static func search(artist: String,
+    /// Finds the single album that best matches an artist and album name, from iTunes, or MusicBrainz if iTunes
+    /// doesn't have it. Returns nil if neither has a match.
+    public static func lookUp(artist: String,
                               album: String,
-                              country: String = LookupSource.defaultCountry) async throws -> [OnlineRelease] {
-        guard !artist.isEmpty || !album.isEmpty else { return [] }
-        let iTunesReleases = try? await LookupSource.iTunes.search(artist: artist, album: album, country: country)
-        if let iTunesReleases, !iTunesReleases.isEmpty {
-            return iTunesReleases
+                              country: String = LookupSource.defaultCountry) async throws -> OnlineRelease? {
+        guard !artist.isEmpty || !album.isEmpty else { return nil }
+        if let release = try? await LookupSource.iTunes.search(artist: artist, album: album, country: country).first {
+            return release
         }
-        return try await LookupSource.musicBrainz.search(artist: artist, album: album)
+        return try await LookupSource.musicBrainz.search(artist: artist, album: album).first
     }
 
     static func iTunesReleases(for songs: [RecognizedSong], country: String) async throws -> Result {

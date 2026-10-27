@@ -1,6 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {},
     "Alert.NoAudioFiles.Message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -242,12 +243,6 @@
     "Attributions.DataSources" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Data Sources"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -258,6 +253,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Datenquellen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Sources"
           }
         },
         "es" : {
@@ -361,12 +362,6 @@
     "Attributions.DataSources.Footer" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tags and album art looked up online may be provided by iTunes, MusicBrainz, and the Cover Art Archive. Songs are recognized with Shazam."
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -377,6 +372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Online gesuchte Tags und Albumcover können von iTunes, MusicBrainz und dem Cover Art Archive stammen. Songs werden mit Shazam erkannt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tags and album art looked up online may be provided by iTunes, MusicBrainz, and the Cover Art Archive. Songs are recognized with Shazam."
           }
         },
         "es" : {
@@ -1789,12 +1790,6 @@
     "OnlineLookup.AlbumArt" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Album Art"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1805,6 +1800,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Albumcover"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Album Art"
           }
         },
         "es" : {
@@ -1908,12 +1909,6 @@
     "OnlineLookup.Apply" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apply"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1924,6 +1919,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anwenden"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply"
           }
         },
         "es" : {
@@ -2027,12 +2028,6 @@
     "OnlineLookup.Fields" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fields to Overwrite"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2043,6 +2038,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zu überschreibende Felder"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fields to Overwrite"
           }
         },
         "es" : {
@@ -2146,12 +2147,6 @@
     "OnlineLookup.Identifying" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifying songs…"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2162,6 +2157,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Songs werden erkannt …"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifying songs…"
           }
         },
         "es" : {
@@ -2265,12 +2266,6 @@
     "OnlineLookup.LoadFailed" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Could Not Load Album"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2281,6 +2276,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Album konnte nicht geladen werden"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could Not Load Album"
           }
         },
         "es" : {
@@ -2384,12 +2385,6 @@
     "OnlineLookup.Matches" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tracks"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2400,6 +2395,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Titel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tracks"
           }
         },
         "es" : {
@@ -2503,12 +2504,6 @@
     "OnlineLookup.Matches.Footer" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recognized files are matched to their tracks. Other files are matched by their disc and track numbers, then in order. Tap a file to choose a different track."
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2519,6 +2514,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erkannte Dateien werden ihren Titeln zugeordnet. Andere Dateien werden anhand ihrer CD- und Titelnummern zugeordnet, danach in Reihenfolge. Tippe auf eine Datei, um einen anderen Titel auszuwählen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognized files are matched to their tracks. Other files are matched by their disc and track numbers, then in order. Tap a file to choose a different track."
           }
         },
         "es" : {
@@ -2622,12 +2623,6 @@
     "OnlineLookup.MusicBrainzIDs" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "MusicBrainz IDs"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2638,6 +2633,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MusicBrainz-IDs"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MusicBrainz IDs"
           }
         },
         "es" : {
@@ -2738,15 +2739,366 @@
         }
       }
     },
-    "OnlineLookup.Results" : {
+    "OnlineLookup.NoMatch" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Results"
+            "value" : "No album was found. Check the artist and album and try again."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم العثور على أي ألبوم. تحقق من الفنان والألبوم وحاول مرة أخرى."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Album gefunden. Überprüfe Interpret und Album und versuche es erneut."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontró ningún álbum. Comprueba el artista y el álbum e inténtalo de nuevo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun album trouvé. Vérifiez l’artiste et l’album, puis réessayez."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कोई एल्बम नहीं मिला। कलाकार और एल्बम जाँचें और फिर से कोशिश करें।"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Album tidak ditemukan. Periksa artis dan album, lalu coba lagi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun album trovato. Controlla l’artista e l’album e riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバムが見つかりませんでした。アーティストとアルバムを確認して、もう一度お試しください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앨범을 찾을 수 없습니다. 아티스트와 앨범을 확인한 후 다시 시도하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiada album ditemui. Semak artis dan album, kemudian cuba lagi."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geen album gevonden. Controleer de artiest en het album en probeer het opnieuw."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie znaleziono albumu. Sprawdź wykonawcę i album, a następnie spróbuj ponownie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum álbum encontrado. Verifique o artista e o álbum e tente novamente."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่พบอัลบั้ม ตรวจสอบศิลปินและอัลบั้มแล้วลองอีกครั้ง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Albüm bulunamadı. Sanatçıyı ve albümü kontrol edip tekrar deneyin."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không tìm thấy album. Hãy kiểm tra nghệ sĩ và album rồi thử lại."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未找到专辑。请检查艺人和专辑，然后重试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找不到專輯。請檢查藝人和專輯，然後再試一次。"
+          }
+        }
+      }
+    },
+    "OnlineLookup.NotRecognized" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Songs Not Recognized"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم التعرّف على الأغاني"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Songs nicht erkannt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canciones no reconocidas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Morceaux non reconnus"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "गाने पहचाने नहीं गए"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagu Tidak Dikenali"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brani non riconosciuti"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "曲を認識できませんでした"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "노래를 인식하지 못함"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagu Tidak Dikenal Pasti"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nummers niet herkend"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie rozpoznano utworów"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Músicas não reconhecidas"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่สามารถระบุเพลงได้"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şarkılar Tanınmadı"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không nhận dạng được bài hát"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法识别歌曲"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法辨識歌曲"
+          }
+        }
+      }
+    },
+    "OnlineLookup.NotRecognized.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the artist and album to look them up by name."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أدخل الفنان والألبوم للبحث عنهما بالاسم."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gib Interpret und Album ein, um sie nach Namen zu suchen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce el artista y el álbum para buscarlos por nombre."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saisissez l’artiste et l’album pour les rechercher par nom."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नाम से खोजने के लिए कलाकार और एल्बम दर्ज करें।"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masukkan artis dan album untuk mencarinya berdasarkan nama."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci l’artista e l’album per cercarli per nome."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アーティストとアルバムを入力すると、名前で検索できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이름으로 찾으려면 아티스트와 앨범을 입력하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masukkan artis dan album untuk mencarinya mengikut nama."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voer de artiest en het album in om ze op naam op te zoeken."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wpisz wykonawcę i album, aby wyszukać je według nazwy."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digite o artista e o álbum para buscá-los pelo nome."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ป้อนศิลปินและอัลบั้มเพื่อค้นหาตามชื่อ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ada göre aramak için sanatçıyı ve albümü girin."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhập nghệ sĩ và album để tra cứu theo tên."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入艺人和专辑，按名称查找。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸入藝人和專輯，依名稱查詢。"
+          }
+        }
+      }
+    },
+    "OnlineLookup.Results" : {
+      "extractionState" : "manual",
+      "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2757,6 +3109,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ergebnisse"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Results"
           }
         },
         "es" : {
@@ -2860,12 +3218,6 @@
     "OnlineLookup.SaveFirst" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save your changes before looking up tags online."
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2876,6 +3228,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sichere deine Änderungen, bevor du Tags online suchst."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save your changes before looking up tags online."
           }
         },
         "es" : {
@@ -2979,12 +3337,6 @@
     "OnlineLookup.Search" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2995,6 +3347,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Suchen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
           }
         },
         "es" : {
@@ -3098,12 +3456,6 @@
     "OnlineLookup.SearchByName" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search by Name"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3114,6 +3466,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nach Name suchen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search by Name"
           }
         },
         "es" : {
@@ -3217,12 +3575,6 @@
     "OnlineLookup.SearchFailed" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Could not search. Check your internet connection and try again."
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3233,6 +3585,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Suche nicht möglich. Überprüfe deine Internetverbindung und versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not search. Check your internet connection and try again."
           }
         },
         "es" : {
@@ -3336,12 +3694,6 @@
     "OnlineLookup.Title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Look Up Online"
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3352,6 +3704,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Online suchen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Look Up Online"
           }
         },
         "es" : {
@@ -3455,24 +3813,6 @@
     "OnlineLookup.TrackCount %lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld track"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld tracks"
-                }
-              }
-            }
-          }
-        },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3492,6 +3832,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld Titel"
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld track"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld tracks"
                 }
               }
             }
@@ -3602,12 +3960,6 @@
         "pl" : {
           "variations" : {
             "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld utwór"
-                }
-              },
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
@@ -3618,6 +3970,12 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld utworów"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld utwór"
                 }
               },
               "other" : {
