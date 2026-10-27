@@ -7,6 +7,8 @@
       "albums": [
         {
           "folder": "Order in Pandemonium",
+          "mood": "Determined",
+          "recordedAt": "Prefect Team Office",
           "title": "Order in Pandemonium",
           "albumArtist": "Gehenna Prefect Team",
           "composer": "Ako Amau",
@@ -26,6 +28,8 @@
         },
         {
           "folder": "Hardboiled Outlaw",
+          "mood": "Hardboiled",
+          "recordedAt": "Problem Solver 68 Headquarters",
           "title": "Hardboiled Outlaw",
           "albumArtist": "Problem Solver 68",
           "composer": "Aru Rikuhachima",
@@ -44,6 +48,8 @@
         },
         {
           "folder": "Five-Star Explosion",
+          "mood": "Ravenous",
+          "recordedAt": "Gehenna Food Truck",
           "title": "Five-Star Explosion",
           "albumArtist": "Gourmet Research Society",
           "composer": "Haruna Kurodate",
@@ -61,6 +67,8 @@
         },
         {
           "folder": "Makoto's Grand Decree",
+          "mood": "Mischievous",
+          "recordedAt": "Pandemonium Society Hall",
           "title": "Makoto's Grand Decree",
           "albumArtist": "Pandemonium Society",
           "composer": "Makoto Hanuma",
@@ -83,6 +91,8 @@
       "albums": [
         {
           "folder": "Afternoon at the Tea Party",
+          "mood": "Elegant",
+          "recordedAt": "Tea Party Garden",
           "title": "Afternoon at the Tea Party",
           "albumArtist": "Trinity Tea Party",
           "composer": "Nagisa Kirifuji",
@@ -101,6 +111,8 @@
         },
         {
           "folder": "Vanitas Vanitatum",
+          "mood": "Hopeful",
+          "recordedAt": "Trinity Annex",
           "title": "Vanitas Vanitatum",
           "albumArtist": "Make-Up Work Club",
           "composer": "Hifumi Ajitani",
@@ -119,6 +131,8 @@
         },
         {
           "folder": "Justice Never Sleeps",
+          "mood": "Righteous",
+          "recordedAt": "Justice Realization Committee Office",
           "title": "Justice Never Sleeps",
           "albumArtist": "Justice Realization Committee",
           "composer": "Hasumi Hanekawa",
@@ -136,6 +150,8 @@
         },
         {
           "folder": "Vespers at the Cathedral",
+          "mood": "Serene",
+          "recordedAt": "Trinity Cathedral",
           "title": "Vespers at the Cathedral",
           "albumArtist": "Trinity Sisterhood",
           "composer": "Sakurako Utazumi",

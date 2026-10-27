@@ -17,7 +17,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 CODECS = {
-    "m4a": ["-c:a", "aac", "-b:a", "256k"],
+    "m4a": ["-c:a", "aac", "-b:a", "256k", "-movflags", "use_metadata_tags"],
     "mp3": ["-c:a", "libmp3lame", "-b:a", "256k", "-id3v2_version", "3"],
     "flac": ["-c:a", "flac"],
 }
@@ -81,6 +81,10 @@ def main():
                     "copyright": f"℗ {album['year']} {library['publisher']}",
                     "publisher": library["publisher"],
                     "encoded_by": library["encodedBy"],
+                    # Shown under Extended Tags
+                    "MOOD": album["mood"],
+                    "SCHOOL": school["name"],
+                    "RECORDED_AT": album["recordedAt"],
                 }
                 name = f"{number:02d} {track['title']}.{album['format']}"
                 encode(folder / name, album["format"], seed, metadata, covers / f"{album['title']}.jpg")
