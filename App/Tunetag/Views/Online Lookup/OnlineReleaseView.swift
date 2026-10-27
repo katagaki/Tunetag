@@ -202,9 +202,24 @@ struct LookupMatchRow: View {
             Picker("Tag.Track", selection: $match.trackID) {
                 Text("BatchEdit.DontChange")
                     .tag(OnlineTrack.ID?.none)
-                ForEach(tracks) { track in
-                    Text(verbatim: label(for: track))
-                        .tag(OnlineTrack.ID?.some(track.id))
+                // Albums with several discs get a submenu for each disc, so long albums stay easy to scan
+                if !hasMultipleDiscs {
+                    trackOptions(tracks)
+                }
+            }
+            if hasMultipleDiscs {
+                ForEach(discs, id: \.self) { disc in
+                    Menu {
+                        Picker("Tag.Track", selection: $match.trackID) {
+                            trackOptions(tracks.filter { $0.disc == disc })
+                        }
+                    } label: {
+                        if selectedTrack?.disc == disc {
+                            Label("OnlineLookup.Disc \(disc) \(discs.count)", systemImage: "checkmark")
+                        } else {
+                            Text("OnlineLookup.Disc \(disc) \(discs.count)")
+                        }
+                    }
                 }
             }
         } label: {
@@ -238,8 +253,19 @@ struct LookupMatchRow: View {
         tracks.first { $0.id == match.trackID }
     }
 
+    var discs: [Int] {
+        Array(Set(tracks.map(\.disc))).sorted()
+    }
+
     var hasMultipleDiscs: Bool {
-        tracks.contains { $0.disc != 1 }
+        discs.count > 1
+    }
+
+    func trackOptions(_ tracks: [OnlineTrack]) -> some View {
+        ForEach(tracks) { track in
+            Text(verbatim: "\(track.number). \(track.title)")
+                .tag(OnlineTrack.ID?.some(track.id))
+        }
     }
 
     func label(for track: OnlineTrack) -> String {
