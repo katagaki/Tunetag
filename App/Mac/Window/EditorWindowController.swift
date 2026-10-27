@@ -54,6 +54,10 @@ final class EditorWindowController: NSWindowController, NSWindowDelegate {
         setViewMode(.list)
     }
 
+    @objc func toggleIncludeSubfolders(_ sender: Any?) {
+        Preferences.includesSubfolders.toggle()
+    }
+
     @objc func changeViewMode(_ sender: NSToolbarItemGroup) {
         setViewMode(sender.selectedIndex == 0 ? .grid : .list)
     }
@@ -79,6 +83,8 @@ extension EditorWindowController: NSMenuItemValidation {
             menuItem.state = mode == .grid ? .on : .off
         case #selector(showAsList(_:)):
             menuItem.state = mode == .list ? .on : .off
+        case #selector(toggleIncludeSubfolders(_:)):
+            menuItem.state = Preferences.includesSubfolders ? .on : .off
         default:
             break
         }

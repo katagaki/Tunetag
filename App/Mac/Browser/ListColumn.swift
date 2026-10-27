@@ -6,13 +6,14 @@
 import Foundation
 
 enum ListColumn: String, CaseIterable, Identifiable, Sendable {
-    case fileName, title, artist, album, albumArtist, year, trackNumber, discNumber, genre, composer
+    case fileName, folder, title, artist, album, albumArtist, year, trackNumber, discNumber, genre, composer
 
     var id: String { rawValue }
 
     var title: String {
         switch self {
         case .fileName: MacText.string("Column.FileName")
+        case .folder: MacText.string("Column.Folder")
         case .title: MacText.shared("Tag.Title")
         case .artist: MacText.shared("Tag.Artist")
         case .album: MacText.shared("Tag.Album")
@@ -28,6 +29,7 @@ enum ListColumn: String, CaseIterable, Identifiable, Sendable {
     var symbolName: String {
         switch self {
         case .fileName: "doc"
+        case .folder: "folder"
         case .title: "music.note"
         case .artist: "music.mic"
         case .album: "square.stack"
@@ -42,7 +44,7 @@ enum ListColumn: String, CaseIterable, Identifiable, Sendable {
 
     var defaultWidth: CGFloat {
         switch self {
-        case .fileName, .title, .album: 200
+        case .fileName, .folder, .title, .album: 200
         case .artist, .albumArtist, .composer: 150
         case .genre: 110
         case .year, .trackNumber, .discNumber: 70

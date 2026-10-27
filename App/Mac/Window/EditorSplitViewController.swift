@@ -13,14 +13,26 @@ final class EditorSplitViewController: NSSplitViewController {
     let browserViewController = BrowserViewController()
     let inspectorModel = TagInspectorModel()
     var onDirtyChange: ((Bool) -> Void)?
+    private var includeSubfoldersObserver: NSObjectProtocol?
 
     init(session: EditorSession) {
         self.session = session
         sidebarViewController = SidebarViewController(session: session)
         super.init(nibName: nil, bundle: nil)
+        if case .folder(let url) = session {
+            browserViewController.rootFolder = url
+        }
         sidebarViewController.onSelect = { [weak self] node in
-            self?.browserViewController.show(node.fileURLs)
+            self?.browserViewController.show(node.kind)
             self?.view.window?.subtitle = node.isRoot ? "" : node.title
+        }
+        includeSubfoldersObserver = NotificationCenter.default.addObserver(
+            forName: .includeSubfoldersDidChange, object: nil, queue: .main
+        ) { [weak self] _ in
+            MainActor.assumeIsolated {
+                guard let self, let node = self.sidebarViewController.selectedNode else { return }
+                self.browserViewController.show(node.kind, keepingSelection: true)
+            }
         }
         browserViewController.onSelectionChange = { [weak self] files in
             self?.inspectorModel.select(files)

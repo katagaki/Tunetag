@@ -10,20 +10,16 @@ enum EditorSession {
     case folder(URL)
     case files([URL])
 
-    /// One folder opens as a folder; anything else opens as files, taking the
-    /// audio files directly inside any folders that were chosen alongside them.
+    /// One folder opens as a folder; anything else opens as files. Folders chosen
+    /// alongside files are kept as they are, and listed later off the main thread.
     init?(urls: [URL]) {
         if urls.count == 1, let url = urls.first, url.isDirectory {
             self = .folder(url)
             return
         }
-        let files = urls.flatMap { url in
-            url.isDirectory
-                ? AudioFileLister.audioFileURLs(in: url)
-                : [url].filter(AudioFileLister.isSupportedAudioFile)
-        }
-        guard !files.isEmpty else { return nil }
-        self = .files(files)
+        let items = urls.filter { $0.isDirectory || AudioFileLister.isSupportedAudioFile($0) }
+        guard !items.isEmpty else { return nil }
+        self = .files(items)
     }
 
     var openedURLs: [URL] {
@@ -37,6 +33,8 @@ enum EditorSession {
         switch self {
         case .folder(let url):
             FileManager.default.displayName(atPath: url.path(percentEncoded: false))
+        case .files(let urls) where urls.contains(where: \.isDirectory):
+            MacText.string("Sidebar.Files")
         case .files(let urls):
             urls.count == 1
                 ? urls[0].lastPathComponent

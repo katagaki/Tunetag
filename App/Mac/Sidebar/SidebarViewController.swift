@@ -41,11 +41,28 @@ final class SidebarViewController: NSViewController {
         view = scrollView
     }
 
+    var selectedNode: SidebarNode? {
+        outlineView.item(atRow: outlineView.selectedRow) as? SidebarNode
+    }
+
     func selectInitialNode() {
         guard outlineView.selectedRow < 0 else { return }
         outlineView.reloadData()
-        outlineView.expandItem(rootNode)
         outlineView.selectRowIndexes(IndexSet(integer: 0), byExtendingSelection: false)
+        Task {
+            await rootNode.loadChildren()
+            outlineView.reloadItem(rootNode, reloadChildren: true)
+            outlineView.expandItem(rootNode)
+        }
+    }
+
+    /// Folders show a disclosure triangle until they're listed, which happens
+    /// as soon as their row appears, so the triangle settles before it's clicked.
+    func loadChildren(of node: SidebarNode) {
+        Task {
+            await node.loadChildren()
+            outlineView.reloadItem(node, reloadChildren: true)
+        }
     }
 }
 

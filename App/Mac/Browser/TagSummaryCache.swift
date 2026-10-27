@@ -12,17 +12,14 @@ final class TagSummaryCache {
 
     private var summaries: [String: TagSummary] = [:]
     private var loadTask: Task<Void, Never>?
-    var onUpdate: (() -> Void)?
+    var onUpdate: ((_ isComplete: Bool) -> Void)?
 
     func summary(for file: FSFile) -> TagSummary? {
         summaries[file.path]
     }
 
     func value(for column: ListColumn, of file: FSFile) -> String {
-        if column == .fileName {
-            return file.name
-        }
-        return summaries[file.path]?.value(for: column) ?? ""
+        summaries[file.path]?.value(for: column) ?? ""
     }
 
     func load(_ files: [FSFile]) {
@@ -39,7 +36,7 @@ final class TagSummaryCache {
                 for (path, summary) in loaded {
                     summaries[path] = summary
                 }
-                onUpdate?()
+                onUpdate?(start + chunk.count == missing.count)
             }
         }
     }

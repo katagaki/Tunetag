@@ -13,8 +13,17 @@ final class BrowserViewController: NSViewController {
     private let gridScrollView = NSScrollView()
     private let listScrollView = NSScrollView()
     private let emptyLabel = NSTextField(labelWithString: MacText.string("Browser.Empty"))
+    private let preparingView = NSStackView()
+    private let preparingIndicator = NSProgressIndicator()
     private var columnsObserver: NSObjectProtocol?
+    private var scanTask: Task<Void, Never>?
+    private var preparingTask: Task<Void, Never>?
 
+    /// Scans that finish sooner than this don't show the preparing indicator, so quick folders don't flicker.
+    private static let preparingDelay: Duration = .seconds(1)
+
+    /// The folder the window opened, which the Folder column shows paths relative to.
+    var rootFolder: URL?
     var files: [FSFile] = []
     private(set) var selection = IndexSet()
     var isApplyingSelection = false
@@ -38,7 +47,8 @@ final class BrowserViewController: NSViewController {
         listScrollView.hasHorizontalScroller = true
         emptyLabel.font = .preferredFont(forTextStyle: .title3)
         emptyLabel.textColor = .secondaryLabelColor
-        for subview in [gridScrollView, listScrollView, emptyLabel] {
+        configurePreparingView()
+        for subview in [gridScrollView, listScrollView, emptyLabel, preparingView] {
             subview.translatesAutoresizingMaskIntoConstraints = false
             container.addSubview(subview)
         }
@@ -54,11 +64,13 @@ final class BrowserViewController: NSViewController {
         }
         NSLayoutConstraint.activate([
             emptyLabel.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            emptyLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+            emptyLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            preparingView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            preparingView.centerYAnchor.constraint(equalTo: container.centerYAnchor)
         ])
         view = container
-        tagCache.onUpdate = { [weak self] in
-            self?.reloadListValues()
+        tagCache.onUpdate = { [weak self] isComplete in
+            self?.tagsDidLoad(isComplete: isComplete)
         }
         columnsObserver = NotificationCenter.default.addObserver(
             forName: .listColumnsDidChange, object: nil, queue: .main
@@ -70,15 +82,72 @@ final class BrowserViewController: NSViewController {
         updateVisibleView()
     }
 
-    func show(_ urls: [URL]) {
-        files = urls.map(AudioFileLister.file(for:))
+    /// Lists a sidebar node's files in the background. Showing another node
+    /// cancels the scan, and a scan that runs long shows a preparing indicator.
+    /// Reloading the same node keeps the files that are still there selected.
+    func show(_ kind: SidebarNode.Kind, keepingSelection: Bool = false) {
+        scanTask?.cancel()
+        let includesSubfolders = Preferences.includesSubfolders
+        let selectedFiles = keepingSelection ? selection.map { files[$0] } : []
+        if !keepingSelection {
+            showFiles([], selecting: [])
+        }
+        emptyLabel.isHidden = true
+        showPreparingAfterDelay()
+        scanTask = Task { [weak self] in
+            let scan = Task.detached(priority: .userInitiated) {
+                SidebarNode.fileURLs(of: kind, includingSubfolders: includesSubfolders)
+            }
+            let urls = await withTaskCancellationHandler {
+                await scan.value
+            } onCancel: {
+                scan.cancel()
+            }
+            guard !Task.isCancelled, let self else { return }
+            hidePreparing()
+            showFiles(urls.map(AudioFileLister.file(for:)), selecting: selectedFiles)
+        }
+    }
+
+    private func showFiles(_ newFiles: [FSFile], selecting selectedFiles: [FSFile]) {
+        files = newFiles
         sortFiles()
-        selection = []
+        let selectedPaths = Set(selectedFiles.map(\.path))
+        selection = IndexSet(files.indices.filter { selectedPaths.contains(files[$0].path) })
         collectionView.reloadData()
         tableView.reloadData()
+        applySelection()
         emptyLabel.isHidden = !files.isEmpty
         tagCache.load(files)
-        onSelectionChange?([])
+        onSelectionChange?(selection.map { files[$0] })
+    }
+
+    private func configurePreparingView() {
+        preparingIndicator.style = .spinning
+        preparingIndicator.controlSize = .small
+        let label = NSTextField(labelWithString: MacText.string("Browser.Preparing"))
+        label.textColor = .secondaryLabelColor
+        preparingView.orientation = .horizontal
+        preparingView.spacing = 8
+        preparingView.addArrangedSubview(preparingIndicator)
+        preparingView.addArrangedSubview(label)
+        preparingView.isHidden = true
+    }
+
+    private func showPreparingAfterDelay() {
+        preparingTask?.cancel()
+        preparingTask = Task { [weak self] in
+            try? await Task.sleep(for: Self.preparingDelay)
+            guard !Task.isCancelled, let self else { return }
+            preparingView.isHidden = false
+            preparingIndicator.startAnimation(nil)
+        }
+    }
+
+    private func hidePreparing() {
+        preparingTask?.cancel()
+        preparingIndicator.stopAnimation(nil)
+        preparingView.isHidden = true
     }
 
     func refreshTags(of savedFiles: [FSFile]) {

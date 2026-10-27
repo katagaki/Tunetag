@@ -21,6 +21,11 @@ extension MainMenuBuilder {
         ))
         menu.addItem(.separator())
         menu.addItem(item(
+            "Menu.IncludeSubfolders",
+            action: #selector(EditorWindowController.toggleIncludeSubfolders(_:))
+        ))
+        menu.addItem(.separator())
+        menu.addItem(item(
             "Menu.ShowSidebar",
             action: #selector(NSSplitViewController.toggleSidebar(_:)),
             keyEquivalent: "s",
