@@ -14,7 +14,9 @@ import AppKit
 /// Writes tags to files, shared by the iOS editor and the Mac inspector.
 enum TagFileIO {
 
-    nonisolated static func save(_ tag: Tag, to file: FSFile, albumArtRemoved: Bool) async -> Bool {
+    /// - Parameter properties: Raw property values to write after the tag, where an empty array removes the property.
+    nonisolated static func save(_ tag: Tag, to file: FSFile, albumArtRemoved: Bool,
+                                 properties: [String: [String]] = [:]) async -> Bool {
         return await Task.detached(priority: .userInitiated) {
             // Each save opens its own file, since TagLib files can't be shared across tasks
             guard let tagFile = TagLibFile(path: file.path) else {
@@ -24,6 +26,9 @@ enum TagFileIO {
             let albumArt = tag.albumArt.flatMap { sanitizedImageData($0) }
             TagWriter.apply(tag, to: tagFile, albumArt: albumArt, albumArtRemoved: albumArtRemoved) {
                 replaceTokens($0, file: file)
+            }
+            for (key, values) in properties {
+                tagFile.setValues(values.isEmpty ? nil : values, forProperty: key)
             }
             return tagFile.save()
         }.value

@@ -30,5 +30,10 @@ struct TagInspectorView: View {
         .alert(MacText.shared("TagEditor.RemoveAllTags.Failed"), isPresented: $model.isShowingRemoveTagsError) {
             Button(MacText.shared("Shared.OK"), role: .cancel) { }
         }
+        .alert(MacText.shared("ExtendedTags.Unsupported"), isPresented: $model.isShowingUnsupportedKeys) {
+            Button(MacText.shared("Shared.OK"), role: .cancel) { }
+        } message: {
+            Text(verbatim: model.unsupportedKeys.joined(separator: ", "))
+        }
     }
 }

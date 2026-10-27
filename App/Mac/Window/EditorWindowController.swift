@@ -104,6 +104,10 @@ final class EditorWindowController: NSWindowController, NSWindowDelegate {
         Preferences.includesSubfolders.toggle()
     }
 
+    @objc func toggleExtendedTags(_ sender: Any?) {
+        Preferences.showsExtendedTags.toggle()
+    }
+
     @objc func changeViewMode(_ sender: NSToolbarItemGroup) {
         setViewMode(sender.selectedIndex == 0 ? .grid : .list)
     }
@@ -131,6 +135,8 @@ extension EditorWindowController: NSMenuItemValidation {
             menuItem.state = mode == .list ? .on : .off
         case #selector(toggleIncludeSubfolders(_:)):
             menuItem.state = Preferences.includesSubfolders ? .on : .off
+        case #selector(toggleExtendedTags(_:)):
+            menuItem.state = Preferences.showsExtendedTags ? .on : .off
         default:
             break
         }
