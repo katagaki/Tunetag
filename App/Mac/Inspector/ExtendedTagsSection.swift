@@ -13,7 +13,7 @@ struct ExtendedTagsSection: View {
     @State private var isAddingField = false
 
     var body: some View {
-        Section(MacText.shared("TagEditor.ExtendedTags")) {
+        Section {
             if model.extendedFields.isEmpty {
                 Text(MacText.shared("ExtendedTags.Empty"))
                     .foregroundStyle(.secondary)
@@ -32,6 +32,10 @@ struct ExtendedTagsSection: View {
                     model.addExtendedField(key: key, value: value)
                 }
             }
+        } header: {
+            // Keeps a gap below the collapsed Sort header, which has no rows to separate them
+            Text(MacText.shared("TagEditor.ExtendedTags"))
+                .padding(.top, 12)
         }
     }
 }
