@@ -25,6 +25,8 @@ struct TagEditorView: View {
     @State var isSortingExpanded: Bool = false
     @State var showsExtendedTags: Bool = false
     @State var showsSaveBeforeExtendedTags: Bool = false
+    @State var showsOnlineLookup: Bool = false
+    @State var showsSaveBeforeOnlineLookup: Bool = false
     @State var showsRemoveTagsConfirmation: Bool = false
     @State var showsRemoveTagsError: Bool = false
     @State var isSidebarShown: Bool = false
@@ -106,6 +108,16 @@ struct TagEditorView: View {
             }
         }
         .alert("TagEditor.ExtendedTags.SaveFirst", isPresented: $showsSaveBeforeExtendedTags) {
+            Button("Shared.OK", role: .cancel) { }
+        }
+        .sheet(isPresented: $showsOnlineLookup) {
+            OnlineLookupView(files: files,
+                             artist: tagData.albumArtist ?? tagData.artist ?? "",
+                             album: tagData.album ?? "") {
+                Task { await readAllTagData() }
+            }
+        }
+        .alert("OnlineLookup.SaveFirst", isPresented: $showsSaveBeforeOnlineLookup) {
             Button("Shared.OK", role: .cancel) { }
         }
         .confirmationDialog("TagEditor.RemoveAllTags.Confirm", isPresented: $showsRemoveTagsConfirmation,
@@ -212,6 +224,13 @@ struct TagEditorView: View {
 
     var moreMenu: some View {
         Menu {
+            Button("OnlineLookup.Title", systemImage: "magnifyingglass") {
+                if hasUnsavedChanges {
+                    showsSaveBeforeOnlineLookup = true
+                } else {
+                    showsOnlineLookup = true
+                }
+            }
             if files.count == 1 {
                 Button("TagEditor.ExtendedTags", systemImage: "list.bullet.rectangle") {
                     if hasUnsavedChanges {
