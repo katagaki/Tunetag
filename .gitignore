@@ -1,6 +1,7 @@
 xcuserdata/
 .DS_Store
 App/Tunetag/Licenses.plist
+App/Mac/Licenses.plist
 
 # Swift package
 .build/

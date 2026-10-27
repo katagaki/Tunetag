@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54554E455441474D4143000F /* Prelude in Frameworks */ = {isa = PBXBuildFile; productRef = 54554E455441474D4143000E /* Prelude */; };
 		E4C0FFEE2EB4000000000003 /* Prelude in Frameworks */ = {isa = PBXBuildFile; productRef = E4C0FFEE2EB4000000000002 /* Prelude */; };
 		E4C0FFEE2EB4000000000005 /* PreludeLookup in Frameworks */ = {isa = PBXBuildFile; productRef = E4C0FFEE2EB4000000000004 /* PreludeLookup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54554E455441474D41430005 /* Tunetag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunetag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E432A7072AA9FD5E0043BCC9 /* Tunetag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunetag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -26,10 +28,20 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		54554E455441474D41430001 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
+		54554E455441474D41430002 /* Mac */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Mac; sourceTree = "<group>"; };
 		E416500A2EB397FB00CF6AE5 /* Tunetag */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E416502F2EB397FB00CF6AE5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Tunetag; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		54554E455441474D41430007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54554E455441474D4143000F /* Prelude in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E432A7042AA9FD5E0043BCC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,6 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				E416500A2EB397FB00CF6AE5 /* Tunetag */,
+				54554E455441474D41430002 /* Mac */,
+				54554E455441474D41430001 /* Shared */,
 				E432A7082AA9FD5E0043BCC9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				E432A7072AA9FD5E0043BCC9 /* Tunetag.app */,
+				54554E455441474D41430005 /* Tunetag.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +76,32 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		54554E455441474D41430004 /* Tunetag for Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54554E455441474D4143000B /* Build configuration list for PBXNativeTarget "Tunetag for Mac" */;
+			buildPhases = (
+				54554E455441474D4143000A /* Generate Licenses */,
+				54554E455441474D41430006 /* Sources */,
+				54554E455441474D41430007 /* Frameworks */,
+				54554E455441474D41430008 /* Resources */,
+				54554E455441474D41430009 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				54554E455441474D41430001 /* Shared */,
+				54554E455441474D41430002 /* Mac */,
+			);
+			name = "Tunetag for Mac";
+			packageProductDependencies = (
+				54554E455441474D4143000E /* Prelude */,
+			);
+			productName = Tunetag;
+			productReference = 54554E455441474D41430005 /* Tunetag.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E432A7062AA9FD5E0043BCC9 /* Tunetag */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E432A7162AA9FD5F0043BCC9 /* Build configuration list for PBXNativeTarget "Tunetag" */;
@@ -76,6 +117,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				54554E455441474D41430001 /* Shared */,
 				E416500A2EB397FB00CF6AE5 /* Tunetag */,
 			);
 			name = Tunetag;
@@ -97,6 +139,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
+					54554E455441474D41430004 = {
+						CreatedOnToolsVersion = 27.1;
+					};
 					E432A7062AA9FD5E0043BCC9 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -137,11 +182,19 @@
 			projectRoot = "";
 			targets = (
 				E432A7062AA9FD5E0043BCC9 /* Tunetag */,
+				54554E455441474D41430004 /* Tunetag for Mac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		54554E455441474D41430008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E432A7052AA9FD5E0043BCC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +205,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		54554E455441474D41430009 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		54554E455441474D4143000A /* Generate Licenses */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Tunetag.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
+				"$(SRCROOT)/Scripts/generate_licenses.sh",
+			);
+			name = "Generate Licenses";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Mac/Licenses.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Scripts/generate_licenses.sh\" \"${SRCROOT}/Mac/Licenses.plist\"\n";
+		};
 		E432A7492AAA31820043BCC9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -194,6 +286,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		54554E455441474D41430006 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E432A7032AA9FD5E0043BCC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,6 +303,76 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		54554E455441474D4143000C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mac/Mac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Tunetag;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.Tunetag.MacDebug;
+				PRODUCT_NAME = Tunetag;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		54554E455441474D4143000D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mac/Mac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Tunetag;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.Tunetag;
+				PRODUCT_NAME = Tunetag;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		E432A7142AA9FD5F0043BCC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -421,6 +590,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		54554E455441474D4143000B /* Build configuration list for PBXNativeTarget "Tunetag for Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54554E455441474D4143000C /* Debug */,
+				54554E455441474D4143000D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E432A7022AA9FD5E0043BCC9 /* Build configuration list for PBXProject "Tunetag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -449,6 +627,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		54554E455441474D4143000E /* Prelude */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Prelude;
+		};
 		E4C0FFEE2EB4000000000002 /* Prelude */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Prelude;

@@ -14,3 +14,4 @@ export SRCROOT="$APP_PATH"
 export BUILD_DIR="$CI_DERIVED_DATA_PATH/Build/"
 
 "$APP_PATH/Scripts/generate_licenses.sh"
+"$APP_PATH/Scripts/generate_licenses.sh" "$APP_PATH/Mac/Licenses.plist"
