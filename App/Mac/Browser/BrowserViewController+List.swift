@@ -59,6 +59,7 @@ extension BrowserViewController: NSTableViewDataSource, NSTableViewDelegate {
             ?? makeCell(identifier: tableColumn.identifier)
         cell.textField?.stringValue = value(for: listColumn, of: files[row])
         cell.textField?.alignment = listColumn.isNumeric ? .right : .natural
+        cell.textField?.lineBreakMode = listColumn == .folder ? .byTruncatingMiddle : .byTruncatingTail
         return cell
     }
 
