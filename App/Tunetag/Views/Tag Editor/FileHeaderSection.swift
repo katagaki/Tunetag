@@ -91,37 +91,55 @@ struct FileHeaderView: View {
                 .multilineTextAlignment(.leading)
                 .lineLimit(3)
                 .truncationMode(.middle)
-            HStack(spacing: 8.0) {
-                Menu {
-                    Button("TagEditor.AlbumArt.Photos", systemImage: "photo.on.rectangle") {
-                        showsPhotosPicker = true
-                    }
-                    Button("TagEditor.AlbumArt.Files", systemImage: "folder") {
-                        showsFileImporter = true
-                    }
-                } label: {
-                    Text(albumArt != nil ? LocalizedStringKey("TagEditor.AlbumArt.Edit")
-                                         : LocalizedStringKey("TagEditor.AlbumArt.Add"))
-                        .bold()
-                }
-                .clipShape(RoundedRectangle(cornerRadius: 99))
-                .buttonStyle(.borderedProminent)
-                Button(role: .destructive) {
-                    selectedAlbumArt = nil
-                    albumArt = nil
-                    isAlbumArtRemoved = true
-                } label: {
-                    Label("TagEditor.RemoveAlbumArt", systemImage: "trash")
-                        .labelStyle(.iconOnly)
-                        .bold()
-                }
-                .clipShape(RoundedRectangle(cornerRadius: 99))
-                .buttonStyle(.bordered)
-                .tint(.red)
-                .disabled(albumArt == nil)
+            // Falls back to an icon-only edit button when the header is narrow, such as in the iPad sidebar
+            ViewThatFits(in: .horizontal) {
+                albumArtButtons(showsEditTitle: true)
+                albumArtButtons(showsEditTitle: false)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    func albumArtButtons(showsEditTitle: Bool) -> some View {
+        HStack(spacing: 8.0) {
+            Menu {
+                Button("TagEditor.AlbumArt.Photos", systemImage: "photo.on.rectangle") {
+                    showsPhotosPicker = true
+                }
+                Button("TagEditor.AlbumArt.Files", systemImage: "folder") {
+                    showsFileImporter = true
+                }
+            } label: {
+                if showsEditTitle {
+                    Text(editTitle)
+                        .bold()
+                        .lineLimit(1)
+                } else {
+                    Label(editTitle, systemImage: albumArt != nil ? "pencil" : "plus")
+                        .labelStyle(.iconOnly)
+                        .bold()
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 99))
+            .buttonStyle(.borderedProminent)
+            Button(role: .destructive) {
+                selectedAlbumArt = nil
+                albumArt = nil
+                isAlbumArtRemoved = true
+            } label: {
+                Label("TagEditor.RemoveAlbumArt", systemImage: "trash")
+                    .labelStyle(.iconOnly)
+                    .bold()
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 99))
+            .buttonStyle(.bordered)
+            .tint(.red)
+            .disabled(albumArt == nil)
+        }
+    }
+
+    var editTitle: LocalizedStringKey {
+        albumArt != nil ? "TagEditor.AlbumArt.Edit" : "TagEditor.AlbumArt.Add"
     }
 
     func loadAlbumArt(from url: URL) {
