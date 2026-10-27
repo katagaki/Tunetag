@@ -20,7 +20,7 @@ struct TagInspectorForm: View {
     private var headerTitle: String {
         isBatch
             ? String(format: MacText.string("Window.FileCount"), model.loadedFiles.count)
-            : model.loadedFiles[0].name
+            : model.loadedFiles.first?.name ?? ""
     }
 
     var body: some View {
