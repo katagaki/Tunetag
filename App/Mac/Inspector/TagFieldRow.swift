@@ -5,6 +5,26 @@
 
 import SwiftUI
 
+/// A tag field's name above its value, as in the iOS editor, so long values never cover the name.
+struct StackedFieldRow<Content: View>: View {
+
+    let title: String
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+                .accessibilityHidden(true)
+            content
+                .textFieldStyle(.roundedBorder)
+                .labelsHidden()
+        }
+    }
+}
+
 /// A tag field. When batch editing, nil means the files disagree and saving keeps each file's own value.
 struct TagFieldRow: View {
 
@@ -14,16 +34,18 @@ struct TagFieldRow: View {
     var isMultiline = false
 
     var body: some View {
-        HStack(alignment: isMultiline ? .top : .firstTextBaseline, spacing: 6) {
-            TextField(
-                MacText.shared(titleKey),
-                text: keepAwareBinding($value),
-                prompt: Text(isBatch && value == nil ? MacText.shared("BatchEdit.Keep") : ""),
-                axis: isMultiline ? .vertical : .horizontal
-            )
-            .lineLimit(isMultiline ? 1...8 : 1...1)
-            if isBatch {
-                DontChangeButton(value: $value)
+        StackedFieldRow(title: MacText.shared(titleKey)) {
+            HStack(alignment: isMultiline ? .top : .center, spacing: 6) {
+                TextField(
+                    MacText.shared(titleKey),
+                    text: keepAwareBinding($value),
+                    prompt: Text(isBatch && value == nil ? MacText.shared("BatchEdit.Keep") : ""),
+                    axis: isMultiline ? .vertical : .horizontal
+                )
+                .lineLimit(isMultiline ? 1...8 : 1...1)
+                if isBatch {
+                    DontChangeButton(value: $value)
+                }
             }
         }
     }
@@ -58,16 +80,14 @@ struct NumberPairRow: View {
     let isBatch: Bool
 
     var body: some View {
-        LabeledContent(MacText.shared(titleKey)) {
+        StackedFieldRow(title: MacText.shared(titleKey)) {
             HStack(spacing: 6) {
                 TextField(MacText.shared(titleKey), text: keepAwareBinding($number), prompt: prompt(for: number))
-                    .labelsHidden()
-                    .multilineTextAlignment(.trailing)
                 Text(verbatim: "/")
                     .foregroundStyle(.tertiary)
+                    .accessibilityHidden(true)
                 TextField(MacText.shared("Tag.Total"), text: keepAwareBinding($total),
                           prompt: prompt(for: total, fallback: MacText.shared("Tag.Total")))
-                    .labelsHidden()
                 if isBatch {
                     DontChangeButton(value: $number)
                 }

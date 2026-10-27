@@ -42,17 +42,19 @@ private struct ExtendedTagFieldRow: View {
     let onRemove: () -> Void
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 6) {
-            TextField(TagKey.displayName(for: field.key), text: $field.value, prompt: Text(verbatim: ""),
-                      axis: .vertical)
-                .lineLimit(1...8)
-            Button(action: onRemove) {
-                Image(systemName: "minus.circle.fill")
-                    .foregroundStyle(.secondary)
+        StackedFieldRow(title: TagKey.displayName(for: field.key)) {
+            HStack(spacing: 6) {
+                TextField(TagKey.displayName(for: field.key), text: $field.value, prompt: Text(verbatim: ""),
+                          axis: .vertical)
+                    .lineLimit(1...8)
+                Button(action: onRemove) {
+                    Image(systemName: "minus.circle.fill")
+                        .foregroundStyle(.secondary)
+                }
+                .buttonStyle(.borderless)
+                .help(MacText.string("Inspector.RemoveField"))
+                .accessibilityLabel(MacText.string("Inspector.RemoveField"))
             }
-            .buttonStyle(.borderless)
-            .help(MacText.string("Inspector.RemoveField"))
-            .accessibilityLabel(MacText.string("Inspector.RemoveField"))
         }
         .help(field.key)
     }

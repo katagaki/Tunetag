@@ -26,18 +26,6 @@ struct TagInspectorForm: View {
     var body: some View {
         Form {
             Section {
-                VStack(spacing: 12) {
-                    InspectorAlbumArt(albumArt: $model.tag.albumArt, isAlbumArtRemoved: $model.isAlbumArtRemoved)
-                    Text(headerTitle)
-                        .font(.headline)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(3)
-                        .textSelection(.enabled)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 8)
-            }
-            Section(MacText.shared("TagEditor.Section.Track")) {
                 field("Tag.Title", \.title)
                 field("Tag.Artist", \.artist)
                 field("Tag.Composer", \.composer)
@@ -45,15 +33,23 @@ struct TagInspectorForm: View {
                 field("Tag.Genre", \.genre)
                 field("Tag.Grouping", \.grouping)
                 field("Tag.BPM", \.bpm)
+            } header: {
+                // Sits in the header so the album art isn't boxed in like the fields
+                VStack(alignment: .leading, spacing: 16) {
+                    fileHeader
+                    Text(MacText.shared("TagEditor.Section.Track"))
+                }
             }
             Section {
                 field("Tag.Album", \.album)
                 field("Tag.AlbumArtist", \.albumArtist)
                 field("Tag.Year", \.year)
-                NumberPairRow(titleKey: "Tag.Track", number: $model.tag.track, total: $model.tag.trackTotal,
-                              isBatch: isBatch)
-                NumberPairRow(titleKey: "Tag.Disc", number: $model.tag.discNumber, total: $model.tag.discTotal,
-                              isBatch: isBatch)
+                HStack(spacing: 16) {
+                    NumberPairRow(titleKey: "Tag.Track", number: $model.tag.track, total: $model.tag.trackTotal,
+                                  isBatch: isBatch)
+                    NumberPairRow(titleKey: "Tag.Disc", number: $model.tag.discNumber,
+                                  total: $model.tag.discTotal, isBatch: isBatch)
+                }
                 CompilationRow(isCompilation: $model.tag.isCompilation, isBatch: isBatch)
             } header: {
                 Text(MacText.shared("Tag.Album"))
@@ -99,6 +95,20 @@ struct TagInspectorForm: View {
         .safeAreaInset(edge: .bottom, spacing: 0) {
             InspectorActionBar(model: model)
         }
+    }
+
+    private var fileHeader: some View {
+        VStack(spacing: 12) {
+            InspectorAlbumArt(albumArt: $model.tag.albumArt, isAlbumArtRemoved: $model.isAlbumArtRemoved)
+            Text(headerTitle)
+                .font(.headline)
+                .foregroundStyle(.primary)
+                .multilineTextAlignment(.center)
+                .lineLimit(3)
+                .textSelection(.enabled)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 8)
     }
 
     private func field(_ titleKey: String, _ keyPath: WritableKeyPath<Tag, String?>,
