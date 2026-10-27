@@ -17,7 +17,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 CODECS = {
-    "m4a": ["-c:a", "aac", "-b:a", "256k", "-movflags", "use_metadata_tags"],
+    "m4a": ["-c:a", "aac", "-b:a", "256k"],
     "mp3": ["-c:a", "libmp3lame", "-b:a", "256k", "-id3v2_version", "3"],
     "flac": ["-c:a", "flac"],
 }
@@ -81,11 +81,12 @@ def main():
                     "copyright": f"℗ {album['year']} {library['publisher']}",
                     "publisher": library["publisher"],
                     "encoded_by": library["encodedBy"],
-                    # Shown under Extended Tags
-                    "MOOD": album["mood"],
-                    "SCHOOL": school["name"],
-                    "RECORDED_AT": album["recordedAt"],
                 }
+                if album["format"] != "m4a":
+                    # Shown under Extended Tags. ffmpeg can only write custom MP4 tags in a form TagLib doesn't read.
+                    metadata["MOOD"] = album["mood"]
+                    metadata["SCHOOL"] = school["name"]
+                    metadata["RECORDED_AT"] = album["recordedAt"]
                 name = f"{number:02d} {track['title']}.{album['format']}"
                 encode(folder / name, album["format"], seed, metadata, covers / f"{album['title']}.jpg")
                 print(f"Wrote {folder.name}/{name}")
