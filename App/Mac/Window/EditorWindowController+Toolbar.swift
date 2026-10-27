@@ -7,6 +7,7 @@ import AppKit
 
 extension NSToolbarItem.Identifier {
     static let viewMode = NSToolbarItem.Identifier("ViewMode")
+    static let extendedTags = NSToolbarItem.Identifier("ExtendedTags")
 }
 
 extension EditorWindowController: NSToolbarDelegate {
@@ -27,6 +28,7 @@ extension EditorWindowController: NSToolbarDelegate {
             .viewMode,
             .inspectorTrackingSeparator,
             .flexibleSpace,
+            .extendedTags,
             .toggleInspector
         ]
     }
@@ -40,7 +42,14 @@ extension EditorWindowController: NSToolbarDelegate {
         itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
         willBeInsertedIntoToolbar flag: Bool
     ) -> NSToolbarItem? {
-        guard itemIdentifier == .viewMode else { return nil }
+        switch itemIdentifier {
+        case .viewMode: viewModeItem()
+        case .extendedTags: extendedTagsItem()
+        default: nil
+        }
+    }
+
+    private func viewModeItem() -> NSToolbarItem {
         let labels = [MacText.string("ViewMode.Grid"), MacText.string("ViewMode.List")]
         let images = ["square.grid.2x2", "list.bullet"].enumerated().map { index, symbolName in
             NSImage(systemSymbolName: symbolName, accessibilityDescription: labels[index]) ?? NSImage()
@@ -56,5 +65,20 @@ extension EditorWindowController: NSToolbarDelegate {
         group.label = MacText.string("Toolbar.ViewMode")
         group.selectedIndex = splitViewController.browserViewController.viewMode == .grid ? 0 : 1
         return group
+    }
+
+    /// A menu of inspector options, which shows or hides the extended tags.
+    private func extendedTagsItem() -> NSToolbarItem {
+        let label = MacText.shared("TagEditor.ExtendedTags")
+        let toggleItem = MainMenuBuilder.item("Menu.ShowExtendedTags", action: #selector(toggleExtendedTags(_:)))
+        toggleItem.target = self
+        let menu = NSMenu()
+        menu.addItem(toggleItem)
+        let item = NSMenuToolbarItem(itemIdentifier: .extendedTags)
+        item.image = NSImage(systemSymbolName: "tag", accessibilityDescription: label)
+        item.label = label
+        item.toolTip = label
+        item.menu = menu
+        return item
     }
 }

@@ -15,6 +15,7 @@ final class EditorSplitViewController: NSSplitViewController {
     var onDirtyChange: ((Bool) -> Void)?
     var onDrop: (([URL]) -> Void)?
     private var includeSubfoldersObserver: NSObjectProtocol?
+    private var showExtendedTagsObserver: NSObjectProtocol?
 
     init(session: EditorSession) {
         self.session = session
@@ -38,6 +39,13 @@ final class EditorSplitViewController: NSSplitViewController {
             MainActor.assumeIsolated {
                 guard let self, let node = self.sidebarViewController.selectedNode else { return }
                 self.browserViewController.show(node.kind, keepingSelection: true)
+            }
+        }
+        showExtendedTagsObserver = NotificationCenter.default.addObserver(
+            forName: .showExtendedTagsDidChange, object: nil, queue: .main
+        ) { [weak self] _ in
+            MainActor.assumeIsolated {
+                self?.inspectorModel.showsExtendedTags = Preferences.showsExtendedTags
             }
         }
         browserViewController.onSelectionChange = { [weak self] files in

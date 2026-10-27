@@ -37,6 +37,10 @@ extension MainMenuBuilder {
             keyEquivalent: "i",
             modifiers: [.command, .option]
         ))
+        menu.addItem(item(
+            "Menu.ShowExtendedTags",
+            action: #selector(EditorWindowController.toggleExtendedTags(_:))
+        ))
         menu.addItem(.separator())
         menu.addItem(item(
             "Menu.EnterFullScreen",
