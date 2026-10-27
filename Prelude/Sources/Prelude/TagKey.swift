@@ -42,6 +42,13 @@ public enum TagKey {
     public static let trackTotals = ["TRACKTOTAL", "TOTALTRACKS"]
     public static let discTotals = ["DISCTOTAL", "TOTALDISCS"]
 
+    /// Keys that the tag editor's own fields write, so other editors can leave them alone.
+    public static let editorKeys: Set<String> = Set([
+        title, artist, album, albumArtist, date, trackNumber, discNumber, genre, composer, grouping, bpm,
+        compilation, comment, lyrics, titleSort, artistSort, albumSort, albumArtistSort, composerSort,
+        conductor, publisher, copyright, encodedBy
+    ] + trackTotals + discTotals)
+
     /// Returns a readable name for a property key, such as "Album Artist Sort" for ALBUMARTISTSORT.
     /// Keys with a description, such as COMMENT:ITUNNORM, include it in parentheses.
     public static func displayName(for key: String) -> String {
