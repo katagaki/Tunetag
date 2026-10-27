@@ -93,7 +93,7 @@ def main():
         track = album["tracks"][pick["track"] - 1]
         school = next(school["name"] for school in library["folders"] if album in school["albums"])
         source = root / school / album["folder"] / f"{pick['track']:02d} {track['title']}.{album['format']}"
-        name = f"{track['artist']} - {track['title']}.{album['format']}"
+        name = f"{track['title']}.{album['format']}"
         shutil.copy2(source, root / name)
         print(f"Copied {name}")
 
