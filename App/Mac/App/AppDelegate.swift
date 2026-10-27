@@ -66,16 +66,28 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    private func open(_ urls: [URL]) {
+    private func open(_ urls: [URL], replacing controller: EditorWindowController? = nil) {
         guard let session = EditorSession(urls: urls) else { return }
         SessionStore.remember(urls)
-        open(session)
+        if let controller {
+            controller.replace(with: session)
+        } else {
+            open(session)
+        }
     }
 
     private func open(_ session: EditorSession) {
         let controller = EditorWindowController(session: session)
         controller.onClose = { [weak self, weak controller] in
             self?.windowControllers.removeAll { $0 === controller }
+        }
+        controller.onOpen = { [weak self, weak controller] urls, inThisWindow in
+            self?.open(urls, replacing: inThisWindow ? controller : nil)
+        }
+        // Only the first window restores its saved frame, so later ones cascade from the front window.
+        if let window = controller.window, let frontWindow = windowControllers.last?.window {
+            window.setFrame(frontWindow.frame, display: false)
+            window.setFrameTopLeftPoint(NSPoint(x: frontWindow.frame.minX + 24, y: frontWindow.frame.maxY - 24))
         }
         windowControllers.append(controller)
         controller.showWindow(nil)
