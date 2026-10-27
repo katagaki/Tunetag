@@ -13,12 +13,18 @@ final class EditorSplitViewController: NSSplitViewController {
     let browserViewController = BrowserViewController()
     let inspectorModel = TagInspectorModel()
     var onDirtyChange: ((Bool) -> Void)?
+    var onDrop: (([URL]) -> Void)?
     private var includeSubfoldersObserver: NSObjectProtocol?
 
     init(session: EditorSession) {
         self.session = session
         sidebarViewController = SidebarViewController(session: session)
         super.init(nibName: nil, bundle: nil)
+        let dropView = FileDropSplitView()
+        dropView.onDrop = { [weak self] urls in
+            self?.onDrop?(urls)
+        }
+        splitView = dropView
         if case .folder(let url) = session {
             browserViewController.rootFolder = url
         }

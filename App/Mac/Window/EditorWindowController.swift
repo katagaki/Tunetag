@@ -19,7 +19,7 @@ final class EditorWindowController: NSWindowController, NSWindowDelegate {
         // Bookmarked URLs only open up to the sandbox once asked to.
         accessedURLs = session.openedURLs.filter { $0.startAccessingSecurityScopedResource() }
         splitViewController = EditorSplitViewController(session: session)
-        let window = EditorWindow(contentViewController: splitViewController)
+        let window = NSWindow(contentViewController: splitViewController)
         window.styleMask = [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView]
         window.title = session.title
         window.toolbarStyle = .unified
@@ -29,11 +29,7 @@ final class EditorWindowController: NSWindowController, NSWindowDelegate {
         super.init(window: window)
         window.delegate = self
         window.toolbar = makeToolbar()
-        window.acceptDroppedFiles()
-        window.onDrop = { [weak self] urls in
-            self?.askWhereToOpen(urls)
-        }
-        observeDirtyState()
+        connectSplitViewController()
     }
 
     required init?(coder: NSCoder) {
@@ -53,12 +49,15 @@ final class EditorWindowController: NSWindowController, NSWindowDelegate {
         window.title = newSession.title
         window.subtitle = ""
         window.isDocumentEdited = false
-        observeDirtyState()
+        connectSplitViewController()
     }
 
-    private func observeDirtyState() {
+    private func connectSplitViewController() {
         splitViewController.onDirtyChange = { [weak window] isDirty in
             window?.isDocumentEdited = isDirty
+        }
+        splitViewController.onDrop = { [weak self] urls in
+            self?.askWhereToOpen(urls)
         }
     }
 
