@@ -17,15 +17,16 @@ struct FileHeaderSection: View {
     @Binding var isAlbumArtRemoved: Bool
 
     var body: some View {
+        // Shown as the section header rather than a row, as rows clip their content to the cell's corner radius
         Section {
+        } header: {
             FileHeaderView(filename: filename,
                            albumArt: $albumArt,
                            selectedAlbumArt: $selectedAlbumArt,
                            isAlbumArtRemoved: $isAlbumArtRemoved)
-            .listRowBackground(Color.clear)
-            .frame(maxWidth: .infinity)
+            .textCase(.none)
+            .padding(.top, 16.0)
         }
-        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
 }
 
@@ -87,7 +88,7 @@ struct FileHeaderView: View {
                 .font(.title3)
                 .fontWeight(.bold)
                 .textCase(.none)
-                .foregroundStyle(.primary)
+                .foregroundStyle(Color.primary)
                 .multilineTextAlignment(.leading)
                 .lineLimit(3)
                 .truncationMode(.middle)
