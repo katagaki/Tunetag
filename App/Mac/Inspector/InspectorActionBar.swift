@@ -17,6 +17,7 @@ struct InspectorActionBar: View {
                 isTokensPopoverPresented = true
             } label: {
                 Image(systemName: "curlybraces")
+                    .frame(width: 16, height: 16)
             }
             .help(MacText.shared("TagEditor.Tokens.Title"))
             .popover(isPresented: $isTokensPopoverPresented, arrowEdge: .top) {
@@ -28,6 +29,7 @@ struct InspectorActionBar: View {
                 }
             } label: {
                 Image(systemName: "ellipsis")
+                    .frame(width: 16, height: 16)
             }
             .menuIndicator(.hidden)
             .fixedSize()
