@@ -86,6 +86,17 @@ def main():
                 encode(folder / name, album["format"], seed, metadata, covers / f"{album['title']}.jpg")
                 print(f"Wrote {folder.name}/{name}")
 
+    # A few favorites at the top level, so the file browser shows album art next to the folders
+    albums = {album["title"]: album for school in library["folders"] for album in school["albums"]}
+    for pick in library["loose"]:
+        album = albums[pick["album"]]
+        track = album["tracks"][pick["track"] - 1]
+        school = next(school["name"] for school in library["folders"] if album in school["albums"])
+        source = root / school / album["folder"] / f"{pick['track']:02d} {track['title']}.{album['format']}"
+        name = f"{track['artist']} - {track['title']}.{album['format']}"
+        shutil.copy2(source, root / name)
+        print(f"Copied {name}")
+
     untagged = library["untagged"]
     folder = root / untagged["parent"] / untagged["folder"]
     folder.mkdir(parents=True, exist_ok=True)

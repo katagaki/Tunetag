@@ -153,6 +153,15 @@
       ]
     }
   ],
+  "loose": [
+    { "album": "Order in Pandemonium", "track": 1 },
+    { "album": "Afternoon at the Tea Party", "track": 2 },
+    { "album": "Hardboiled Outlaw", "track": 1 },
+    { "album": "Vanitas Vanitatum", "track": 1 },
+    { "album": "Five-Star Explosion", "track": 1 },
+    { "album": "Justice Never Sleeps", "track": 1 },
+    { "album": "Makoto's Grand Decree", "track": 1 }
+  ],
   "untagged": {
     "folder": "Sweets After Class",
     "format": "mp3",
