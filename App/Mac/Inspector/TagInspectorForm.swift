@@ -69,13 +69,15 @@ struct TagInspectorForm: View {
                 field("Tag.Lyrics", \.lyrics, isMultiline: true)
             }
             Section {
-                DisclosureGroup(MacText.shared("TagEditor.Section.Sorting"), isExpanded: $isSortingExpanded) {
+                if isSortingExpanded {
                     field("Tag.SortTitle", \.titleSortOrder)
                     field("Tag.SortArtist", \.artistSortOrder)
                     field("Tag.SortAlbum", \.albumSortOrder)
                     field("Tag.SortAlbumArtist", \.albumArtistSortOrder)
                     field("Tag.SortComposer", \.composerSortOrder)
                 }
+            } header: {
+                CollapsibleSectionHeader(MacText.shared("TagEditor.Section.Sorting"), isExpanded: $isSortingExpanded)
             } footer: {
                 if isSortingExpanded {
                     Text(MacText.shared("TagEditor.Section.Sorting.Footer"))
@@ -125,19 +127,19 @@ private struct AdvancedInformationSection: View {
 
     var body: some View {
         Section {
-            DisclosureGroup(MacText.shared("TagEditor.Section.AdvancedInformation"), isExpanded: $isExpanded) {
-                if tag.hasIdentifiers {
-                    row("Tag.ISRC", tag.isrc)
-                    row("Tag.ReleaseID", tag.musicBrainzReleaseID)
-                    row("Tag.RecordingID", tag.musicBrainzRecordingID)
-                }
-                if tag.hasReplayGain {
-                    row("Tag.TrackGain", tag.replayGainTrackGain)
-                    row("Tag.TrackPeak", tag.replayGainTrackPeak)
-                    row("Tag.AlbumGain", tag.replayGainAlbumGain)
-                    row("Tag.AlbumPeak", tag.replayGainAlbumPeak)
-                }
+            if isExpanded && tag.hasIdentifiers {
+                row("Tag.ISRC", tag.isrc)
+                row("Tag.ReleaseID", tag.musicBrainzReleaseID)
+                row("Tag.RecordingID", tag.musicBrainzRecordingID)
             }
+            if isExpanded && tag.hasReplayGain {
+                row("Tag.TrackGain", tag.replayGainTrackGain)
+                row("Tag.TrackPeak", tag.replayGainTrackPeak)
+                row("Tag.AlbumGain", tag.replayGainAlbumGain)
+                row("Tag.AlbumPeak", tag.replayGainAlbumPeak)
+            }
+        } header: {
+            CollapsibleSectionHeader(MacText.shared("TagEditor.Section.AdvancedInformation"), isExpanded: $isExpanded)
         } footer: {
             if isExpanded && tag.hasIdentifiers {
                 Text(MacText.shared("TagEditor.Section.Identifiers.Footer"))
@@ -150,5 +152,35 @@ private struct AdvancedInformationSection: View {
             Text(value ?? "")
                 .textSelection(.enabled)
         }
+    }
+}
+
+/// A section header that shows or hides the section's rows, with the chevron after the title.
+private struct CollapsibleSectionHeader: View {
+
+    let title: String
+    @Binding var isExpanded: Bool
+
+    init(_ title: String, isExpanded: Binding<Bool>) {
+        self.title = title
+        self._isExpanded = isExpanded
+    }
+
+    var body: some View {
+        Button {
+            withAnimation {
+                isExpanded.toggle()
+            }
+        } label: {
+            HStack(spacing: 4) {
+                Text(title)
+                Image(systemName: "chevron.right")
+                    .imageScale(.small)
+                    .rotationEffect(.degrees(isExpanded ? 90 : 0))
+            }
+            .contentShape(.rect)
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(.isHeader)
     }
 }
