@@ -85,7 +85,10 @@ struct TagInspectorForm: View {
                     Text(MacText.shared("TagEditor.Section.Sorting.Footer"))
                 }
             }
-            if !isBatch && (model.tag.hasIdentifiers || model.tag.hasReplayGain) {
+            if model.canEditExtendedTags {
+                // Lists identifiers and ReplayGain too, so the read-only section isn't needed
+                ExtendedTagsSection(model: model)
+            } else if !isBatch && (model.tag.hasIdentifiers || model.tag.hasReplayGain) {
                 AdvancedInformationSection(tag: model.tag, isExpanded: $isAdvancedExpanded)
             }
         }
