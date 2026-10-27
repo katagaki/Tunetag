@@ -1,0 +1,192 @@
+{
+  "publisher": "Schale Records",
+  "encodedBy": "Kivotos Sound Lab",
+  "folders": [
+    {
+      "name": "Gehenna Academy",
+      "albums": [
+        {
+          "folder": "Order in Pandemonium",
+          "mood": "Determined",
+          "recordedAt": "Prefect Team Office",
+          "title": "Order in Pandemonium",
+          "albumArtist": "Gehenna Prefect Team",
+          "composer": "Ako Amau",
+          "genre": "Orchestral Rock",
+          "year": "2026",
+          "format": "m4a",
+          "comment": "Recorded after hours in the Prefect Team office.",
+          "cover": { "style": "horns", "colors": ["#2A0A12", "#8E1B2E", "#F25C6E"], "kicker": "GEHENNA PREFECT TEAM", "font": "Futura-CondensedExtraBold" },
+          "tracks": [
+            { "title": "Destroyer of Peace", "artist": "Hina Sorasaki" },
+            { "title": "Iori's Warning Shot", "artist": "Iori Shiromi" },
+            { "title": "Ako's Schedule", "artist": "Ako Amau" },
+            { "title": "Chinatsu on Call", "artist": "Chinatsu Hinomiya" },
+            { "title": "Paperwork Until Dawn", "artist": "Hina Sorasaki" },
+            { "title": "Lunch Break Never Comes", "artist": "Hina Sorasaki" }
+          ]
+        },
+        {
+          "folder": "Hardboiled Outlaw",
+          "mood": "Hardboiled",
+          "recordedAt": "Problem Solver 68 Headquarters",
+          "title": "Hardboiled Outlaw",
+          "albumArtist": "Problem Solver 68",
+          "composer": "Aru Rikuhachima",
+          "genre": "Jazz Noir",
+          "year": "2026",
+          "format": "mp3",
+          "comment": "Paid for with the last of this month's rent.",
+          "cover": { "style": "neon", "colors": ["#14070F", "#5B1240", "#FF4F8B"], "kicker": "PROBLEM SOLVER 68", "font": "Futura-CondensedExtraBold" },
+          "tracks": [
+            { "title": "Hardboiled Outlaw", "artist": "Aru Rikuhachima" },
+            { "title": "Mutsuki's Little Prank", "artist": "Mutsuki Asagi" },
+            { "title": "Kayoko Keeps Watch", "artist": "Kayoko Onikata" },
+            { "title": "Haruka's Apology", "artist": "Haruka Igusa" },
+            { "title": "Rent Is Due Again", "artist": "Problem Solver 68" }
+          ]
+        },
+        {
+          "folder": "Five-Star Explosion",
+          "mood": "Ravenous",
+          "recordedAt": "Gehenna Food Truck",
+          "title": "Five-Star Explosion",
+          "albumArtist": "Gourmet Research Society",
+          "composer": "Haruna Kurodate",
+          "genre": "Big Band",
+          "year": "2026",
+          "format": "flac",
+          "comment": "No restaurants were harmed in the making of this album. Probably.",
+          "cover": { "style": "embers", "colors": ["#1E0B05", "#A33A12", "#FFB347"], "kicker": "GOURMET RESEARCH SOCIETY", "font": "Futura-CondensedExtraBold" },
+          "tracks": [
+            { "title": "Five-Star Explosion", "artist": "Haruna Kurodate" },
+            { "title": "Junko Is Starving", "artist": "Junko Akashi" },
+            { "title": "Izumi Eats Anything", "artist": "Izumi Shishidou" },
+            { "title": "Akari's Second Helping", "artist": "Akari Wanibuchi" }
+          ]
+        },
+        {
+          "folder": "Makoto's Grand Decree",
+          "mood": "Mischievous",
+          "recordedAt": "Pandemonium Society Hall",
+          "title": "Makoto's Grand Decree",
+          "albumArtist": "Pandemonium Society",
+          "composer": "Makoto Hanuma",
+          "genre": "Marching Band",
+          "year": "2026",
+          "format": "m4a",
+          "comment": "By order of the Pandemonium Society. Do not tell the Prefect Team.",
+          "cover": { "style": "stripes", "colors": ["#0E0E14", "#3B1F4F", "#C9A0FF"], "kicker": "PANDEMONIUM SOCIETY", "font": "Futura-CondensedExtraBold" },
+          "tracks": [
+            { "title": "Pandemonium March", "artist": "Makoto Hanuma" },
+            { "title": "Iroha Naps in Toramaru", "artist": "Iroha Natsume" },
+            { "title": "Ibuki's Lollipop", "artist": "Ibuki Tanga" },
+            { "title": "Satsuki's Experiment", "artist": "Satsuki Kyoganna" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trinity General School",
+      "albums": [
+        {
+          "folder": "Afternoon at the Tea Party",
+          "mood": "Elegant",
+          "recordedAt": "Tea Party Garden",
+          "title": "Afternoon at the Tea Party",
+          "albumArtist": "Trinity Tea Party",
+          "composer": "Nagisa Kirifuji",
+          "genre": "Chamber Music",
+          "year": "2026",
+          "format": "m4a",
+          "comment": "Served with roll cake in the Tea Party garden.",
+          "cover": { "style": "halo", "colors": ["#FFF8EC", "#F3D9A4", "#C8963E"], "kicker": "TRINITY TEA PARTY", "font": "Didot-Bold", "dark": false },
+          "tracks": [
+            { "title": "Tea Party Overture", "artist": "Nagisa Kirifuji" },
+            { "title": "Mika's Roll Cake", "artist": "Mika Misono" },
+            { "title": "Seia's Prophecy", "artist": "Seia Yurizono" },
+            { "title": "The Eden Treaty", "artist": "Trinity Tea Party" },
+            { "title": "Host of the Teatime", "artist": "Nagisa Kirifuji" }
+          ]
+        },
+        {
+          "folder": "Vanitas Vanitatum",
+          "mood": "Hopeful",
+          "recordedAt": "Trinity Annex",
+          "title": "Vanitas Vanitatum",
+          "albumArtist": "Make-Up Work Club",
+          "composer": "Hifumi Ajitani",
+          "genre": "J-Pop",
+          "year": "2026",
+          "format": "mp3",
+          "comment": "Written during the study camp at the annex.",
+          "cover": { "style": "wings", "colors": ["#DDEBFF", "#8FB4F0", "#3D5FA8"], "kicker": "MAKE-UP WORK CLUB", "font": "Didot-Bold", "dark": false },
+          "tracks": [
+            { "title": "Peroro-sama Forever", "artist": "Hifumi Ajitani" },
+            { "title": "Vanitas Vanitatum", "artist": "Azusa Shirasu" },
+            { "title": "Study Camp at the Annex", "artist": "Make-Up Work Club" },
+            { "title": "Koharu Is Not Lewd", "artist": "Koharu Shimoe" },
+            { "title": "Hanako Aces the Exam", "artist": "Hanako Urawa" }
+          ]
+        },
+        {
+          "folder": "Justice Never Sleeps",
+          "mood": "Righteous",
+          "recordedAt": "Justice Realization Committee Office",
+          "title": "Justice Never Sleeps",
+          "albumArtist": "Justice Realization Committee",
+          "composer": "Hasumi Hanekawa",
+          "genre": "Symphonic Metal",
+          "year": "2026",
+          "format": "flac",
+          "comment": "Patrol music for the Justice Realization Committee.",
+          "cover": { "style": "cross", "colors": ["#0B1020", "#2C3B66", "#E8EEFF"], "kicker": "JUSTICE REALIZATION COMMITTEE", "font": "Didot-Bold" },
+          "tracks": [
+            { "title": "Justice Never Sleeps", "artist": "Tsurugi Kenzaki" },
+            { "title": "Hasumi's Long Shot", "artist": "Hasumi Hanekawa" },
+            { "title": "Mashiro's Creed", "artist": "Mashiro Shizuyama" },
+            { "title": "Ichika on Patrol", "artist": "Ichika Nakamasa" }
+          ]
+        },
+        {
+          "folder": "Vespers at the Cathedral",
+          "mood": "Serene",
+          "recordedAt": "Trinity Cathedral",
+          "title": "Vespers at the Cathedral",
+          "albumArtist": "Trinity Sisterhood",
+          "composer": "Sakurako Utazumi",
+          "genre": "Choral",
+          "year": "2026",
+          "format": "m4a",
+          "comment": "Sung at evening prayer in the Trinity cathedral.",
+          "cover": { "style": "rose", "colors": ["#1A1026", "#5E3A7A", "#F2D7FF"], "kicker": "TRINITY SISTERHOOD", "font": "Didot-Bold" },
+          "tracks": [
+            { "title": "Vespers at the Cathedral", "artist": "Sakurako Utazumi" },
+            { "title": "Mari's Prayer", "artist": "Mari Iochi" },
+            { "title": "Hinata Rings the Bell", "artist": "Hinata Wakaba" }
+          ]
+        }
+      ]
+    }
+  ],
+  "loose": [
+    { "album": "Order in Pandemonium", "track": 1 },
+    { "album": "Afternoon at the Tea Party", "track": 2 },
+    { "album": "Hardboiled Outlaw", "track": 1 },
+    { "album": "Vanitas Vanitatum", "track": 1 },
+    { "album": "Vespers at the Cathedral", "track": 1 },
+    { "album": "Afternoon at the Tea Party", "track": 3 },
+    { "album": "Makoto's Grand Decree", "track": 1 }
+  ],
+  "untagged": {
+    "folder": "Sweets After Class",
+    "format": "mp3",
+    "parent": "Trinity General School",
+    "tracks": [
+      { "title": "Cake Shop Raid", "artist": "Kazusa Kyouyama" },
+      { "title": "Airi's Parfait Plan", "artist": "Airi Kurimura" },
+      { "title": "Natsu's Romance", "artist": "Natsu Yutori" },
+      { "title": "Yoshimi Wants Dessert", "artist": "Yoshimi Ibaraki" }
+    ]
+  }
+}

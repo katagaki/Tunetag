@@ -1,0 +1,230 @@
+{
+  "background": [
+    "#EA445F",
+    "#EE6B90"
+  ],
+  "titleFont": "Futura-Bold",
+  "subtitleFont": "Futura-Medium",
+  "platforms": {
+    "iPhone": {
+      "canvas": [
+        1320,
+        2868
+      ],
+      "device": {
+        "kind": "iPhone",
+        "screenCornerRadius": 180,
+        "bezel": 54
+      },
+      "deviceWidth": 0.86,
+      "deviceTop": 0.165,
+      "titleTop": 0.05,
+      "titleSize": 104,
+      "subtitleSize": 70,
+      "fadeFrom": 0.72,
+      "scenes": [
+        {
+          "name": "1-editor",
+          "capture": "Captures/iPhone/1-editor.png",
+          "title": "Edit Audio File Tags",
+          "subtitle": "Title, artist, album art, and more"
+        },
+        {
+          "name": "2-files",
+          "capture": "Captures/iPhone/2-files.png",
+          "title": "Easily Manage Files",
+          "subtitle": "Using the built-in Files app"
+        },
+        {
+          "name": "3-batch",
+          "capture": "Captures/iPhone/3-batch.png",
+          "title": "Batch Edit",
+          "subtitle": "Use file names to fill in tag data",
+          "deviceTop": 0.27,
+          "fadeFrom": 0.76,
+          "callout": {
+            "segments": [
+              {
+                "text": "Kazusa Kyouyama",
+                "color": "#4FB52E"
+              },
+              {
+                "text": "-"
+              },
+              {
+                "text": "Cake Shop Raid",
+                "color": "#3D8BEF"
+              },
+              {
+                "text": ".mp3"
+              }
+            ],
+            "center": [
+              0.5,
+              0.205
+            ],
+            "fontSize": 48,
+            "arrows": [
+              {
+                "segment": 2,
+                "edge": "bottom",
+                "points": [
+                  {
+                    "y": 1590
+                  },
+                  {
+                    "x": 520
+                  }
+                ]
+              },
+              {
+                "segment": 0,
+                "edge": "left",
+                "points": [
+                  {
+                    "x": -100
+                  },
+                  {
+                    "y": 1797
+                  },
+                  {
+                    "x": 100
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "iPad": {
+      "canvas": [
+        2064,
+        2752
+      ],
+      "device": {
+        "kind": "iPad",
+        "screenCornerRadius": 64,
+        "bezel": 92
+      },
+      "deviceWidth": 0.82,
+      "deviceTop": 0.175,
+      "titleTop": 0.04,
+      "titleSize": 130,
+      "subtitleSize": 88,
+      "scenes": [
+        {
+          "name": "1-editor",
+          "capture": "Captures/iPad/1-editor.png",
+          "title": "Edit Audio File Tags",
+          "subtitle": "Title, artist, album art, and more"
+        },
+        {
+          "name": "2-files",
+          "capture": "Captures/iPad/2-files.png",
+          "title": "Easily Manage Files",
+          "subtitle": "Using the built-in Files app"
+        },
+        {
+          "name": "3-batch",
+          "capture": "Captures/iPad/3-batch.png",
+          "title": "Batch Edit",
+          "subtitle": "Use file names to fill in tag data",
+          "deviceTop": 0.29,
+          "fadeFrom": 0.8,
+          "callout": {
+            "segments": [
+              {
+                "text": "Kazusa Kyouyama",
+                "color": "#4FB52E"
+              },
+              {
+                "text": "-"
+              },
+              {
+                "text": "Cake Shop Raid",
+                "color": "#3D8BEF"
+              },
+              {
+                "text": ".mp3"
+              }
+            ],
+            "center": [
+              0.5,
+              0.215
+            ],
+            "fontSize": 64,
+            "arrows": [
+              {
+                "segment": 2,
+                "edge": "bottom",
+                "points": [
+                  {
+                    "y": 250
+                  },
+                  {
+                    "x": 830
+                  },
+                  {
+                    "y": 352
+                  }
+                ]
+              },
+              {
+                "segment": 0,
+                "edge": "bottom",
+                "points": [
+                  {
+                    "y": 300
+                  },
+                  {
+                    "x": 1500
+                  },
+                  {
+                    "y": 352
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Mac": {
+      "canvas": [
+        2880,
+        1800
+      ],
+      "device": {
+        "kind": "window",
+        "screenCornerRadius": 28,
+        "bezel": 0
+      },
+      "deviceWidth": 0.84,
+      "deviceTop": 0.2,
+      "titleTop": 0.045,
+      "titleSize": 112,
+      "subtitleSize": 74,
+      "scenes": [
+        {
+          "name": "1-editor",
+          "capture": "Captures/Mac/1-editor.png",
+          "title": "Edit Audio File Tags",
+          "subtitle": "Title, artist, album art, and more"
+        },
+        {
+          "name": "2-extended",
+          "capture": "Captures/Mac/2-extended.png",
+          "title": "Every Tag, Every Field",
+          "subtitle": "See and edit the extended tags in any file"
+        },
+        {
+          "name": "3-batch",
+          "capture": "Captures/Mac/3-batch.png",
+          "title": "Batch Edit",
+          "subtitle": "Use file names to fill in tag data"
+        }
+      ]
+    }
+  }
+}
