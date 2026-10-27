@@ -7,6 +7,7 @@
 
 import PhotosUI
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct FileHeaderSection: View {
 
@@ -16,15 +17,16 @@ struct FileHeaderSection: View {
     @Binding var isAlbumArtRemoved: Bool
 
     var body: some View {
+        // Shown as the section header rather than a row, as rows clip their content to the cell's corner radius
         Section {
+        } header: {
             FileHeaderView(filename: filename,
                            albumArt: $albumArt,
                            selectedAlbumArt: $selectedAlbumArt,
                            isAlbumArtRemoved: $isAlbumArtRemoved)
-            .listRowBackground(Color.clear)
-            .frame(maxWidth: .infinity)
+            .textCase(.none)
+            .padding(.top, 16.0)
         }
-        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
 }
 
@@ -34,23 +36,27 @@ struct FileHeaderView: View {
     @Binding var albumArt: Data?
     @Binding var selectedAlbumArt: PhotosPickerItem?
     @Binding var isAlbumArtRemoved: Bool
-    var showsPhotosPicker: Bool = true
+
+    @State var showsPhotosPicker: Bool = false
+    @State var showsFileImporter: Bool = false
 
     @Environment(\.verticalSizeClass) var verticalSizeClass
 
     var body: some View {
-        Group {
-            if verticalSizeClass == .compact {
-                // Landscape on iPhone: keep the header short so the fields stay visible
-                HStack(alignment: .center, spacing: 16.0) {
-                    albumArtView(size: 96.0)
-                    details(alignment: .leading)
-                }
-            } else {
-                VStack(alignment: .center, spacing: 16.0) {
-                    albumArtView(size: 180.0)
-                    details(alignment: .center)
-                }
+        HStack(alignment: .center, spacing: 16.0) {
+            // Landscape on iPhone: keep the header short so the fields stay visible
+            albumArtView(size: verticalSizeClass == .compact ? 80.0 : 112.0)
+            details
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .photosPicker(isPresented: $showsPhotosPicker,
+                      selection: $selectedAlbumArt,
+                      matching: .images,
+                      photoLibrary: .shared())
+        .fileImporter(isPresented: $showsFileImporter,
+                      allowedContentTypes: [.image]) { result in
+            if case .success(let url) = result {
+                loadAlbumArt(from: url)
             }
         }
     }
@@ -76,39 +82,79 @@ struct FileHeaderView: View {
         )
     }
 
-    func details(alignment: HorizontalAlignment) -> some View {
-        VStack(alignment: alignment, spacing: 8.0) {
+    var details: some View {
+        VStack(alignment: .leading, spacing: 10.0) {
             Text(filename)
-                .bold()
+                .font(.title3)
+                .fontWeight(.bold)
                 .textCase(.none)
-                .foregroundStyle(.primary)
-                .multilineTextAlignment(alignment == .leading ? .leading : .center)
-            if showsPhotosPicker {
-                HStack(spacing: 8.0) {
-                    PhotosPicker(selection: $selectedAlbumArt,
-                                 matching: .images,
-                                 photoLibrary: .shared()) {
-                        Text("TagEditor.SelectAlbumArt")
-                            .bold()
-                    }
-                                 .clipShape(RoundedRectangle(cornerRadius: 99))
-                                 .buttonStyle(.borderedProminent)
-                    if albumArt != nil {
-                        Button(role: .destructive) {
-                            selectedAlbumArt = nil
-                            albumArt = nil
-                            isAlbumArtRemoved = true
-                        } label: {
-                            Label("TagEditor.RemoveAlbumArt", systemImage: "trash")
-                                .labelStyle(.iconOnly)
-                                .bold()
-                        }
-                        .clipShape(RoundedRectangle(cornerRadius: 99))
-                        .buttonStyle(.bordered)
-                        .tint(.red)
-                    }
-                }
+                .foregroundStyle(Color.primary)
+                .multilineTextAlignment(.leading)
+                .lineLimit(3)
+                .truncationMode(.middle)
+            // Falls back to an icon-only edit button when the header is narrow, such as in the iPad sidebar
+            ViewThatFits(in: .horizontal) {
+                albumArtButtons(showsEditTitle: true)
+                albumArtButtons(showsEditTitle: false)
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    func albumArtButtons(showsEditTitle: Bool) -> some View {
+        HStack(spacing: 8.0) {
+            Menu {
+                Button("TagEditor.AlbumArt.Photos", systemImage: "photo.on.rectangle") {
+                    showsPhotosPicker = true
+                }
+                Button("TagEditor.AlbumArt.Files", systemImage: "folder") {
+                    showsFileImporter = true
+                }
+            } label: {
+                if showsEditTitle {
+                    Text(editTitle)
+                        .bold()
+                        .lineLimit(1)
+                } else {
+                    Label(editTitle, systemImage: albumArt != nil ? "pencil" : "plus")
+                        .labelStyle(.iconOnly)
+                        .bold()
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 99))
+            .buttonStyle(.borderedProminent)
+            Button(role: .destructive) {
+                selectedAlbumArt = nil
+                albumArt = nil
+                isAlbumArtRemoved = true
+            } label: {
+                Label("TagEditor.RemoveAlbumArt", systemImage: "trash")
+                    .labelStyle(.iconOnly)
+                    .bold()
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 99))
+            .buttonStyle(.bordered)
+            .tint(.red)
+            .disabled(albumArt == nil)
+        }
+    }
+
+    var editTitle: LocalizedStringKey {
+        albumArt != nil ? "TagEditor.AlbumArt.Edit" : "TagEditor.AlbumArt.Add"
+    }
+
+    func loadAlbumArt(from url: URL) {
+        let isAccessing = url.startAccessingSecurityScopedResource()
+        defer {
+            if isAccessing {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+        guard let data = try? Data(contentsOf: url),
+              UIImage(data: data) != nil else { return }
+        // Clears the Photos selection so picking the same photo again is still seen as a change
+        selectedAlbumArt = nil
+        albumArt = data
+        isAlbumArtRemoved = false
     }
 }
