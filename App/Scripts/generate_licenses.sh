@@ -3,7 +3,7 @@ set -euo pipefail
 
 RESOLVED="${SRCROOT}/Tunetag.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved"
 CHECKOUTS="${BUILD_DIR%Build/*}SourcePackages/checkouts"
-OUTPUT="${SRCROOT}/Tunetag/Licenses.plist"
+OUTPUT="${1:-${SRCROOT}/Tunetag/Licenses.plist}"
 
 if [ ! -f "$RESOLVED" ]; then
     echo "error: Package.resolved not found at $RESOLVED"
