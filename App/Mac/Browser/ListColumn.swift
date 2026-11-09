@@ -6,7 +6,7 @@
 import Foundation
 
 enum ListColumn: String, CaseIterable, Identifiable, Sendable {
-    case fileName, folder, title, artist, album, albumArtist, year, trackNumber, discNumber, genre, composer
+    case fileName, folder, title, artist, album, albumArtist, year, trackNumber, discNumber, genre, composer, dateAdded, dateModified
 
     var id: String { rawValue }
 
@@ -23,6 +23,8 @@ enum ListColumn: String, CaseIterable, Identifiable, Sendable {
         case .discNumber: MacText.shared("Tag.Disc")
         case .genre: MacText.shared("Tag.Genre")
         case .composer: MacText.shared("Tag.Composer")
+        case .dateAdded: MacText.string("Column.DateAdded")
+        case .dateModified: MacText.string("Column.DateModified")
         }
     }
 
@@ -39,6 +41,8 @@ enum ListColumn: String, CaseIterable, Identifiable, Sendable {
         case .discNumber: "opticaldisc"
         case .genre: "guitars"
         case .composer: "music.quarternote.3"
+        case .dateAdded: "calendar.badge.plus"
+        case .dateModified: "clock"
         }
     }
 
@@ -46,6 +50,7 @@ enum ListColumn: String, CaseIterable, Identifiable, Sendable {
         switch self {
         case .fileName, .folder, .title, .album: 200
         case .artist, .albumArtist, .composer: 150
+        case .dateAdded, .dateModified: 150
         case .genre: 110
         case .year, .trackNumber, .discNumber: 70
         }
@@ -53,5 +58,10 @@ enum ListColumn: String, CaseIterable, Identifiable, Sendable {
 
     var isNumeric: Bool {
         self == .year || self == .trackNumber || self == .discNumber
+    }
+
+    /// Date columns sort by the date itself rather than by the text shown.
+    var isDate: Bool {
+        self == .dateAdded || self == .dateModified
     }
 }
