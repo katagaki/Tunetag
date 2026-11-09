@@ -93,12 +93,17 @@ extension BrowserViewController: NSTableViewDataSource, NSTableViewDelegate {
     func sortFiles() {
         guard let descriptor = tableView.sortDescriptors.first, let column = sortColumn else { return }
         let keys = files.map { file in
-            (file, column == .folder ? "" : value(for: column, of: file), (file.path as NSString).pathComponents)
+            (
+                file,
+                column == .folder || column.isDate ? "" : value(for: column, of: file),
+                column.isDate ? tagCache.date(for: column, of: file) ?? .distantPast : .distantPast,
+                (file.path as NSString).pathComponents
+            )
         }
         files = keys.sorted { lhs, rhs in
-            var order = lhs.1.localizedStandardCompare(rhs.1)
+            var order = lhs.2 == rhs.2 ? lhs.1.localizedStandardCompare(rhs.1) : (lhs.2 < rhs.2 ? .orderedAscending : .orderedDescending)
             if order == .orderedSame {
-                order = AudioFileLister.pathOrder(lhs.2, rhs.2)
+                order = AudioFileLister.pathOrder(lhs.3, rhs.3)
             }
             return descriptor.ascending ? order == .orderedAscending : order == .orderedDescending
         }.map(\.0)

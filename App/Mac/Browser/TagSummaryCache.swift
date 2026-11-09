@@ -22,6 +22,10 @@ final class TagSummaryCache {
         summaries[file.path]?.value(for: column) ?? ""
     }
 
+    func date(for column: ListColumn, of file: FSFile) -> Date? {
+        summaries[file.path]?.date(for: column)
+    }
+
     func load(_ files: [FSFile]) {
         loadTask?.cancel()
         let missing = files.filter { summaries[$0.path] == nil }
